@@ -1,0 +1,17 @@
+{
+  "name": "playwright-autopilot",
+  "owner": {
+    "name": "kaizen-yutani"
+  },
+  "metadata": {
+    "description": "Autonomous Playwright E2E test fixer for Claude Code",
+    "homepage": "https://github.com/kaizen-yutani/playwright-autopilot"
+  },
+  "plugins": [
+    {
+      "name": "playwright-autopilot",
+      "source": "./plugin",
+      "description": "Autonomous Playwright E2E test debugger that understands your page objects, business flows, and test structure. Token-efficient tiered diagnostics — action timelines, focused DOM snapshots, network inspection — with a senior QA mindset: fixes tests through the UI, never JavaScript injection hacks."
+    }
+  ]
+}
