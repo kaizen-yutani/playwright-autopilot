@@ -1,0 +1,19 @@
+{
+  "name": "playwright-autopilot",
+  "version": "0.5.0",
+  "description": "Run Playwright E2E tests with live action capture — screenshots, DOM snapshots, network requests, console output — all accessible as MCP tools for Claude Code to debug and fix failing tests.",
+  "author": {
+    "name": "Nikolay Prosenikov"
+  },
+  "repository": "https://github.com/kaizen-yutani/playwright-autopilot",
+  "license": "MIT",
+  "keywords": [
+    "playwright",
+    "e2e",
+    "testing",
+    "mcp",
+    "debug",
+    "screenshots",
+    "test-automation"
+  ]
+}

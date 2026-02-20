@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "playwright-autopilot": {
+      "command": "node",
+      "args": ["${CLAUDE_PLUGIN_ROOT}/server/mcp-server.js"]
+    }
+  }
+}
