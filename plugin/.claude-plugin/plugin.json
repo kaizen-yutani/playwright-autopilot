@@ -1,7 +1,7 @@
 {
   "name": "playwright-autopilot",
-  "version": "0.5.0",
-  "description": "Run Playwright E2E tests with live action capture — screenshots, DOM snapshots, network requests, console output — all accessible as MCP tools for Claude Code to debug and fix failing tests.",
+  "version": "0.6.0",
+  "description": "Playwright E2E test debugging and interactive browser exploration. Runs tests with action capture (DOM snapshots, network, console, screenshots), diagnoses failures, and provides browser tools for navigating, clicking, and inspecting pages through ARIA snapshots.",
   "author": {
     "name": "Nikolay Prosenikov"
   },
