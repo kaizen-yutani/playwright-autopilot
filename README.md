@@ -43,7 +43,9 @@ A lightweight CJS hook (`captureHook.cjs`) is injected via `NODE_OPTIONS --requi
 
 ### 2. MCP Tools
 
-The plugin exposes 21 tools via the [Model Context Protocol](https://modelcontextprotocol.io/) that Claude calls on-demand. This is token-efficient by design — instead of dumping entire traces into context, Claude pulls only what it needs:
+The plugin exposes 32 tools via the [Model Context Protocol](https://modelcontextprotocol.io/) that Claude calls on-demand. This is token-efficient by design — instead of dumping entire traces into context, Claude pulls only what it needs:
+
+**Test Execution & Debugging:**
 
 | Tool | Purpose |
 |------|---------|
@@ -68,6 +70,24 @@ The plugin exposes 21 tools via the [Model Context Protocol](https://modelcontex
 | `e2e_save_app_flow` | Save a verified user journey |
 | `e2e_get_context` | Flows + page object index in one call |
 | `e2e_discover_flows` | Auto-scan specs for draft flow map |
+
+**Interactive Browser Exploration:**
+
+| Tool | Purpose |
+|------|---------|
+| `browser_navigate` | Open a URL (launches browser automatically) |
+| `browser_navigate_back` | Go back in browser history |
+| `browser_snapshot` | Capture ARIA accessibility tree with `[ref=X]` markers |
+| `browser_click` | Click an element by ref |
+| `browser_type` | Type into an input field, optionally submit |
+| `browser_fill_form` | Fill multiple form fields in one call |
+| `browser_select_option` | Select a dropdown option |
+| `browser_press_key` | Press a key (Enter, Escape, Tab, etc.) |
+| `browser_hover` | Hover over an element |
+| `browser_take_screenshot` | Capture a PNG screenshot |
+| `browser_close` | Close the browser |
+
+The `browser_*` tools launch a real Chrome instance and let Claude explore your application interactively — navigate pages, click elements, fill forms, and observe page state through ARIA snapshots. Each interaction returns timing, network requests, DOM changes, and an updated snapshot. Use this to understand an app before writing tests, debug UI issues visually, or verify fixes.
 
 ### 3. Flow Memory
 

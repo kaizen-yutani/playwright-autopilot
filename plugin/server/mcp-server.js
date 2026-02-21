@@ -6181,12 +6181,12 @@ var require_ajv = __commonJS({
       options = options || {};
       var separator = options.separator === void 0 ? ", " : options.separator;
       var dataVar = options.dataVar === void 0 ? "data" : options.dataVar;
-      var text2 = "";
+      var text3 = "";
       for (var i = 0; i < errors.length; i++) {
         var e = errors[i];
-        if (e) text2 += dataVar + e.dataPath + " " + e.message + separator;
+        if (e) text3 += dataVar + e.dataPath + " " + e.message + separator;
       }
-      return text2.slice(0, -separator.length);
+      return text3.slice(0, -separator.length);
     }
     function addFormat(name, format) {
       if (typeof format == "string") format = new RegExp(format);
@@ -13250,8 +13250,8 @@ var ZodError = class _ZodError extends Error {
       return issue.message;
     };
     const fieldErrors = { _errors: [] };
-    const processError = (error2) => {
-      for (const issue of error2.issues) {
+    const processError = (error3) => {
+      for (const issue of error3.issues) {
         if (issue.code === "invalid_union") {
           issue.unionErrors.map(processError);
         } else if (issue.code === "invalid_return_type") {
@@ -13314,8 +13314,8 @@ var ZodError = class _ZodError extends Error {
   }
 };
 ZodError.create = (issues) => {
-  const error2 = new ZodError(issues);
-  return error2;
+  const error3 = new ZodError(issues);
+  return error3;
 };
 
 // node_modules/zod/v3/locales/en.js
@@ -13579,8 +13579,8 @@ var handleResult = (ctx, result) => {
       get error() {
         if (this._error)
           return this._error;
-        const error2 = new ZodError(ctx.common.issues);
-        this._error = error2;
+        const error3 = new ZodError(ctx.common.issues);
+        this._error = error3;
         return this._error;
       }
     };
@@ -16235,25 +16235,25 @@ var ZodFunction = class _ZodFunction extends ZodType {
       });
       return INVALID;
     }
-    function makeArgsIssue(args, error2) {
+    function makeArgsIssue(args, error3) {
       return makeIssue({
         data: args,
         path: ctx.path,
         errorMaps: [ctx.common.contextualErrorMap, ctx.schemaErrorMap, getErrorMap(), en_default].filter((x) => !!x),
         issueData: {
           code: ZodIssueCode.invalid_arguments,
-          argumentsError: error2
+          argumentsError: error3
         }
       });
     }
-    function makeReturnsIssue(returns, error2) {
+    function makeReturnsIssue(returns, error3) {
       return makeIssue({
         data: returns,
         path: ctx.path,
         errorMaps: [ctx.common.contextualErrorMap, ctx.schemaErrorMap, getErrorMap(), en_default].filter((x) => !!x),
         issueData: {
           code: ZodIssueCode.invalid_return_type,
-          returnTypeError: error2
+          returnTypeError: error3
         }
       });
     }
@@ -16262,15 +16262,15 @@ var ZodFunction = class _ZodFunction extends ZodType {
     if (this._def.returns instanceof ZodPromise) {
       const me = this;
       return OK(async function(...args) {
-        const error2 = new ZodError([]);
+        const error3 = new ZodError([]);
         const parsedArgs = await me._def.args.parseAsync(args, params).catch((e) => {
-          error2.addIssue(makeArgsIssue(args, e));
-          throw error2;
+          error3.addIssue(makeArgsIssue(args, e));
+          throw error3;
         });
         const result = await Reflect.apply(fn, this, parsedArgs);
         const parsedReturns = await me._def.returns._def.type.parseAsync(result, params).catch((e) => {
-          error2.addIssue(makeReturnsIssue(result, e));
-          throw error2;
+          error3.addIssue(makeReturnsIssue(result, e));
+          throw error3;
         });
         return parsedReturns;
       });
@@ -17984,9 +17984,9 @@ var StdioServerTransport = class {
       this._readBuffer.append(chunk);
       this.processReadBuffer();
     };
-    this._onerror = (error2) => {
+    this._onerror = (error3) => {
       var _a;
-      (_a = this.onerror) === null || _a === void 0 ? void 0 : _a.call(this, error2);
+      (_a = this.onerror) === null || _a === void 0 ? void 0 : _a.call(this, error3);
     };
   }
   /**
@@ -18009,8 +18009,8 @@ var StdioServerTransport = class {
           break;
         }
         (_a = this.onmessage) === null || _a === void 0 ? void 0 : _a.call(this, message);
-      } catch (error2) {
-        (_b = this.onerror) === null || _b === void 0 ? void 0 : _b.call(this, error2);
+      } catch (error3) {
+        (_b = this.onerror) === null || _b === void 0 ? void 0 : _b.call(this, error3);
       }
     }
   }
@@ -18107,9 +18107,9 @@ var Protocol = class {
       this._onclose();
     };
     const _onerror = (_b = this.transport) === null || _b === void 0 ? void 0 : _b.onerror;
-    this._transport.onerror = (error2) => {
-      _onerror === null || _onerror === void 0 ? void 0 : _onerror(error2);
-      this._onerror(error2);
+    this._transport.onerror = (error3) => {
+      _onerror === null || _onerror === void 0 ? void 0 : _onerror(error3);
+      this._onerror(error3);
     };
     const _onmessage = (_c = this._transport) === null || _c === void 0 ? void 0 : _c.onmessage;
     this._transport.onmessage = (message, extra) => {
@@ -18134,14 +18134,14 @@ var Protocol = class {
     this._pendingDebouncedNotifications.clear();
     this._transport = void 0;
     (_a = this.onclose) === null || _a === void 0 ? void 0 : _a.call(this);
-    const error2 = new McpError(ErrorCode.ConnectionClosed, "Connection closed");
+    const error3 = new McpError(ErrorCode.ConnectionClosed, "Connection closed");
     for (const handler of responseHandlers.values()) {
-      handler(error2);
+      handler(error3);
     }
   }
-  _onerror(error2) {
+  _onerror(error3) {
     var _a;
-    (_a = this.onerror) === null || _a === void 0 ? void 0 : _a.call(this, error2);
+    (_a = this.onerror) === null || _a === void 0 ? void 0 : _a.call(this, error3);
   }
   _onnotification(notification) {
     var _a;
@@ -18149,7 +18149,7 @@ var Protocol = class {
     if (handler === void 0) {
       return;
     }
-    Promise.resolve().then(() => handler(notification)).catch((error2) => this._onerror(new Error(`Uncaught error in notification handler: ${error2}`)));
+    Promise.resolve().then(() => handler(notification)).catch((error3) => this._onerror(new Error(`Uncaught error in notification handler: ${error3}`)));
   }
   _onrequest(request, extra) {
     var _a, _b;
@@ -18163,7 +18163,7 @@ var Protocol = class {
           code: ErrorCode.MethodNotFound,
           message: "Method not found"
         }
-      }).catch((error2) => this._onerror(new Error(`Failed to send an error response: ${error2}`)));
+      }).catch((error3) => this._onerror(new Error(`Failed to send an error response: ${error3}`)));
       return;
     }
     const abortController = new AbortController();
@@ -18187,7 +18187,7 @@ var Protocol = class {
         jsonrpc: "2.0",
         id: request.id
       });
-    }, (error2) => {
+    }, (error3) => {
       var _a2;
       if (abortController.signal.aborted) {
         return;
@@ -18196,11 +18196,11 @@ var Protocol = class {
         jsonrpc: "2.0",
         id: request.id,
         error: {
-          code: Number.isSafeInteger(error2["code"]) ? error2["code"] : ErrorCode.InternalError,
-          message: (_a2 = error2.message) !== null && _a2 !== void 0 ? _a2 : "Internal error"
+          code: Number.isSafeInteger(error3["code"]) ? error3["code"] : ErrorCode.InternalError,
+          message: (_a2 = error3.message) !== null && _a2 !== void 0 ? _a2 : "Internal error"
         }
       });
-    }).catch((error2) => this._onerror(new Error(`Failed to send response: ${error2}`))).finally(() => {
+    }).catch((error3) => this._onerror(new Error(`Failed to send response: ${error3}`))).finally(() => {
       this._requestHandlerAbortControllers.delete(request.id);
     });
   }
@@ -18217,8 +18217,8 @@ var Protocol = class {
     if (timeoutInfo && responseHandler && timeoutInfo.resetTimeoutOnProgress) {
       try {
         this._resetTimeout(messageId);
-      } catch (error2) {
-        responseHandler(error2);
+      } catch (error3) {
+        responseHandler(error3);
         return;
       }
     }
@@ -18237,8 +18237,8 @@ var Protocol = class {
     if (isJSONRPCResponse(response)) {
       handler(response);
     } else {
-      const error2 = new McpError(response.error.code, response.error.message, response.error.data);
-      handler(error2);
+      const error3 = new McpError(response.error.code, response.error.message, response.error.data);
+      handler(error3);
     }
   }
   get transport() {
@@ -18296,7 +18296,7 @@ var Protocol = class {
             requestId: messageId,
             reason: String(reason)
           }
-        }, { relatedRequestId, resumptionToken, onresumptiontoken }).catch((error2) => this._onerror(new Error(`Failed to send cancellation: ${error2}`)));
+        }, { relatedRequestId, resumptionToken, onresumptiontoken }).catch((error3) => this._onerror(new Error(`Failed to send cancellation: ${error3}`)));
         reject(reason);
       };
       this._responseHandlers.set(messageId, (response) => {
@@ -18310,8 +18310,8 @@ var Protocol = class {
         try {
           const result = resultSchema.parse(response.result);
           resolve6(result);
-        } catch (error2) {
-          reject(error2);
+        } catch (error3) {
+          reject(error3);
         }
       });
       (_d = options === null || options === void 0 ? void 0 : options.signal) === null || _d === void 0 ? void 0 : _d.addEventListener("abort", () => {
@@ -18321,9 +18321,9 @@ var Protocol = class {
       const timeout = (_e = options === null || options === void 0 ? void 0 : options.timeout) !== null && _e !== void 0 ? _e : DEFAULT_REQUEST_TIMEOUT_MSEC;
       const timeoutHandler = () => cancel(new McpError(ErrorCode.RequestTimeout, "Request timed out", { timeout }));
       this._setupTimeout(messageId, timeout, options === null || options === void 0 ? void 0 : options.maxTotalTimeout, timeoutHandler, (_f = options === null || options === void 0 ? void 0 : options.resetTimeoutOnProgress) !== null && _f !== void 0 ? _f : false);
-      this._transport.send(jsonrpcRequest, { relatedRequestId, resumptionToken, onresumptiontoken }).catch((error2) => {
+      this._transport.send(jsonrpcRequest, { relatedRequestId, resumptionToken, onresumptiontoken }).catch((error3) => {
         this._cleanupTimeout(messageId);
-        reject(error2);
+        reject(error3);
       });
     });
   }
@@ -18353,7 +18353,7 @@ var Protocol = class {
           ...notification,
           jsonrpc: "2.0"
         };
-        (_a2 = this._transport) === null || _a2 === void 0 ? void 0 : _a2.send(jsonrpcNotification2, options).catch((error2) => this._onerror(error2));
+        (_a2 = this._transport) === null || _a2 === void 0 ? void 0 : _a2.send(jsonrpcNotification2, options).catch((error3) => this._onerror(error3));
       });
       return;
     }
@@ -18592,11 +18592,11 @@ var Server = class extends Protocol {
         if (!isValid2) {
           throw new McpError(ErrorCode.InvalidParams, `Elicitation response content does not match requested schema: ${ajv.errorsText(validate.errors)}`);
         }
-      } catch (error2) {
-        if (error2 instanceof McpError) {
-          throw error2;
+      } catch (error3) {
+        if (error3 instanceof McpError) {
+          throw error3;
         }
-        throw new McpError(ErrorCode.InternalError, `Error validating elicitation response: ${error2}`);
+        throw new McpError(ErrorCode.InternalError, `Error validating elicitation response: ${error3}`);
       }
     }
     return result;
@@ -21056,8 +21056,8 @@ var Store = class {
   setAiLoading(loading) {
     this.setState({ aiLoading: loading, ...loading ? {} : { aiStatusText: "" } });
   }
-  setAiStatusText(text2) {
-    this.setState({ aiStatusText: text2 });
+  setAiStatusText(text3) {
+    this.setState({ aiStatusText: text3 });
   }
   toggleAiPanel() {
     this.setState({ showAiPanel: !this.state.showAiPanel });
@@ -21862,10 +21862,834 @@ function collectActionScreenshots(actions, cwd2, attachments) {
   }
 }
 
+// packages/pw-test-writer/dist/mcp/browser/tab.js
+import { EventEmitter as EventEmitter2 } from "events";
+
+// packages/pw-test-writer/dist/mcp/browser/snapshotDiff.js
+function parseSnapshot(snapshot) {
+  const elements = /* @__PURE__ */ new Map();
+  const refRegex = /\[ref=([^\]]+)\]/g;
+  const lines = snapshot.split("\n");
+  for (const line of lines) {
+    const match2 = refRegex.exec(line);
+    if (!match2)
+      continue;
+    const ref = match2[1];
+    const beforeRef = line.slice(0, match2.index);
+    const afterRef = line.slice(match2.index + match2[0].length);
+    const roleMatch = beforeRef.match(/-\s*(\w+)\s*"([^"]*)"/);
+    if (roleMatch) {
+      const role = roleMatch[1];
+      const name = roleMatch[2];
+      const content = afterRef.replace(/^:\s*/, "").trim();
+      elements.set(ref, { ref, role, name, content });
+    }
+    refRegex.lastIndex = 0;
+  }
+  return elements;
+}
+function formatElement(el) {
+  const name = el.name ? ` "${el.name}"` : "";
+  return `${el.role}${name} [ref=${el.ref}]`;
+}
+function computeSnapshotDiff(before, after) {
+  const beforeElements = parseSnapshot(before);
+  const afterElements = parseSnapshot(after);
+  const added = [];
+  const removed = [];
+  const changed = [];
+  for (const [ref, beforeEl] of beforeElements) {
+    const afterEl = afterElements.get(ref);
+    if (!afterEl)
+      removed.push(formatElement(beforeEl));
+    else if (beforeEl.content !== afterEl.content || beforeEl.name !== afterEl.name)
+      changed.push(formatElement(afterEl));
+  }
+  for (const [ref, afterEl] of afterElements) {
+    if (!beforeElements.has(ref))
+      added.push(formatElement(afterEl));
+  }
+  const summaryParts = [];
+  if (added.length > 0)
+    summaryParts.push(`${added.length} added`);
+  if (removed.length > 0)
+    summaryParts.push(`${removed.length} removed`);
+  if (changed.length > 0)
+    summaryParts.push(`${changed.length} changed`);
+  const summary = summaryParts.length > 0 ? summaryParts.join(", ") : "no changes";
+  return { added, removed, changed, summary };
+}
+
+// packages/pw-test-writer/dist/mcp/browser/actionCapture.js
+function createEmptyActionCapture() {
+  return {
+    timing: { durationMs: 0 },
+    network: { requests: [], summary: "" },
+    snapshot: {},
+    console: []
+  };
+}
+function formatNetworkSummary(requests) {
+  if (requests.length === 0)
+    return "";
+  return requests.map((r) => {
+    const pathname = new URL(r.url, "http://localhost").pathname;
+    const status = r.status !== null ? ` (${r.status})` : " (pending)";
+    return `${r.method} ${pathname}${status}`;
+  }).join(", ");
+}
+function renderActionCapture(capture) {
+  const lines = [];
+  lines.push(`### Action completed in ${capture.timing.durationMs}ms`);
+  lines.push("");
+  if (capture.network.requests.length > 0) {
+    lines.push(`### Network (${capture.network.requests.length} request${capture.network.requests.length !== 1 ? "s" : ""})`);
+    for (const req of capture.network.requests) {
+      const pathname = new URL(req.url, "http://localhost").pathname;
+      const status = req.status !== null ? req.status : "pending";
+      lines.push(`- ${req.method} ${pathname} \u2192 ${status} (${req.durationMs}ms)`);
+    }
+    lines.push("");
+  }
+  if (capture.snapshot.diff) {
+    const diff = capture.snapshot.diff;
+    const hasChanges = diff.added.length > 0 || diff.removed.length > 0 || diff.changed.length > 0;
+    if (hasChanges) {
+      lines.push("### Page changes");
+      if (diff.added.length > 0)
+        lines.push(`- Added: ${diff.added.join(", ")}`);
+      if (diff.removed.length > 0)
+        lines.push(`- Removed: ${diff.removed.join(", ")}`);
+      if (diff.changed.length > 0)
+        lines.push(`- Changed: ${diff.changed.join(", ")}`);
+      lines.push("");
+    }
+  }
+  if (capture.console.length > 0) {
+    lines.push(`### Console during action (${capture.console.length} message${capture.console.length !== 1 ? "s" : ""})`);
+    for (const msg of capture.console)
+      lines.push(`- ${msg.toString()}`);
+    lines.push("");
+  }
+  return lines;
+}
+
+// packages/pw-test-writer/dist/mcp/browser/tab.js
+var NAV_TIMEOUT = 3e4;
+var ACTION_TIMEOUT = 5e3;
+var TabEvents = {
+  modalState: "modalState"
+};
+var Tab = class extends EventEmitter2 {
+  page;
+  _consoleMessages = [];
+  _recentConsoleMessages = [];
+  _requests = /* @__PURE__ */ new Set();
+  _onPageClose;
+  _modalStates = [];
+  _initializedPromise;
+  constructor(page, onPageClose) {
+    super();
+    this.page = page;
+    this._onPageClose = onPageClose;
+    page.on("console", (event) => this._handleConsoleMessage(messageToConsoleMessage(event)));
+    page.on("pageerror", (error3) => this._handleConsoleMessage(pageErrorToConsoleMessage(error3)));
+    page.on("request", (request) => this._requests.add(request));
+    page.on("close", () => this._onClose());
+    page.on("dialog", (dialog) => this._dialogShown(dialog));
+    page.setDefaultNavigationTimeout(NAV_TIMEOUT);
+    page.setDefaultTimeout(ACTION_TIMEOUT);
+    page[tabSymbol] = this;
+    this._initializedPromise = this._initialize();
+  }
+  static forPage(page) {
+    return page[tabSymbol];
+  }
+  async _initialize() {
+    const requests = await this.page.requests().catch(() => []);
+    for (const request of requests)
+      this._requests.add(request);
+  }
+  modalStates() {
+    return this._modalStates;
+  }
+  setModalState(modalState) {
+    this._modalStates.push(modalState);
+    this.emit(TabEvents.modalState, modalState);
+  }
+  clearModalState(modalState) {
+    this._modalStates = this._modalStates.filter((state) => state !== modalState);
+  }
+  modalStatesMarkdown() {
+    const result = ["### Modal state"];
+    if (this._modalStates.length === 0)
+      result.push("- There is no modal state present");
+    for (const state of this._modalStates)
+      result.push(`- [${state.description}]: can be handled by the "${state.clearedBy}" tool`);
+    return result;
+  }
+  _dialogShown(dialog) {
+    this.setModalState({
+      type: "dialog",
+      description: `"${dialog.type()}" dialog with message "${dialog.message()}"`,
+      dialog,
+      clearedBy: "browser_press_key"
+    });
+  }
+  _clearCollectedArtifacts() {
+    this._consoleMessages.length = 0;
+    this._recentConsoleMessages.length = 0;
+    this._requests.clear();
+  }
+  _handleConsoleMessage(message) {
+    this._consoleMessages.push(message);
+    this._recentConsoleMessages.push(message);
+  }
+  _onClose() {
+    this._clearCollectedArtifacts();
+    this._onPageClose(this);
+  }
+  async navigate(url) {
+    this._clearCollectedArtifacts();
+    const downloadEvent = this.page.waitForEvent("download").catch(() => {
+    });
+    try {
+      await this.page.goto(url, { waitUntil: "domcontentloaded" });
+    } catch (_e) {
+      const e = _e;
+      const mightBeDownload = e.message.includes("net::ERR_ABORTED") || e.message.includes("Download is starting");
+      if (!mightBeDownload)
+        throw e;
+      const download = await Promise.race([
+        downloadEvent,
+        new Promise((resolve6) => setTimeout(resolve6, 3e3))
+      ]);
+      if (!download)
+        throw e;
+      await new Promise((resolve6) => setTimeout(resolve6, 500));
+      return;
+    }
+    await this.page.waitForLoadState("load", { timeout: 5e3 }).catch(() => {
+    });
+  }
+  async consoleMessages(type) {
+    await this._initializedPromise;
+    return this._consoleMessages.filter((message) => type ? message.type === type : true);
+  }
+  async captureSnapshot() {
+    let tabSnapshot;
+    const modalStates = await this._raceAgainstModalStates(async () => {
+      const snapshot = await this.page._snapshotForAI();
+      tabSnapshot = {
+        url: this.page.url(),
+        title: await this.page.title(),
+        ariaSnapshot: snapshot,
+        modalStates: [],
+        consoleMessages: []
+      };
+    });
+    if (tabSnapshot) {
+      tabSnapshot.consoleMessages = this._recentConsoleMessages;
+      this._recentConsoleMessages = [];
+    }
+    return tabSnapshot ?? {
+      url: this.page.url(),
+      title: "",
+      ariaSnapshot: "",
+      modalStates,
+      consoleMessages: []
+    };
+  }
+  _javaScriptBlocked() {
+    return this._modalStates.some((state) => state.type === "dialog");
+  }
+  async _raceAgainstModalStates(action) {
+    if (this.modalStates().length)
+      return this.modalStates();
+    let resolveModal;
+    const modalPromise = new Promise((r) => {
+      resolveModal = r;
+    });
+    const listener = (modalState) => resolveModal([modalState]);
+    this.once(TabEvents.modalState, listener);
+    return await Promise.race([
+      action().then(() => {
+        this.off(TabEvents.modalState, listener);
+        return [];
+      }),
+      modalPromise
+    ]);
+  }
+  async waitForCompletion(callback) {
+    const consoleCountBefore = this._recentConsoleMessages.length;
+    let snapshotBefore;
+    try {
+      snapshotBefore = await this.page._snapshotForAI();
+    } catch {
+    }
+    const actionCapture = createEmptyActionCapture();
+    actionCapture.snapshot.before = snapshotBefore;
+    await this._raceAgainstModalStates(async () => {
+      const { requests, durationMs } = await this._trackCompletion(callback);
+      actionCapture.timing.durationMs = durationMs;
+      actionCapture.network.requests = requests;
+      actionCapture.network.summary = formatNetworkSummary(requests);
+    });
+    try {
+      const snapshotAfter = await this.page._snapshotForAI();
+      actionCapture.snapshot.after = snapshotAfter;
+      if (snapshotBefore && snapshotAfter)
+        actionCapture.snapshot.diff = computeSnapshotDiff(snapshotBefore, snapshotAfter);
+    } catch {
+    }
+    actionCapture.console = this._recentConsoleMessages.slice(consoleCountBefore);
+    return actionCapture;
+  }
+  async _trackCompletion(callback) {
+    const pendingRequests = /* @__PURE__ */ new Set();
+    const completedRequests = [];
+    let frameNavigated = false;
+    let waitCallback = () => {
+    };
+    const waitBarrier = new Promise((f) => {
+      waitCallback = f;
+    });
+    const startMs = performance.now();
+    const responseListener = (request) => {
+      if (pendingRequests.has(request)) {
+        pendingRequests.delete(request);
+        const entry = completedRequests.find((r) => r.request === request);
+        if (entry) {
+          entry.endTime = performance.now();
+          void request.response().then((response) => {
+            entry.status = response?.status() ?? null;
+          }).catch(() => {
+          });
+        }
+      }
+      if (!pendingRequests.size)
+        waitCallback();
+    };
+    const requestListener = (request) => {
+      pendingRequests.add(request);
+      completedRequests.push({
+        request,
+        startTime: performance.now(),
+        endTime: performance.now(),
+        status: null
+      });
+      void request.response().then(() => responseListener(request)).catch(() => responseListener(request));
+    };
+    const frameNavigateListener = (frame) => {
+      if (frame.parentFrame())
+        return;
+      frameNavigated = true;
+      dispose();
+      clearTimeout(timeout);
+      void this.page.waitForLoadState("load").then(waitCallback).catch(waitCallback);
+    };
+    const onTimeout = () => {
+      dispose();
+      waitCallback();
+    };
+    this.page.on("request", requestListener);
+    this.page.on("requestfailed", responseListener);
+    this.page.on("framenavigated", frameNavigateListener);
+    const timeout = setTimeout(onTimeout, 1e4);
+    const dispose = () => {
+      this.page.off("request", requestListener);
+      this.page.off("requestfailed", responseListener);
+      this.page.off("framenavigated", frameNavigateListener);
+      clearTimeout(timeout);
+    };
+    try {
+      await callback();
+      if (!pendingRequests.size && !frameNavigated)
+        waitCallback();
+      await waitBarrier;
+      if (this._javaScriptBlocked())
+        await new Promise((f) => setTimeout(f, 1e3));
+      else
+        await this.page.evaluate(() => new Promise((f) => setTimeout(f, 1e3))).catch(() => {
+        });
+      const endMs = performance.now();
+      const requests = completedRequests.map((r) => ({
+        method: r.request.method(),
+        url: r.request.url(),
+        status: r.status,
+        durationMs: Math.round(r.endTime - r.startTime)
+      }));
+      return { requests, durationMs: Math.round(endMs - startMs) };
+    } finally {
+      dispose();
+    }
+  }
+  async refLocator(params) {
+    return (await this.refLocators([params]))[0];
+  }
+  async refLocators(params) {
+    const snapshot = await this.page._snapshotForAI();
+    return params.map((param) => {
+      if (!snapshot.includes(`[ref=${param.ref}]`))
+        throw new Error(`Ref ${param.ref} not found in the current page snapshot. Try capturing a new snapshot.`);
+      return this.page.locator(`aria-ref=${param.ref}`).describe(param.element);
+    });
+  }
+};
+function messageToConsoleMessage(message) {
+  return {
+    type: message.type(),
+    text: message.text(),
+    toString: () => `[${message.type().toUpperCase()}] ${message.text()} @ ${message.location().url}:${message.location().lineNumber}`
+  };
+}
+function pageErrorToConsoleMessage(errorOrValue) {
+  if (errorOrValue instanceof Error) {
+    return {
+      type: "error",
+      text: errorOrValue.message,
+      toString: () => errorOrValue.stack || errorOrValue.message
+    };
+  }
+  return {
+    type: "error",
+    text: String(errorOrValue),
+    toString: () => String(errorOrValue)
+  };
+}
+var tabSymbol = Symbol("tabSymbol");
+
+// packages/pw-test-writer/dist/mcp/browser/context.js
+var BrowserContext = class {
+  _browser;
+  _browserContext;
+  _tabs = [];
+  _currentTab;
+  tabs() {
+    return this._tabs;
+  }
+  currentTab() {
+    return this._currentTab;
+  }
+  currentTabOrDie() {
+    if (!this._currentTab)
+      throw new Error('No open pages available. Use the "browser_navigate" tool to navigate to a page first.');
+    return this._currentTab;
+  }
+  async ensureTab() {
+    if (!this._browserContext)
+      await this._launchBrowser();
+    if (!this._currentTab)
+      await this._browserContext.newPage();
+    return this._currentTab;
+  }
+  async newTab() {
+    if (!this._browserContext)
+      await this._launchBrowser();
+    const page = await this._browserContext.newPage();
+    this._currentTab = this._tabs.find((t) => t.page === page);
+    return this._currentTab;
+  }
+  async selectTab(index) {
+    const tab = this._tabs[index];
+    if (!tab)
+      throw new Error(`Tab ${index} not found`);
+    await tab.page.bringToFront();
+    this._currentTab = tab;
+    return tab;
+  }
+  async closeTab(index) {
+    const tab = index === void 0 ? this._currentTab : this._tabs[index];
+    if (!tab)
+      throw new Error(`Tab ${index} not found`);
+    const url = tab.page.url();
+    await tab.page.close();
+    return url;
+  }
+  _onPageCreated(page) {
+    const tab = new Tab(page, (tab2) => this._onPageClosed(tab2));
+    this._tabs.push(tab);
+    if (!this._currentTab)
+      this._currentTab = tab;
+  }
+  _onPageClosed(tab) {
+    const index = this._tabs.indexOf(tab);
+    if (index === -1)
+      return;
+    this._tabs.splice(index, 1);
+    if (this._currentTab === tab)
+      this._currentTab = this._tabs[Math.min(index, this._tabs.length - 1)];
+    if (!this._tabs.length)
+      void this._closeBrowser();
+  }
+  async _launchBrowser() {
+    const pw = await import("playwright-core");
+    const headless = process.platform === "linux" && !process.env.DISPLAY;
+    this._browser = await pw.chromium.launch({
+      headless,
+      channel: "chrome"
+    });
+    this._browserContext = await this._browser.newContext({ viewport: null });
+    for (const page of this._browserContext.pages())
+      this._onPageCreated(page);
+    this._browserContext.on("page", (page) => this._onPageCreated(page));
+  }
+  async _closeBrowser() {
+    const browser = this._browser;
+    this._browser = void 0;
+    this._browserContext = void 0;
+    this._tabs = [];
+    this._currentTab = void 0;
+    if (browser)
+      await browser.close().catch(() => {
+      });
+  }
+  async dispose() {
+    await this._closeBrowser();
+  }
+};
+
+// packages/pw-test-writer/dist/mcp/browser/tools.js
+var browserToolDefs = [
+  {
+    name: "browser_navigate",
+    description: "Navigate to a URL in the browser. Launches the browser if not already open.",
+    inputSchema: {
+      type: "object",
+      properties: {
+        url: { type: "string", description: "URL to navigate to" }
+      },
+      required: ["url"]
+    }
+  },
+  {
+    name: "browser_navigate_back",
+    description: "Navigate back in browser history.",
+    inputSchema: {
+      type: "object",
+      properties: {}
+    }
+  },
+  {
+    name: "browser_snapshot",
+    description: "Capture an ARIA accessibility snapshot of the current page. Returns the page structure with [ref=X] markers that can be used with other browser tools to interact with elements.",
+    inputSchema: {
+      type: "object",
+      properties: {}
+    }
+  },
+  {
+    name: "browser_click",
+    description: "Click an element on the page using its ref from a snapshot.",
+    inputSchema: {
+      type: "object",
+      properties: {
+        element: { type: "string", description: "Human-readable description of the element to click" },
+        ref: { type: "string", description: "Element ref from the page snapshot" }
+      },
+      required: ["element", "ref"]
+    }
+  },
+  {
+    name: "browser_type",
+    description: "Type text into an input field.",
+    inputSchema: {
+      type: "object",
+      properties: {
+        element: { type: "string", description: "Human-readable description of the element to type into" },
+        ref: { type: "string", description: "Element ref from the page snapshot" },
+        text: { type: "string", description: "Text to type" },
+        submit: { type: "boolean", description: "Press Enter after typing (default: false)" }
+      },
+      required: ["element", "ref", "text"]
+    }
+  },
+  {
+    name: "browser_fill_form",
+    description: "Fill multiple form fields in one call.",
+    inputSchema: {
+      type: "object",
+      properties: {
+        values: {
+          type: "array",
+          description: "Array of field values to fill",
+          items: {
+            type: "object",
+            properties: {
+              ref: { type: "string", description: "Element ref from the page snapshot" },
+              element: { type: "string", description: "Human-readable description of the field" },
+              value: { type: "string", description: "Value to fill" }
+            },
+            required: ["ref", "element", "value"]
+          }
+        }
+      },
+      required: ["values"]
+    }
+  },
+  {
+    name: "browser_select_option",
+    description: "Select an option from a dropdown element.",
+    inputSchema: {
+      type: "object",
+      properties: {
+        element: { type: "string", description: "Human-readable description of the dropdown" },
+        ref: { type: "string", description: "Element ref from the page snapshot" },
+        value: { type: "string", description: "Value or label of the option to select" }
+      },
+      required: ["element", "ref", "value"]
+    }
+  },
+  {
+    name: "browser_press_key",
+    description: "Press a key or key combination (e.g. Enter, Escape, Tab, ArrowDown, Control+a).",
+    inputSchema: {
+      type: "object",
+      properties: {
+        key: { type: "string", description: 'Key to press (e.g. "Enter", "Escape", "Tab", "ArrowDown", "Control+a")' }
+      },
+      required: ["key"]
+    }
+  },
+  {
+    name: "browser_hover",
+    description: "Hover over an element on the page.",
+    inputSchema: {
+      type: "object",
+      properties: {
+        element: { type: "string", description: "Human-readable description of the element to hover over" },
+        ref: { type: "string", description: "Element ref from the page snapshot" }
+      },
+      required: ["element", "ref"]
+    }
+  },
+  {
+    name: "browser_take_screenshot",
+    description: "Take a screenshot of the current page.",
+    inputSchema: {
+      type: "object",
+      properties: {}
+    }
+  },
+  {
+    name: "browser_close",
+    description: "Close the browser and clean up resources.",
+    inputSchema: {
+      type: "object",
+      properties: {}
+    }
+  }
+];
+async function handleBrowserTool(name, args, ctx) {
+  try {
+    switch (name) {
+      case "browser_navigate":
+        return await handleNavigate(args, ctx);
+      case "browser_navigate_back":
+        return await handleNavigateBack(ctx);
+      case "browser_snapshot":
+        return await handleSnapshot(ctx);
+      case "browser_click":
+        return await handleClick(args, ctx);
+      case "browser_type":
+        return await handleType(args, ctx);
+      case "browser_fill_form":
+        return await handleFillForm(args, ctx);
+      case "browser_select_option":
+        return await handleSelectOption(args, ctx);
+      case "browser_press_key":
+        return await handlePressKey(args, ctx);
+      case "browser_hover":
+        return await handleHover(args, ctx);
+      case "browser_take_screenshot":
+        return await handleScreenshot(ctx);
+      case "browser_close":
+        return await handleClose(ctx);
+      default:
+        return error2(`Unknown browser tool: ${name}`);
+    }
+  } catch (e) {
+    const message = e instanceof Error ? e.message : String(e);
+    return error2(message);
+  }
+}
+async function handleNavigate(args, ctx) {
+  const url = args.url;
+  if (!url)
+    return error2("url is required");
+  const tab = await ctx.ensureTab();
+  await tab.navigate(url);
+  const snapshot = await tab.captureSnapshot();
+  return buildSnapshotResult(`Navigated to ${url}`, snapshot);
+}
+async function handleNavigateBack(ctx) {
+  const tab = ctx.currentTabOrDie();
+  const capture = await tab.waitForCompletion(async () => {
+    await tab.page.goBack();
+  });
+  const snapshot = await tab.captureSnapshot();
+  return buildActionResult("Navigated back", capture, snapshot);
+}
+async function handleSnapshot(ctx) {
+  const tab = ctx.currentTabOrDie();
+  const snapshot = await tab.captureSnapshot();
+  return buildSnapshotResult("Page snapshot captured", snapshot);
+}
+async function handleClick(args, ctx) {
+  const element = args.element;
+  const ref = args.ref;
+  if (!element || !ref)
+    return error2("element and ref are required");
+  const tab = ctx.currentTabOrDie();
+  const locator = await tab.refLocator({ element, ref });
+  const capture = await tab.waitForCompletion(async () => {
+    await locator.click();
+  });
+  const snapshot = await tab.captureSnapshot();
+  return buildActionResult(`Clicked ${element}`, capture, snapshot);
+}
+async function handleType(args, ctx) {
+  const element = args.element;
+  const ref = args.ref;
+  const text3 = args.text;
+  const submit = args.submit;
+  if (!element || !ref || text3 === void 0)
+    return error2("element, ref, and text are required");
+  const tab = ctx.currentTabOrDie();
+  const locator = await tab.refLocator({ element, ref });
+  const capture = await tab.waitForCompletion(async () => {
+    await locator.fill(text3);
+    if (submit)
+      await locator.press("Enter");
+  });
+  const snapshot = await tab.captureSnapshot();
+  const desc = submit ? `Typed "${text3}" and submitted` : `Typed "${text3}"`;
+  return buildActionResult(desc, capture, snapshot);
+}
+async function handleFillForm(args, ctx) {
+  const values = args.values;
+  if (!values || !Array.isArray(values) || values.length === 0)
+    return error2("values array is required and must not be empty");
+  const tab = ctx.currentTabOrDie();
+  const capture = await tab.waitForCompletion(async () => {
+    for (const field of values) {
+      const locator = await tab.refLocator({ element: field.element, ref: field.ref });
+      await locator.fill(field.value);
+    }
+  });
+  const snapshot = await tab.captureSnapshot();
+  return buildActionResult(`Filled ${values.length} field(s)`, capture, snapshot);
+}
+async function handleSelectOption(args, ctx) {
+  const element = args.element;
+  const ref = args.ref;
+  const value = args.value;
+  if (!element || !ref || !value)
+    return error2("element, ref, and value are required");
+  const tab = ctx.currentTabOrDie();
+  const locator = await tab.refLocator({ element, ref });
+  const capture = await tab.waitForCompletion(async () => {
+    await locator.selectOption(value);
+  });
+  const snapshot = await tab.captureSnapshot();
+  return buildActionResult(`Selected "${value}" in ${element}`, capture, snapshot);
+}
+async function handlePressKey(args, ctx) {
+  const key = args.key;
+  if (!key)
+    return error2("key is required");
+  const tab = ctx.currentTabOrDie();
+  const dialogState = tab.modalStates().find((s) => s.type === "dialog");
+  if (dialogState?.dialog) {
+    const dialog = dialogState.dialog;
+    if (key === "Enter")
+      await dialog.accept();
+    else
+      await dialog.dismiss();
+    tab.clearModalState(dialogState);
+    const snapshot2 = await tab.captureSnapshot();
+    return buildSnapshotResult(`Dismissed dialog with ${key}`, snapshot2);
+  }
+  const capture = await tab.waitForCompletion(async () => {
+    await tab.page.keyboard.press(key);
+  });
+  const snapshot = await tab.captureSnapshot();
+  return buildActionResult(`Pressed ${key}`, capture, snapshot);
+}
+async function handleHover(args, ctx) {
+  const element = args.element;
+  const ref = args.ref;
+  if (!element || !ref)
+    return error2("element and ref are required");
+  const tab = ctx.currentTabOrDie();
+  const locator = await tab.refLocator({ element, ref });
+  const capture = await tab.waitForCompletion(async () => {
+    await locator.hover();
+  });
+  const snapshot = await tab.captureSnapshot();
+  return buildActionResult(`Hovered over ${element}`, capture, snapshot);
+}
+async function handleScreenshot(ctx) {
+  const tab = ctx.currentTabOrDie();
+  const buffer = await tab.page.screenshot({ type: "png" });
+  const base64 = buffer.toString("base64");
+  return {
+    content: [
+      { type: "image", data: base64, mimeType: "image/png" },
+      { type: "text", text: `Screenshot of ${tab.page.url()}` }
+    ]
+  };
+}
+async function handleClose(ctx) {
+  await ctx.dispose();
+  return text2("Browser closed.");
+}
+function text2(t) {
+  return { content: [{ type: "text", text: t }] };
+}
+function error2(msg) {
+  return { content: [{ type: "text", text: msg }], isError: true };
+}
+function buildSnapshotResult(resultText, snapshot) {
+  const lines = [];
+  lines.push(`### Result`);
+  lines.push(resultText);
+  lines.push("");
+  appendPageState(lines, snapshot);
+  return text2(lines.join("\n"));
+}
+function buildActionResult(resultText, capture, snapshot) {
+  const lines = [];
+  lines.push(`### Result`);
+  lines.push(resultText);
+  lines.push("");
+  lines.push(...renderActionCapture(capture));
+  appendPageState(lines, snapshot);
+  return text2(lines.join("\n"));
+}
+function appendPageState(lines, snapshot) {
+  lines.push("### Page state");
+  lines.push(`- URL: ${snapshot.url}`);
+  lines.push(`- Title: ${snapshot.title}`);
+  lines.push("");
+  if (snapshot.modalStates.length > 0) {
+    lines.push("### Modal state");
+    for (const state of snapshot.modalStates)
+      lines.push(`- [${state.description}]: can be handled by the "${state.clearedBy}" tool`);
+    lines.push("");
+  }
+  if (snapshot.ariaSnapshot) {
+    lines.push("```yaml");
+    lines.push(snapshot.ariaSnapshot);
+    lines.push("```");
+  }
+}
+
 // packages/pw-test-writer/dist/mcp/server.js
 function createMcpServer(cwd2) {
   const runs = /* @__PURE__ */ new Map();
-  const server2 = new Server({ name: "playwright-autopilot", version: "0.4.0" }, {
+  const browserCtx = new BrowserContext();
+  const server2 = new Server({ name: "playwright-autopilot", version: "0.5.0" }, {
     capabilities: { tools: {} },
     instructions: `E2E Test Capture \u2014 Playwright test runner with deep debugging.
 
@@ -21887,6 +22711,19 @@ Use this server to run and debug Playwright E2E tests. Prefer these tools over r
    - e2e_get_screenshot \u2014 failure screenshot as image
    - e2e_get_test_source \u2014 read the test file with the failing test highlighted
 5. Fix the test code, then re-run with e2e_run_test to verify
+
+## Interactive Browser Exploration
+
+Use browser_* tools to explore an application interactively \u2014 navigate pages, click elements, fill forms, and observe page state.
+
+**Typical flow:**
+1. \`browser_navigate\` \u2014 open a URL (launches browser automatically)
+2. \`browser_snapshot\` \u2014 see the page structure with [ref=X] markers
+3. \`browser_click\` / \`browser_type\` / \`browser_select_option\` \u2014 interact with elements using their ref
+4. \`browser_take_screenshot\` \u2014 capture a visual screenshot
+5. \`browser_close\` \u2014 close the browser when done
+
+Each interaction tool returns an action capture (timing, network requests, page changes) and an updated ARIA snapshot.
 
 ## Context Loading
 - \`e2e_run_test\` **auto-loads** the matching flow for the test being run and includes it in the response on failure. It also **auto-saves** flows when tests pass.
@@ -22066,8 +22903,9 @@ Combine both: use \`repeatEach: 40\` to confirm flakiness, then \`retries: 2\` t
     runProject: (cwd3, options) => runProject(cwd3, { project: options?.project, grep: options?.grep, repeatEach: options?.repeatEach, onProgress: sendProgress }),
     sendProgress
   };
+  const allToolDefs = [...toolDefs, ...browserToolDefs];
   server2.setRequestHandler(ListToolsRequestSchema, async () => ({
-    tools: toolDefs.map((t) => ({
+    tools: allToolDefs.map((t) => ({
       name: t.name,
       description: t.description,
       inputSchema: t.inputSchema
@@ -22075,9 +22913,17 @@ Combine both: use \`repeatEach: 40\` to confirm flakiness, then \`retries: 2\` t
   }));
   server2.setRequestHandler(CallToolRequestSchema, async (request) => {
     const { name, arguments: args } = request.params;
-    const result = await handleTool(name, args || {}, ctx);
+    const resolvedArgs = args || {};
+    if (name.startsWith("browser_")) {
+      const result2 = await handleBrowserTool(name, resolvedArgs, browserCtx);
+      return result2;
+    }
+    const result = await handleTool(name, resolvedArgs, ctx);
     return result;
   });
+  server2.onclose = async () => {
+    await browserCtx.dispose();
+  };
   return server2;
 }
 
