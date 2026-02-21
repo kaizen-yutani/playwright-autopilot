@@ -18847,6 +18847,25 @@ function saveFlow(cwd2, flow) {
   fs2.writeFileSync(flowsPath(cwd2), JSON.stringify(file, null, 2) + "\n", "utf-8");
   return file;
 }
+function formatFlowsSummary(file) {
+  if (file.flows.length === 0) {
+    return [
+      "## Application Flows \u2014 None stored yet",
+      "",
+      "No confirmed flows in `.e2e-flows.json`. Use `e2e_discover_flows` or `e2e_build_flows` to generate them."
+    ].join("\n");
+  }
+  const lines = [`## Application Flows (${file.flows.length})`, ""];
+  lines.push("Use `e2e_get_app_flows` for full step details on any flow.", "");
+  for (const flow of file.flows) {
+    const status = flow.confirmed ? "confirmed" : "unconfirmed";
+    const steps = `${flow.steps.length} steps`;
+    const related = flow.related_flows?.length ? ` | related: ${flow.related_flows.join(", ")}` : "";
+    lines.push(`- **${flow.flowName}** (${status}, ${steps}${related}) \u2014 ${flow.description}`);
+  }
+  lines.push("");
+  return lines.join("\n");
+}
 function formatFlows(file) {
   if (file.flows.length === 0) {
     return [
@@ -19298,7 +19317,7 @@ var toolDefs = [
   },
   {
     name: "e2e_get_context",
-    description: "Load project context in one call: stored application flows + page object index. Call this before debugging to understand the project structure and available methods.",
+    description: "Lightweight project overview: flow names with descriptions + page object class names with method counts. Use `e2e_get_app_flows` for full flow steps and `e2e_scan_page_objects` for full method signatures.",
     inputSchema: {
       type: "object",
       properties: {}
@@ -20402,7 +20421,7 @@ async function handleGetContext(ctx) {
   ]);
   const parts = [];
   parts.push("# Project Context", "");
-  parts.push(formatFlows(flowsFile));
+  parts.push(formatFlowsSummary(flowsFile));
   parts.push("");
   parts.push(formatPageObjectSummary(objects));
   return text(parts.join("\n"));
