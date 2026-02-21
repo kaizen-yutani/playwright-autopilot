@@ -2,6 +2,8 @@
 
 A [Claude Code](https://docs.anthropic.com/en/docs/claude-code) plugin that debugs and fixes Playwright E2E tests autonomously. It runs your tests with full action capture — DOM snapshots, network requests, console output, screenshots — then investigates failures like a senior QA engineer and ships the fix.
 
+https://github.com/kaizen-yutani/playwright-autopilot/raw/main/demo.mp4
+
 ## Quick Start
 
 ```bash
