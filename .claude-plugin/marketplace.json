@@ -5,7 +5,7 @@
   },
   "metadata": {
     "description": "Autonomous Playwright E2E test fixer for Claude Code",
-    "homepage": "https://github.com/kaizen-yutani/automation"
+    "homepage": "https://github.com/kaizen-yutani/playwright-autopilot"
   },
   "plugins": [
     {
