@@ -2,17 +2,16 @@
 
 A [Claude Code](https://docs.anthropic.com/en/docs/claude-code) plugin that debugs and fixes Playwright E2E tests autonomously. It runs your tests with full action capture — DOM snapshots, network requests, console output, screenshots — then investigates failures like a senior QA engineer and ships the fix.
 
-[https://github.com/kaizen-yutani/playwright-autopilot/releases/download/v0.6.0/demo-full.mp4](https://github.com/user-attachments/assets/26f734a5-d05e-41c9-bc3f-2b58561c2ce0)
+https://github.com/user-attachments/assets/26f734a5-d05e-41c9-bc3f-2b58561c2ce0
 
 ## Quick Start
 
 ```bash
 # Add the marketplace
-
-/plugin marketplace add nikolarss0n/pw-autopilot
+/plugin marketplace add kaizen-yutani/playwright-autopilot
 
 # Install the plugin
-/plugin install playwright-autopilot@pw-autopilot
+/plugin install kaizen-yutani/playwright-autopilot
 ```
 
 Then ask Claude to fix a failing test:

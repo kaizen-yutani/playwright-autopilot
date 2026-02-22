@@ -22276,6 +22276,11 @@ var BrowserContext = class {
       throw new Error('No open pages available. Use the "browser_navigate" tool to navigate to a page first.');
     return this._currentTab;
   }
+  async setExtraHTTPHeaders(headers) {
+    if (!this._browserContext)
+      await this._launchBrowser();
+    await this._browserContext.setExtraHTTPHeaders(headers);
+  }
   async ensureTab() {
     if (!this._browserContext)
       await this._launchBrowser();
@@ -22472,6 +22477,21 @@ var browserToolDefs = [
     }
   },
   {
+    name: "browser_set_headers",
+    description: "Set extra HTTP headers that will be sent with every request. Useful for authentication headers like CF-Access tokens. Launches the browser if not already open.",
+    inputSchema: {
+      type: "object",
+      properties: {
+        headers: {
+          type: "object",
+          description: 'Key-value pairs of HTTP headers to set (e.g. {"CF-Access-Client-Id": "...", "CF-Access-Client-Secret": "..."})',
+          additionalProperties: { type: "string" }
+        }
+      },
+      required: ["headers"]
+    }
+  },
+  {
     name: "browser_close",
     description: "Close the browser and clean up resources.",
     inputSchema: {
@@ -22503,6 +22523,8 @@ async function handleBrowserTool(name, args, ctx) {
         return await handleHover(args, ctx);
       case "browser_take_screenshot":
         return await handleScreenshot(ctx);
+      case "browser_set_headers":
+        return await handleSetHeaders(args, ctx);
       case "browser_close":
         return await handleClose(ctx);
       default:
@@ -22639,6 +22661,14 @@ async function handleScreenshot(ctx) {
       { type: "text", text: `Screenshot of ${tab.page.url()}` }
     ]
   };
+}
+async function handleSetHeaders(args, ctx) {
+  const headers = args.headers;
+  if (!headers || typeof headers !== "object")
+    return error2("headers object is required");
+  await ctx.setExtraHTTPHeaders(headers);
+  const names = Object.keys(headers);
+  return text2(`Set ${names.length} extra HTTP header(s): ${names.join(", ")}`);
 }
 async function handleClose(ctx) {
   await ctx.dispose();
