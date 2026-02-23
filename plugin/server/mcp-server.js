@@ -22265,6 +22265,8 @@ var BrowserContext = class {
   _browserContext;
   _tabs = [];
   _currentTab;
+  _headerRouteHandler;
+  _navigationOrigins = /* @__PURE__ */ new Set();
   tabs() {
     return this._tabs;
   }
@@ -22279,7 +22281,25 @@ var BrowserContext = class {
   async setExtraHTTPHeaders(headers) {
     if (!this._browserContext)
       await this._launchBrowser();
-    await this._browserContext.setExtraHTTPHeaders(headers);
+    if (this._headerRouteHandler) {
+      await this._browserContext.unroute("**/*", this._headerRouteHandler);
+      this._headerRouteHandler = void 0;
+    }
+    const handler = async (route) => {
+      const request = route.request();
+      if (request.isNavigationRequest()) {
+        this._trackNavigationOrigin(request.url());
+        await route.continue({ headers: { ...request.headers(), ...headers } });
+        return;
+      }
+      if (this._isSameOrigin(request)) {
+        await route.continue({ headers: { ...request.headers(), ...headers } });
+        return;
+      }
+      await route.continue();
+    };
+    this._headerRouteHandler = handler;
+    await this._browserContext.route("**/*", handler);
   }
   async ensureTab() {
     if (!this._browserContext)
@@ -22339,10 +22359,28 @@ var BrowserContext = class {
       this._onPageCreated(page);
     this._browserContext.on("page", (page) => this._onPageCreated(page));
   }
+  _trackNavigationOrigin(url) {
+    try {
+      this._navigationOrigins.add(new URL(url).origin);
+    } catch {
+    }
+  }
+  _isSameOrigin(request) {
+    try {
+      const requestOrigin = new URL(request.url()).origin;
+      const pageUrl = request.frame()?.page().url();
+      const pageOrigin = pageUrl && pageUrl !== "about:blank" ? new URL(pageUrl).origin : null;
+      return requestOrigin === pageOrigin || this._navigationOrigins.has(requestOrigin);
+    } catch {
+      return false;
+    }
+  }
   async _closeBrowser() {
     const browser = this._browser;
     this._browser = void 0;
     this._browserContext = void 0;
+    this._headerRouteHandler = void 0;
+    this._navigationOrigins.clear();
     this._tabs = [];
     this._currentTab = void 0;
     if (browser)
@@ -22478,7 +22516,7 @@ var browserToolDefs = [
   },
   {
     name: "browser_set_headers",
-    description: "Set extra HTTP headers that will be sent with every request. Useful for authentication headers like CF-Access tokens. Launches the browser if not already open.",
+    description: "Set extra HTTP headers for browser requests. Headers are automatically scoped to same-origin requests only, so they won't cause CORS issues with third-party resources. Useful for authentication headers like CF-Access tokens. Launches the browser if not already open.",
     inputSchema: {
       type: "object",
       properties: {
@@ -22668,7 +22706,7 @@ async function handleSetHeaders(args, ctx) {
     return error2("headers object is required");
   await ctx.setExtraHTTPHeaders(headers);
   const names = Object.keys(headers);
-  return text2(`Set ${names.length} extra HTTP header(s): ${names.join(", ")}`);
+  return text2(`Set ${names.length} extra HTTP header(s): ${names.join(", ")} (same-origin only)`);
 }
 async function handleClose(ctx) {
   await ctx.dispose();
