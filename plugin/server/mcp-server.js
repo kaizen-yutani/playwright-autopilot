@@ -855,8 +855,8 @@ var require_uri_all = __commonJS({
             wsComponents.secure = void 0;
           }
           if (wsComponents.resourceName) {
-            var _wsComponents$resourc = wsComponents.resourceName.split("?"), _wsComponents$resourc2 = slicedToArray(_wsComponents$resourc, 2), path7 = _wsComponents$resourc2[0], query = _wsComponents$resourc2[1];
-            wsComponents.path = path7 && path7 !== "/" ? path7 : void 0;
+            var _wsComponents$resourc = wsComponents.resourceName.split("?"), _wsComponents$resourc2 = slicedToArray(_wsComponents$resourc, 2), path9 = _wsComponents$resourc2[0], query = _wsComponents$resourc2[1];
+            wsComponents.path = path9 && path9 !== "/" ? path9 : void 0;
             wsComponents.query = query;
             wsComponents.resourceName = void 0;
           }
@@ -1229,12 +1229,12 @@ var require_util = __commonJS({
       return "'" + escapeQuotes(str) + "'";
     }
     function getPathExpr(currentPath, expr, jsonPointers, isNumber) {
-      var path7 = jsonPointers ? "'/' + " + expr + (isNumber ? "" : ".replace(/~/g, '~0').replace(/\\//g, '~1')") : isNumber ? "'[' + " + expr + " + ']'" : "'[\\'' + " + expr + " + '\\']'";
-      return joinPaths(currentPath, path7);
+      var path9 = jsonPointers ? "'/' + " + expr + (isNumber ? "" : ".replace(/~/g, '~0').replace(/\\//g, '~1')") : isNumber ? "'[' + " + expr + " + ']'" : "'[\\'' + " + expr + " + '\\']'";
+      return joinPaths(currentPath, path9);
     }
     function getPath(currentPath, prop, jsonPointers) {
-      var path7 = jsonPointers ? toQuotedString("/" + escapeJsonPointer(prop)) : toQuotedString(getProperty(prop));
-      return joinPaths(currentPath, path7);
+      var path9 = jsonPointers ? toQuotedString("/" + escapeJsonPointer(prop)) : toQuotedString(getProperty(prop));
+      return joinPaths(currentPath, path9);
     }
     var JSON_POINTER = /^\/(?:[^~]|~0|~1)*$/;
     var RELATIVE_JSON_POINTER = /^([0-9]+)(#|\/(?:[^~]|~0|~1)*)?$/;
@@ -10354,12 +10354,12 @@ var init_esm4 = __esm({
       /**
        * Get the Path object referenced by the string path, resolved from this Path
        */
-      resolve(path7) {
-        if (!path7) {
+      resolve(path9) {
+        if (!path9) {
           return this;
         }
-        const rootPath = this.getRootString(path7);
-        const dir = path7.substring(rootPath.length);
+        const rootPath = this.getRootString(path9);
+        const dir = path9.substring(rootPath.length);
         const dirParts = dir.split(this.splitSep);
         const result = rootPath ? this.getRoot(rootPath).#resolveParts(dirParts) : this.#resolveParts(dirParts);
         return result;
@@ -11111,8 +11111,8 @@ var init_esm4 = __esm({
       /**
        * @internal
        */
-      getRootString(path7) {
-        return win32.parse(path7).root;
+      getRootString(path9) {
+        return win32.parse(path9).root;
       }
       /**
        * @internal
@@ -11158,8 +11158,8 @@ var init_esm4 = __esm({
       /**
        * @internal
        */
-      getRootString(path7) {
-        return path7.startsWith("/") ? "/" : "";
+      getRootString(path9) {
+        return path9.startsWith("/") ? "/" : "";
       }
       /**
        * @internal
@@ -11208,8 +11208,8 @@ var init_esm4 = __esm({
        *
        * @internal
        */
-      constructor(cwd2 = process.cwd(), pathImpl, sep2, { nocase, childrenCacheSize = 16 * 1024, fs: fs6 = defaultFS } = {}) {
-        this.#fs = fsFromOption(fs6);
+      constructor(cwd2 = process.cwd(), pathImpl, sep2, { nocase, childrenCacheSize = 16 * 1024, fs: fs8 = defaultFS } = {}) {
+        this.#fs = fsFromOption(fs8);
         if (cwd2 instanceof URL || cwd2.startsWith("file://")) {
           cwd2 = fileURLToPath(cwd2);
         }
@@ -11248,11 +11248,11 @@ var init_esm4 = __esm({
       /**
        * Get the depth of a provided path, string, or the cwd
        */
-      depth(path7 = this.cwd) {
-        if (typeof path7 === "string") {
-          path7 = this.cwd.resolve(path7);
+      depth(path9 = this.cwd) {
+        if (typeof path9 === "string") {
+          path9 = this.cwd.resolve(path9);
         }
-        return path7.depth();
+        return path9.depth();
       }
       /**
        * Return the cache of child entries.  Exposed so subclasses can create
@@ -11739,9 +11739,9 @@ var init_esm4 = __esm({
         process3();
         return results;
       }
-      chdir(path7 = this.cwd) {
+      chdir(path9 = this.cwd) {
         const oldCwd = this.cwd;
-        this.cwd = typeof path7 === "string" ? this.cwd.resolve(path7) : path7;
+        this.cwd = typeof path9 === "string" ? this.cwd.resolve(path9) : path9;
         this.cwd[setAsCwd](oldCwd);
       }
     };
@@ -11767,8 +11767,8 @@ var init_esm4 = __esm({
       /**
        * @internal
        */
-      newRoot(fs6) {
-        return new PathWin32(this.rootPath, IFDIR, void 0, this.roots, this.nocase, this.childrenCache(), { fs: fs6 });
+      newRoot(fs8) {
+        return new PathWin32(this.rootPath, IFDIR, void 0, this.roots, this.nocase, this.childrenCache(), { fs: fs8 });
       }
       /**
        * Return true if the provided path string is an absolute path
@@ -11796,8 +11796,8 @@ var init_esm4 = __esm({
       /**
        * @internal
        */
-      newRoot(fs6) {
-        return new PathPosix(this.rootPath, IFDIR, void 0, this.roots, this.nocase, this.childrenCache(), { fs: fs6 });
+      newRoot(fs8) {
+        return new PathPosix(this.rootPath, IFDIR, void 0, this.roots, this.nocase, this.childrenCache(), { fs: fs8 });
       }
       /**
        * Return true if the provided path string is an absolute path
@@ -12116,8 +12116,8 @@ var init_processor = __esm({
       }
       // match, absolute, ifdir
       entries() {
-        return [...this.store.entries()].map(([path7, n]) => [
-          path7,
+        return [...this.store.entries()].map(([path9, n]) => [
+          path9,
           !!(n & 2),
           !!(n & 1)
         ]);
@@ -12330,9 +12330,9 @@ var init_walker = __esm({
       signal;
       maxDepth;
       includeChildMatches;
-      constructor(patterns, path7, opts) {
+      constructor(patterns, path9, opts) {
         this.patterns = patterns;
-        this.path = path7;
+        this.path = path9;
         this.opts = opts;
         this.#sep = !opts.posix && opts.platform === "win32" ? "\\" : "/";
         this.includeChildMatches = opts.includeChildMatches !== false;
@@ -12351,11 +12351,11 @@ var init_walker = __esm({
           });
         }
       }
-      #ignored(path7) {
-        return this.seen.has(path7) || !!this.#ignore?.ignored?.(path7);
+      #ignored(path9) {
+        return this.seen.has(path9) || !!this.#ignore?.ignored?.(path9);
       }
-      #childrenIgnored(path7) {
-        return !!this.#ignore?.childrenIgnored?.(path7);
+      #childrenIgnored(path9) {
+        return !!this.#ignore?.childrenIgnored?.(path9);
       }
       // backpressure mechanism
       pause() {
@@ -12570,8 +12570,8 @@ var init_walker = __esm({
     };
     GlobWalker = class extends GlobUtil {
       matches = /* @__PURE__ */ new Set();
-      constructor(patterns, path7, opts) {
-        super(patterns, path7, opts);
+      constructor(patterns, path9, opts) {
+        super(patterns, path9, opts);
       }
       matchEmit(e) {
         this.matches.add(e);
@@ -12608,8 +12608,8 @@ var init_walker = __esm({
     };
     GlobStream = class extends GlobUtil {
       results;
-      constructor(patterns, path7, opts) {
-        super(patterns, path7, opts);
+      constructor(patterns, path9, opts) {
+        super(patterns, path9, opts);
         this.results = new Minipass({
           signal: this.signal,
           objectMode: true
@@ -13432,8 +13432,8 @@ function getErrorMap() {
 
 // node_modules/zod/v3/helpers/parseUtil.js
 var makeIssue = (params) => {
-  const { data, path: path7, errorMaps, issueData } = params;
-  const fullPath = [...path7, ...issueData.path || []];
+  const { data, path: path9, errorMaps, issueData } = params;
+  const fullPath = [...path9, ...issueData.path || []];
   const fullIssue = {
     ...issueData,
     path: fullPath
@@ -13549,11 +13549,11 @@ var errorUtil;
 
 // node_modules/zod/v3/types.js
 var ParseInputLazyPath = class {
-  constructor(parent, value, path7, key) {
+  constructor(parent, value, path9, key) {
     this._cachedPath = [];
     this.parent = parent;
     this.data = value;
-    this._path = path7;
+    this._path = path9;
     this._key = key;
   }
   get path() {
@@ -18638,8 +18638,8 @@ var Server = class extends Protocol {
 };
 
 // packages/pw-test-writer/dist/mcp/tools.js
-import * as fs3 from "fs";
-import * as path4 from "path";
+import * as fs5 from "fs";
+import * as path6 from "path";
 
 // packages/pw-test-writer/dist/mcp/pageObjects.js
 init_esm5();
@@ -19048,6 +19048,194 @@ function findFlowForTest(cwd2, file, testTitle) {
   return flowsFile.flows.find((f) => f.flowName.startsWith(baseSlug + "/")) ?? null;
 }
 
+// packages/pw-test-writer/dist/mcp/triage.js
+import * as fs4 from "fs";
+import * as path5 from "path";
+
+// packages/pw-test-writer/dist/runner/history.js
+import * as fs3 from "fs";
+import * as path4 from "path";
+var DIR_NAME = ".pw-test-writer";
+var FILE_NAME = "history.json";
+function historyPath(cwd2) {
+  return path4.join(cwd2, DIR_NAME, FILE_NAME);
+}
+function loadHistory(cwd2) {
+  try {
+    const data = fs3.readFileSync(historyPath(cwd2), "utf-8");
+    return JSON.parse(data);
+  } catch {
+    return {};
+  }
+}
+
+// packages/pw-test-writer/dist/mcp/triage.js
+var CONFIG_FILENAME = ".e2e-triage.json";
+var DEFAULT_CONFIG = {
+  version: 1,
+  flaky: { threshold: 0.2, windowSize: 10 }
+};
+function loadTriageConfig(cwd2) {
+  const fp = path5.join(cwd2, CONFIG_FILENAME);
+  try {
+    const raw = JSON.parse(fs4.readFileSync(fp, "utf-8"));
+    return {
+      ...DEFAULT_CONFIG,
+      ...raw,
+      flaky: { ...DEFAULT_CONFIG.flaky, ...raw.flaky }
+    };
+  } catch {
+    return { ...DEFAULT_CONFIG };
+  }
+}
+var DIR_NAME2 = ".pw-test-writer";
+var RUNS_FILENAME = "runs.json";
+var MAX_RUNS = 50;
+function runsPath(cwd2) {
+  return path5.join(cwd2, DIR_NAME2, RUNS_FILENAME);
+}
+function loadRuns(cwd2) {
+  try {
+    const raw = JSON.parse(fs4.readFileSync(runsPath(cwd2), "utf-8"));
+    return raw.runs || [];
+  } catch {
+    return [];
+  }
+}
+function saveRun(cwd2, run) {
+  const runs = loadRuns(cwd2);
+  runs.push(run);
+  if (runs.length > MAX_RUNS)
+    runs.splice(0, runs.length - MAX_RUNS);
+  const dir = path5.join(cwd2, DIR_NAME2);
+  if (!fs4.existsSync(dir))
+    fs4.mkdirSync(dir, { recursive: true });
+  const file = { version: 1, runs };
+  const tmp = runsPath(cwd2) + ".tmp";
+  fs4.writeFileSync(tmp, JSON.stringify(file, null, 2));
+  fs4.renameSync(tmp, runsPath(cwd2));
+}
+function computeFlakyScores(history, config) {
+  const results = [];
+  for (const [test, entries] of Object.entries(history)) {
+    const window = entries.slice(0, config.windowSize);
+    if (window.length < 2)
+      continue;
+    const passed = window.filter((e) => e.s === "passed").length;
+    const failed = window.filter((e) => e.s === "failed").length;
+    const score = failed / window.length;
+    if (score > 0 && score < 1) {
+      results.push({ test, score, passed, failed, total: window.length });
+    }
+  }
+  return results.sort((a, b) => b.score - a.score);
+}
+function computeStats(cwd2, maxRecent = 10) {
+  const runs = loadRuns(cwd2);
+  const config = loadTriageConfig(cwd2);
+  const history = loadHistory(cwd2);
+  const recent = runs.slice(-maxRecent);
+  const recentRuns = recent.map((r) => ({
+    runId: r.runId,
+    timestamp: r.timestamp,
+    total: r.total,
+    passed: r.passed,
+    failed: r.failed,
+    passRate: r.total > 0 ? r.passed / r.total : 0,
+    duration: r.duration
+  }));
+  const passRateTrend = recent.map((r) => r.total > 0 ? r.passed / r.total : 0);
+  const durationTrend = recent.map((r) => r.duration);
+  const flakyTests = computeFlakyScores(history, config.flaky);
+  const categoryBreakdown = {
+    known_issue: 0,
+    app_bug: 0,
+    test_update: 0,
+    flaky: 0,
+    new_failure: 0
+  };
+  const lastRun = runs[runs.length - 1];
+  if (lastRun) {
+    for (const f of lastRun.failures) {
+      categoryBreakdown[f.category]++;
+    }
+  }
+  const prevRun = runs.length >= 2 ? runs[runs.length - 2] : null;
+  const prevFailTests = new Set(prevRun?.failures.map((f) => f.test) ?? []);
+  const newFailuresSinceLastRun = lastRun ? lastRun.failures.filter((f) => !prevFailTests.has(f.test)).map((f) => f.test) : [];
+  return {
+    totalRuns: runs.length,
+    recentRuns,
+    passRateTrend,
+    flakyTests,
+    categoryBreakdown,
+    newFailuresSinceLastRun,
+    durationTrend
+  };
+}
+function formatStats(stats) {
+  const lines = [];
+  lines.push("## E2E Suite Health");
+  lines.push("");
+  if (stats.totalRuns === 0) {
+    lines.push("No triage runs recorded yet. Use the `triage-e2e` skill to run and categorize tests.");
+    return lines.join("\n");
+  }
+  const rates = stats.passRateTrend.map((r) => `${Math.round(r * 100)}%`);
+  lines.push(`**Pass rate trend** (last ${rates.length} runs): ${rates.join(" \u2192 ")}`);
+  lines.push("");
+  const durations = stats.durationTrend.map((d) => formatMs(d));
+  lines.push(`**Duration trend:** ${durations.join(" \u2192 ")}`);
+  lines.push("");
+  const latest = stats.recentRuns[stats.recentRuns.length - 1];
+  if (latest) {
+    lines.push(`**Latest run:** ${latest.total} tests, ${latest.passed} passed, ${latest.failed} failed (${Math.round(latest.passRate * 100)}%)`);
+    lines.push("");
+  }
+  const cats = stats.categoryBreakdown;
+  const catParts = [];
+  if (cats.known_issue)
+    catParts.push(`${cats.known_issue} known issues`);
+  if (cats.app_bug)
+    catParts.push(`${cats.app_bug} app bugs`);
+  if (cats.test_update)
+    catParts.push(`${cats.test_update} need test updates`);
+  if (cats.flaky)
+    catParts.push(`${cats.flaky} flaky`);
+  if (cats.new_failure)
+    catParts.push(`${cats.new_failure} new failures`);
+  if (catParts.length > 0) {
+    lines.push(`**Failure breakdown:** ${catParts.join(", ")}`);
+    lines.push("");
+  }
+  if (stats.flakyTests.length > 0) {
+    lines.push(`### Flaky Tests (${stats.flakyTests.length})`);
+    lines.push("");
+    lines.push("| Test | Score | Pass/Fail (window) |");
+    lines.push("|------|-------|--------------------|");
+    for (const f of stats.flakyTests.slice(0, 15)) {
+      lines.push(`| \`${f.test}\` | ${Math.round(f.score * 100)}% fail | ${f.passed}/${f.failed} of ${f.total} |`);
+    }
+    lines.push("");
+  }
+  if (stats.newFailuresSinceLastRun.length > 0) {
+    lines.push(`### New Failures Since Previous Run (${stats.newFailuresSinceLastRun.length})`);
+    lines.push("");
+    for (const t of stats.newFailuresSinceLastRun) {
+      lines.push(`- \`${t}\``);
+    }
+    lines.push("");
+  }
+  return lines.join("\n");
+}
+function formatMs(ms) {
+  if (ms >= 6e4)
+    return `${(ms / 6e4).toFixed(1)}m`;
+  if (ms >= 1e3)
+    return `${(ms / 1e3).toFixed(1)}s`;
+  return `${ms}ms`;
+}
+
 // packages/pw-test-writer/dist/mcp/tools.js
 var toolDefs = [
   {
@@ -19343,6 +19531,57 @@ var toolDefs = [
         timeout: { type: "number", description: "Timeout in seconds per individual test (default: 60)" }
       }
     }
+  },
+  {
+    name: "e2e_get_stats",
+    description: "Get E2E suite health statistics: pass rate trend, flaky tests ranked by score, failure category breakdown, new failures since last run, and duration trend. Reads from local history \u2014 no test execution.",
+    inputSchema: {
+      type: "object",
+      properties: {
+        maxRecent: { type: "number", description: "Number of recent runs to include in trends (default: 10)" }
+      }
+    }
+  },
+  {
+    name: "e2e_save_triage_run",
+    description: "Save a triage run record with categorized failures. Called by the triage-e2e skill after classifying all failures. Persists to .pw-test-writer/runs.json for trend tracking.",
+    inputSchema: {
+      type: "object",
+      properties: {
+        runId: { type: "string", description: "Run ID from e2e_run_test" },
+        total: { type: "number", description: "Total test count" },
+        passed: { type: "number", description: "Passed test count" },
+        failed: { type: "number", description: "Failed test count" },
+        skipped: { type: "number", description: "Skipped test count (default: 0)" },
+        duration: { type: "number", description: "Total duration in ms" },
+        failures: {
+          type: "array",
+          description: "Categorized failures",
+          items: {
+            type: "object",
+            properties: {
+              test: { type: "string", description: "Test location (file:line)" },
+              title: { type: "string", description: "Test title" },
+              category: { type: "string", enum: ["known_issue", "app_bug", "test_update", "flaky", "new_failure"], description: "Failure category" },
+              error: { type: "string", description: "First line of error message" },
+              jiraKey: { type: "string", description: "Linked Jira ticket key (e.g. PROJ-1234)" },
+              flakyScore: { type: "number", description: "Flaky score 0.0-1.0" },
+              evidencePath: { type: "string", description: "Path to evidence markdown file" }
+            },
+            required: ["test", "title", "category", "error"]
+          }
+        }
+      },
+      required: ["runId", "total", "passed", "failed", "duration", "failures"]
+    }
+  },
+  {
+    name: "e2e_get_triage_config",
+    description: "Read the triage configuration from .e2e-triage.json. Returns Jira settings, flaky thresholds, and project filter. All fields have sensible defaults if the file is missing.",
+    inputSchema: {
+      type: "object",
+      properties: {}
+    }
   }
 ];
 function text(t) {
@@ -19418,6 +19657,12 @@ async function handleTool(name, args, ctx) {
       return handleDiscoverFlows(ctx);
     case "e2e_build_flows":
       return handleBuildFlows(args, ctx);
+    case "e2e_get_stats":
+      return handleGetStats(args, ctx);
+    case "e2e_save_triage_run":
+      return handleSaveTriageRun(args, ctx);
+    case "e2e_get_triage_config":
+      return handleGetTriageConfig(ctx);
     default:
       return error(`Unknown tool: ${name}`);
   }
@@ -19463,12 +19708,12 @@ async function handleRunTest(args, ctx) {
     }
     const result2 = await ctx.runProject(ctx.cwd, { project, grep, repeatEach });
     ctx.runs.set(result2.runId, result2);
-    const dir = path4.join(ctx.cwd, "test-reports");
-    fs3.mkdirSync(dir, { recursive: true });
+    const dir = path6.join(ctx.cwd, "test-reports");
+    fs5.mkdirSync(dir, { recursive: true });
     ctx.sendProgress?.("Generating HTML report...");
     const html = buildHtmlReport(result2, ctx.cwd, ctx.sendProgress);
-    const reportPath = path4.join(dir, `report-${result2.runId}.html`);
-    fs3.writeFileSync(reportPath, html, "utf-8");
+    const reportPath = path6.join(dir, `report-${result2.runId}.html`);
+    fs5.writeFileSync(reportPath, html, "utf-8");
     const flowCoverage = buildFlowCoverageSummary(result2, ctx.cwd);
     return text(formatBatchResults(result2, project) + `
 
@@ -19928,7 +20173,7 @@ async function handleGetScreenshot(args, ctx) {
     return error(`Screenshot index ${screenshotIndex} out of range (${screenshots.length} available).`);
   const screenshot = screenshots[screenshotIndex];
   try {
-    const data = fs3.readFileSync(screenshot.path);
+    const data = fs5.readFileSync(screenshot.path);
     const base64 = data.toString("base64");
     return {
       content: [
@@ -20017,11 +20262,11 @@ async function handleGetTestSource(args, ctx) {
   const filePath = String(args.filePath || "");
   if (!filePath)
     return error("Missing required parameter: filePath");
-  const resolved = path4.isAbsolute(filePath) ? filePath : path4.resolve(ctx.cwd, filePath);
+  const resolved = path6.isAbsolute(filePath) ? filePath : path6.resolve(ctx.cwd, filePath);
   if (!resolved.startsWith(ctx.cwd))
     return error("Path outside project root.");
   try {
-    const content = fs3.readFileSync(resolved, "utf-8");
+    const content = fs5.readFileSync(resolved, "utf-8");
     const lines = content.split("\n");
     const testLine = args.testLine != null ? Number(args.testLine) : void 0;
     let startLine = 0;
@@ -20209,10 +20454,10 @@ _Use e2e_get_screenshot to view._`
     });
   }
   if (outputFile) {
-    const dir = path4.join(ctx.cwd, "test-reports");
-    fs3.mkdirSync(dir, { recursive: true });
-    const outPath = path4.join(dir, `evidence-${runId}.md`);
-    fs3.writeFileSync(outPath, markdown, "utf-8");
+    const dir = path6.join(ctx.cwd, "test-reports");
+    fs5.mkdirSync(dir, { recursive: true });
+    const outPath = path6.join(dir, `evidence-${runId}.md`);
+    fs5.writeFileSync(outPath, markdown, "utf-8");
     content.push({ type: "text", text: `
 _Evidence written to \`${outPath}\`_` });
   }
@@ -20224,8 +20469,8 @@ async function handleGenerateReport(args, ctx) {
   const run = ctx.runs.get(runId);
   if (!run)
     return error(`Run "${runId}" not found.`);
-  const dir = path4.join(ctx.cwd, "test-reports");
-  fs3.mkdirSync(dir, { recursive: true });
+  const dir = path6.join(ctx.cwd, "test-reports");
+  fs5.mkdirSync(dir, { recursive: true });
   if (format === "json") {
     ctx.sendProgress?.("Serializing JSON report...");
     const data = {
@@ -20242,14 +20487,14 @@ async function handleGenerateReport(args, ctx) {
         attachments: t.attachments.map((a) => ({ name: a.name, path: a.path, contentType: a.contentType }))
       }))
     };
-    const outPath2 = path4.join(dir, `report-${runId}.json`);
-    fs3.writeFileSync(outPath2, JSON.stringify(data, null, 2), "utf-8");
+    const outPath2 = path6.join(dir, `report-${runId}.json`);
+    fs5.writeFileSync(outPath2, JSON.stringify(data, null, 2), "utf-8");
     return text(`JSON report written to \`${outPath2}\` (${run.tests.length} tests).`);
   }
   ctx.sendProgress?.(`Building HTML report for ${run.tests.length} tests...`);
   const html = buildHtmlReport(run, ctx.cwd, ctx.sendProgress);
-  const outPath = path4.join(dir, `report-${runId}.html`);
-  fs3.writeFileSync(outPath, html, "utf-8");
+  const outPath = path6.join(dir, `report-${runId}.html`);
+  fs5.writeFileSync(outPath, html, "utf-8");
   const passed = run.tests.filter((t) => t.status === "passed").length;
   const failed = run.tests.filter((t) => t.status === "failed").length;
   return text(`HTML report written to \`${outPath}\` (${passed} passed, ${failed} failed).`);
@@ -20607,7 +20852,7 @@ function buildHtmlReport(run, cwd2, sendProgress) {
       let imgs = "";
       for (const s of screenshots) {
         try {
-          const data = fs3.readFileSync(s.path);
+          const data = fs5.readFileSync(s.path);
           const b64 = data.toString("base64");
           imgs += `<div class="screenshot"><p>${escHtml(s.name)}</p><img src="data:${s.contentType};base64,${b64}" alt="${escHtml(s.name)}"/></div>`;
         } catch {
@@ -20671,6 +20916,62 @@ ${testSections}
 </body>
 </html>`;
 }
+async function handleGetStats(args, ctx) {
+  const maxRecent = Number(args.maxRecent ?? 10);
+  const stats = computeStats(ctx.cwd, maxRecent);
+  return text(formatStats(stats));
+}
+async function handleSaveTriageRun(args, ctx) {
+  const runId = String(args.runId || "");
+  const total = Number(args.total ?? 0);
+  const passed = Number(args.passed ?? 0);
+  const failed = Number(args.failed ?? 0);
+  const skipped = Number(args.skipped ?? 0);
+  const duration = Number(args.duration ?? 0);
+  const failures = args.failures || [];
+  if (!runId)
+    return error("Missing required parameter: runId");
+  const run = {
+    runId,
+    timestamp: Date.now(),
+    total,
+    passed,
+    failed,
+    skipped,
+    duration,
+    failures
+  };
+  saveRun(ctx.cwd, run);
+  const cats = /* @__PURE__ */ new Map();
+  for (const f of failures) {
+    cats.set(f.category, (cats.get(f.category) || 0) + 1);
+  }
+  const breakdown = [...cats.entries()].map(([k, v]) => `${v} ${k.replace("_", " ")}`).join(", ");
+  return text(`Triage run saved: ${total} tests, ${passed} passed, ${failed} failed. Failures: ${breakdown || "none"}`);
+}
+async function handleGetTriageConfig(ctx) {
+  const config = loadTriageConfig(ctx.cwd);
+  const lines = [];
+  lines.push("## Triage Configuration");
+  lines.push("");
+  lines.push(`**Source:** \`.e2e-triage.json\` ${fs5.existsSync(path6.join(ctx.cwd, ".e2e-triage.json")) ? "(found)" : "(not found \u2014 using defaults)"}`);
+  lines.push("");
+  lines.push(`**Flaky threshold:** ${Math.round(config.flaky.threshold * 100)}% failure rate over ${config.flaky.windowSize} runs`);
+  lines.push(`**Project filter:** ${config.project || "(all projects)"}`);
+  lines.push("");
+  if (config.jira) {
+    lines.push("**Jira:**");
+    lines.push(`  - Project: ${config.jira.projectKey}`);
+    lines.push(`  - Issue type: ${config.jira.issueType || "Bug"}`);
+    if (config.jira.labels?.length)
+      lines.push(`  - Labels: ${config.jira.labels.join(", ")}`);
+    if (config.jira.component)
+      lines.push(`  - Component: ${config.jira.component}`);
+  } else {
+    lines.push("**Jira:** not configured (will output copy-paste ticket text)");
+  }
+  return text(lines.join("\n"));
+}
 var INTERACTIVE_ROLES = /^\s+- (button|link|textbox|combobox|checkbox|radio|option|menuitem|menuitemcheckbox|menuitemradio|spinbutton|searchbox|switch|slider|tab|treeitem|listbox|tree)/;
 function filterInteractiveOnly(snapshot) {
   const lines = snapshot.split("\n");
@@ -20715,8 +21016,8 @@ function formatBody(body, limit) {
 }
 
 // packages/pw-test-writer/dist/mcp/captureRunner.js
-import * as fs5 from "fs";
-import * as path6 from "path";
+import * as fs7 from "fs";
+import * as path8 from "path";
 import { spawn as spawn2 } from "child_process";
 import { fileURLToPath as fileURLToPath4 } from "url";
 
@@ -21289,19 +21590,19 @@ function createCaptureServer(target) {
 }
 
 // packages/pw-test-writer/dist/runner/testRunner.js
-import * as fs4 from "fs";
-import * as path5 from "path";
+import * as fs6 from "fs";
+import * as path7 from "path";
 import { spawn } from "child_process";
 import { fileURLToPath as fileURLToPath3 } from "url";
-var __dirname = path5.dirname(fileURLToPath3(import.meta.url));
+var __dirname = path7.dirname(fileURLToPath3(import.meta.url));
 async function discoverTests(cwd2, project) {
   try {
     const result = await new Promise((resolve6, reject) => {
       const args = ["test", "--list", "--reporter=json"];
       if (project)
         args.push("--project", project);
-      const localBin = path5.join(cwd2, "node_modules", ".bin", "playwright");
-      const cmd = fs4.existsSync(localBin) ? localBin : "npx";
+      const localBin = path7.join(cwd2, "node_modules", ".bin", "playwright");
+      const cmd = fs6.existsSync(localBin) ? localBin : "npx";
       if (cmd === "npx")
         args.unshift("playwright");
       const child = spawn(cmd, args, {
@@ -21350,8 +21651,8 @@ async function discoverProjects(cwd2) {
   try {
     const result = await new Promise((resolve6, reject) => {
       const args = ["test", "--list", "--reporter=json"];
-      const localBin = path5.join(cwd2, "node_modules", ".bin", "playwright");
-      const cmd = fs4.existsSync(localBin) ? localBin : "npx";
+      const localBin = path7.join(cwd2, "node_modules", ".bin", "playwright");
+      const cmd = fs6.existsSync(localBin) ? localBin : "npx";
       if (cmd === "npx")
         args.unshift("playwright");
       const child = spawn(cmd, args, {
@@ -21393,7 +21694,7 @@ function parsePlaywrightJson(json, cwd2) {
     processTestSuite(suite, rootDir, fileMap);
   }
   for (const [filePath, tests] of fileMap) {
-    const relativePath = path5.relative(cwd2, filePath);
+    const relativePath = path7.relative(cwd2, filePath);
     testFiles.push({ path: filePath, relativePath, tests });
   }
   return testFiles;
@@ -21404,7 +21705,7 @@ function processTestSuite(suite, cwd2, fileMap, parentTitle = "") {
     const specFile = spec.file || suite.file;
     if (!specFile)
       continue;
-    const filePath = path5.isAbsolute(specFile) ? specFile : path5.resolve(cwd2, specFile);
+    const filePath = path7.isAbsolute(specFile) ? specFile : path7.resolve(cwd2, specFile);
     if (!fileMap.has(filePath)) {
       fileMap.set(filePath, []);
     }
@@ -21422,7 +21723,7 @@ function processTestSuite(suite, cwd2, fileMap, parentTitle = "") {
 }
 async function discoverTestsWithGlob(cwd2) {
   const testFiles = [];
-  const hasConfig = fs4.existsSync(path5.join(cwd2, "playwright.config.ts")) || fs4.existsSync(path5.join(cwd2, "playwright.config.js"));
+  const hasConfig = fs6.existsSync(path7.join(cwd2, "playwright.config.ts")) || fs6.existsSync(path7.join(cwd2, "playwright.config.js"));
   if (!hasConfig) {
     return testFiles;
   }
@@ -21447,7 +21748,7 @@ async function discoverTestsWithGlob(cwd2) {
       for (const file of files) {
         if (testFiles.some((t) => t.path === file))
           continue;
-        const relativePath = path5.relative(cwd2, file);
+        const relativePath = path7.relative(cwd2, file);
         const tests = await parseTestFile(file);
         if (tests.length > 0) {
           testFiles.push({ path: file, relativePath, tests });
@@ -21461,7 +21762,7 @@ async function discoverTestsWithGlob(cwd2) {
 async function parseTestFile(filePath) {
   const tests = [];
   try {
-    const content = await fs4.promises.readFile(filePath, "utf-8");
+    const content = await fs6.promises.readFile(filePath, "utf-8");
     const lines = content.split("\n");
     let currentDescribe = "";
     for (let i = 0; i < lines.length; i++) {
@@ -21483,7 +21784,7 @@ async function parseTestFile(filePath) {
 }
 
 // packages/pw-test-writer/dist/mcp/captureRunner.js
-var __dirname2 = path6.dirname(fileURLToPath4(import.meta.url));
+var __dirname2 = path8.dirname(fileURLToPath4(import.meta.url));
 var MemoryTarget = class {
   actions = [];
   currentAction = null;
@@ -21511,7 +21812,7 @@ async function runTest(testLocation, cwd2, options) {
   const lastColon = testLocation.lastIndexOf(":");
   const file = lastColon > 0 ? testLocation.substring(0, lastColon) : testLocation;
   const lineNum = lastColon > 0 ? parseInt(testLocation.substring(lastColon + 1), 10) : NaN;
-  const relFile = path6.relative(cwd2, file);
+  const relFile = path8.relative(cwd2, file);
   let resolvedTitle;
   if (!isNaN(lineNum)) {
     try {
@@ -21560,8 +21861,8 @@ async function runProject(cwd2, options) {
   if (options?.repeatEach && options.repeatEach > 1)
     args.push("--repeat-each", String(options.repeatEach));
   args.push("--reporter=json");
-  const localBin = path6.join(cwd2, "node_modules", ".bin", "playwright");
-  const cmd = fs5.existsSync(localBin) ? localBin : "npx";
+  const localBin = path8.join(cwd2, "node_modules", ".bin", "playwright");
+  const cmd = fs7.existsSync(localBin) ? localBin : "npx";
   if (cmd === "npx")
     args.unshift("playwright");
   const stdout = await new Promise((resolve6, reject) => {
@@ -21662,7 +21963,7 @@ function parseJsonRunResults(jsonStr, cwd2) {
     const currentTitle = parentTitle && suite.title ? `${parentTitle} > ${suite.title}` : suite.title || parentTitle;
     for (const spec of suite.specs || []) {
       const specFile = spec.file || suite.file || "";
-      const relFile = specFile ? path6.relative(cwd2, path6.isAbsolute(specFile) ? specFile : path6.resolve(rootDir, specFile)) : "unknown";
+      const relFile = specFile ? path8.relative(cwd2, path8.isAbsolute(specFile) ? specFile : path8.resolve(rootDir, specFile)) : "unknown";
       const fullTitle = currentTitle && spec.title ? `${currentTitle} > ${spec.title}` : spec.title || currentTitle;
       for (const test of spec.tests || []) {
         if (test.status === "skipped")
@@ -21702,8 +22003,8 @@ function spawnTest(testLocation, cwd2, captureEndpoint, timeoutMs = 12e4, projec
     if (captureEndpoint) {
       env.PW_CAPTURE_ENDPOINT = captureEndpoint;
       env.PW_CAPTURE_SESSION = `test-${Date.now()}`;
-      const hookPath = path6.resolve(__dirname2, "..", "runner", "captureHook.cjs");
-      if (fs5.existsSync(hookPath)) {
+      const hookPath = path8.resolve(__dirname2, "..", "runner", "captureHook.cjs");
+      if (fs7.existsSync(hookPath)) {
         const existing = env.NODE_OPTIONS || "";
         env.NODE_OPTIONS = `${existing} --require "${hookPath}"`.trim();
       }
@@ -21716,8 +22017,8 @@ function spawnTest(testLocation, cwd2, captureEndpoint, timeoutMs = 12e4, projec
     if (repeatEach && repeatEach > 1)
       args.push("--repeat-each", String(repeatEach));
     args.push("--reporter=line");
-    const localBin = path6.join(cwd2, "node_modules", ".bin", "playwright");
-    const cmd = fs5.existsSync(localBin) ? localBin : "npx";
+    const localBin = path8.join(cwd2, "node_modules", ".bin", "playwright");
+    const cmd = fs7.existsSync(localBin) ? localBin : "npx";
     if (cmd === "npx")
       args.unshift("playwright");
     const child = spawn2(cmd, args, {
@@ -21818,13 +22119,13 @@ function collectScreenshots(cwd2, startTime) {
   const attachments = [];
   const seenPaths = /* @__PURE__ */ new Set();
   const walk = (dir, depth = 0) => {
-    if (depth > 4 || !fs5.existsSync(dir))
+    if (depth > 4 || !fs7.existsSync(dir))
       return;
     try {
-      for (const entry of fs5.readdirSync(dir, { withFileTypes: true })) {
+      for (const entry of fs7.readdirSync(dir, { withFileTypes: true })) {
         if (entry.name === "node_modules" || entry.name === ".git")
           continue;
-        const full = path6.join(dir, entry.name);
+        const full = path8.join(dir, entry.name);
         if (entry.isDirectory()) {
           walk(full, depth + 1);
           continue;
@@ -21834,7 +22135,7 @@ function collectScreenshots(cwd2, startTime) {
         if (seenPaths.has(full))
           continue;
         try {
-          const stat = fs5.statSync(full);
+          const stat = fs7.statSync(full);
           if (stat.mtimeMs >= startTime) {
             seenPaths.add(full);
             attachments.push({ name: entry.name, path: full, contentType: "image/png" });
@@ -21855,12 +22156,12 @@ function collectActionScreenshots(actions, cwd2, attachments) {
     const filePath = action.params?.path;
     if (!filePath || typeof filePath !== "string")
       continue;
-    const resolved = path6.isAbsolute(filePath) ? filePath : path6.resolve(cwd2, filePath);
-    if (!fs5.existsSync(resolved))
+    const resolved = path8.isAbsolute(filePath) ? filePath : path8.resolve(cwd2, filePath);
+    if (!fs7.existsSync(resolved))
       continue;
     if (attachments.some((a) => a.path === resolved))
       continue;
-    attachments.push({ name: path6.basename(resolved), path: resolved, contentType: "image/png" });
+    attachments.push({ name: path8.basename(resolved), path: resolved, contentType: "image/png" });
   }
 }
 
@@ -22958,7 +23259,15 @@ Combine both: use \`repeatEach: 40\` to confirm flakiness, then \`retries: 2\` t
 
 ## Coverage Analysis
 
-- **e2e_suggest_tests** \u2014 Scans page objects, spec files, and stored flows to identify coverage gaps: untested page object methods, missing flow variants (e.g. "checkout" exists but "checkout--continue-draft" doesn't), and flow steps that no spec exercises.`
+- **e2e_suggest_tests** \u2014 Scans page objects, spec files, and stored flows to identify coverage gaps: untested page object methods, missing flow variants (e.g. "checkout" exists but "checkout--continue-draft" doesn't), and flow steps that no spec exercises.
+
+## Suite Triage & Health Tracking
+
+- **e2e_get_triage_config** \u2014 Read triage settings from \`.e2e-triage.json\` (Jira config, flaky threshold, project filter). All fields have defaults if the file is missing.
+- **e2e_get_stats** \u2014 Suite health dashboard: pass rate trend, flaky tests ranked by score, failure category breakdown, new failures since last run, duration trend. Reads local history only \u2014 no test execution.
+- **e2e_save_triage_run** \u2014 Save a categorized triage run record to \`.pw-test-writer/runs.json\`. Called after classifying failures to build trend data over time.
+
+Use the \`triage-e2e\` skill for the full workflow: run all tests \u2192 classify failures (known issue, app bug, test update, flaky, new) \u2192 cross-reference Jira \u2192 generate management-ready report.`
   });
   const sendProgress = (message) => {
     try {
