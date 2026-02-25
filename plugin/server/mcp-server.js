@@ -20195,16 +20195,18 @@ ${truncate(failingAction.snapshot.after, 5e3)}
     parts.push("");
   }
   const markdown = parts.join("\n");
-  ctx.sendProgress?.("Reading screenshots...");
+  ctx.sendProgress?.("Collecting screenshot paths...");
   const content = [{ type: "text", text: markdown }];
   const screenshots = test.attachments.filter((a) => a.contentType.startsWith("image/"));
-  for (const screenshot of screenshots) {
-    try {
-      const data = fs3.readFileSync(screenshot.path);
-      content.push({ type: "text", text: `
-**Screenshot:** ${screenshot.name}` }, { type: "image", data: data.toString("base64"), mimeType: screenshot.contentType });
-    } catch {
-    }
+  if (screenshots.length > 0) {
+    const screenshotList = screenshots.map((s) => `- **${s.name}**: \`${s.path}\``).join("\n");
+    content.push({
+      type: "text",
+      text: `
+## Screenshots (${screenshots.length})
+${screenshotList}
+_Use e2e_get_screenshot to view._`
+    });
   }
   if (outputFile) {
     const dir = path4.join(ctx.cwd, "test-reports");
@@ -22415,7 +22417,7 @@ var browserToolDefs = [
   },
   {
     name: "browser_snapshot",
-    description: "Capture an ARIA accessibility snapshot of the current page. Returns the page structure with [ref=X] markers that can be used with other browser tools to interact with elements.",
+    description: "Capture the full ARIA accessibility snapshot of the current page. Returns the complete page structure with [ref=X] markers. Use this when you need to see all elements on the page \u2014 action tools (click, type, etc.) only return a compact diff of what changed.",
     inputSchema: {
       type: "object",
       properties: {}
@@ -22723,7 +22725,7 @@ function buildSnapshotResult(resultText, snapshot) {
   lines.push(`### Result`);
   lines.push(resultText);
   lines.push("");
-  appendPageState(lines, snapshot);
+  appendPageState(lines, snapshot, true);
   return text2(lines.join("\n"));
 }
 function buildActionResult(resultText, capture, snapshot) {
@@ -22732,10 +22734,10 @@ function buildActionResult(resultText, capture, snapshot) {
   lines.push(resultText);
   lines.push("");
   lines.push(...renderActionCapture(capture));
-  appendPageState(lines, snapshot);
+  appendPageState(lines, snapshot, false);
   return text2(lines.join("\n"));
 }
-function appendPageState(lines, snapshot) {
+function appendPageState(lines, snapshot, includeFullSnapshot) {
   lines.push("### Page state");
   lines.push(`- URL: ${snapshot.url}`);
   lines.push(`- Title: ${snapshot.title}`);
@@ -22746,10 +22748,12 @@ function appendPageState(lines, snapshot) {
       lines.push(`- [${state.description}]: can be handled by the "${state.clearedBy}" tool`);
     lines.push("");
   }
-  if (snapshot.ariaSnapshot) {
+  if (includeFullSnapshot && snapshot.ariaSnapshot) {
     lines.push("```yaml");
     lines.push(snapshot.ariaSnapshot);
     lines.push("```");
+  } else if (!includeFullSnapshot) {
+    lines.push("_Use browser_snapshot to see the full page ARIA tree._");
   }
 }
 
