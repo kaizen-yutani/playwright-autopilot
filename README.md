@@ -14,10 +14,11 @@ https://github.com/user-attachments/assets/26f734a5-d05e-41c9-bc3f-2b58561c2ce0
 /plugin install kaizen-yutani/playwright-autopilot
 ```
 
-Then ask Claude to fix a failing test:
+Then ask Claude to fix a failing test or triage your whole suite:
 
 ```
 /playwright-autopilot:fix-e2e tests/checkout.spec.ts
+/playwright-autopilot:triage-e2e e2e
 ```
 
 Or just describe what you need — Claude will use the MCP tools automatically:
@@ -45,7 +46,7 @@ A lightweight CJS hook (`captureHook.cjs`) is injected via `NODE_OPTIONS --requi
 
 ### 2. MCP Tools
 
-The plugin exposes 32 tools via the [Model Context Protocol](https://modelcontextprotocol.io/) that Claude calls on-demand. This is token-efficient by design — instead of dumping entire traces into context, Claude pulls only what it needs:
+The plugin exposes 37 tools via the [Model Context Protocol](https://modelcontextprotocol.io/) that Claude calls on-demand. This is token-efficient by design — instead of dumping entire traces into context, Claude pulls only what it needs:
 
 **Test Execution & Debugging:**
 
@@ -72,6 +73,10 @@ The plugin exposes 32 tools via the [Model Context Protocol](https://modelcontex
 | `e2e_save_app_flow` | Save a verified user journey |
 | `e2e_get_context` | Flows + page object index in one call |
 | `e2e_discover_flows` | Auto-scan specs for draft flow map |
+| `e2e_build_flows` | Auto-run uncovered tests and save their flows |
+| `e2e_get_stats` | Suite health dashboard: pass rate trends, flaky scores, category breakdowns |
+| `e2e_save_triage_run` | Save a categorized triage run for trend tracking |
+| `e2e_get_triage_config` | Read triage settings (Jira config, flaky threshold) |
 
 **Interactive Browser Exploration:**
 
@@ -87,6 +92,7 @@ The plugin exposes 32 tools via the [Model Context Protocol](https://modelcontex
 | `browser_press_key` | Press a key (Enter, Escape, Tab, etc.) |
 | `browser_hover` | Hover over an element |
 | `browser_take_screenshot` | Capture a PNG screenshot |
+| `browser_set_headers` | Set custom HTTP headers (same-origin only for CORS safety) |
 | `browser_close` | Close the browser |
 
 The `browser_*` tools launch a real Chrome instance and let Claude explore your application interactively — navigate pages, click elements, fill forms, and observe page state through ARIA snapshots. Each interaction returns timing, network requests, DOM changes, and an updated snapshot. Use this to understand an app before writing tests, debug UI issues visually, or verify fixes.
@@ -130,7 +136,19 @@ Batch runs (no `location`) automatically generate a self-contained HTML report w
 
 Reports are written to `test-reports/report-<runId>.html`. You can also call `e2e_generate_report` manually for any run.
 
-### 7. Coverage Analysis
+### 7. Suite Triage & Health Tracking
+
+Run your entire suite, classify every failure, and produce a management-ready report:
+
+```
+/playwright-autopilot:triage-e2e e2e
+```
+
+Claude classifies each failure as **Known Issue**, **App Bug**, **Test Update**, **Flaky**, or **New Failure** — cross-references Jira for existing tickets, creates new tickets for app bugs with evidence bundles, and saves the triage run for trend tracking.
+
+`e2e_get_stats` provides a suite health dashboard — pass rate trends, flaky tests ranked by score, failure category breakdowns, and new failures — all from local history without running tests.
+
+### 9. Coverage Analysis
 
 `e2e_suggest_tests` scans your entire project to find coverage gaps:
 
@@ -138,7 +156,7 @@ Reports are written to `test-reports/report-<runId>.html`. You can also call `e2
 2. **Missing flow variants** — flows with pre-conditions (e.g. "no draft exists") that lack a continuation variant
 3. **Uncovered flow steps** — actions listed in confirmed flows that no spec exercises
 
-### 8. Architecture Awareness
+### 10. Architecture Awareness
 
 Before writing any fix, the plugin scans your project for page objects, service layers, and test fixtures. It follows your existing patterns:
 
@@ -186,7 +204,7 @@ If your Playwright project lives in a different directory than where Claude Code
 
 - [Claude Code](https://docs.anthropic.com/en/docs/claude-code) CLI
 - [Playwright](https://playwright.dev/) test project
-- Node.js 18+
+- Node.js 20+
 
 ## License
 

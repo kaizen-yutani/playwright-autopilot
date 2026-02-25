@@ -2,7 +2,7 @@
 
 **Give Claude Code x-ray vision into your Playwright tests.**
 
-Playwright Autopilot captures every action, DOM snapshot, screenshot, network request, and console message from your test runs — then exposes it all through 18 MCP tools so Claude can debug failures like a senior QA engineer.
+Playwright Autopilot captures every action, DOM snapshot, screenshot, network request, and console message from your test runs — then exposes it all through 37 MCP tools so Claude can debug failures like a senior QA engineer.
 
 > **Stop pasting error logs.** Just say `/fix-e2e tests/checkout.spec.ts` and watch Claude investigate, diagnose, and fix the failure — all inside your terminal.
 
@@ -65,6 +65,28 @@ Store confirmed user journeys (like "checkout flow" or "user registration") in `
 
 No stored flows yet? `e2e_discover_flows` statically analyzes your spec files and extracts the method call sequences per test — giving Claude a flow map without running anything.
 
+### Interactive Browser Exploration
+
+Launch a real Chrome instance and let Claude explore your application interactively — navigate pages, click elements, fill forms, and observe page state through ARIA snapshots. Each interaction returns timing, network requests, DOM changes, and an updated snapshot. Use this to understand an app before writing tests, debug UI issues visually, or verify fixes.
+
+### Evidence Bundles & Reports
+
+`e2e_get_evidence_bundle` packages **all** failure evidence into a single response — error, steps to reproduce, action timeline, failed network requests with bodies, console errors, DOM snapshot, and screenshots. Pass `outputFile: true` to write a markdown file for Jira attachments.
+
+`e2e_generate_report` produces a self-contained HTML report with pass/fail summary, collapsible per-test sections, action timelines, DOM snapshots, and inline base64 screenshots.
+
+### Flaky Detection
+
+Two complementary modes: `retries: N` runs N+1 separate Playwright processes with full action capture per run (verdict: FLAKY / CONSISTENT PASS / CONSISTENT FAIL), while `repeatEach: N` uses native Playwright `--repeat-each` for fast stress-testing (use 30-100).
+
+### Coverage Analysis
+
+`e2e_suggest_tests` scans your page objects, spec files, and stored flows to find untested methods, missing flow variants, and uncovered flow steps.
+
+### Suite Health Tracking
+
+`e2e_get_stats` provides a suite health dashboard — pass rate trends, flaky tests ranked by score, failure category breakdowns, new failures, and duration trends — all from local history without running tests.
+
 ---
 
 ## Tools Reference
@@ -73,12 +95,14 @@ No stored flows yet? `e2e_discover_flows` statically analyzes your spec files an
 | Tool | What It Does |
 |---|---|
 | `e2e_list_tests` | Discover all tests with file paths and line numbers |
+| `e2e_list_projects` | List Playwright projects from config |
 | `e2e_run_test` | Run a test with full action capture, returns a `runId` |
 
 ### Failure Investigation
 | Tool | What It Does |
 |---|---|
 | `e2e_get_failure_report` | One-call failure overview: error, timeline, DOM, network, console |
+| `e2e_get_evidence_bundle` | All failure evidence in one call — ready for Jira |
 | `e2e_get_screenshot` | Failure screenshot as inline image |
 | `e2e_get_actions` | Step-by-step action timeline with pass/fail status |
 | `e2e_get_action_detail` | Deep dive into one action: params, timing, error, DOM diff |
@@ -97,6 +121,32 @@ No stored flows yet? `e2e_discover_flows` statically analyzes your spec files an
 | `e2e_get_app_flows` | Read stored application flows |
 | `e2e_save_app_flow` | Save a confirmed user journey |
 | `e2e_discover_flows` | Infer test flows from static analysis of spec files |
+| `e2e_build_flows` | Auto-run uncovered tests and save their flows |
+
+### Reporting & Triage
+| Tool | What It Does |
+|---|---|
+| `e2e_generate_report` | Self-contained HTML or JSON report |
+| `e2e_suggest_tests` | Test coverage gap analysis |
+| `e2e_get_stats` | Suite health dashboard: pass rate trends, flaky scores, category breakdowns |
+| `e2e_save_triage_run` | Save a categorized triage run for trend tracking |
+| `e2e_get_triage_config` | Read triage settings (Jira config, flaky threshold) |
+
+### Interactive Browser
+| Tool | What It Does |
+|---|---|
+| `browser_navigate` | Open a URL (launches browser automatically) |
+| `browser_navigate_back` | Go back in browser history |
+| `browser_snapshot` | Capture ARIA accessibility tree with `[ref=X]` markers |
+| `browser_click` | Click an element by ref |
+| `browser_type` | Type into an input field, optionally submit |
+| `browser_fill_form` | Fill multiple form fields in one call |
+| `browser_select_option` | Select a dropdown option |
+| `browser_press_key` | Press a key (Enter, Escape, Tab, etc.) |
+| `browser_hover` | Hover over an element |
+| `browser_take_screenshot` | Capture a PNG screenshot |
+| `browser_set_headers` | Set custom HTTP headers (same-origin only for CORS safety) |
+| `browser_close` | Close the browser |
 
 ---
 
@@ -112,12 +162,14 @@ LLM context is expensive. Every tool is designed to minimize token usage:
 
 ---
 
-## The `/fix-e2e` Skill
+## Skills
 
-A built-in Claude Code slash command that walks through a structured investigation workflow:
+### `/fix-e2e` — Investigate and Fix Failing Tests
+
+A structured investigation workflow that walks Claude through diagnosing and fixing a test failure:
 
 ```
-/fix-e2e tests/checkout.spec.ts:42
+/playwright-autopilot:fix-e2e tests/checkout.spec.ts:42
 ```
 
 Claude will:
@@ -129,7 +181,27 @@ Claude will:
 6. Apply a minimal fix using your existing page objects
 7. Re-run to verify the fix works
 
+If Claude determines it's an **application bug** (not a test issue), it produces a Jira-ready bug report with evidence instead of modifying the test.
+
 No `page.evaluate()` hacks. No `page.route()` workarounds. Just real UI interactions, the way a QA engineer would fix it.
+
+### `/triage-e2e` — Full Suite Triage and Health Report
+
+Run your entire test suite, classify every failure, and produce a management-ready report:
+
+```
+/playwright-autopilot:triage-e2e e2e
+```
+
+Claude will:
+1. Run all tests (optionally filtered by project)
+2. Classify each failure: **Known Issue**, **App Bug**, **Test Update**, **Flaky**, or **New Failure**
+3. Cross-reference Jira for existing tickets (if Atlassian tools are available)
+4. Create Jira tickets for new app bugs with evidence bundles
+5. Save the triage run for trend tracking
+6. Generate a scannable summary with category breakdown and suggested next steps
+
+The triage history feeds into `e2e_get_stats`, so you can track pass rate trends, flaky test scores, and failure patterns over time.
 
 ---
 
@@ -154,7 +226,8 @@ Works with **any Playwright project** — no fork required, no config changes, n
 ### As a Claude Code Plugin
 
 ```bash
-claude plugins add playwright-autopilot
+/plugin marketplace add kaizen-yutani/playwright-autopilot
+/plugin install playwright-autopilot@kaizen-yutani
 ```
 
 ### Manual Installation
@@ -162,7 +235,7 @@ claude plugins add playwright-autopilot
 Clone the repository and build:
 
 ```bash
-git clone https://github.com/nicklaros/playwright-autopilot.git
+git clone https://github.com/kaizen-yutani/playwright-autopilot.git
 cd playwright-autopilot/plugin
 ./build.sh
 ```
