@@ -33,9 +33,9 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
   mod
 ));
 
-// node_modules/uri-js/dist/es5/uri.all.js
+// ../../node_modules/uri-js/dist/es5/uri.all.js
 var require_uri_all = __commonJS({
-  "node_modules/uri-js/dist/es5/uri.all.js"(exports, module) {
+  "../../node_modules/uri-js/dist/es5/uri.all.js"(exports, module) {
     (function(global, factory) {
       typeof exports === "object" && typeof module !== "undefined" ? factory(exports) : typeof define === "function" && define.amd ? define(["exports"], factory) : factory(global.URI = global.URI || {});
     })(exports, (function(exports2) {
@@ -855,8 +855,8 @@ var require_uri_all = __commonJS({
             wsComponents.secure = void 0;
           }
           if (wsComponents.resourceName) {
-            var _wsComponents$resourc = wsComponents.resourceName.split("?"), _wsComponents$resourc2 = slicedToArray(_wsComponents$resourc, 2), path12 = _wsComponents$resourc2[0], query = _wsComponents$resourc2[1];
-            wsComponents.path = path12 && path12 !== "/" ? path12 : void 0;
+            var _wsComponents$resourc = wsComponents.resourceName.split("?"), _wsComponents$resourc2 = slicedToArray(_wsComponents$resourc, 2), path13 = _wsComponents$resourc2[0], query = _wsComponents$resourc2[1];
+            wsComponents.path = path13 && path13 !== "/" ? path13 : void 0;
             wsComponents.query = query;
             wsComponents.resourceName = void 0;
           }
@@ -1050,9 +1050,9 @@ var require_uri_all = __commonJS({
   }
 });
 
-// node_modules/fast-deep-equal/index.js
+// ../../node_modules/fast-deep-equal/index.js
 var require_fast_deep_equal = __commonJS({
-  "node_modules/fast-deep-equal/index.js"(exports, module) {
+  "../../node_modules/fast-deep-equal/index.js"(exports, module) {
     "use strict";
     module.exports = function equal(a, b) {
       if (a === b) return true;
@@ -1085,9 +1085,9 @@ var require_fast_deep_equal = __commonJS({
   }
 });
 
-// node_modules/ajv/lib/compile/ucs2length.js
+// ../../node_modules/ajv/lib/compile/ucs2length.js
 var require_ucs2length = __commonJS({
-  "node_modules/ajv/lib/compile/ucs2length.js"(exports, module) {
+  "../../node_modules/ajv/lib/compile/ucs2length.js"(exports, module) {
     "use strict";
     module.exports = function ucs2length(str) {
       var length = 0, len = str.length, pos = 0, value;
@@ -1104,9 +1104,9 @@ var require_ucs2length = __commonJS({
   }
 });
 
-// node_modules/ajv/lib/compile/util.js
+// ../../node_modules/ajv/lib/compile/util.js
 var require_util = __commonJS({
-  "node_modules/ajv/lib/compile/util.js"(exports, module) {
+  "../../node_modules/ajv/lib/compile/util.js"(exports, module) {
     "use strict";
     module.exports = {
       copy,
@@ -1229,12 +1229,12 @@ var require_util = __commonJS({
       return "'" + escapeQuotes(str) + "'";
     }
     function getPathExpr(currentPath, expr, jsonPointers, isNumber) {
-      var path12 = jsonPointers ? "'/' + " + expr + (isNumber ? "" : ".replace(/~/g, '~0').replace(/\\//g, '~1')") : isNumber ? "'[' + " + expr + " + ']'" : "'[\\'' + " + expr + " + '\\']'";
-      return joinPaths(currentPath, path12);
+      var path13 = jsonPointers ? "'/' + " + expr + (isNumber ? "" : ".replace(/~/g, '~0').replace(/\\//g, '~1')") : isNumber ? "'[' + " + expr + " + ']'" : "'[\\'' + " + expr + " + '\\']'";
+      return joinPaths(currentPath, path13);
     }
     function getPath(currentPath, prop, jsonPointers) {
-      var path12 = jsonPointers ? toQuotedString("/" + escapeJsonPointer(prop)) : toQuotedString(getProperty(prop));
-      return joinPaths(currentPath, path12);
+      var path13 = jsonPointers ? toQuotedString("/" + escapeJsonPointer(prop)) : toQuotedString(getProperty(prop));
+      return joinPaths(currentPath, path13);
     }
     var JSON_POINTER = /^\/(?:[^~]|~0|~1)*$/;
     var RELATIVE_JSON_POINTER = /^([0-9]+)(#|\/(?:[^~]|~0|~1)*)?$/;
@@ -1288,9 +1288,9 @@ var require_util = __commonJS({
   }
 });
 
-// node_modules/ajv/lib/compile/schema_obj.js
+// ../../node_modules/ajv/lib/compile/schema_obj.js
 var require_schema_obj = __commonJS({
-  "node_modules/ajv/lib/compile/schema_obj.js"(exports, module) {
+  "../../node_modules/ajv/lib/compile/schema_obj.js"(exports, module) {
     "use strict";
     var util2 = require_util();
     module.exports = SchemaObject;
@@ -1300,9 +1300,9 @@ var require_schema_obj = __commonJS({
   }
 });
 
-// node_modules/json-schema-traverse/index.js
+// ../../node_modules/json-schema-traverse/index.js
 var require_json_schema_traverse = __commonJS({
-  "node_modules/json-schema-traverse/index.js"(exports, module) {
+  "../../node_modules/json-schema-traverse/index.js"(exports, module) {
     "use strict";
     var traverse = module.exports = function(schema, opts, cb) {
       if (typeof opts == "function") {
@@ -1384,9 +1384,9 @@ var require_json_schema_traverse = __commonJS({
   }
 });
 
-// node_modules/ajv/lib/compile/resolve.js
+// ../../node_modules/ajv/lib/compile/resolve.js
 var require_resolve = __commonJS({
-  "node_modules/ajv/lib/compile/resolve.js"(exports, module) {
+  "../../node_modules/ajv/lib/compile/resolve.js"(exports, module) {
     "use strict";
     var URI = require_uri_all();
     var equal = require_fast_deep_equal();
@@ -1605,9 +1605,9 @@ var require_resolve = __commonJS({
   }
 });
 
-// node_modules/ajv/lib/compile/error_classes.js
+// ../../node_modules/ajv/lib/compile/error_classes.js
 var require_error_classes = __commonJS({
-  "node_modules/ajv/lib/compile/error_classes.js"(exports, module) {
+  "../../node_modules/ajv/lib/compile/error_classes.js"(exports, module) {
     "use strict";
     var resolve7 = require_resolve();
     module.exports = {
@@ -1635,9 +1635,9 @@ var require_error_classes = __commonJS({
   }
 });
 
-// node_modules/fast-json-stable-stringify/index.js
+// ../../node_modules/fast-json-stable-stringify/index.js
 var require_fast_json_stable_stringify = __commonJS({
-  "node_modules/fast-json-stable-stringify/index.js"(exports, module) {
+  "../../node_modules/fast-json-stable-stringify/index.js"(exports, module) {
     "use strict";
     module.exports = function(data, opts) {
       if (!opts) opts = {};
@@ -1691,9 +1691,9 @@ var require_fast_json_stable_stringify = __commonJS({
   }
 });
 
-// node_modules/ajv/lib/dotjs/validate.js
+// ../../node_modules/ajv/lib/dotjs/validate.js
 var require_validate = __commonJS({
-  "node_modules/ajv/lib/dotjs/validate.js"(exports, module) {
+  "../../node_modules/ajv/lib/dotjs/validate.js"(exports, module) {
     "use strict";
     module.exports = function generate_validate(it, $keyword, $ruleType) {
       var out = "";
@@ -2149,9 +2149,9 @@ var require_validate = __commonJS({
   }
 });
 
-// node_modules/ajv/lib/compile/index.js
+// ../../node_modules/ajv/lib/compile/index.js
 var require_compile = __commonJS({
-  "node_modules/ajv/lib/compile/index.js"(exports, module) {
+  "../../node_modules/ajv/lib/compile/index.js"(exports, module) {
     "use strict";
     var resolve7 = require_resolve();
     var util2 = require_util();
@@ -2428,9 +2428,9 @@ var require_compile = __commonJS({
   }
 });
 
-// node_modules/ajv/lib/cache.js
+// ../../node_modules/ajv/lib/cache.js
 var require_cache = __commonJS({
-  "node_modules/ajv/lib/cache.js"(exports, module) {
+  "../../node_modules/ajv/lib/cache.js"(exports, module) {
     "use strict";
     var Cache = module.exports = function Cache2() {
       this._cache = {};
@@ -2450,9 +2450,9 @@ var require_cache = __commonJS({
   }
 });
 
-// node_modules/ajv/lib/compile/formats.js
+// ../../node_modules/ajv/lib/compile/formats.js
 var require_formats = __commonJS({
-  "node_modules/ajv/lib/compile/formats.js"(exports, module) {
+  "../../node_modules/ajv/lib/compile/formats.js"(exports, module) {
     "use strict";
     var util2 = require_util();
     var DATE = /^(\d\d\d\d)-(\d\d)-(\d\d)$/;
@@ -2562,9 +2562,9 @@ var require_formats = __commonJS({
   }
 });
 
-// node_modules/ajv/lib/dotjs/ref.js
+// ../../node_modules/ajv/lib/dotjs/ref.js
 var require_ref = __commonJS({
-  "node_modules/ajv/lib/dotjs/ref.js"(exports, module) {
+  "../../node_modules/ajv/lib/dotjs/ref.js"(exports, module) {
     "use strict";
     module.exports = function generate_ref(it, $keyword, $ruleType) {
       var out = " ";
@@ -2690,9 +2690,9 @@ var require_ref = __commonJS({
   }
 });
 
-// node_modules/ajv/lib/dotjs/allOf.js
+// ../../node_modules/ajv/lib/dotjs/allOf.js
 var require_allOf = __commonJS({
-  "node_modules/ajv/lib/dotjs/allOf.js"(exports, module) {
+  "../../node_modules/ajv/lib/dotjs/allOf.js"(exports, module) {
     "use strict";
     module.exports = function generate_allOf(it, $keyword, $ruleType) {
       var out = " ";
@@ -2736,9 +2736,9 @@ var require_allOf = __commonJS({
   }
 });
 
-// node_modules/ajv/lib/dotjs/anyOf.js
+// ../../node_modules/ajv/lib/dotjs/anyOf.js
 var require_anyOf = __commonJS({
-  "node_modules/ajv/lib/dotjs/anyOf.js"(exports, module) {
+  "../../node_modules/ajv/lib/dotjs/anyOf.js"(exports, module) {
     "use strict";
     module.exports = function generate_anyOf(it, $keyword, $ruleType) {
       var out = " ";
@@ -2813,9 +2813,9 @@ var require_anyOf = __commonJS({
   }
 });
 
-// node_modules/ajv/lib/dotjs/comment.js
+// ../../node_modules/ajv/lib/dotjs/comment.js
 var require_comment = __commonJS({
-  "node_modules/ajv/lib/dotjs/comment.js"(exports, module) {
+  "../../node_modules/ajv/lib/dotjs/comment.js"(exports, module) {
     "use strict";
     module.exports = function generate_comment(it, $keyword, $ruleType) {
       var out = " ";
@@ -2833,9 +2833,9 @@ var require_comment = __commonJS({
   }
 });
 
-// node_modules/ajv/lib/dotjs/const.js
+// ../../node_modules/ajv/lib/dotjs/const.js
 var require_const = __commonJS({
-  "node_modules/ajv/lib/dotjs/const.js"(exports, module) {
+  "../../node_modules/ajv/lib/dotjs/const.js"(exports, module) {
     "use strict";
     module.exports = function generate_const(it, $keyword, $ruleType) {
       var out = " ";
@@ -2893,9 +2893,9 @@ var require_const = __commonJS({
   }
 });
 
-// node_modules/ajv/lib/dotjs/contains.js
+// ../../node_modules/ajv/lib/dotjs/contains.js
 var require_contains = __commonJS({
-  "node_modules/ajv/lib/dotjs/contains.js"(exports, module) {
+  "../../node_modules/ajv/lib/dotjs/contains.js"(exports, module) {
     "use strict";
     module.exports = function generate_contains(it, $keyword, $ruleType) {
       var out = " ";
@@ -2975,9 +2975,9 @@ var require_contains = __commonJS({
   }
 });
 
-// node_modules/ajv/lib/dotjs/dependencies.js
+// ../../node_modules/ajv/lib/dotjs/dependencies.js
 var require_dependencies = __commonJS({
-  "node_modules/ajv/lib/dotjs/dependencies.js"(exports, module) {
+  "../../node_modules/ajv/lib/dotjs/dependencies.js"(exports, module) {
     "use strict";
     module.exports = function generate_dependencies(it, $keyword, $ruleType) {
       var out = " ";
@@ -3140,9 +3140,9 @@ var require_dependencies = __commonJS({
   }
 });
 
-// node_modules/ajv/lib/dotjs/enum.js
+// ../../node_modules/ajv/lib/dotjs/enum.js
 var require_enum = __commonJS({
-  "node_modules/ajv/lib/dotjs/enum.js"(exports, module) {
+  "../../node_modules/ajv/lib/dotjs/enum.js"(exports, module) {
     "use strict";
     module.exports = function generate_enum(it, $keyword, $ruleType) {
       var out = " ";
@@ -3209,9 +3209,9 @@ var require_enum = __commonJS({
   }
 });
 
-// node_modules/ajv/lib/dotjs/format.js
+// ../../node_modules/ajv/lib/dotjs/format.js
 var require_format = __commonJS({
-  "node_modules/ajv/lib/dotjs/format.js"(exports, module) {
+  "../../node_modules/ajv/lib/dotjs/format.js"(exports, module) {
     "use strict";
     module.exports = function generate_format(it, $keyword, $ruleType) {
       var out = " ";
@@ -3360,9 +3360,9 @@ var require_format = __commonJS({
   }
 });
 
-// node_modules/ajv/lib/dotjs/if.js
+// ../../node_modules/ajv/lib/dotjs/if.js
 var require_if = __commonJS({
-  "node_modules/ajv/lib/dotjs/if.js"(exports, module) {
+  "../../node_modules/ajv/lib/dotjs/if.js"(exports, module) {
     "use strict";
     module.exports = function generate_if(it, $keyword, $ruleType) {
       var out = " ";
@@ -3464,9 +3464,9 @@ var require_if = __commonJS({
   }
 });
 
-// node_modules/ajv/lib/dotjs/items.js
+// ../../node_modules/ajv/lib/dotjs/items.js
 var require_items = __commonJS({
-  "node_modules/ajv/lib/dotjs/items.js"(exports, module) {
+  "../../node_modules/ajv/lib/dotjs/items.js"(exports, module) {
     "use strict";
     module.exports = function generate_items(it, $keyword, $ruleType) {
       var out = " ";
@@ -3605,9 +3605,9 @@ var require_items = __commonJS({
   }
 });
 
-// node_modules/ajv/lib/dotjs/_limit.js
+// ../../node_modules/ajv/lib/dotjs/_limit.js
 var require_limit = __commonJS({
-  "node_modules/ajv/lib/dotjs/_limit.js"(exports, module) {
+  "../../node_modules/ajv/lib/dotjs/_limit.js"(exports, module) {
     "use strict";
     module.exports = function generate__limit(it, $keyword, $ruleType) {
       var out = " ";
@@ -3759,9 +3759,9 @@ var require_limit = __commonJS({
   }
 });
 
-// node_modules/ajv/lib/dotjs/_limitItems.js
+// ../../node_modules/ajv/lib/dotjs/_limitItems.js
 var require_limitItems = __commonJS({
-  "node_modules/ajv/lib/dotjs/_limitItems.js"(exports, module) {
+  "../../node_modules/ajv/lib/dotjs/_limitItems.js"(exports, module) {
     "use strict";
     module.exports = function generate__limitItems(it, $keyword, $ruleType) {
       var out = " ";
@@ -3843,9 +3843,9 @@ var require_limitItems = __commonJS({
   }
 });
 
-// node_modules/ajv/lib/dotjs/_limitLength.js
+// ../../node_modules/ajv/lib/dotjs/_limitLength.js
 var require_limitLength = __commonJS({
-  "node_modules/ajv/lib/dotjs/_limitLength.js"(exports, module) {
+  "../../node_modules/ajv/lib/dotjs/_limitLength.js"(exports, module) {
     "use strict";
     module.exports = function generate__limitLength(it, $keyword, $ruleType) {
       var out = " ";
@@ -3932,9 +3932,9 @@ var require_limitLength = __commonJS({
   }
 });
 
-// node_modules/ajv/lib/dotjs/_limitProperties.js
+// ../../node_modules/ajv/lib/dotjs/_limitProperties.js
 var require_limitProperties = __commonJS({
-  "node_modules/ajv/lib/dotjs/_limitProperties.js"(exports, module) {
+  "../../node_modules/ajv/lib/dotjs/_limitProperties.js"(exports, module) {
     "use strict";
     module.exports = function generate__limitProperties(it, $keyword, $ruleType) {
       var out = " ";
@@ -4016,9 +4016,9 @@ var require_limitProperties = __commonJS({
   }
 });
 
-// node_modules/ajv/lib/dotjs/multipleOf.js
+// ../../node_modules/ajv/lib/dotjs/multipleOf.js
 var require_multipleOf = __commonJS({
-  "node_modules/ajv/lib/dotjs/multipleOf.js"(exports, module) {
+  "../../node_modules/ajv/lib/dotjs/multipleOf.js"(exports, module) {
     "use strict";
     module.exports = function generate_multipleOf(it, $keyword, $ruleType) {
       var out = " ";
@@ -4100,9 +4100,9 @@ var require_multipleOf = __commonJS({
   }
 });
 
-// node_modules/ajv/lib/dotjs/not.js
+// ../../node_modules/ajv/lib/dotjs/not.js
 var require_not = __commonJS({
-  "node_modules/ajv/lib/dotjs/not.js"(exports, module) {
+  "../../node_modules/ajv/lib/dotjs/not.js"(exports, module) {
     "use strict";
     module.exports = function generate_not(it, $keyword, $ruleType) {
       var out = " ";
@@ -4189,9 +4189,9 @@ var require_not = __commonJS({
   }
 });
 
-// node_modules/ajv/lib/dotjs/oneOf.js
+// ../../node_modules/ajv/lib/dotjs/oneOf.js
 var require_oneOf = __commonJS({
-  "node_modules/ajv/lib/dotjs/oneOf.js"(exports, module) {
+  "../../node_modules/ajv/lib/dotjs/oneOf.js"(exports, module) {
     "use strict";
     module.exports = function generate_oneOf(it, $keyword, $ruleType) {
       var out = " ";
@@ -4264,9 +4264,9 @@ var require_oneOf = __commonJS({
   }
 });
 
-// node_modules/ajv/lib/dotjs/pattern.js
+// ../../node_modules/ajv/lib/dotjs/pattern.js
 var require_pattern = __commonJS({
-  "node_modules/ajv/lib/dotjs/pattern.js"(exports, module) {
+  "../../node_modules/ajv/lib/dotjs/pattern.js"(exports, module) {
     "use strict";
     module.exports = function generate_pattern(it, $keyword, $ruleType) {
       var out = " ";
@@ -4343,9 +4343,9 @@ var require_pattern = __commonJS({
   }
 });
 
-// node_modules/ajv/lib/dotjs/properties.js
+// ../../node_modules/ajv/lib/dotjs/properties.js
 var require_properties = __commonJS({
-  "node_modules/ajv/lib/dotjs/properties.js"(exports, module) {
+  "../../node_modules/ajv/lib/dotjs/properties.js"(exports, module) {
     "use strict";
     module.exports = function generate_properties(it, $keyword, $ruleType) {
       var out = " ";
@@ -4659,9 +4659,9 @@ var require_properties = __commonJS({
   }
 });
 
-// node_modules/ajv/lib/dotjs/propertyNames.js
+// ../../node_modules/ajv/lib/dotjs/propertyNames.js
 var require_propertyNames = __commonJS({
-  "node_modules/ajv/lib/dotjs/propertyNames.js"(exports, module) {
+  "../../node_modules/ajv/lib/dotjs/propertyNames.js"(exports, module) {
     "use strict";
     module.exports = function generate_propertyNames(it, $keyword, $ruleType) {
       var out = " ";
@@ -4737,9 +4737,9 @@ var require_propertyNames = __commonJS({
   }
 });
 
-// node_modules/ajv/lib/dotjs/required.js
+// ../../node_modules/ajv/lib/dotjs/required.js
 var require_required = __commonJS({
-  "node_modules/ajv/lib/dotjs/required.js"(exports, module) {
+  "../../node_modules/ajv/lib/dotjs/required.js"(exports, module) {
     "use strict";
     module.exports = function generate_required(it, $keyword, $ruleType) {
       var out = " ";
@@ -4997,9 +4997,9 @@ var require_required = __commonJS({
   }
 });
 
-// node_modules/ajv/lib/dotjs/uniqueItems.js
+// ../../node_modules/ajv/lib/dotjs/uniqueItems.js
 var require_uniqueItems = __commonJS({
-  "node_modules/ajv/lib/dotjs/uniqueItems.js"(exports, module) {
+  "../../node_modules/ajv/lib/dotjs/uniqueItems.js"(exports, module) {
     "use strict";
     module.exports = function generate_uniqueItems(it, $keyword, $ruleType) {
       var out = " ";
@@ -5086,9 +5086,9 @@ var require_uniqueItems = __commonJS({
   }
 });
 
-// node_modules/ajv/lib/dotjs/index.js
+// ../../node_modules/ajv/lib/dotjs/index.js
 var require_dotjs = __commonJS({
-  "node_modules/ajv/lib/dotjs/index.js"(exports, module) {
+  "../../node_modules/ajv/lib/dotjs/index.js"(exports, module) {
     "use strict";
     module.exports = {
       "$ref": require_ref(),
@@ -5123,9 +5123,9 @@ var require_dotjs = __commonJS({
   }
 });
 
-// node_modules/ajv/lib/compile/rules.js
+// ../../node_modules/ajv/lib/compile/rules.js
 var require_rules = __commonJS({
-  "node_modules/ajv/lib/compile/rules.js"(exports, module) {
+  "../../node_modules/ajv/lib/compile/rules.js"(exports, module) {
     "use strict";
     var ruleModules = require_dotjs();
     var toHash = require_util().toHash;
@@ -5217,9 +5217,9 @@ var require_rules = __commonJS({
   }
 });
 
-// node_modules/ajv/lib/data.js
+// ../../node_modules/ajv/lib/data.js
 var require_data = __commonJS({
-  "node_modules/ajv/lib/data.js"(exports, module) {
+  "../../node_modules/ajv/lib/data.js"(exports, module) {
     "use strict";
     var KEYWORDS = [
       "multipleOf",
@@ -5268,9 +5268,9 @@ var require_data = __commonJS({
   }
 });
 
-// node_modules/ajv/lib/compile/async.js
+// ../../node_modules/ajv/lib/compile/async.js
 var require_async = __commonJS({
-  "node_modules/ajv/lib/compile/async.js"(exports, module) {
+  "../../node_modules/ajv/lib/compile/async.js"(exports, module) {
     "use strict";
     var MissingRefError = require_error_classes().MissingRef;
     module.exports = compileAsync;
@@ -5335,9 +5335,9 @@ var require_async = __commonJS({
   }
 });
 
-// node_modules/ajv/lib/dotjs/custom.js
+// ../../node_modules/ajv/lib/dotjs/custom.js
 var require_custom = __commonJS({
-  "node_modules/ajv/lib/dotjs/custom.js"(exports, module) {
+  "../../node_modules/ajv/lib/dotjs/custom.js"(exports, module) {
     "use strict";
     module.exports = function generate_custom(it, $keyword, $ruleType) {
       var out = " ";
@@ -5559,9 +5559,9 @@ var require_custom = __commonJS({
   }
 });
 
-// node_modules/ajv/lib/refs/json-schema-draft-07.json
+// ../../node_modules/ajv/lib/refs/json-schema-draft-07.json
 var require_json_schema_draft_07 = __commonJS({
-  "node_modules/ajv/lib/refs/json-schema-draft-07.json"(exports, module) {
+  "../../node_modules/ajv/lib/refs/json-schema-draft-07.json"(exports, module) {
     module.exports = {
       $schema: "http://json-schema.org/draft-07/schema#",
       $id: "http://json-schema.org/draft-07/schema#",
@@ -5733,9 +5733,9 @@ var require_json_schema_draft_07 = __commonJS({
   }
 });
 
-// node_modules/ajv/lib/definition_schema.js
+// ../../node_modules/ajv/lib/definition_schema.js
 var require_definition_schema = __commonJS({
-  "node_modules/ajv/lib/definition_schema.js"(exports, module) {
+  "../../node_modules/ajv/lib/definition_schema.js"(exports, module) {
     "use strict";
     var metaSchema = require_json_schema_draft_07();
     module.exports = {
@@ -5774,9 +5774,9 @@ var require_definition_schema = __commonJS({
   }
 });
 
-// node_modules/ajv/lib/keyword.js
+// ../../node_modules/ajv/lib/keyword.js
 var require_keyword = __commonJS({
-  "node_modules/ajv/lib/keyword.js"(exports, module) {
+  "../../node_modules/ajv/lib/keyword.js"(exports, module) {
     "use strict";
     var IDENTIFIER = /^[a-z_$][a-z0-9_$-]*$/i;
     var customRuleCode = require_custom();
@@ -5874,9 +5874,9 @@ var require_keyword = __commonJS({
   }
 });
 
-// node_modules/ajv/lib/refs/data.json
+// ../../node_modules/ajv/lib/refs/data.json
 var require_data2 = __commonJS({
-  "node_modules/ajv/lib/refs/data.json"(exports, module) {
+  "../../node_modules/ajv/lib/refs/data.json"(exports, module) {
     module.exports = {
       $schema: "http://json-schema.org/draft-07/schema#",
       $id: "https://raw.githubusercontent.com/ajv-validator/ajv/master/lib/refs/data.json#",
@@ -5897,9 +5897,9 @@ var require_data2 = __commonJS({
   }
 });
 
-// node_modules/ajv/lib/ajv.js
+// ../../node_modules/ajv/lib/ajv.js
 var require_ajv = __commonJS({
-  "node_modules/ajv/lib/ajv.js"(exports, module) {
+  "../../node_modules/ajv/lib/ajv.js"(exports, module) {
     "use strict";
     var compileSchema = require_compile();
     var resolve7 = require_resolve();
@@ -6249,9 +6249,9 @@ var require_ajv = __commonJS({
   }
 });
 
-// node_modules/balanced-match/index.js
+// ../../node_modules/balanced-match/index.js
 var require_balanced_match = __commonJS({
-  "node_modules/balanced-match/index.js"(exports, module) {
+  "../../node_modules/balanced-match/index.js"(exports, module) {
     "use strict";
     module.exports = balanced;
     function balanced(a, b, str) {
@@ -6307,9 +6307,9 @@ var require_balanced_match = __commonJS({
   }
 });
 
-// packages/pw-test-writer/node_modules/brace-expansion/index.js
+// node_modules/brace-expansion/index.js
 var require_brace_expansion = __commonJS({
-  "packages/pw-test-writer/node_modules/brace-expansion/index.js"(exports, module) {
+  "node_modules/brace-expansion/index.js"(exports, module) {
     var balanced = require_balanced_match();
     module.exports = expandTop;
     var escSlash = "\0SLASH" + Math.random() + "\0";
@@ -6457,10 +6457,10 @@ var require_brace_expansion = __commonJS({
   }
 });
 
-// packages/pw-test-writer/node_modules/minimatch/dist/esm/assert-valid-pattern.js
+// node_modules/minimatch/dist/esm/assert-valid-pattern.js
 var MAX_PATTERN_LENGTH, assertValidPattern;
 var init_assert_valid_pattern = __esm({
-  "packages/pw-test-writer/node_modules/minimatch/dist/esm/assert-valid-pattern.js"() {
+  "node_modules/minimatch/dist/esm/assert-valid-pattern.js"() {
     MAX_PATTERN_LENGTH = 1024 * 64;
     assertValidPattern = (pattern) => {
       if (typeof pattern !== "string") {
@@ -6473,10 +6473,10 @@ var init_assert_valid_pattern = __esm({
   }
 });
 
-// packages/pw-test-writer/node_modules/minimatch/dist/esm/brace-expressions.js
+// node_modules/minimatch/dist/esm/brace-expressions.js
 var posixClasses, braceEscape, regexpEscape, rangesToString, parseClass;
 var init_brace_expressions = __esm({
-  "packages/pw-test-writer/node_modules/minimatch/dist/esm/brace-expressions.js"() {
+  "node_modules/minimatch/dist/esm/brace-expressions.js"() {
     posixClasses = {
       "[:alnum:]": ["\\p{L}\\p{Nl}\\p{Nd}", true],
       "[:alpha:]": ["\\p{L}\\p{Nl}", true],
@@ -6587,20 +6587,20 @@ var init_brace_expressions = __esm({
   }
 });
 
-// packages/pw-test-writer/node_modules/minimatch/dist/esm/unescape.js
+// node_modules/minimatch/dist/esm/unescape.js
 var unescape;
 var init_unescape = __esm({
-  "packages/pw-test-writer/node_modules/minimatch/dist/esm/unescape.js"() {
+  "node_modules/minimatch/dist/esm/unescape.js"() {
     unescape = (s, { windowsPathsNoEscape = false } = {}) => {
       return windowsPathsNoEscape ? s.replace(/\[([^\/\\])\]/g, "$1") : s.replace(/((?!\\).|^)\[([^\/\\])\]/g, "$1$2").replace(/\\([^\/])/g, "$1");
     };
   }
 });
 
-// packages/pw-test-writer/node_modules/minimatch/dist/esm/ast.js
+// node_modules/minimatch/dist/esm/ast.js
 var types, isExtglobType, startNoTraversal, startNoDot, addPatternStart, justDots, reSpecials, regExpEscape, qmark, star, starNoEmpty, AST;
 var init_ast = __esm({
-  "packages/pw-test-writer/node_modules/minimatch/dist/esm/ast.js"() {
+  "node_modules/minimatch/dist/esm/ast.js"() {
     init_brace_expressions();
     init_unescape();
     types = /* @__PURE__ */ new Set(["!", "?", "+", "*", "@"]);
@@ -7083,20 +7083,20 @@ var init_ast = __esm({
   }
 });
 
-// packages/pw-test-writer/node_modules/minimatch/dist/esm/escape.js
+// node_modules/minimatch/dist/esm/escape.js
 var escape;
 var init_escape = __esm({
-  "packages/pw-test-writer/node_modules/minimatch/dist/esm/escape.js"() {
+  "node_modules/minimatch/dist/esm/escape.js"() {
     escape = (s, { windowsPathsNoEscape = false } = {}) => {
       return windowsPathsNoEscape ? s.replace(/[?*()[\]]/g, "[$&]") : s.replace(/[?*()[\]\\]/g, "\\$&");
     };
   }
 });
 
-// packages/pw-test-writer/node_modules/minimatch/dist/esm/index.js
+// node_modules/minimatch/dist/esm/index.js
 var import_brace_expansion, minimatch, starDotExtRE, starDotExtTest, starDotExtTestDot, starDotExtTestNocase, starDotExtTestNocaseDot, starDotStarRE, starDotStarTest, starDotStarTestDot, dotStarRE, dotStarTest, starRE, starTest, starTestDot, qmarksRE, qmarksTestNocase, qmarksTestNocaseDot, qmarksTestDot, qmarksTest, qmarksTestNoExt, qmarksTestNoExtDot, defaultPlatform, path, sep, GLOBSTAR, qmark2, star2, twoStarDot, twoStarNoDot, filter, ext, defaults, braceExpand, makeRe, match, globMagic, regExpEscape2, Minimatch;
 var init_esm = __esm({
-  "packages/pw-test-writer/node_modules/minimatch/dist/esm/index.js"() {
+  "node_modules/minimatch/dist/esm/index.js"() {
     import_brace_expansion = __toESM(require_brace_expansion(), 1);
     init_assert_valid_pattern();
     init_ast();
@@ -7824,10 +7824,10 @@ var init_esm = __esm({
   }
 });
 
-// node_modules/path-scurry/node_modules/lru-cache/dist/esm/index.js
+// ../../node_modules/path-scurry/node_modules/lru-cache/dist/esm/index.js
 var perf, warned, PROCESS, emitWarning, AC, AS, shouldWarn, TYPE, isPosInt, getUintArray, ZeroArray, Stack, LRUCache;
 var init_esm2 = __esm({
-  "node_modules/path-scurry/node_modules/lru-cache/dist/esm/index.js"() {
+  "../../node_modules/path-scurry/node_modules/lru-cache/dist/esm/index.js"() {
     perf = typeof performance === "object" && performance && typeof performance.now === "function" ? performance : Date;
     warned = /* @__PURE__ */ new Set();
     PROCESS = typeof process === "object" && !!process ? process : {};
@@ -9198,13 +9198,13 @@ var init_esm2 = __esm({
   }
 });
 
-// node_modules/minipass/dist/esm/index.js
+// ../../node_modules/minipass/dist/esm/index.js
 import { EventEmitter } from "node:events";
 import Stream from "node:stream";
 import { StringDecoder } from "node:string_decoder";
 var proc, isStream, isReadable, isWritable, EOF, MAYBE_EMIT_END, EMITTED_END, EMITTING_END, EMITTED_ERROR, CLOSED, READ, FLUSH, FLUSHCHUNK, ENCODING, DECODER, FLOWING, PAUSED, RESUME, BUFFER, PIPES, BUFFERLENGTH, BUFFERPUSH, BUFFERSHIFT, OBJECTMODE, DESTROYED, ERROR, EMITDATA, EMITEND, EMITEND2, ASYNC, ABORT, ABORTED, SIGNAL, DATALISTENERS, DISCARDED, defer, nodefer, isEndish, isArrayBufferLike, isArrayBufferView, Pipe, PipeProxyErrors, isObjectModeOptions, isEncodingOptions, Minipass;
 var init_esm3 = __esm({
-  "node_modules/minipass/dist/esm/index.js"() {
+  "../../node_modules/minipass/dist/esm/index.js"() {
     proc = typeof process === "object" && process ? process : {
       stdout: null,
       stderr: null
@@ -10081,7 +10081,7 @@ var init_esm3 = __esm({
   }
 });
 
-// node_modules/path-scurry/dist/esm/index.js
+// ../../node_modules/path-scurry/dist/esm/index.js
 import { posix, win32 } from "node:path";
 import { fileURLToPath } from "node:url";
 import { lstatSync, readdir as readdirCB, readdirSync, readlinkSync, realpathSync as rps } from "fs";
@@ -10089,7 +10089,7 @@ import * as actualFS from "node:fs";
 import { lstat, readdir, readlink, realpath } from "node:fs/promises";
 var realpathSync, defaultFS, fsFromOption, uncDriveRegexp, uncToDrive, eitherSep, UNKNOWN, IFIFO, IFCHR, IFDIR, IFBLK, IFREG, IFLNK, IFSOCK, IFMT, IFMT_UNKNOWN, READDIR_CALLED, LSTAT_CALLED, ENOTDIR, ENOENT, ENOREADLINK, ENOREALPATH, ENOCHILD, TYPEMASK, entToType, normalizeCache, normalize, normalizeNocaseCache, normalizeNocase, ResolveCache, ChildrenCache, setAsCwd, PathBase, PathWin32, PathPosix, PathScurryBase, PathScurryWin32, PathScurryPosix, PathScurryDarwin, Path, PathScurry;
 var init_esm4 = __esm({
-  "node_modules/path-scurry/dist/esm/index.js"() {
+  "../../node_modules/path-scurry/dist/esm/index.js"() {
     init_esm2();
     init_esm3();
     realpathSync = rps.native;
@@ -10354,12 +10354,12 @@ var init_esm4 = __esm({
       /**
        * Get the Path object referenced by the string path, resolved from this Path
        */
-      resolve(path12) {
-        if (!path12) {
+      resolve(path13) {
+        if (!path13) {
           return this;
         }
-        const rootPath = this.getRootString(path12);
-        const dir = path12.substring(rootPath.length);
+        const rootPath = this.getRootString(path13);
+        const dir = path13.substring(rootPath.length);
         const dirParts = dir.split(this.splitSep);
         const result = rootPath ? this.getRoot(rootPath).#resolveParts(dirParts) : this.#resolveParts(dirParts);
         return result;
@@ -11111,8 +11111,8 @@ var init_esm4 = __esm({
       /**
        * @internal
        */
-      getRootString(path12) {
-        return win32.parse(path12).root;
+      getRootString(path13) {
+        return win32.parse(path13).root;
       }
       /**
        * @internal
@@ -11158,8 +11158,8 @@ var init_esm4 = __esm({
       /**
        * @internal
        */
-      getRootString(path12) {
-        return path12.startsWith("/") ? "/" : "";
+      getRootString(path13) {
+        return path13.startsWith("/") ? "/" : "";
       }
       /**
        * @internal
@@ -11208,8 +11208,8 @@ var init_esm4 = __esm({
        *
        * @internal
        */
-      constructor(cwd2 = process.cwd(), pathImpl, sep2, { nocase, childrenCacheSize = 16 * 1024, fs: fs11 = defaultFS } = {}) {
-        this.#fs = fsFromOption(fs11);
+      constructor(cwd2 = process.cwd(), pathImpl, sep2, { nocase, childrenCacheSize = 16 * 1024, fs: fs12 = defaultFS } = {}) {
+        this.#fs = fsFromOption(fs12);
         if (cwd2 instanceof URL || cwd2.startsWith("file://")) {
           cwd2 = fileURLToPath(cwd2);
         }
@@ -11248,11 +11248,11 @@ var init_esm4 = __esm({
       /**
        * Get the depth of a provided path, string, or the cwd
        */
-      depth(path12 = this.cwd) {
-        if (typeof path12 === "string") {
-          path12 = this.cwd.resolve(path12);
+      depth(path13 = this.cwd) {
+        if (typeof path13 === "string") {
+          path13 = this.cwd.resolve(path13);
         }
-        return path12.depth();
+        return path13.depth();
       }
       /**
        * Return the cache of child entries.  Exposed so subclasses can create
@@ -11739,9 +11739,9 @@ var init_esm4 = __esm({
         process3();
         return results;
       }
-      chdir(path12 = this.cwd) {
+      chdir(path13 = this.cwd) {
         const oldCwd = this.cwd;
-        this.cwd = typeof path12 === "string" ? this.cwd.resolve(path12) : path12;
+        this.cwd = typeof path13 === "string" ? this.cwd.resolve(path13) : path13;
         this.cwd[setAsCwd](oldCwd);
       }
     };
@@ -11767,8 +11767,8 @@ var init_esm4 = __esm({
       /**
        * @internal
        */
-      newRoot(fs11) {
-        return new PathWin32(this.rootPath, IFDIR, void 0, this.roots, this.nocase, this.childrenCache(), { fs: fs11 });
+      newRoot(fs12) {
+        return new PathWin32(this.rootPath, IFDIR, void 0, this.roots, this.nocase, this.childrenCache(), { fs: fs12 });
       }
       /**
        * Return true if the provided path string is an absolute path
@@ -11796,8 +11796,8 @@ var init_esm4 = __esm({
       /**
        * @internal
        */
-      newRoot(fs11) {
-        return new PathPosix(this.rootPath, IFDIR, void 0, this.roots, this.nocase, this.childrenCache(), { fs: fs11 });
+      newRoot(fs12) {
+        return new PathPosix(this.rootPath, IFDIR, void 0, this.roots, this.nocase, this.childrenCache(), { fs: fs12 });
       }
       /**
        * Return true if the provided path string is an absolute path
@@ -11817,10 +11817,10 @@ var init_esm4 = __esm({
   }
 });
 
-// packages/pw-test-writer/node_modules/glob/dist/esm/pattern.js
+// node_modules/glob/dist/esm/pattern.js
 var isPatternList, isGlobList, Pattern;
 var init_pattern = __esm({
-  "packages/pw-test-writer/node_modules/glob/dist/esm/pattern.js"() {
+  "node_modules/glob/dist/esm/pattern.js"() {
     init_esm();
     isPatternList = (pl) => pl.length >= 1;
     isGlobList = (gl) => gl.length >= 1;
@@ -11988,10 +11988,10 @@ var init_pattern = __esm({
   }
 });
 
-// packages/pw-test-writer/node_modules/glob/dist/esm/ignore.js
+// node_modules/glob/dist/esm/ignore.js
 var defaultPlatform2, Ignore;
 var init_ignore = __esm({
-  "packages/pw-test-writer/node_modules/glob/dist/esm/ignore.js"() {
+  "node_modules/glob/dist/esm/ignore.js"() {
     init_esm();
     init_pattern();
     defaultPlatform2 = typeof process === "object" && process && typeof process.platform === "string" ? process.platform : "linux";
@@ -12082,10 +12082,10 @@ var init_ignore = __esm({
   }
 });
 
-// packages/pw-test-writer/node_modules/glob/dist/esm/processor.js
+// node_modules/glob/dist/esm/processor.js
 var HasWalkedCache, MatchRecord, SubWalks, Processor;
 var init_processor = __esm({
-  "packages/pw-test-writer/node_modules/glob/dist/esm/processor.js"() {
+  "node_modules/glob/dist/esm/processor.js"() {
     init_esm();
     HasWalkedCache = class _HasWalkedCache {
       store;
@@ -12116,8 +12116,8 @@ var init_processor = __esm({
       }
       // match, absolute, ifdir
       entries() {
-        return [...this.store.entries()].map(([path12, n]) => [
-          path12,
+        return [...this.store.entries()].map(([path13, n]) => [
+          path13,
           !!(n & 2),
           !!(n & 1)
         ]);
@@ -12309,10 +12309,10 @@ var init_processor = __esm({
   }
 });
 
-// packages/pw-test-writer/node_modules/glob/dist/esm/walker.js
+// node_modules/glob/dist/esm/walker.js
 var makeIgnore, GlobUtil, GlobWalker, GlobStream;
 var init_walker = __esm({
-  "packages/pw-test-writer/node_modules/glob/dist/esm/walker.js"() {
+  "node_modules/glob/dist/esm/walker.js"() {
     init_esm3();
     init_ignore();
     init_processor();
@@ -12330,9 +12330,9 @@ var init_walker = __esm({
       signal;
       maxDepth;
       includeChildMatches;
-      constructor(patterns, path12, opts) {
+      constructor(patterns, path13, opts) {
         this.patterns = patterns;
-        this.path = path12;
+        this.path = path13;
         this.opts = opts;
         this.#sep = !opts.posix && opts.platform === "win32" ? "\\" : "/";
         this.includeChildMatches = opts.includeChildMatches !== false;
@@ -12351,11 +12351,11 @@ var init_walker = __esm({
           });
         }
       }
-      #ignored(path12) {
-        return this.seen.has(path12) || !!this.#ignore?.ignored?.(path12);
+      #ignored(path13) {
+        return this.seen.has(path13) || !!this.#ignore?.ignored?.(path13);
       }
-      #childrenIgnored(path12) {
-        return !!this.#ignore?.childrenIgnored?.(path12);
+      #childrenIgnored(path13) {
+        return !!this.#ignore?.childrenIgnored?.(path13);
       }
       // backpressure mechanism
       pause() {
@@ -12570,8 +12570,8 @@ var init_walker = __esm({
     };
     GlobWalker = class extends GlobUtil {
       matches = /* @__PURE__ */ new Set();
-      constructor(patterns, path12, opts) {
-        super(patterns, path12, opts);
+      constructor(patterns, path13, opts) {
+        super(patterns, path13, opts);
       }
       matchEmit(e) {
         this.matches.add(e);
@@ -12608,8 +12608,8 @@ var init_walker = __esm({
     };
     GlobStream = class extends GlobUtil {
       results;
-      constructor(patterns, path12, opts) {
-        super(patterns, path12, opts);
+      constructor(patterns, path13, opts) {
+        super(patterns, path13, opts);
         this.results = new Minipass({
           signal: this.signal,
           objectMode: true
@@ -12644,11 +12644,11 @@ var init_walker = __esm({
   }
 });
 
-// packages/pw-test-writer/node_modules/glob/dist/esm/glob.js
+// node_modules/glob/dist/esm/glob.js
 import { fileURLToPath as fileURLToPath2 } from "node:url";
 var defaultPlatform3, Glob;
 var init_glob = __esm({
-  "packages/pw-test-writer/node_modules/glob/dist/esm/glob.js"() {
+  "node_modules/glob/dist/esm/glob.js"() {
     init_esm();
     init_esm4();
     init_pattern();
@@ -12854,10 +12854,10 @@ var init_glob = __esm({
   }
 });
 
-// packages/pw-test-writer/node_modules/glob/dist/esm/has-magic.js
+// node_modules/glob/dist/esm/has-magic.js
 var hasMagic;
 var init_has_magic = __esm({
-  "packages/pw-test-writer/node_modules/glob/dist/esm/has-magic.js"() {
+  "node_modules/glob/dist/esm/has-magic.js"() {
     init_esm();
     hasMagic = (pattern, options = {}) => {
       if (!Array.isArray(pattern)) {
@@ -12872,7 +12872,7 @@ var init_has_magic = __esm({
   }
 });
 
-// packages/pw-test-writer/node_modules/glob/dist/esm/index.js
+// node_modules/glob/dist/esm/index.js
 var esm_exports = {};
 __export(esm_exports, {
   Glob: () => Glob,
@@ -12912,7 +12912,7 @@ function globIterate(pattern, options = {}) {
 }
 var streamSync, stream, iterateSync, iterate, sync, glob;
 var init_esm5 = __esm({
-  "packages/pw-test-writer/node_modules/glob/dist/esm/index.js"() {
+  "node_modules/glob/dist/esm/index.js"() {
     init_esm();
     init_glob();
     init_has_magic();
@@ -12951,10 +12951,10 @@ var init_esm5 = __esm({
   }
 });
 
-// node_modules/@modelcontextprotocol/sdk/dist/esm/server/stdio.js
+// ../../node_modules/@modelcontextprotocol/sdk/dist/esm/server/stdio.js
 import process2 from "node:process";
 
-// node_modules/zod/v3/external.js
+// ../../node_modules/zod/v3/external.js
 var external_exports = {};
 __export(external_exports, {
   BRAND: () => BRAND,
@@ -13066,7 +13066,7 @@ __export(external_exports, {
   void: () => voidType
 });
 
-// node_modules/zod/v3/helpers/util.js
+// ../../node_modules/zod/v3/helpers/util.js
 var util;
 (function(util2) {
   util2.assertEqual = (_) => {
@@ -13200,7 +13200,7 @@ var getParsedType = (data) => {
   }
 };
 
-// node_modules/zod/v3/ZodError.js
+// ../../node_modules/zod/v3/ZodError.js
 var ZodIssueCode = util.arrayToEnum([
   "invalid_type",
   "invalid_literal",
@@ -13318,7 +13318,7 @@ ZodError.create = (issues) => {
   return error3;
 };
 
-// node_modules/zod/v3/locales/en.js
+// ../../node_modules/zod/v3/locales/en.js
 var errorMap = (issue, _ctx) => {
   let message;
   switch (issue.code) {
@@ -13421,7 +13421,7 @@ var errorMap = (issue, _ctx) => {
 };
 var en_default = errorMap;
 
-// node_modules/zod/v3/errors.js
+// ../../node_modules/zod/v3/errors.js
 var overrideErrorMap = en_default;
 function setErrorMap(map) {
   overrideErrorMap = map;
@@ -13430,10 +13430,10 @@ function getErrorMap() {
   return overrideErrorMap;
 }
 
-// node_modules/zod/v3/helpers/parseUtil.js
+// ../../node_modules/zod/v3/helpers/parseUtil.js
 var makeIssue = (params) => {
-  const { data, path: path12, errorMaps, issueData } = params;
-  const fullPath = [...path12, ...issueData.path || []];
+  const { data, path: path13, errorMaps, issueData } = params;
+  const fullPath = [...path13, ...issueData.path || []];
   const fullIssue = {
     ...issueData,
     path: fullPath
@@ -13540,20 +13540,20 @@ var isDirty = (x) => x.status === "dirty";
 var isValid = (x) => x.status === "valid";
 var isAsync = (x) => typeof Promise !== "undefined" && x instanceof Promise;
 
-// node_modules/zod/v3/helpers/errorUtil.js
+// ../../node_modules/zod/v3/helpers/errorUtil.js
 var errorUtil;
 (function(errorUtil2) {
   errorUtil2.errToObj = (message) => typeof message === "string" ? { message } : message || {};
   errorUtil2.toString = (message) => typeof message === "string" ? message : message?.message;
 })(errorUtil || (errorUtil = {}));
 
-// node_modules/zod/v3/types.js
+// ../../node_modules/zod/v3/types.js
 var ParseInputLazyPath = class {
-  constructor(parent, value, path12, key) {
+  constructor(parent, value, path13, key) {
     this._cachedPath = [];
     this.parent = parent;
     this.data = value;
-    this._path = path12;
+    this._path = path13;
     this._key = key;
   }
   get path() {
@@ -16995,7 +16995,7 @@ var coerce = {
 };
 var NEVER = INVALID;
 
-// node_modules/@modelcontextprotocol/sdk/dist/esm/types.js
+// ../../node_modules/@modelcontextprotocol/sdk/dist/esm/types.js
 var LATEST_PROTOCOL_VERSION = "2025-06-18";
 var SUPPORTED_PROTOCOL_VERSIONS = [
   LATEST_PROTOCOL_VERSION,
@@ -17945,7 +17945,7 @@ var McpError = class extends Error {
   }
 };
 
-// node_modules/@modelcontextprotocol/sdk/dist/esm/shared/stdio.js
+// ../../node_modules/@modelcontextprotocol/sdk/dist/esm/shared/stdio.js
 var ReadBuffer = class {
   append(chunk) {
     this._buffer = this._buffer ? Buffer.concat([this._buffer, chunk]) : chunk;
@@ -17973,7 +17973,7 @@ function serializeMessage(message) {
   return JSON.stringify(message) + "\n";
 }
 
-// node_modules/@modelcontextprotocol/sdk/dist/esm/server/stdio.js
+// ../../node_modules/@modelcontextprotocol/sdk/dist/esm/server/stdio.js
 var StdioServerTransport = class {
   constructor(_stdin = process2.stdin, _stdout = process2.stdout) {
     this._stdin = _stdin;
@@ -18037,7 +18037,7 @@ var StdioServerTransport = class {
   }
 };
 
-// node_modules/@modelcontextprotocol/sdk/dist/esm/shared/protocol.js
+// ../../node_modules/@modelcontextprotocol/sdk/dist/esm/shared/protocol.js
 var DEFAULT_REQUEST_TIMEOUT_MSEC = 6e4;
 var Protocol = class {
   constructor(_options) {
@@ -18415,7 +18415,7 @@ function mergeCapabilities(base, additional) {
   }, { ...base });
 }
 
-// node_modules/@modelcontextprotocol/sdk/dist/esm/server/index.js
+// ../../node_modules/@modelcontextprotocol/sdk/dist/esm/server/index.js
 var import_ajv = __toESM(require_ajv(), 1);
 var Server = class extends Protocol {
   /**
@@ -18637,11 +18637,11 @@ var Server = class extends Protocol {
   }
 };
 
-// packages/pw-test-writer/dist/mcp/tools.js
-import * as fs5 from "fs";
-import * as path6 from "path";
+// dist/mcp/tools.js
+import * as fs6 from "fs";
+import * as path7 from "path";
 
-// packages/pw-test-writer/dist/mcp/pageObjects.js
+// dist/mcp/pageObjects.js
 init_esm5();
 import * as fs from "fs";
 import * as path2 from "path";
@@ -18750,7 +18750,7 @@ function formatPageObjectIndex(objects) {
   return lines.join("\n");
 }
 
-// packages/pw-test-writer/dist/mcp/flows.js
+// dist/mcp/flows.js
 init_esm5();
 import * as fs2 from "fs";
 import * as path3 from "path";
@@ -19048,11 +19048,11 @@ function findFlowForTest(cwd2, file, testTitle) {
   return flowsFile.flows.find((f) => f.flowName.startsWith(baseSlug + "/")) ?? null;
 }
 
-// packages/pw-test-writer/dist/mcp/triage.js
+// dist/mcp/triage.js
 import * as fs4 from "fs";
 import * as path5 from "path";
 
-// packages/pw-test-writer/dist/runner/history.js
+// dist/runner/history.js
 import * as fs3 from "fs";
 import * as path4 from "path";
 var DIR_NAME = ".pw-test-writer";
@@ -19069,7 +19069,7 @@ function loadHistory(cwd2) {
   }
 }
 
-// packages/pw-test-writer/dist/mcp/triage.js
+// dist/mcp/triage.js
 var CONFIG_FILENAME = ".e2e-triage.json";
 var DEFAULT_CONFIG = {
   version: 1,
@@ -19236,7 +19236,275 @@ function formatMs(ms) {
   return `${ms}ms`;
 }
 
-// packages/pw-test-writer/dist/mcp/tools.js
+// dist/mcp/errorPatterns.js
+import * as fs5 from "fs";
+import * as path6 from "path";
+import * as crypto from "crypto";
+var PATTERNS_FILENAME = ".pw-test-writer/error-patterns.json";
+var MAX_PATTERNS = 200;
+var MIN_TOKEN_LENGTH = 3;
+var STOP_WORDS = /* @__PURE__ */ new Set([
+  "the",
+  "and",
+  "for",
+  "that",
+  "this",
+  "with",
+  "from",
+  "not",
+  "but",
+  "was",
+  "are",
+  "been",
+  "has",
+  "have",
+  "had",
+  "will",
+  "can",
+  "could",
+  "would",
+  "should",
+  "may",
+  "might",
+  "shall",
+  "its",
+  "into",
+  "then",
+  "than",
+  "each",
+  "which",
+  "their",
+  "there",
+  "about",
+  "when",
+  "where",
+  "error",
+  "test",
+  "expected",
+  "received"
+]);
+function stripAnsi(s) {
+  return s.replace(/\x1b\[[0-9;]*m/g, "");
+}
+function stripStackTrace(s) {
+  return s.split("\n").filter((line) => !/^\s+at\s/.test(line)).join("\n");
+}
+function replaceDynamicValues(s) {
+  return s.replace(/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/gi, "[ID]").replace(/\b1[0-9]{12}\b/g, "[TS]").replace(/\b[0-9a-f]{12,}\b/gi, "[ID]").replace(/\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}[.\dZ+-]*/g, "[DATE]").replace(/\d{4}-\d{2}-\d{2}/g, "[DATE]").replace(/"[^"]{2,}"/g, "[STR]").replace(/'[^']{2,}'/g, "[STR]");
+}
+function normalizeErrorMessage(raw) {
+  let s = stripAnsi(raw);
+  s = stripStackTrace(s);
+  s = replaceDynamicValues(s);
+  s = s.replace(/\s+/g, " ").trim().toLowerCase();
+  return s;
+}
+function tokenize(normalized) {
+  const tokens = normalized.split(/[^a-z0-9]+/).filter((t) => t.length >= MIN_TOKEN_LENGTH && !STOP_WORDS.has(t) && !/^\d+$/.test(t));
+  return [...new Set(tokens)];
+}
+function normalizeUrl(url) {
+  try {
+    const parsed = new URL(url);
+    const segments = parsed.pathname.split("/").map((seg) => /^\d+$/.test(seg) || /^[0-9a-f]{8,}$/i.test(seg) ? "[id]" : seg);
+    return segments.join("/");
+  } catch {
+    return url || "";
+  }
+}
+function computePatternId(failingAction, normalizedSignature) {
+  const hash = crypto.createHash("sha256").update(`${failingAction}:${normalizedSignature}`).digest("hex");
+  return hash.slice(0, 12);
+}
+function patternsPath(cwd2) {
+  return path6.join(cwd2, PATTERNS_FILENAME);
+}
+function readPatterns(cwd2) {
+  const fp = patternsPath(cwd2);
+  try {
+    const raw = fs5.readFileSync(fp, "utf-8");
+    return JSON.parse(raw);
+  } catch {
+    return { version: 1, patterns: [] };
+  }
+}
+function ensureDir(cwd2) {
+  const dir = path6.dirname(patternsPath(cwd2));
+  if (!fs5.existsSync(dir))
+    fs5.mkdirSync(dir, { recursive: true });
+}
+function savePatterns(cwd2, file) {
+  ensureDir(cwd2);
+  fs5.writeFileSync(patternsPath(cwd2), JSON.stringify(file, null, 2) + "\n", "utf-8");
+}
+function savePattern(cwd2, pattern) {
+  const file = readPatterns(cwd2);
+  const idx = file.patterns.findIndex((p) => p.id === pattern.id);
+  if (idx >= 0) {
+    const existing = file.patterns[idx];
+    existing.confirmations += 1;
+    existing.lastSeen = pattern.lastSeen;
+    existing.rootCauseDetail = pattern.rootCauseDetail;
+    existing.fix = pattern.fix;
+    for (const tf of pattern.testFiles) {
+      if (!existing.testFiles.includes(tf))
+        existing.testFiles.push(tf);
+    }
+    for (const po of pattern.relatedPageObjects) {
+      if (!existing.relatedPageObjects.includes(po))
+        existing.relatedPageObjects.push(po);
+    }
+    savePatterns(cwd2, file);
+    return { isNew: false, pattern: existing };
+  }
+  if (file.patterns.length >= MAX_PATTERNS) {
+    file.patterns.sort((a, b) => {
+      if (a.confirmations !== b.confirmations)
+        return a.confirmations - b.confirmations;
+      return new Date(a.lastSeen).getTime() - new Date(b.lastSeen).getTime();
+    });
+    file.patterns.shift();
+  }
+  file.patterns.push(pattern);
+  savePatterns(cwd2, file);
+  return { isNew: true, pattern };
+}
+function jaccard(a, b) {
+  const setA = new Set(a);
+  const setB = new Set(b);
+  let intersection = 0;
+  for (const item of setA) {
+    if (setB.has(item))
+      intersection++;
+  }
+  const union = setA.size + setB.size - intersection;
+  return union === 0 ? 0 : intersection / union;
+}
+function actionSimilarity(a, b) {
+  if (a === b)
+    return 1;
+  const prefixA = a.split(".")[0];
+  const prefixB = b.split(".")[0];
+  if (prefixA && prefixB && prefixA === prefixB)
+    return 0.5;
+  return 0;
+}
+function matchPatterns(cwd2, query, minScore = 0.35) {
+  const file = readPatterns(cwd2);
+  if (file.patterns.length === 0)
+    return [];
+  const normalized = normalizeErrorMessage(query.errorMessage);
+  const queryTokens = tokenize(normalized);
+  const queryUrl = normalizeUrl(query.pageUrl);
+  if (queryTokens.length === 0)
+    return [];
+  const matches = [];
+  for (const pattern of file.patterns) {
+    const errorSimilarity = jaccard(queryTokens, pattern.errorTokens);
+    const actionMatch = actionSimilarity(query.failingAction, pattern.failingAction);
+    const urlMatch = queryUrl && pattern.urlPattern && queryUrl === pattern.urlPattern ? 1 : 0;
+    const score = errorSimilarity * 0.6 + actionMatch * 0.3 + urlMatch * 0.1;
+    if (score >= minScore) {
+      matches.push({ pattern, score, scoreBreakdown: { errorSimilarity, actionMatch, urlMatch } });
+    }
+  }
+  matches.sort((a, b) => b.score - a.score);
+  return matches.slice(0, 3);
+}
+function extractPatternContext(test) {
+  if (!test.error)
+    return null;
+  const failingAction = test.actions.find((a) => a.error);
+  const action = failingAction ? `${failingAction.type}.${failingAction.method}` : "unknown";
+  const pageUrl = failingAction?.pageUrl || test.actions[test.actions.length - 1]?.pageUrl || "";
+  return {
+    errorMessage: test.error,
+    failingAction: action,
+    pageUrl
+  };
+}
+function buildPattern(test, rootCause, rootCauseDetail, fix, relatedPageObjects = []) {
+  const query = extractPatternContext(test);
+  const normalized = normalizeErrorMessage(query.errorMessage);
+  const tokens = tokenize(normalized);
+  const now = (/* @__PURE__ */ new Date()).toISOString();
+  return {
+    id: computePatternId(query.failingAction, normalized),
+    errorSignature: normalized,
+    errorTokens: tokens,
+    failingAction: query.failingAction,
+    urlPattern: normalizeUrl(query.pageUrl),
+    rootCause,
+    rootCauseDetail,
+    fix,
+    testFiles: [test.file],
+    relatedPageObjects,
+    confirmations: 1,
+    firstSeen: now,
+    lastSeen: now
+  };
+}
+function confidenceLabel(score) {
+  if (score >= 0.7)
+    return "HIGH";
+  if (score >= 0.5)
+    return "POSSIBLE";
+  return "WEAK";
+}
+function formatPatternSuggestions(matches) {
+  if (matches.length === 0)
+    return "";
+  const lines = [
+    "---",
+    `### Known Patterns: ${matches.length} match${matches.length > 1 ? "es" : ""}`,
+    ""
+  ];
+  for (const m of matches) {
+    const p = m.pattern;
+    const label = confidenceLabel(m.score);
+    const conf = p.confirmations > 1 ? `, ${p.confirmations}\xD7 confirmed` : "";
+    lines.push(`**[${label}] ${p.rootCause}** (${m.score.toFixed(2)}${conf})`);
+    lines.push(`Cause: ${p.rootCauseDetail}`);
+    lines.push(`Fix: ${p.fix}`);
+    if (p.relatedPageObjects.length > 0) {
+      lines.push(`PO: ${p.relatedPageObjects.join(", ")}`);
+    }
+    lines.push("");
+  }
+  return lines.join("\n");
+}
+function formatPatternMatchDetail(matches) {
+  if (matches.length === 0)
+    return "No matching patterns found.";
+  const lines = [
+    `## Error Pattern Matches (${matches.length})`,
+    ""
+  ];
+  for (const m of matches) {
+    const p = m.pattern;
+    const label = confidenceLabel(m.score);
+    lines.push(`### [${label}] ${p.rootCause} \u2014 ${p.rootCauseDetail}`);
+    lines.push("");
+    lines.push(`**Score:** ${m.score.toFixed(2)} (error: ${m.scoreBreakdown.errorSimilarity.toFixed(2)}, action: ${m.scoreBreakdown.actionMatch.toFixed(2)}, url: ${m.scoreBreakdown.urlMatch.toFixed(2)})`);
+    lines.push(`**Fix:** ${p.fix}`);
+    lines.push(`**Action:** ${p.failingAction}`);
+    lines.push(`**URL pattern:** ${p.urlPattern || "(none)"}`);
+    lines.push(`**Confirmations:** ${p.confirmations}`);
+    lines.push(`**First seen:** ${p.firstSeen}`);
+    lines.push(`**Last seen:** ${p.lastSeen}`);
+    if (p.testFiles.length > 0) {
+      lines.push(`**Test files:** ${p.testFiles.join(", ")}`);
+    }
+    if (p.relatedPageObjects.length > 0) {
+      lines.push(`**Page objects:** ${p.relatedPageObjects.join(", ")}`);
+    }
+    lines.push(`**Signature:** ${p.errorSignature.slice(0, 200)}`);
+    lines.push("");
+  }
+  return lines.join("\n");
+}
+
+// dist/mcp/tools.js
 var toolDefs = [
   {
     name: "e2e_list_tests",
@@ -19582,6 +19850,39 @@ var toolDefs = [
       type: "object",
       properties: {}
     }
+  },
+  {
+    name: "e2e_save_error_pattern",
+    description: "Save a diagnosed error pattern after fixing a test failure. Extracts error signature, failing action, and URL from the test run. Deduplicates by pattern ID \u2014 re-saving increments confirmations.",
+    inputSchema: {
+      type: "object",
+      properties: {
+        runId: { type: "string", description: "Run ID from e2e_run_test" },
+        testIndex: { type: "number", description: "Test index within the run (default: 0)" },
+        rootCause: { type: "string", enum: ["missing_step", "test_code_bug", "app_bug", "dirty_state"], description: "Root cause category" },
+        rootCauseDetail: { type: "string", description: "Human-readable explanation of the root cause" },
+        fix: { type: "string", description: "What was done to fix it" },
+        relatedPageObjects: {
+          type: "array",
+          items: { type: "string" },
+          description: 'Related page object methods (e.g. ["CheckoutPage.selectCategory"])'
+        }
+      },
+      required: ["runId", "rootCause", "rootCauseDetail", "fix"]
+    }
+  },
+  {
+    name: "e2e_match_patterns",
+    description: "Search the error pattern database for matches against a failing test. Returns detailed match info including score breakdown, fix suggestions, and related page objects.",
+    inputSchema: {
+      type: "object",
+      properties: {
+        runId: { type: "string", description: "Run ID from e2e_run_test" },
+        testIndex: { type: "number", description: "Test index within the run (default: 0)" },
+        minScore: { type: "number", description: "Minimum match score 0.0-1.0 (default: 0.35)" }
+      },
+      required: ["runId"]
+    }
   }
 ];
 function text(t) {
@@ -19663,6 +19964,10 @@ async function handleTool(name, args, ctx) {
       return handleSaveTriageRun(args, ctx);
     case "e2e_get_triage_config":
       return handleGetTriageConfig(ctx);
+    case "e2e_save_error_pattern":
+      return handleSaveErrorPattern(args, ctx);
+    case "e2e_match_patterns":
+      return handleMatchPatterns(args, ctx);
     default:
       return error(`Unknown tool: ${name}`);
   }
@@ -19708,12 +20013,12 @@ async function handleRunTest(args, ctx) {
     }
     const result2 = await ctx.runProject(ctx.cwd, { project, grep, repeatEach });
     ctx.runs.set(result2.runId, result2);
-    const dir = path6.join(ctx.cwd, "test-reports");
-    fs5.mkdirSync(dir, { recursive: true });
+    const dir = path7.join(ctx.cwd, "test-reports");
+    fs6.mkdirSync(dir, { recursive: true });
     ctx.sendProgress?.("Generating HTML report...");
     const html = buildHtmlReport(result2, ctx.cwd, ctx.sendProgress);
-    const reportPath = path6.join(dir, `report-${result2.runId}.html`);
-    fs5.writeFileSync(reportPath, html, "utf-8");
+    const reportPath = path7.join(dir, `report-${result2.runId}.html`);
+    fs6.writeFileSync(reportPath, html, "utf-8");
     const flowCoverage = buildFlowCoverageSummary(result2, ctx.cwd);
     return text(formatBatchResults(result2, project) + `
 
@@ -19802,6 +20107,15 @@ async function handleRunTest(args, ctx) {
       }
       if (existingFlow.notes?.length) {
         lines.push(`Notes: ${existingFlow.notes.join("; ")}`);
+      }
+    }
+    if (firstTest) {
+      const query = extractPatternContext(firstTest);
+      if (query) {
+        const patternMatches = matchPatterns(ctx.cwd, query);
+        if (patternMatches.length > 0) {
+          lines.push("", formatPatternSuggestions(patternMatches));
+        }
       }
     }
   } else if (firstTest && firstTest.actions.length > 0) {
@@ -20003,7 +20317,15 @@ async function handleGetFailureReport(args, ctx) {
   const test = getTest(ctx, runId, testIndex);
   if (!test)
     return error(`Run "${runId}" not found or test index ${testIndex} out of range.`);
-  return text(buildFailureReport(test, ctx.cwd, { includeDom, includeNetworkBodies }));
+  const report = buildFailureReport(test, ctx.cwd, { includeDom, includeNetworkBodies });
+  const query = extractPatternContext(test);
+  if (query) {
+    const matches = matchPatterns(ctx.cwd, query);
+    if (matches.length > 0) {
+      return text(report + "\n\n" + formatPatternSuggestions(matches));
+    }
+  }
+  return text(report);
 }
 async function handleGetActions(args, ctx) {
   const runId = String(args.runId || "");
@@ -20173,7 +20495,7 @@ async function handleGetScreenshot(args, ctx) {
     return error(`Screenshot index ${screenshotIndex} out of range (${screenshots.length} available).`);
   const screenshot = screenshots[screenshotIndex];
   try {
-    const data = fs5.readFileSync(screenshot.path);
+    const data = fs6.readFileSync(screenshot.path);
     const base64 = data.toString("base64");
     return {
       content: [
@@ -20262,11 +20584,11 @@ async function handleGetTestSource(args, ctx) {
   const filePath = String(args.filePath || "");
   if (!filePath)
     return error("Missing required parameter: filePath");
-  const resolved = path6.isAbsolute(filePath) ? filePath : path6.resolve(ctx.cwd, filePath);
+  const resolved = path7.isAbsolute(filePath) ? filePath : path7.resolve(ctx.cwd, filePath);
   if (!resolved.startsWith(ctx.cwd))
     return error("Path outside project root.");
   try {
-    const content = fs5.readFileSync(resolved, "utf-8");
+    const content = fs6.readFileSync(resolved, "utf-8");
     const lines = content.split("\n");
     const testLine = args.testLine != null ? Number(args.testLine) : void 0;
     let startLine = 0;
@@ -20454,10 +20776,10 @@ _Use e2e_get_screenshot to view._`
     });
   }
   if (outputFile) {
-    const dir = path6.join(ctx.cwd, "test-reports");
-    fs5.mkdirSync(dir, { recursive: true });
-    const outPath = path6.join(dir, `evidence-${runId}.md`);
-    fs5.writeFileSync(outPath, markdown, "utf-8");
+    const dir = path7.join(ctx.cwd, "test-reports");
+    fs6.mkdirSync(dir, { recursive: true });
+    const outPath = path7.join(dir, `evidence-${runId}.md`);
+    fs6.writeFileSync(outPath, markdown, "utf-8");
     content.push({ type: "text", text: `
 _Evidence written to \`${outPath}\`_` });
   }
@@ -20469,8 +20791,8 @@ async function handleGenerateReport(args, ctx) {
   const run = ctx.runs.get(runId);
   if (!run)
     return error(`Run "${runId}" not found.`);
-  const dir = path6.join(ctx.cwd, "test-reports");
-  fs5.mkdirSync(dir, { recursive: true });
+  const dir = path7.join(ctx.cwd, "test-reports");
+  fs6.mkdirSync(dir, { recursive: true });
   if (format === "json") {
     ctx.sendProgress?.("Serializing JSON report...");
     const data = {
@@ -20487,14 +20809,14 @@ async function handleGenerateReport(args, ctx) {
         attachments: t.attachments.map((a) => ({ name: a.name, path: a.path, contentType: a.contentType }))
       }))
     };
-    const outPath2 = path6.join(dir, `report-${runId}.json`);
-    fs5.writeFileSync(outPath2, JSON.stringify(data, null, 2), "utf-8");
+    const outPath2 = path7.join(dir, `report-${runId}.json`);
+    fs6.writeFileSync(outPath2, JSON.stringify(data, null, 2), "utf-8");
     return text(`JSON report written to \`${outPath2}\` (${run.tests.length} tests).`);
   }
   ctx.sendProgress?.(`Building HTML report for ${run.tests.length} tests...`);
   const html = buildHtmlReport(run, ctx.cwd, ctx.sendProgress);
-  const outPath = path6.join(dir, `report-${runId}.html`);
-  fs5.writeFileSync(outPath, html, "utf-8");
+  const outPath = path7.join(dir, `report-${runId}.html`);
+  fs6.writeFileSync(outPath, html, "utf-8");
   const passed = run.tests.filter((t) => t.status === "passed").length;
   const failed = run.tests.filter((t) => t.status === "failed").length;
   return text(`HTML report written to \`${outPath}\` (${passed} passed, ${failed} failed).`);
@@ -20852,7 +21174,7 @@ function buildHtmlReport(run, cwd2, sendProgress) {
       let imgs = "";
       for (const s of screenshots) {
         try {
-          const data = fs5.readFileSync(s.path);
+          const data = fs6.readFileSync(s.path);
           const b64 = data.toString("base64");
           imgs += `<div class="screenshot"><p>${escHtml(s.name)}</p><img src="data:${s.contentType};base64,${b64}" alt="${escHtml(s.name)}"/></div>`;
         } catch {
@@ -20954,7 +21276,7 @@ async function handleGetTriageConfig(ctx) {
   const lines = [];
   lines.push("## Triage Configuration");
   lines.push("");
-  lines.push(`**Source:** \`.e2e-triage.json\` ${fs5.existsSync(path6.join(ctx.cwd, ".e2e-triage.json")) ? "(found)" : "(not found \u2014 using defaults)"}`);
+  lines.push(`**Source:** \`.e2e-triage.json\` ${fs6.existsSync(path7.join(ctx.cwd, ".e2e-triage.json")) ? "(found)" : "(not found \u2014 using defaults)"}`);
   lines.push("");
   lines.push(`**Flaky threshold:** ${Math.round(config.flaky.threshold * 100)}% failure rate over ${config.flaky.windowSize} runs`);
   lines.push(`**Project filter:** ${config.project || "(all projects)"}`);
@@ -21014,17 +21336,65 @@ function formatBody(body, limit) {
   }
   return { text: truncate(formatted, limit), lang };
 }
+var VALID_ROOT_CAUSES = /* @__PURE__ */ new Set(["missing_step", "test_code_bug", "app_bug", "dirty_state"]);
+async function handleSaveErrorPattern(args, ctx) {
+  const runId = String(args.runId || "");
+  const testIndex = Number(args.testIndex ?? 0);
+  const rootCause = String(args.rootCause || "");
+  const rootCauseDetail = String(args.rootCauseDetail || "");
+  const fix = String(args.fix || "");
+  const relatedPageObjects = Array.isArray(args.relatedPageObjects) ? args.relatedPageObjects.map(String) : [];
+  if (!VALID_ROOT_CAUSES.has(rootCause)) {
+    return error(`Invalid rootCause "${rootCause}". Must be one of: ${[...VALID_ROOT_CAUSES].join(", ")}`);
+  }
+  if (!rootCauseDetail)
+    return error("rootCauseDetail is required.");
+  if (!fix)
+    return error("fix is required.");
+  const test = getTest(ctx, runId, testIndex);
+  if (!test)
+    return error(`Run "${runId}" not found or test index ${testIndex} out of range.`);
+  if (!test.error)
+    return error("This test did not fail \u2014 nothing to save.");
+  const pattern = buildPattern(test, rootCause, rootCauseDetail, fix, relatedPageObjects);
+  const result = savePattern(ctx.cwd, pattern);
+  if (result.isNew) {
+    return text(`\u2705 **Pattern saved** (id: \`${pattern.id}\`)
+- Root cause: ${rootCause}
+- Signature tokens: ${pattern.errorTokens.length}
+- Action: ${pattern.failingAction}
+- URL: ${pattern.urlPattern || "(none)"}`);
+  }
+  return text(`\u{1F504} **Pattern updated** (id: \`${pattern.id}\`, confirmations: ${result.pattern.confirmations})
+- Root cause: ${rootCause}
+- Test files: ${result.pattern.testFiles.join(", ")}`);
+}
+async function handleMatchPatterns(args, ctx) {
+  const runId = String(args.runId || "");
+  const testIndex = Number(args.testIndex ?? 0);
+  const minScore = Number(args.minScore ?? 0.35);
+  const test = getTest(ctx, runId, testIndex);
+  if (!test)
+    return error(`Run "${runId}" not found or test index ${testIndex} out of range.`);
+  if (!test.error)
+    return error("This test did not fail \u2014 nothing to match.");
+  const query = extractPatternContext(test);
+  if (!query)
+    return error("Could not extract error context from this test.");
+  const matches = matchPatterns(ctx.cwd, query, minScore);
+  return text(formatPatternMatchDetail(matches));
+}
 
-// packages/pw-test-writer/dist/mcp/captureRunner.js
-import * as fs7 from "fs";
-import * as path8 from "path";
+// dist/mcp/captureRunner.js
+import * as fs8 from "fs";
+import * as path9 from "path";
 import { spawn as spawn2 } from "child_process";
 import { fileURLToPath as fileURLToPath4 } from "url";
 
-// packages/pw-test-writer/dist/runner/captureServer.js
+// dist/runner/captureServer.js
 import * as http from "http";
 
-// packages/pw-test-writer/dist/ui/store.js
+// dist/ui/store.js
 var Store = class {
   state = {
     mode: "run",
@@ -21445,7 +21815,7 @@ var Store = class {
 };
 var store = new Store();
 
-// packages/pw-test-writer/dist/runner/captureServer.js
+// dist/runner/captureServer.js
 function createCaptureServer(target) {
   let httpServer = null;
   let port = null;
@@ -21589,20 +21959,20 @@ function createCaptureServer(target) {
   };
 }
 
-// packages/pw-test-writer/dist/runner/testRunner.js
-import * as fs6 from "fs";
-import * as path7 from "path";
+// dist/runner/testRunner.js
+import * as fs7 from "fs";
+import * as path8 from "path";
 import { spawn } from "child_process";
 import { fileURLToPath as fileURLToPath3 } from "url";
-var __dirname = path7.dirname(fileURLToPath3(import.meta.url));
+var __dirname = path8.dirname(fileURLToPath3(import.meta.url));
 async function discoverTests(cwd2, project) {
   try {
     const result = await new Promise((resolve7, reject) => {
       const args = ["test", "--list", "--reporter=json"];
       if (project)
         args.push("--project", project);
-      const localBin = path7.join(cwd2, "node_modules", ".bin", "playwright");
-      const cmd = fs6.existsSync(localBin) ? localBin : "npx";
+      const localBin = path8.join(cwd2, "node_modules", ".bin", "playwright");
+      const cmd = fs7.existsSync(localBin) ? localBin : "npx";
       if (cmd === "npx")
         args.unshift("playwright");
       const child = spawn(cmd, args, {
@@ -21651,8 +22021,8 @@ async function discoverProjects(cwd2) {
   try {
     const result = await new Promise((resolve7, reject) => {
       const args = ["test", "--list", "--reporter=json"];
-      const localBin = path7.join(cwd2, "node_modules", ".bin", "playwright");
-      const cmd = fs6.existsSync(localBin) ? localBin : "npx";
+      const localBin = path8.join(cwd2, "node_modules", ".bin", "playwright");
+      const cmd = fs7.existsSync(localBin) ? localBin : "npx";
       if (cmd === "npx")
         args.unshift("playwright");
       const child = spawn(cmd, args, {
@@ -21694,7 +22064,7 @@ function parsePlaywrightJson(json, cwd2) {
     processTestSuite(suite, rootDir, fileMap);
   }
   for (const [filePath, tests] of fileMap) {
-    const relativePath = path7.relative(cwd2, filePath);
+    const relativePath = path8.relative(cwd2, filePath);
     testFiles.push({ path: filePath, relativePath, tests });
   }
   return testFiles;
@@ -21705,7 +22075,7 @@ function processTestSuite(suite, cwd2, fileMap, parentTitle = "") {
     const specFile = spec.file || suite.file;
     if (!specFile)
       continue;
-    const filePath = path7.isAbsolute(specFile) ? specFile : path7.resolve(cwd2, specFile);
+    const filePath = path8.isAbsolute(specFile) ? specFile : path8.resolve(cwd2, specFile);
     if (!fileMap.has(filePath)) {
       fileMap.set(filePath, []);
     }
@@ -21723,7 +22093,7 @@ function processTestSuite(suite, cwd2, fileMap, parentTitle = "") {
 }
 async function discoverTestsWithGlob(cwd2) {
   const testFiles = [];
-  const hasConfig = fs6.existsSync(path7.join(cwd2, "playwright.config.ts")) || fs6.existsSync(path7.join(cwd2, "playwright.config.js"));
+  const hasConfig = fs7.existsSync(path8.join(cwd2, "playwright.config.ts")) || fs7.existsSync(path8.join(cwd2, "playwright.config.js"));
   if (!hasConfig) {
     return testFiles;
   }
@@ -21748,7 +22118,7 @@ async function discoverTestsWithGlob(cwd2) {
       for (const file of files) {
         if (testFiles.some((t) => t.path === file))
           continue;
-        const relativePath = path7.relative(cwd2, file);
+        const relativePath = path8.relative(cwd2, file);
         const tests = await parseTestFile(file);
         if (tests.length > 0) {
           testFiles.push({ path: file, relativePath, tests });
@@ -21762,7 +22132,7 @@ async function discoverTestsWithGlob(cwd2) {
 async function parseTestFile(filePath) {
   const tests = [];
   try {
-    const content = await fs6.promises.readFile(filePath, "utf-8");
+    const content = await fs7.promises.readFile(filePath, "utf-8");
     const lines = content.split("\n");
     let currentDescribe = "";
     for (let i = 0; i < lines.length; i++) {
@@ -21783,8 +22153,8 @@ async function parseTestFile(filePath) {
   return tests;
 }
 
-// packages/pw-test-writer/dist/mcp/captureRunner.js
-var __dirname2 = path8.dirname(fileURLToPath4(import.meta.url));
+// dist/mcp/captureRunner.js
+var __dirname2 = path9.dirname(fileURLToPath4(import.meta.url));
 var MemoryTarget = class {
   actions = [];
   currentAction = null;
@@ -21812,7 +22182,7 @@ async function runTest(testLocation, cwd2, options) {
   const lastColon = testLocation.lastIndexOf(":");
   const file = lastColon > 0 ? testLocation.substring(0, lastColon) : testLocation;
   const lineNum = lastColon > 0 ? parseInt(testLocation.substring(lastColon + 1), 10) : NaN;
-  const relFile = path8.relative(cwd2, file);
+  const relFile = path9.relative(cwd2, file);
   let resolvedTitle;
   if (!isNaN(lineNum)) {
     try {
@@ -21861,8 +22231,8 @@ async function runProject(cwd2, options) {
   if (options?.repeatEach && options.repeatEach > 1)
     args.push("--repeat-each", String(options.repeatEach));
   args.push("--reporter=json");
-  const localBin = path8.join(cwd2, "node_modules", ".bin", "playwright");
-  const cmd = fs7.existsSync(localBin) ? localBin : "npx";
+  const localBin = path9.join(cwd2, "node_modules", ".bin", "playwright");
+  const cmd = fs8.existsSync(localBin) ? localBin : "npx";
   if (cmd === "npx")
     args.unshift("playwright");
   const stdout = await new Promise((resolve7, reject) => {
@@ -21963,7 +22333,7 @@ function parseJsonRunResults(jsonStr, cwd2) {
     const currentTitle = parentTitle && suite.title ? `${parentTitle} > ${suite.title}` : suite.title || parentTitle;
     for (const spec of suite.specs || []) {
       const specFile = spec.file || suite.file || "";
-      const relFile = specFile ? path8.relative(cwd2, path8.isAbsolute(specFile) ? specFile : path8.resolve(rootDir, specFile)) : "unknown";
+      const relFile = specFile ? path9.relative(cwd2, path9.isAbsolute(specFile) ? specFile : path9.resolve(rootDir, specFile)) : "unknown";
       const fullTitle = currentTitle && spec.title ? `${currentTitle} > ${spec.title}` : spec.title || currentTitle;
       for (const test of spec.tests || []) {
         if (test.status === "skipped")
@@ -22003,8 +22373,8 @@ function spawnTest(testLocation, cwd2, captureEndpoint, timeoutMs = 12e4, projec
     if (captureEndpoint) {
       env.PW_CAPTURE_ENDPOINT = captureEndpoint;
       env.PW_CAPTURE_SESSION = `test-${Date.now()}`;
-      const hookPath = path8.resolve(__dirname2, "..", "runner", "captureHook.cjs");
-      if (fs7.existsSync(hookPath)) {
+      const hookPath = path9.resolve(__dirname2, "..", "runner", "captureHook.cjs");
+      if (fs8.existsSync(hookPath)) {
         const existing = env.NODE_OPTIONS || "";
         env.NODE_OPTIONS = `${existing} --require "${hookPath}"`.trim();
       }
@@ -22017,8 +22387,8 @@ function spawnTest(testLocation, cwd2, captureEndpoint, timeoutMs = 12e4, projec
     if (repeatEach && repeatEach > 1)
       args.push("--repeat-each", String(repeatEach));
     args.push("--reporter=line");
-    const localBin = path8.join(cwd2, "node_modules", ".bin", "playwright");
-    const cmd = fs7.existsSync(localBin) ? localBin : "npx";
+    const localBin = path9.join(cwd2, "node_modules", ".bin", "playwright");
+    const cmd = fs8.existsSync(localBin) ? localBin : "npx";
     if (cmd === "npx")
       args.unshift("playwright");
     const child = spawn2(cmd, args, {
@@ -22119,13 +22489,13 @@ function collectScreenshots(cwd2, startTime) {
   const attachments = [];
   const seenPaths = /* @__PURE__ */ new Set();
   const walk = (dir, depth = 0) => {
-    if (depth > 4 || !fs7.existsSync(dir))
+    if (depth > 4 || !fs8.existsSync(dir))
       return;
     try {
-      for (const entry of fs7.readdirSync(dir, { withFileTypes: true })) {
+      for (const entry of fs8.readdirSync(dir, { withFileTypes: true })) {
         if (entry.name === "node_modules" || entry.name === ".git")
           continue;
-        const full = path8.join(dir, entry.name);
+        const full = path9.join(dir, entry.name);
         if (entry.isDirectory()) {
           walk(full, depth + 1);
           continue;
@@ -22135,7 +22505,7 @@ function collectScreenshots(cwd2, startTime) {
         if (seenPaths.has(full))
           continue;
         try {
-          const stat = fs7.statSync(full);
+          const stat = fs8.statSync(full);
           if (stat.mtimeMs >= startTime) {
             seenPaths.add(full);
             attachments.push({ name: entry.name, path: full, contentType: "image/png" });
@@ -22156,19 +22526,19 @@ function collectActionScreenshots(actions, cwd2, attachments) {
     const filePath = action.params?.path;
     if (!filePath || typeof filePath !== "string")
       continue;
-    const resolved = path8.isAbsolute(filePath) ? filePath : path8.resolve(cwd2, filePath);
-    if (!fs7.existsSync(resolved))
+    const resolved = path9.isAbsolute(filePath) ? filePath : path9.resolve(cwd2, filePath);
+    if (!fs8.existsSync(resolved))
       continue;
     if (attachments.some((a) => a.path === resolved))
       continue;
-    attachments.push({ name: path8.basename(resolved), path: resolved, contentType: "image/png" });
+    attachments.push({ name: path9.basename(resolved), path: resolved, contentType: "image/png" });
   }
 }
 
-// packages/pw-test-writer/dist/mcp/browser/tab.js
+// dist/mcp/browser/tab.js
 import { EventEmitter as EventEmitter2 } from "events";
 
-// packages/pw-test-writer/dist/mcp/browser/snapshotDiff.js
+// dist/mcp/browser/snapshotDiff.js
 function parseSnapshot(snapshot) {
   const elements = /* @__PURE__ */ new Map();
   const refRegex = /\[ref=([^\]]+)\]/g;
@@ -22348,7 +22718,7 @@ function extractQuotedName(line) {
   return m ? m[1] : void 0;
 }
 
-// packages/pw-test-writer/dist/mcp/browser/networkUtils.js
+// dist/mcp/browser/networkUtils.js
 var ASSET_EXTENSIONS = /\.(png|jpe?g|gif|svg|webp|ico|woff2?|ttf|eot|css|js|map|mp4|webm|mp3)(\?|$)/i;
 var ASSET_PATH_PATTERNS = [
   /\/assets\//i,
@@ -22472,7 +22842,7 @@ function shouldCaptureBody(url, contentType) {
   return true;
 }
 
-// packages/pw-test-writer/dist/mcp/browser/actionCapture.js
+// dist/mcp/browser/actionCapture.js
 function createEmptyActionCapture() {
   return {
     timing: { durationMs: 0 },
@@ -22532,7 +22902,7 @@ function renderActionCapture(capture) {
   return lines;
 }
 
-// packages/pw-test-writer/dist/mcp/browser/tab.js
+// dist/mcp/browser/tab.js
 var NAV_TIMEOUT = 3e4;
 var ACTION_TIMEOUT = 5e3;
 function extractAriaText(snapshot) {
@@ -22899,7 +23269,7 @@ function pageErrorToConsoleMessage(errorOrValue) {
 }
 var tabSymbol = Symbol("tabSymbol");
 
-// packages/pw-test-writer/dist/mcp/browser/context.js
+// dist/mcp/browser/context.js
 var BrowserContext = class {
   _browser;
   _browserContext;
@@ -23068,13 +23438,13 @@ var BrowserContext = class {
   }
 };
 
-// packages/pw-test-writer/dist/mcp/browser/tools.js
-import * as fs10 from "fs";
-import * as path11 from "path";
+// dist/mcp/browser/tools.js
+import * as fs11 from "fs";
+import * as path12 from "path";
 
-// packages/pw-test-writer/dist/mcp/browser/explore.js
-import * as fs8 from "fs";
-import * as path9 from "path";
+// dist/mcp/browser/explore.js
+import * as fs9 from "fs";
+import * as path10 from "path";
 var STRUCTURAL_ROLES = /* @__PURE__ */ new Set([
   "heading",
   "button",
@@ -23708,17 +24078,17 @@ function formatAppMap(map) {
   return lines.join("\n");
 }
 function saveAppMap(map, cwd2) {
-  const outDir = path9.join(cwd2, ".pw-test-writer");
-  if (!fs8.existsSync(outDir))
-    fs8.mkdirSync(outDir, { recursive: true });
-  const filePath = path9.join(outDir, "app-map.json");
-  fs8.writeFileSync(filePath, JSON.stringify(map, null, 2));
+  const outDir = path10.join(cwd2, ".pw-test-writer");
+  if (!fs9.existsSync(outDir))
+    fs9.mkdirSync(outDir, { recursive: true });
+  const filePath = path10.join(outDir, "app-map.json");
+  fs9.writeFileSync(filePath, JSON.stringify(map, null, 2));
   return filePath;
 }
 
-// packages/pw-test-writer/dist/mcp/browser/flowRecorder.js
-import * as fs9 from "fs";
-import * as path10 from "path";
+// dist/mcp/browser/flowRecorder.js
+import * as fs10 from "fs";
+import * as path11 from "path";
 var FlowRecorder = class {
   name;
   startUrl;
@@ -23803,20 +24173,20 @@ function formatFlow(flow) {
   return lines.join("\n");
 }
 function saveFlow2(flow, cwd2) {
-  const dir = path10.join(cwd2, ".pw-test-writer", "flows");
-  fs9.mkdirSync(dir, { recursive: true });
+  const dir = path11.join(cwd2, ".pw-test-writer", "flows");
+  fs10.mkdirSync(dir, { recursive: true });
   const safeName = flow.name.replace(/[^a-zA-Z0-9_-]/g, "-");
-  const filePath = path10.join(dir, `${safeName}.json`);
-  fs9.writeFileSync(filePath, JSON.stringify(flow, null, 2));
+  const filePath = path11.join(dir, `${safeName}.json`);
+  fs10.writeFileSync(filePath, JSON.stringify(flow, null, 2));
   return filePath;
 }
 function loadFlows(cwd2) {
-  const dir = path10.join(cwd2, ".pw-test-writer", "flows");
-  if (!fs9.existsSync(dir))
+  const dir = path11.join(cwd2, ".pw-test-writer", "flows");
+  if (!fs10.existsSync(dir))
     return [];
-  const files = fs9.readdirSync(dir).filter((f) => f.endsWith(".json"));
+  const files = fs10.readdirSync(dir).filter((f) => f.endsWith(".json"));
   return files.map((f) => {
-    const content = fs9.readFileSync(path10.join(dir, f), "utf-8");
+    const content = fs10.readFileSync(path11.join(dir, f), "utf-8");
     return JSON.parse(content);
   });
 }
@@ -23867,7 +24237,7 @@ function shortUrl(url) {
   }
 }
 
-// packages/pw-test-writer/dist/mcp/browser/tools.js
+// dist/mcp/browser/tools.js
 var browserToolDefs = [
   {
     name: "browser_navigate",
@@ -24409,10 +24779,10 @@ async function handleScreenshot(args, ctx) {
   const buffer = await tab.page.screenshot({ type: "png" });
   const base64 = buffer.toString("base64");
   let savedMsg = "";
-  const savePath = outputFile ? path11.resolve(outputFile) : name ? path11.resolve(".pw-test-writer", "screenshots", `${name}.png`) : null;
+  const savePath = outputFile ? path12.resolve(outputFile) : name ? path12.resolve(".pw-test-writer", "screenshots", `${name}.png`) : null;
   if (savePath) {
-    fs10.mkdirSync(path11.dirname(savePath), { recursive: true });
-    fs10.writeFileSync(savePath, buffer);
+    fs11.mkdirSync(path12.dirname(savePath), { recursive: true });
+    fs11.writeFileSync(savePath, buffer);
     savedMsg = ` \u2014 saved to ${savePath}`;
   }
   return {
@@ -24493,10 +24863,10 @@ async function handleSaveSession(args, ctx) {
     savedAt: (/* @__PURE__ */ new Date()).toISOString()
   };
   const cwd2 = process.env.PW_PROJECT_DIR || process.cwd();
-  const dir = path11.join(cwd2, ".pw-test-writer", "sessions");
-  fs10.mkdirSync(dir, { recursive: true });
-  const filePath = path11.join(dir, `${name}.json`);
-  fs10.writeFileSync(filePath, JSON.stringify(session, null, 2));
+  const dir = path12.join(cwd2, ".pw-test-writer", "sessions");
+  fs11.mkdirSync(dir, { recursive: true });
+  const filePath = path12.join(dir, `${name}.json`);
+  fs11.writeFileSync(filePath, JSON.stringify(session, null, 2));
   return text2(`Session "${name}" saved.
 URL: ${session.url}
 Cookies: ${storageState.cookies.length}
@@ -24506,10 +24876,10 @@ File: ${filePath}`);
 async function handleRestoreSession(args, ctx) {
   const name = args.name || "default";
   const cwd2 = process.env.PW_PROJECT_DIR || process.cwd();
-  const filePath = path11.join(cwd2, ".pw-test-writer", "sessions", `${name}.json`);
-  if (!fs10.existsSync(filePath))
+  const filePath = path12.join(cwd2, ".pw-test-writer", "sessions", `${name}.json`);
+  if (!fs11.existsSync(filePath))
     return error2(`Session "${name}" not found at ${filePath}`);
-  const session = JSON.parse(fs10.readFileSync(filePath, "utf-8"));
+  const session = JSON.parse(fs11.readFileSync(filePath, "utf-8"));
   await ctx.restoreFromSession(session);
   const tab = ctx.currentTabOrDie();
   const snapshot = await tab.captureSnapshot();
@@ -24768,7 +25138,7 @@ function appendPageState(lines, snapshot, includeFullSnapshot) {
   }
 }
 
-// packages/pw-test-writer/dist/mcp/server.js
+// dist/mcp/server.js
 function createMcpServer(cwd2) {
   const runs = /* @__PURE__ */ new Map();
   const browserCtx = new BrowserContext();
@@ -24965,6 +25335,15 @@ When you encounter a dirty-state failure, save two flows: the clean-start flow w
 - **e2e_get_evidence_bundle** \u2014 Get ALL failure evidence in one call (error, steps to reproduce, action timeline, network with bodies, console, DOM snapshot, screenshots). Pass \`outputFile: true\` to write a markdown file for Jira attachments.
 - **e2e_generate_report** \u2014 Generate a self-contained HTML or JSON report file. HTML includes inline styles, base64 screenshots, and collapsible per-test sections. Great for sharing with non-technical stakeholders.
 
+## Error Pattern Database
+
+When you diagnose and fix a test failure, save the pattern with \`e2e_save_error_pattern\` so future sessions can reuse the diagnosis. Patterns are auto-matched against failing tests \u2014 suggestions appear in \`e2e_run_test\` and \`e2e_get_failure_report\` output.
+
+- **e2e_save_error_pattern** \u2014 Save a diagnosed failure pattern (root cause + fix). Call this after fixing a test.
+- **e2e_match_patterns** \u2014 Explicitly search the pattern database for a failing test. Returns detailed matches with score breakdown.
+
+Patterns are stored in \`.pw-test-writer/error-patterns.json\` and matched using token similarity on the error message, action type, and URL.
+
 ## Flaky Detection
 
 Two modes for detecting flaky tests:
@@ -25026,7 +25405,7 @@ Use the \`triage-e2e\` skill for the full workflow: run all tests \u2192 classif
   return server2;
 }
 
-// packages/pw-test-writer/dist/mcp-server.js
+// dist/mcp-server.js
 var cwd = process.env.PW_PROJECT_DIR || process.cwd();
 var server = createMcpServer(cwd);
 var transport = new StdioServerTransport();
