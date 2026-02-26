@@ -23898,7 +23898,7 @@ var browserToolDefs = [
   },
   {
     name: "browser_click",
-    description: "Click an element on the page using its ref from a snapshot.",
+    description: "Click an element on the page. For multiple clicks, prefer browser_batch instead.",
     inputSchema: {
       type: "object",
       properties: {
@@ -23910,7 +23910,7 @@ var browserToolDefs = [
   },
   {
     name: "browser_type",
-    description: "Type text into an input field.",
+    description: "Type text into an input field. For multiple fields, prefer browser_fill_form or browser_batch instead.",
     inputSchema: {
       type: "object",
       properties: {
@@ -24027,7 +24027,7 @@ var browserToolDefs = [
   },
   {
     name: "browser_tabs",
-    description: "List, select, or close browser tabs. Use to switch to login popups or other tabs.",
+    description: 'List, select, or close browser tabs. Actions: "list" shows all tabs, "select" switches to tab by index, "close" closes tab by index. Use to switch to login popups or other tabs.',
     inputSchema: {
       type: "object",
       properties: {
@@ -24059,7 +24059,7 @@ var browserToolDefs = [
   },
   {
     name: "browser_batch",
-    description: "Execute multiple browser actions in one call. Captures page state only once at the end. Use `silent: true` for minimal output (success/fail only) to reduce token cost.",
+    description: "Execute multiple browser actions in one call. PREFERRED over individual click/type calls \u2014 dramatically reduces round-trips and tokens. Use `silent: true` for minimal output. If a ref becomes stale mid-batch (progressive disclosure), the batch stops and returns the error with a fresh snapshot so you can continue.",
     inputSchema: {
       type: "object",
       properties: {
@@ -24238,6 +24238,17 @@ var NON_RECORDABLE_TOOLS = /* @__PURE__ */ new Set([
   "e2e_explore"
 ]);
 var lastCapture;
+function parseJsonArg(value) {
+  if (value === void 0 || value === null)
+    return void 0;
+  if (typeof value !== "string")
+    return value;
+  try {
+    return JSON.parse(value);
+  } catch {
+    return void 0;
+  }
+}
 async function handleNavigate(args, ctx) {
   const url = args.url;
   if (!url)
@@ -24294,7 +24305,7 @@ async function handleType(args, ctx) {
   return await buildActionResult(desc, capture, tab);
 }
 async function handleFillForm(args, ctx) {
-  const fields = args.fields;
+  const fields = parseJsonArg(args.fields);
   const submit = args.submit;
   if (!fields || !Array.isArray(fields) || fields.length === 0)
     return error2("fields array is required and must not be empty");
@@ -24394,14 +24405,7 @@ async function handleScreenshot(ctx) {
   };
 }
 async function handleSetHeaders(args, ctx) {
-  let headers = args.headers;
-  if (typeof headers === "string") {
-    try {
-      headers = JSON.parse(headers);
-    } catch {
-      return error2("Invalid headers JSON string");
-    }
-  }
+  const headers = parseJsonArg(args.headers);
   if (!headers || typeof headers !== "object")
     return error2("headers object is required");
   await ctx.setExtraHTTPHeaders(headers);
@@ -24443,7 +24447,7 @@ async function handleTabs(args, ctx) {
   }
 }
 async function handleFileUpload(args, ctx) {
-  const paths = args.paths;
+  const paths = parseJsonArg(args.paths);
   const tab = ctx.currentTabOrDie();
   const modalState = tab.modalStates().find((s) => s.type === "fileChooser");
   if (!modalState?.fileChooser)
@@ -24572,7 +24576,7 @@ async function handleExplore(args, ctx) {
 App map saved to: ${filePath}`);
 }
 async function handleBatch(args, ctx) {
-  const actions = args.actions;
+  const actions = parseJsonArg(args.actions);
   const silent = args.silent;
   const includeSnapshotArg = args.includeSnapshot;
   if (!actions || !Array.isArray(actions) || actions.length === 0)
@@ -24780,9 +24784,17 @@ Use browser_* tools to explore an application interactively \u2014 navigate page
 **Typical flow:**
 1. \`browser_navigate\` \u2014 open a URL (launches browser automatically)
 2. \`browser_snapshot\` \u2014 see the page structure with [ref=X] markers
-3. \`browser_click\` / \`browser_type\` / \`browser_select_option\` \u2014 interact with elements using their ref
-4. \`browser_take_screenshot\` \u2014 capture a visual screenshot
-5. \`browser_close\` \u2014 close the browser when done
+3. \`browser_batch\` \u2014 **PREFERRED**: execute multiple actions (click, fill, check) in one call with \`silent: true\`
+4. \`browser_click\` / \`browser_type\` \u2014 use only for single isolated actions
+5. \`browser_take_screenshot\` \u2014 capture a visual screenshot
+6. \`browser_close\` \u2014 close the browser when done
+
+**Efficiency rules:**
+- **Always prefer \`browser_batch\`** over individual click/type calls. Batch multiple actions together.
+- Use \`silent: true\` on batch to minimize token output (returns only success/fail + network summary).
+- If a batch action fails due to a stale ref (progressive disclosure changed the DOM), the error response includes the updated snapshot \u2014 just continue from there.
+- Use \`browser_fill_form\` for form fields (supports labels and field types).
+- Use \`browser_tabs\` with action \`"list"\` / \`"select"\` / \`"close"\` to handle popups and multi-tab flows.
 
 Each interaction tool returns an action capture (timing, network requests, page changes) and an updated ARIA snapshot.
 
