@@ -33,9 +33,9 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
   mod
 ));
 
-// ../../node_modules/uri-js/dist/es5/uri.all.js
+// node_modules/uri-js/dist/es5/uri.all.js
 var require_uri_all = __commonJS({
-  "../../node_modules/uri-js/dist/es5/uri.all.js"(exports, module) {
+  "node_modules/uri-js/dist/es5/uri.all.js"(exports, module) {
     (function(global, factory) {
       typeof exports === "object" && typeof module !== "undefined" ? factory(exports) : typeof define === "function" && define.amd ? define(["exports"], factory) : factory(global.URI = global.URI || {});
     })(exports, (function(exports2) {
@@ -1050,9 +1050,9 @@ var require_uri_all = __commonJS({
   }
 });
 
-// ../../node_modules/fast-deep-equal/index.js
+// node_modules/fast-deep-equal/index.js
 var require_fast_deep_equal = __commonJS({
-  "../../node_modules/fast-deep-equal/index.js"(exports, module) {
+  "node_modules/fast-deep-equal/index.js"(exports, module) {
     "use strict";
     module.exports = function equal(a, b) {
       if (a === b) return true;
@@ -1085,9 +1085,9 @@ var require_fast_deep_equal = __commonJS({
   }
 });
 
-// ../../node_modules/ajv/lib/compile/ucs2length.js
+// node_modules/ajv/lib/compile/ucs2length.js
 var require_ucs2length = __commonJS({
-  "../../node_modules/ajv/lib/compile/ucs2length.js"(exports, module) {
+  "node_modules/ajv/lib/compile/ucs2length.js"(exports, module) {
     "use strict";
     module.exports = function ucs2length(str) {
       var length = 0, len = str.length, pos = 0, value;
@@ -1104,9 +1104,9 @@ var require_ucs2length = __commonJS({
   }
 });
 
-// ../../node_modules/ajv/lib/compile/util.js
+// node_modules/ajv/lib/compile/util.js
 var require_util = __commonJS({
-  "../../node_modules/ajv/lib/compile/util.js"(exports, module) {
+  "node_modules/ajv/lib/compile/util.js"(exports, module) {
     "use strict";
     module.exports = {
       copy,
@@ -1288,9 +1288,9 @@ var require_util = __commonJS({
   }
 });
 
-// ../../node_modules/ajv/lib/compile/schema_obj.js
+// node_modules/ajv/lib/compile/schema_obj.js
 var require_schema_obj = __commonJS({
-  "../../node_modules/ajv/lib/compile/schema_obj.js"(exports, module) {
+  "node_modules/ajv/lib/compile/schema_obj.js"(exports, module) {
     "use strict";
     var util2 = require_util();
     module.exports = SchemaObject;
@@ -1300,9 +1300,9 @@ var require_schema_obj = __commonJS({
   }
 });
 
-// ../../node_modules/json-schema-traverse/index.js
+// node_modules/json-schema-traverse/index.js
 var require_json_schema_traverse = __commonJS({
-  "../../node_modules/json-schema-traverse/index.js"(exports, module) {
+  "node_modules/json-schema-traverse/index.js"(exports, module) {
     "use strict";
     var traverse = module.exports = function(schema, opts, cb) {
       if (typeof opts == "function") {
@@ -1384,9 +1384,9 @@ var require_json_schema_traverse = __commonJS({
   }
 });
 
-// ../../node_modules/ajv/lib/compile/resolve.js
+// node_modules/ajv/lib/compile/resolve.js
 var require_resolve = __commonJS({
-  "../../node_modules/ajv/lib/compile/resolve.js"(exports, module) {
+  "node_modules/ajv/lib/compile/resolve.js"(exports, module) {
     "use strict";
     var URI = require_uri_all();
     var equal = require_fast_deep_equal();
@@ -1605,9 +1605,9 @@ var require_resolve = __commonJS({
   }
 });
 
-// ../../node_modules/ajv/lib/compile/error_classes.js
+// node_modules/ajv/lib/compile/error_classes.js
 var require_error_classes = __commonJS({
-  "../../node_modules/ajv/lib/compile/error_classes.js"(exports, module) {
+  "node_modules/ajv/lib/compile/error_classes.js"(exports, module) {
     "use strict";
     var resolve7 = require_resolve();
     module.exports = {
@@ -1635,9 +1635,9 @@ var require_error_classes = __commonJS({
   }
 });
 
-// ../../node_modules/fast-json-stable-stringify/index.js
+// node_modules/fast-json-stable-stringify/index.js
 var require_fast_json_stable_stringify = __commonJS({
-  "../../node_modules/fast-json-stable-stringify/index.js"(exports, module) {
+  "node_modules/fast-json-stable-stringify/index.js"(exports, module) {
     "use strict";
     module.exports = function(data, opts) {
       if (!opts) opts = {};
@@ -1691,9 +1691,9 @@ var require_fast_json_stable_stringify = __commonJS({
   }
 });
 
-// ../../node_modules/ajv/lib/dotjs/validate.js
+// node_modules/ajv/lib/dotjs/validate.js
 var require_validate = __commonJS({
-  "../../node_modules/ajv/lib/dotjs/validate.js"(exports, module) {
+  "node_modules/ajv/lib/dotjs/validate.js"(exports, module) {
     "use strict";
     module.exports = function generate_validate(it, $keyword, $ruleType) {
       var out = "";
@@ -2149,9 +2149,9 @@ var require_validate = __commonJS({
   }
 });
 
-// ../../node_modules/ajv/lib/compile/index.js
+// node_modules/ajv/lib/compile/index.js
 var require_compile = __commonJS({
-  "../../node_modules/ajv/lib/compile/index.js"(exports, module) {
+  "node_modules/ajv/lib/compile/index.js"(exports, module) {
     "use strict";
     var resolve7 = require_resolve();
     var util2 = require_util();
@@ -2428,9 +2428,9 @@ var require_compile = __commonJS({
   }
 });
 
-// ../../node_modules/ajv/lib/cache.js
+// node_modules/ajv/lib/cache.js
 var require_cache = __commonJS({
-  "../../node_modules/ajv/lib/cache.js"(exports, module) {
+  "node_modules/ajv/lib/cache.js"(exports, module) {
     "use strict";
     var Cache = module.exports = function Cache2() {
       this._cache = {};
@@ -2450,9 +2450,9 @@ var require_cache = __commonJS({
   }
 });
 
-// ../../node_modules/ajv/lib/compile/formats.js
+// node_modules/ajv/lib/compile/formats.js
 var require_formats = __commonJS({
-  "../../node_modules/ajv/lib/compile/formats.js"(exports, module) {
+  "node_modules/ajv/lib/compile/formats.js"(exports, module) {
     "use strict";
     var util2 = require_util();
     var DATE = /^(\d\d\d\d)-(\d\d)-(\d\d)$/;
@@ -2562,9 +2562,9 @@ var require_formats = __commonJS({
   }
 });
 
-// ../../node_modules/ajv/lib/dotjs/ref.js
+// node_modules/ajv/lib/dotjs/ref.js
 var require_ref = __commonJS({
-  "../../node_modules/ajv/lib/dotjs/ref.js"(exports, module) {
+  "node_modules/ajv/lib/dotjs/ref.js"(exports, module) {
     "use strict";
     module.exports = function generate_ref(it, $keyword, $ruleType) {
       var out = " ";
@@ -2690,9 +2690,9 @@ var require_ref = __commonJS({
   }
 });
 
-// ../../node_modules/ajv/lib/dotjs/allOf.js
+// node_modules/ajv/lib/dotjs/allOf.js
 var require_allOf = __commonJS({
-  "../../node_modules/ajv/lib/dotjs/allOf.js"(exports, module) {
+  "node_modules/ajv/lib/dotjs/allOf.js"(exports, module) {
     "use strict";
     module.exports = function generate_allOf(it, $keyword, $ruleType) {
       var out = " ";
@@ -2736,9 +2736,9 @@ var require_allOf = __commonJS({
   }
 });
 
-// ../../node_modules/ajv/lib/dotjs/anyOf.js
+// node_modules/ajv/lib/dotjs/anyOf.js
 var require_anyOf = __commonJS({
-  "../../node_modules/ajv/lib/dotjs/anyOf.js"(exports, module) {
+  "node_modules/ajv/lib/dotjs/anyOf.js"(exports, module) {
     "use strict";
     module.exports = function generate_anyOf(it, $keyword, $ruleType) {
       var out = " ";
@@ -2813,9 +2813,9 @@ var require_anyOf = __commonJS({
   }
 });
 
-// ../../node_modules/ajv/lib/dotjs/comment.js
+// node_modules/ajv/lib/dotjs/comment.js
 var require_comment = __commonJS({
-  "../../node_modules/ajv/lib/dotjs/comment.js"(exports, module) {
+  "node_modules/ajv/lib/dotjs/comment.js"(exports, module) {
     "use strict";
     module.exports = function generate_comment(it, $keyword, $ruleType) {
       var out = " ";
@@ -2833,9 +2833,9 @@ var require_comment = __commonJS({
   }
 });
 
-// ../../node_modules/ajv/lib/dotjs/const.js
+// node_modules/ajv/lib/dotjs/const.js
 var require_const = __commonJS({
-  "../../node_modules/ajv/lib/dotjs/const.js"(exports, module) {
+  "node_modules/ajv/lib/dotjs/const.js"(exports, module) {
     "use strict";
     module.exports = function generate_const(it, $keyword, $ruleType) {
       var out = " ";
@@ -2893,9 +2893,9 @@ var require_const = __commonJS({
   }
 });
 
-// ../../node_modules/ajv/lib/dotjs/contains.js
+// node_modules/ajv/lib/dotjs/contains.js
 var require_contains = __commonJS({
-  "../../node_modules/ajv/lib/dotjs/contains.js"(exports, module) {
+  "node_modules/ajv/lib/dotjs/contains.js"(exports, module) {
     "use strict";
     module.exports = function generate_contains(it, $keyword, $ruleType) {
       var out = " ";
@@ -2975,9 +2975,9 @@ var require_contains = __commonJS({
   }
 });
 
-// ../../node_modules/ajv/lib/dotjs/dependencies.js
+// node_modules/ajv/lib/dotjs/dependencies.js
 var require_dependencies = __commonJS({
-  "../../node_modules/ajv/lib/dotjs/dependencies.js"(exports, module) {
+  "node_modules/ajv/lib/dotjs/dependencies.js"(exports, module) {
     "use strict";
     module.exports = function generate_dependencies(it, $keyword, $ruleType) {
       var out = " ";
@@ -3140,9 +3140,9 @@ var require_dependencies = __commonJS({
   }
 });
 
-// ../../node_modules/ajv/lib/dotjs/enum.js
+// node_modules/ajv/lib/dotjs/enum.js
 var require_enum = __commonJS({
-  "../../node_modules/ajv/lib/dotjs/enum.js"(exports, module) {
+  "node_modules/ajv/lib/dotjs/enum.js"(exports, module) {
     "use strict";
     module.exports = function generate_enum(it, $keyword, $ruleType) {
       var out = " ";
@@ -3209,9 +3209,9 @@ var require_enum = __commonJS({
   }
 });
 
-// ../../node_modules/ajv/lib/dotjs/format.js
+// node_modules/ajv/lib/dotjs/format.js
 var require_format = __commonJS({
-  "../../node_modules/ajv/lib/dotjs/format.js"(exports, module) {
+  "node_modules/ajv/lib/dotjs/format.js"(exports, module) {
     "use strict";
     module.exports = function generate_format(it, $keyword, $ruleType) {
       var out = " ";
@@ -3360,9 +3360,9 @@ var require_format = __commonJS({
   }
 });
 
-// ../../node_modules/ajv/lib/dotjs/if.js
+// node_modules/ajv/lib/dotjs/if.js
 var require_if = __commonJS({
-  "../../node_modules/ajv/lib/dotjs/if.js"(exports, module) {
+  "node_modules/ajv/lib/dotjs/if.js"(exports, module) {
     "use strict";
     module.exports = function generate_if(it, $keyword, $ruleType) {
       var out = " ";
@@ -3464,9 +3464,9 @@ var require_if = __commonJS({
   }
 });
 
-// ../../node_modules/ajv/lib/dotjs/items.js
+// node_modules/ajv/lib/dotjs/items.js
 var require_items = __commonJS({
-  "../../node_modules/ajv/lib/dotjs/items.js"(exports, module) {
+  "node_modules/ajv/lib/dotjs/items.js"(exports, module) {
     "use strict";
     module.exports = function generate_items(it, $keyword, $ruleType) {
       var out = " ";
@@ -3605,9 +3605,9 @@ var require_items = __commonJS({
   }
 });
 
-// ../../node_modules/ajv/lib/dotjs/_limit.js
+// node_modules/ajv/lib/dotjs/_limit.js
 var require_limit = __commonJS({
-  "../../node_modules/ajv/lib/dotjs/_limit.js"(exports, module) {
+  "node_modules/ajv/lib/dotjs/_limit.js"(exports, module) {
     "use strict";
     module.exports = function generate__limit(it, $keyword, $ruleType) {
       var out = " ";
@@ -3759,9 +3759,9 @@ var require_limit = __commonJS({
   }
 });
 
-// ../../node_modules/ajv/lib/dotjs/_limitItems.js
+// node_modules/ajv/lib/dotjs/_limitItems.js
 var require_limitItems = __commonJS({
-  "../../node_modules/ajv/lib/dotjs/_limitItems.js"(exports, module) {
+  "node_modules/ajv/lib/dotjs/_limitItems.js"(exports, module) {
     "use strict";
     module.exports = function generate__limitItems(it, $keyword, $ruleType) {
       var out = " ";
@@ -3843,9 +3843,9 @@ var require_limitItems = __commonJS({
   }
 });
 
-// ../../node_modules/ajv/lib/dotjs/_limitLength.js
+// node_modules/ajv/lib/dotjs/_limitLength.js
 var require_limitLength = __commonJS({
-  "../../node_modules/ajv/lib/dotjs/_limitLength.js"(exports, module) {
+  "node_modules/ajv/lib/dotjs/_limitLength.js"(exports, module) {
     "use strict";
     module.exports = function generate__limitLength(it, $keyword, $ruleType) {
       var out = " ";
@@ -3932,9 +3932,9 @@ var require_limitLength = __commonJS({
   }
 });
 
-// ../../node_modules/ajv/lib/dotjs/_limitProperties.js
+// node_modules/ajv/lib/dotjs/_limitProperties.js
 var require_limitProperties = __commonJS({
-  "../../node_modules/ajv/lib/dotjs/_limitProperties.js"(exports, module) {
+  "node_modules/ajv/lib/dotjs/_limitProperties.js"(exports, module) {
     "use strict";
     module.exports = function generate__limitProperties(it, $keyword, $ruleType) {
       var out = " ";
@@ -4016,9 +4016,9 @@ var require_limitProperties = __commonJS({
   }
 });
 
-// ../../node_modules/ajv/lib/dotjs/multipleOf.js
+// node_modules/ajv/lib/dotjs/multipleOf.js
 var require_multipleOf = __commonJS({
-  "../../node_modules/ajv/lib/dotjs/multipleOf.js"(exports, module) {
+  "node_modules/ajv/lib/dotjs/multipleOf.js"(exports, module) {
     "use strict";
     module.exports = function generate_multipleOf(it, $keyword, $ruleType) {
       var out = " ";
@@ -4100,9 +4100,9 @@ var require_multipleOf = __commonJS({
   }
 });
 
-// ../../node_modules/ajv/lib/dotjs/not.js
+// node_modules/ajv/lib/dotjs/not.js
 var require_not = __commonJS({
-  "../../node_modules/ajv/lib/dotjs/not.js"(exports, module) {
+  "node_modules/ajv/lib/dotjs/not.js"(exports, module) {
     "use strict";
     module.exports = function generate_not(it, $keyword, $ruleType) {
       var out = " ";
@@ -4189,9 +4189,9 @@ var require_not = __commonJS({
   }
 });
 
-// ../../node_modules/ajv/lib/dotjs/oneOf.js
+// node_modules/ajv/lib/dotjs/oneOf.js
 var require_oneOf = __commonJS({
-  "../../node_modules/ajv/lib/dotjs/oneOf.js"(exports, module) {
+  "node_modules/ajv/lib/dotjs/oneOf.js"(exports, module) {
     "use strict";
     module.exports = function generate_oneOf(it, $keyword, $ruleType) {
       var out = " ";
@@ -4264,9 +4264,9 @@ var require_oneOf = __commonJS({
   }
 });
 
-// ../../node_modules/ajv/lib/dotjs/pattern.js
+// node_modules/ajv/lib/dotjs/pattern.js
 var require_pattern = __commonJS({
-  "../../node_modules/ajv/lib/dotjs/pattern.js"(exports, module) {
+  "node_modules/ajv/lib/dotjs/pattern.js"(exports, module) {
     "use strict";
     module.exports = function generate_pattern(it, $keyword, $ruleType) {
       var out = " ";
@@ -4343,9 +4343,9 @@ var require_pattern = __commonJS({
   }
 });
 
-// ../../node_modules/ajv/lib/dotjs/properties.js
+// node_modules/ajv/lib/dotjs/properties.js
 var require_properties = __commonJS({
-  "../../node_modules/ajv/lib/dotjs/properties.js"(exports, module) {
+  "node_modules/ajv/lib/dotjs/properties.js"(exports, module) {
     "use strict";
     module.exports = function generate_properties(it, $keyword, $ruleType) {
       var out = " ";
@@ -4659,9 +4659,9 @@ var require_properties = __commonJS({
   }
 });
 
-// ../../node_modules/ajv/lib/dotjs/propertyNames.js
+// node_modules/ajv/lib/dotjs/propertyNames.js
 var require_propertyNames = __commonJS({
-  "../../node_modules/ajv/lib/dotjs/propertyNames.js"(exports, module) {
+  "node_modules/ajv/lib/dotjs/propertyNames.js"(exports, module) {
     "use strict";
     module.exports = function generate_propertyNames(it, $keyword, $ruleType) {
       var out = " ";
@@ -4737,9 +4737,9 @@ var require_propertyNames = __commonJS({
   }
 });
 
-// ../../node_modules/ajv/lib/dotjs/required.js
+// node_modules/ajv/lib/dotjs/required.js
 var require_required = __commonJS({
-  "../../node_modules/ajv/lib/dotjs/required.js"(exports, module) {
+  "node_modules/ajv/lib/dotjs/required.js"(exports, module) {
     "use strict";
     module.exports = function generate_required(it, $keyword, $ruleType) {
       var out = " ";
@@ -4997,9 +4997,9 @@ var require_required = __commonJS({
   }
 });
 
-// ../../node_modules/ajv/lib/dotjs/uniqueItems.js
+// node_modules/ajv/lib/dotjs/uniqueItems.js
 var require_uniqueItems = __commonJS({
-  "../../node_modules/ajv/lib/dotjs/uniqueItems.js"(exports, module) {
+  "node_modules/ajv/lib/dotjs/uniqueItems.js"(exports, module) {
     "use strict";
     module.exports = function generate_uniqueItems(it, $keyword, $ruleType) {
       var out = " ";
@@ -5086,9 +5086,9 @@ var require_uniqueItems = __commonJS({
   }
 });
 
-// ../../node_modules/ajv/lib/dotjs/index.js
+// node_modules/ajv/lib/dotjs/index.js
 var require_dotjs = __commonJS({
-  "../../node_modules/ajv/lib/dotjs/index.js"(exports, module) {
+  "node_modules/ajv/lib/dotjs/index.js"(exports, module) {
     "use strict";
     module.exports = {
       "$ref": require_ref(),
@@ -5123,9 +5123,9 @@ var require_dotjs = __commonJS({
   }
 });
 
-// ../../node_modules/ajv/lib/compile/rules.js
+// node_modules/ajv/lib/compile/rules.js
 var require_rules = __commonJS({
-  "../../node_modules/ajv/lib/compile/rules.js"(exports, module) {
+  "node_modules/ajv/lib/compile/rules.js"(exports, module) {
     "use strict";
     var ruleModules = require_dotjs();
     var toHash = require_util().toHash;
@@ -5217,9 +5217,9 @@ var require_rules = __commonJS({
   }
 });
 
-// ../../node_modules/ajv/lib/data.js
+// node_modules/ajv/lib/data.js
 var require_data = __commonJS({
-  "../../node_modules/ajv/lib/data.js"(exports, module) {
+  "node_modules/ajv/lib/data.js"(exports, module) {
     "use strict";
     var KEYWORDS = [
       "multipleOf",
@@ -5268,9 +5268,9 @@ var require_data = __commonJS({
   }
 });
 
-// ../../node_modules/ajv/lib/compile/async.js
+// node_modules/ajv/lib/compile/async.js
 var require_async = __commonJS({
-  "../../node_modules/ajv/lib/compile/async.js"(exports, module) {
+  "node_modules/ajv/lib/compile/async.js"(exports, module) {
     "use strict";
     var MissingRefError = require_error_classes().MissingRef;
     module.exports = compileAsync;
@@ -5335,9 +5335,9 @@ var require_async = __commonJS({
   }
 });
 
-// ../../node_modules/ajv/lib/dotjs/custom.js
+// node_modules/ajv/lib/dotjs/custom.js
 var require_custom = __commonJS({
-  "../../node_modules/ajv/lib/dotjs/custom.js"(exports, module) {
+  "node_modules/ajv/lib/dotjs/custom.js"(exports, module) {
     "use strict";
     module.exports = function generate_custom(it, $keyword, $ruleType) {
       var out = " ";
@@ -5559,9 +5559,9 @@ var require_custom = __commonJS({
   }
 });
 
-// ../../node_modules/ajv/lib/refs/json-schema-draft-07.json
+// node_modules/ajv/lib/refs/json-schema-draft-07.json
 var require_json_schema_draft_07 = __commonJS({
-  "../../node_modules/ajv/lib/refs/json-schema-draft-07.json"(exports, module) {
+  "node_modules/ajv/lib/refs/json-schema-draft-07.json"(exports, module) {
     module.exports = {
       $schema: "http://json-schema.org/draft-07/schema#",
       $id: "http://json-schema.org/draft-07/schema#",
@@ -5733,9 +5733,9 @@ var require_json_schema_draft_07 = __commonJS({
   }
 });
 
-// ../../node_modules/ajv/lib/definition_schema.js
+// node_modules/ajv/lib/definition_schema.js
 var require_definition_schema = __commonJS({
-  "../../node_modules/ajv/lib/definition_schema.js"(exports, module) {
+  "node_modules/ajv/lib/definition_schema.js"(exports, module) {
     "use strict";
     var metaSchema = require_json_schema_draft_07();
     module.exports = {
@@ -5774,9 +5774,9 @@ var require_definition_schema = __commonJS({
   }
 });
 
-// ../../node_modules/ajv/lib/keyword.js
+// node_modules/ajv/lib/keyword.js
 var require_keyword = __commonJS({
-  "../../node_modules/ajv/lib/keyword.js"(exports, module) {
+  "node_modules/ajv/lib/keyword.js"(exports, module) {
     "use strict";
     var IDENTIFIER = /^[a-z_$][a-z0-9_$-]*$/i;
     var customRuleCode = require_custom();
@@ -5874,9 +5874,9 @@ var require_keyword = __commonJS({
   }
 });
 
-// ../../node_modules/ajv/lib/refs/data.json
+// node_modules/ajv/lib/refs/data.json
 var require_data2 = __commonJS({
-  "../../node_modules/ajv/lib/refs/data.json"(exports, module) {
+  "node_modules/ajv/lib/refs/data.json"(exports, module) {
     module.exports = {
       $schema: "http://json-schema.org/draft-07/schema#",
       $id: "https://raw.githubusercontent.com/ajv-validator/ajv/master/lib/refs/data.json#",
@@ -5897,9 +5897,9 @@ var require_data2 = __commonJS({
   }
 });
 
-// ../../node_modules/ajv/lib/ajv.js
+// node_modules/ajv/lib/ajv.js
 var require_ajv = __commonJS({
-  "../../node_modules/ajv/lib/ajv.js"(exports, module) {
+  "node_modules/ajv/lib/ajv.js"(exports, module) {
     "use strict";
     var compileSchema = require_compile();
     var resolve7 = require_resolve();
@@ -6249,9 +6249,9 @@ var require_ajv = __commonJS({
   }
 });
 
-// ../../node_modules/balanced-match/index.js
+// node_modules/balanced-match/index.js
 var require_balanced_match = __commonJS({
-  "../../node_modules/balanced-match/index.js"(exports, module) {
+  "node_modules/balanced-match/index.js"(exports, module) {
     "use strict";
     module.exports = balanced;
     function balanced(a, b, str) {
@@ -6307,9 +6307,9 @@ var require_balanced_match = __commonJS({
   }
 });
 
-// node_modules/brace-expansion/index.js
+// packages/pw-test-writer/node_modules/brace-expansion/index.js
 var require_brace_expansion = __commonJS({
-  "node_modules/brace-expansion/index.js"(exports, module) {
+  "packages/pw-test-writer/node_modules/brace-expansion/index.js"(exports, module) {
     var balanced = require_balanced_match();
     module.exports = expandTop;
     var escSlash = "\0SLASH" + Math.random() + "\0";
@@ -6457,10 +6457,10 @@ var require_brace_expansion = __commonJS({
   }
 });
 
-// node_modules/minimatch/dist/esm/assert-valid-pattern.js
+// packages/pw-test-writer/node_modules/minimatch/dist/esm/assert-valid-pattern.js
 var MAX_PATTERN_LENGTH, assertValidPattern;
 var init_assert_valid_pattern = __esm({
-  "node_modules/minimatch/dist/esm/assert-valid-pattern.js"() {
+  "packages/pw-test-writer/node_modules/minimatch/dist/esm/assert-valid-pattern.js"() {
     MAX_PATTERN_LENGTH = 1024 * 64;
     assertValidPattern = (pattern) => {
       if (typeof pattern !== "string") {
@@ -6473,10 +6473,10 @@ var init_assert_valid_pattern = __esm({
   }
 });
 
-// node_modules/minimatch/dist/esm/brace-expressions.js
+// packages/pw-test-writer/node_modules/minimatch/dist/esm/brace-expressions.js
 var posixClasses, braceEscape, regexpEscape, rangesToString, parseClass;
 var init_brace_expressions = __esm({
-  "node_modules/minimatch/dist/esm/brace-expressions.js"() {
+  "packages/pw-test-writer/node_modules/minimatch/dist/esm/brace-expressions.js"() {
     posixClasses = {
       "[:alnum:]": ["\\p{L}\\p{Nl}\\p{Nd}", true],
       "[:alpha:]": ["\\p{L}\\p{Nl}", true],
@@ -6587,20 +6587,20 @@ var init_brace_expressions = __esm({
   }
 });
 
-// node_modules/minimatch/dist/esm/unescape.js
+// packages/pw-test-writer/node_modules/minimatch/dist/esm/unescape.js
 var unescape;
 var init_unescape = __esm({
-  "node_modules/minimatch/dist/esm/unescape.js"() {
+  "packages/pw-test-writer/node_modules/minimatch/dist/esm/unescape.js"() {
     unescape = (s, { windowsPathsNoEscape = false } = {}) => {
       return windowsPathsNoEscape ? s.replace(/\[([^\/\\])\]/g, "$1") : s.replace(/((?!\\).|^)\[([^\/\\])\]/g, "$1$2").replace(/\\([^\/])/g, "$1");
     };
   }
 });
 
-// node_modules/minimatch/dist/esm/ast.js
+// packages/pw-test-writer/node_modules/minimatch/dist/esm/ast.js
 var types, isExtglobType, startNoTraversal, startNoDot, addPatternStart, justDots, reSpecials, regExpEscape, qmark, star, starNoEmpty, AST;
 var init_ast = __esm({
-  "node_modules/minimatch/dist/esm/ast.js"() {
+  "packages/pw-test-writer/node_modules/minimatch/dist/esm/ast.js"() {
     init_brace_expressions();
     init_unescape();
     types = /* @__PURE__ */ new Set(["!", "?", "+", "*", "@"]);
@@ -7083,20 +7083,20 @@ var init_ast = __esm({
   }
 });
 
-// node_modules/minimatch/dist/esm/escape.js
+// packages/pw-test-writer/node_modules/minimatch/dist/esm/escape.js
 var escape;
 var init_escape = __esm({
-  "node_modules/minimatch/dist/esm/escape.js"() {
+  "packages/pw-test-writer/node_modules/minimatch/dist/esm/escape.js"() {
     escape = (s, { windowsPathsNoEscape = false } = {}) => {
       return windowsPathsNoEscape ? s.replace(/[?*()[\]]/g, "[$&]") : s.replace(/[?*()[\]\\]/g, "\\$&");
     };
   }
 });
 
-// node_modules/minimatch/dist/esm/index.js
+// packages/pw-test-writer/node_modules/minimatch/dist/esm/index.js
 var import_brace_expansion, minimatch, starDotExtRE, starDotExtTest, starDotExtTestDot, starDotExtTestNocase, starDotExtTestNocaseDot, starDotStarRE, starDotStarTest, starDotStarTestDot, dotStarRE, dotStarTest, starRE, starTest, starTestDot, qmarksRE, qmarksTestNocase, qmarksTestNocaseDot, qmarksTestDot, qmarksTest, qmarksTestNoExt, qmarksTestNoExtDot, defaultPlatform, path, sep, GLOBSTAR, qmark2, star2, twoStarDot, twoStarNoDot, filter, ext, defaults, braceExpand, makeRe, match, globMagic, regExpEscape2, Minimatch;
 var init_esm = __esm({
-  "node_modules/minimatch/dist/esm/index.js"() {
+  "packages/pw-test-writer/node_modules/minimatch/dist/esm/index.js"() {
     import_brace_expansion = __toESM(require_brace_expansion(), 1);
     init_assert_valid_pattern();
     init_ast();
@@ -7824,10 +7824,10 @@ var init_esm = __esm({
   }
 });
 
-// ../../node_modules/path-scurry/node_modules/lru-cache/dist/esm/index.js
+// node_modules/path-scurry/node_modules/lru-cache/dist/esm/index.js
 var perf, warned, PROCESS, emitWarning, AC, AS, shouldWarn, TYPE, isPosInt, getUintArray, ZeroArray, Stack, LRUCache;
 var init_esm2 = __esm({
-  "../../node_modules/path-scurry/node_modules/lru-cache/dist/esm/index.js"() {
+  "node_modules/path-scurry/node_modules/lru-cache/dist/esm/index.js"() {
     perf = typeof performance === "object" && performance && typeof performance.now === "function" ? performance : Date;
     warned = /* @__PURE__ */ new Set();
     PROCESS = typeof process === "object" && !!process ? process : {};
@@ -9198,13 +9198,13 @@ var init_esm2 = __esm({
   }
 });
 
-// ../../node_modules/minipass/dist/esm/index.js
+// node_modules/minipass/dist/esm/index.js
 import { EventEmitter } from "node:events";
 import Stream from "node:stream";
 import { StringDecoder } from "node:string_decoder";
 var proc, isStream, isReadable, isWritable, EOF, MAYBE_EMIT_END, EMITTED_END, EMITTING_END, EMITTED_ERROR, CLOSED, READ, FLUSH, FLUSHCHUNK, ENCODING, DECODER, FLOWING, PAUSED, RESUME, BUFFER, PIPES, BUFFERLENGTH, BUFFERPUSH, BUFFERSHIFT, OBJECTMODE, DESTROYED, ERROR, EMITDATA, EMITEND, EMITEND2, ASYNC, ABORT, ABORTED, SIGNAL, DATALISTENERS, DISCARDED, defer, nodefer, isEndish, isArrayBufferLike, isArrayBufferView, Pipe, PipeProxyErrors, isObjectModeOptions, isEncodingOptions, Minipass;
 var init_esm3 = __esm({
-  "../../node_modules/minipass/dist/esm/index.js"() {
+  "node_modules/minipass/dist/esm/index.js"() {
     proc = typeof process === "object" && process ? process : {
       stdout: null,
       stderr: null
@@ -10081,7 +10081,7 @@ var init_esm3 = __esm({
   }
 });
 
-// ../../node_modules/path-scurry/dist/esm/index.js
+// node_modules/path-scurry/dist/esm/index.js
 import { posix, win32 } from "node:path";
 import { fileURLToPath } from "node:url";
 import { lstatSync, readdir as readdirCB, readdirSync, readlinkSync, realpathSync as rps } from "fs";
@@ -10089,7 +10089,7 @@ import * as actualFS from "node:fs";
 import { lstat, readdir, readlink, realpath } from "node:fs/promises";
 var realpathSync, defaultFS, fsFromOption, uncDriveRegexp, uncToDrive, eitherSep, UNKNOWN, IFIFO, IFCHR, IFDIR, IFBLK, IFREG, IFLNK, IFSOCK, IFMT, IFMT_UNKNOWN, READDIR_CALLED, LSTAT_CALLED, ENOTDIR, ENOENT, ENOREADLINK, ENOREALPATH, ENOCHILD, TYPEMASK, entToType, normalizeCache, normalize, normalizeNocaseCache, normalizeNocase, ResolveCache, ChildrenCache, setAsCwd, PathBase, PathWin32, PathPosix, PathScurryBase, PathScurryWin32, PathScurryPosix, PathScurryDarwin, Path, PathScurry;
 var init_esm4 = __esm({
-  "../../node_modules/path-scurry/dist/esm/index.js"() {
+  "node_modules/path-scurry/dist/esm/index.js"() {
     init_esm2();
     init_esm3();
     realpathSync = rps.native;
@@ -11817,10 +11817,10 @@ var init_esm4 = __esm({
   }
 });
 
-// node_modules/glob/dist/esm/pattern.js
+// packages/pw-test-writer/node_modules/glob/dist/esm/pattern.js
 var isPatternList, isGlobList, Pattern;
 var init_pattern = __esm({
-  "node_modules/glob/dist/esm/pattern.js"() {
+  "packages/pw-test-writer/node_modules/glob/dist/esm/pattern.js"() {
     init_esm();
     isPatternList = (pl) => pl.length >= 1;
     isGlobList = (gl) => gl.length >= 1;
@@ -11988,10 +11988,10 @@ var init_pattern = __esm({
   }
 });
 
-// node_modules/glob/dist/esm/ignore.js
+// packages/pw-test-writer/node_modules/glob/dist/esm/ignore.js
 var defaultPlatform2, Ignore;
 var init_ignore = __esm({
-  "node_modules/glob/dist/esm/ignore.js"() {
+  "packages/pw-test-writer/node_modules/glob/dist/esm/ignore.js"() {
     init_esm();
     init_pattern();
     defaultPlatform2 = typeof process === "object" && process && typeof process.platform === "string" ? process.platform : "linux";
@@ -12082,10 +12082,10 @@ var init_ignore = __esm({
   }
 });
 
-// node_modules/glob/dist/esm/processor.js
+// packages/pw-test-writer/node_modules/glob/dist/esm/processor.js
 var HasWalkedCache, MatchRecord, SubWalks, Processor;
 var init_processor = __esm({
-  "node_modules/glob/dist/esm/processor.js"() {
+  "packages/pw-test-writer/node_modules/glob/dist/esm/processor.js"() {
     init_esm();
     HasWalkedCache = class _HasWalkedCache {
       store;
@@ -12309,10 +12309,10 @@ var init_processor = __esm({
   }
 });
 
-// node_modules/glob/dist/esm/walker.js
+// packages/pw-test-writer/node_modules/glob/dist/esm/walker.js
 var makeIgnore, GlobUtil, GlobWalker, GlobStream;
 var init_walker = __esm({
-  "node_modules/glob/dist/esm/walker.js"() {
+  "packages/pw-test-writer/node_modules/glob/dist/esm/walker.js"() {
     init_esm3();
     init_ignore();
     init_processor();
@@ -12644,11 +12644,11 @@ var init_walker = __esm({
   }
 });
 
-// node_modules/glob/dist/esm/glob.js
+// packages/pw-test-writer/node_modules/glob/dist/esm/glob.js
 import { fileURLToPath as fileURLToPath2 } from "node:url";
 var defaultPlatform3, Glob;
 var init_glob = __esm({
-  "node_modules/glob/dist/esm/glob.js"() {
+  "packages/pw-test-writer/node_modules/glob/dist/esm/glob.js"() {
     init_esm();
     init_esm4();
     init_pattern();
@@ -12854,10 +12854,10 @@ var init_glob = __esm({
   }
 });
 
-// node_modules/glob/dist/esm/has-magic.js
+// packages/pw-test-writer/node_modules/glob/dist/esm/has-magic.js
 var hasMagic;
 var init_has_magic = __esm({
-  "node_modules/glob/dist/esm/has-magic.js"() {
+  "packages/pw-test-writer/node_modules/glob/dist/esm/has-magic.js"() {
     init_esm();
     hasMagic = (pattern, options = {}) => {
       if (!Array.isArray(pattern)) {
@@ -12872,7 +12872,7 @@ var init_has_magic = __esm({
   }
 });
 
-// node_modules/glob/dist/esm/index.js
+// packages/pw-test-writer/node_modules/glob/dist/esm/index.js
 var esm_exports = {};
 __export(esm_exports, {
   Glob: () => Glob,
@@ -12912,7 +12912,7 @@ function globIterate(pattern, options = {}) {
 }
 var streamSync, stream, iterateSync, iterate, sync, glob;
 var init_esm5 = __esm({
-  "node_modules/glob/dist/esm/index.js"() {
+  "packages/pw-test-writer/node_modules/glob/dist/esm/index.js"() {
     init_esm();
     init_glob();
     init_has_magic();
@@ -12951,10 +12951,10 @@ var init_esm5 = __esm({
   }
 });
 
-// ../../node_modules/@modelcontextprotocol/sdk/dist/esm/server/stdio.js
+// node_modules/@modelcontextprotocol/sdk/dist/esm/server/stdio.js
 import process2 from "node:process";
 
-// ../../node_modules/zod/v3/external.js
+// node_modules/zod/v3/external.js
 var external_exports = {};
 __export(external_exports, {
   BRAND: () => BRAND,
@@ -13066,7 +13066,7 @@ __export(external_exports, {
   void: () => voidType
 });
 
-// ../../node_modules/zod/v3/helpers/util.js
+// node_modules/zod/v3/helpers/util.js
 var util;
 (function(util2) {
   util2.assertEqual = (_) => {
@@ -13200,7 +13200,7 @@ var getParsedType = (data) => {
   }
 };
 
-// ../../node_modules/zod/v3/ZodError.js
+// node_modules/zod/v3/ZodError.js
 var ZodIssueCode = util.arrayToEnum([
   "invalid_type",
   "invalid_literal",
@@ -13318,7 +13318,7 @@ ZodError.create = (issues) => {
   return error3;
 };
 
-// ../../node_modules/zod/v3/locales/en.js
+// node_modules/zod/v3/locales/en.js
 var errorMap = (issue, _ctx) => {
   let message;
   switch (issue.code) {
@@ -13421,7 +13421,7 @@ var errorMap = (issue, _ctx) => {
 };
 var en_default = errorMap;
 
-// ../../node_modules/zod/v3/errors.js
+// node_modules/zod/v3/errors.js
 var overrideErrorMap = en_default;
 function setErrorMap(map) {
   overrideErrorMap = map;
@@ -13430,7 +13430,7 @@ function getErrorMap() {
   return overrideErrorMap;
 }
 
-// ../../node_modules/zod/v3/helpers/parseUtil.js
+// node_modules/zod/v3/helpers/parseUtil.js
 var makeIssue = (params) => {
   const { data, path: path13, errorMaps, issueData } = params;
   const fullPath = [...path13, ...issueData.path || []];
@@ -13540,14 +13540,14 @@ var isDirty = (x) => x.status === "dirty";
 var isValid = (x) => x.status === "valid";
 var isAsync = (x) => typeof Promise !== "undefined" && x instanceof Promise;
 
-// ../../node_modules/zod/v3/helpers/errorUtil.js
+// node_modules/zod/v3/helpers/errorUtil.js
 var errorUtil;
 (function(errorUtil2) {
   errorUtil2.errToObj = (message) => typeof message === "string" ? { message } : message || {};
   errorUtil2.toString = (message) => typeof message === "string" ? message : message?.message;
 })(errorUtil || (errorUtil = {}));
 
-// ../../node_modules/zod/v3/types.js
+// node_modules/zod/v3/types.js
 var ParseInputLazyPath = class {
   constructor(parent, value, path13, key) {
     this._cachedPath = [];
@@ -16995,7 +16995,7 @@ var coerce = {
 };
 var NEVER = INVALID;
 
-// ../../node_modules/@modelcontextprotocol/sdk/dist/esm/types.js
+// node_modules/@modelcontextprotocol/sdk/dist/esm/types.js
 var LATEST_PROTOCOL_VERSION = "2025-06-18";
 var SUPPORTED_PROTOCOL_VERSIONS = [
   LATEST_PROTOCOL_VERSION,
@@ -17945,7 +17945,7 @@ var McpError = class extends Error {
   }
 };
 
-// ../../node_modules/@modelcontextprotocol/sdk/dist/esm/shared/stdio.js
+// node_modules/@modelcontextprotocol/sdk/dist/esm/shared/stdio.js
 var ReadBuffer = class {
   append(chunk) {
     this._buffer = this._buffer ? Buffer.concat([this._buffer, chunk]) : chunk;
@@ -17973,7 +17973,7 @@ function serializeMessage(message) {
   return JSON.stringify(message) + "\n";
 }
 
-// ../../node_modules/@modelcontextprotocol/sdk/dist/esm/server/stdio.js
+// node_modules/@modelcontextprotocol/sdk/dist/esm/server/stdio.js
 var StdioServerTransport = class {
   constructor(_stdin = process2.stdin, _stdout = process2.stdout) {
     this._stdin = _stdin;
@@ -18037,7 +18037,7 @@ var StdioServerTransport = class {
   }
 };
 
-// ../../node_modules/@modelcontextprotocol/sdk/dist/esm/shared/protocol.js
+// node_modules/@modelcontextprotocol/sdk/dist/esm/shared/protocol.js
 var DEFAULT_REQUEST_TIMEOUT_MSEC = 6e4;
 var Protocol = class {
   constructor(_options) {
@@ -18415,7 +18415,7 @@ function mergeCapabilities(base, additional) {
   }, { ...base });
 }
 
-// ../../node_modules/@modelcontextprotocol/sdk/dist/esm/server/index.js
+// node_modules/@modelcontextprotocol/sdk/dist/esm/server/index.js
 var import_ajv = __toESM(require_ajv(), 1);
 var Server = class extends Protocol {
   /**
@@ -18637,11 +18637,11 @@ var Server = class extends Protocol {
   }
 };
 
-// dist/mcp/tools.js
+// packages/pw-test-writer/dist/mcp/tools.js
 import * as fs6 from "fs";
 import * as path7 from "path";
 
-// dist/mcp/pageObjects.js
+// packages/pw-test-writer/dist/mcp/pageObjects.js
 init_esm5();
 import * as fs from "fs";
 import * as path2 from "path";
@@ -18750,7 +18750,7 @@ function formatPageObjectIndex(objects) {
   return lines.join("\n");
 }
 
-// dist/mcp/flows.js
+// packages/pw-test-writer/dist/mcp/flows.js
 init_esm5();
 import * as fs2 from "fs";
 import * as path3 from "path";
@@ -19036,6 +19036,71 @@ function compareFlows(existing, current) {
     return { changed: false, summary: "Flow is up to date" };
   return { changed: true, summary: diffs.join("; ") };
 }
+var FLOW_STOP_WORDS = /* @__PURE__ */ new Set([
+  "the",
+  "and",
+  "for",
+  "that",
+  "this",
+  "with",
+  "from",
+  "should",
+  "test",
+  "spec",
+  "page",
+  "then",
+  "when",
+  "given",
+  "auto",
+  "captured",
+  "flow",
+  "step",
+  "action"
+]);
+function tokenizeForMatching(text3) {
+  return text3.toLowerCase().split(/[^a-z0-9]+/).filter((t) => t.length >= 3 && !FLOW_STOP_WORDS.has(t) && !/^\d+$/.test(t));
+}
+function tokenizeQuery(file, testTitle) {
+  const base = path3.basename(file).replace(/\.spec\.\w+$/, "").replace(/\.\w+$/, "");
+  const title = normalizeTestTitle(testTitle);
+  const tokens = tokenizeForMatching(`${base} ${title}`);
+  return [...new Set(tokens)];
+}
+function tokenizeFlow(flow) {
+  const parts = [
+    flow.flowName.replace(/[/-]/g, " "),
+    flow.description,
+    ...flow.steps.map((s) => s.name.replace(/[/-]/g, " ")),
+    ...flow.steps.flatMap((s) => s.required_actions.slice(0, 3))
+  ];
+  const tokens = tokenizeForMatching(parts.join(" "));
+  return [...new Set(tokens)];
+}
+function queryContainment(queryTokens, flowTokens) {
+  if (queryTokens.length === 0)
+    return 0;
+  const flowSet = new Set(flowTokens);
+  let hits = 0;
+  for (const t of queryTokens)
+    if (flowSet.has(t))
+      hits++;
+  return hits / queryTokens.length;
+}
+function findBestFlowMatch(flows, file, testTitle) {
+  const queryTokens = tokenizeQuery(file, testTitle);
+  if (queryTokens.length === 0)
+    return null;
+  let best = null;
+  let bestScore = 0;
+  for (const flow of flows) {
+    const score = queryContainment(queryTokens, tokenizeFlow(flow));
+    if (score > bestScore) {
+      bestScore = score;
+      best = flow;
+    }
+  }
+  return bestScore >= 0.3 ? best : null;
+}
 function findFlowForTest(cwd2, file, testTitle) {
   const flowsFile = readFlows(cwd2);
   if (flowsFile.flows.length === 0)
@@ -19044,15 +19109,14 @@ function findFlowForTest(cwd2, file, testTitle) {
   const exact = flowsFile.flows.find((f) => f.flowName === derivedName);
   if (exact)
     return exact;
-  const baseSlug = slugify(path3.basename(file).replace(/\.spec\.\w+$/, "").replace(/\.\w+$/, ""));
-  return flowsFile.flows.find((f) => f.flowName.startsWith(baseSlug + "/")) ?? null;
+  return findBestFlowMatch(flowsFile.flows, file, testTitle);
 }
 
-// dist/mcp/triage.js
+// packages/pw-test-writer/dist/mcp/triage.js
 import * as fs4 from "fs";
 import * as path5 from "path";
 
-// dist/runner/history.js
+// packages/pw-test-writer/dist/runner/history.js
 import * as fs3 from "fs";
 import * as path4 from "path";
 var DIR_NAME = ".pw-test-writer";
@@ -19069,7 +19133,7 @@ function loadHistory(cwd2) {
   }
 }
 
-// dist/mcp/triage.js
+// packages/pw-test-writer/dist/mcp/triage.js
 var CONFIG_FILENAME = ".e2e-triage.json";
 var DEFAULT_CONFIG = {
   version: 1,
@@ -19236,7 +19300,7 @@ function formatMs(ms) {
   return `${ms}ms`;
 }
 
-// dist/mcp/errorPatterns.js
+// packages/pw-test-writer/dist/mcp/errorPatterns.js
 import * as fs5 from "fs";
 import * as path6 from "path";
 import * as crypto from "crypto";
@@ -19368,6 +19432,46 @@ function savePattern(cwd2, pattern) {
   file.patterns.push(pattern);
   savePatterns(cwd2, file);
   return { isNew: true, pattern };
+}
+var PENDING_FIXES_FILENAME = ".pw-test-writer/pending-fixes.json";
+function pendingFixesPath(cwd2) {
+  return path6.join(cwd2, PENDING_FIXES_FILENAME);
+}
+function loadPendingFixes(cwd2) {
+  try {
+    const raw = fs5.readFileSync(pendingFixesPath(cwd2), "utf-8");
+    const file = JSON.parse(raw);
+    return file.fixes ?? [];
+  } catch {
+    return [];
+  }
+}
+function savePendingFixesFile(cwd2, file) {
+  ensureDir(cwd2);
+  fs5.writeFileSync(pendingFixesPath(cwd2), JSON.stringify(file, null, 2) + "\n", "utf-8");
+}
+function addPendingFix(cwd2, fix) {
+  const fixes = loadPendingFixes(cwd2);
+  const filtered = fixes.filter((f) => !(f.testFile === fix.testFile && f.testTitle === fix.testTitle));
+  filtered.push(fix);
+  savePendingFixesFile(cwd2, { version: 1, fixes: filtered });
+}
+function removePendingFix(cwd2, patternId) {
+  const fixes = loadPendingFixes(cwd2);
+  const filtered = fixes.filter((f) => f.patternId !== patternId);
+  savePendingFixesFile(cwd2, { version: 1, fixes: filtered });
+}
+function confirmPattern(cwd2, patternId) {
+  const file = readPatterns(cwd2);
+  const pattern = file.patterns.find((p) => p.id === patternId);
+  if (!pattern)
+    return null;
+  pattern.verified = true;
+  pattern.verifiedAt = (/* @__PURE__ */ new Date()).toISOString();
+  pattern.confirmations += 1;
+  pattern.lastSeen = pattern.verifiedAt;
+  savePatterns(cwd2, file);
+  return pattern;
 }
 function jaccard(a, b) {
   const setA = new Set(a);
@@ -19504,7 +19608,236 @@ function formatPatternMatchDetail(matches) {
   return lines.join("\n");
 }
 
-// dist/mcp/tools.js
+// packages/pw-test-writer/dist/mcp/browser/networkUtils.js
+var ASSET_EXTENSIONS = /\.(png|jpe?g|gif|svg|webp|ico|woff2?|ttf|eot|css|js|map|mp4|webm|mp3)(\?|$)/i;
+var ASSET_PATH_PATTERNS = [
+  /\/assets\//i,
+  /\/static\//i,
+  /\/images\//i,
+  /\/fonts\//i,
+  /\/dealer-logos\//i,
+  /\/_next\//i,
+  /\/chunks\//i
+];
+var TRACKING_DOMAINS = [
+  "youtube.com",
+  "youtubei",
+  "google.com",
+  "google.internal",
+  "googletagmanager.com",
+  "google-analytics.com",
+  "analytics.google.com",
+  "facebook.com",
+  "facebook.net",
+  "doubleclick.net",
+  "hotjar.com",
+  "sentry.io",
+  "clarity.ms",
+  "segment.io",
+  "mixpanel.com",
+  "amplitude.com",
+  "fullstory.com",
+  "logrocket.com"
+];
+var TRACKING_PATHS = ["google.internal", "youtubei", "generate_204"];
+function isStaticOrTracking(url) {
+  try {
+    const u = new URL(url);
+    if (!u.protocol.startsWith("http"))
+      return true;
+    if (ASSET_EXTENSIONS.test(u.pathname))
+      return true;
+    if (ASSET_PATH_PATTERNS.some((p) => p.test(u.pathname)))
+      return true;
+    if (TRACKING_DOMAINS.some((d) => u.hostname.includes(d)))
+      return true;
+    if (TRACKING_PATHS.some((p) => u.pathname.includes(p)))
+      return true;
+    if (u.pathname.split("/").some((s) => s.length > 40))
+      return true;
+    return false;
+  } catch {
+    return true;
+  }
+}
+function isApiRequest(req) {
+  return !isStaticOrTracking(req.url);
+}
+function filterApiRequests(requests) {
+  return requests.filter(isApiRequest);
+}
+function apiPath(req) {
+  try {
+    return `${req.method} ${new URL(req.url).pathname}`;
+  } catch {
+    return `${req.method} ${req.url}`;
+  }
+}
+var MAX_BODY_SIZE = 1024;
+var MAX_STRING_VALUE_LEN = 80;
+function truncateBody(body) {
+  if (!body || body.length === 0)
+    return void 0;
+  try {
+    const parsed = JSON.parse(body);
+    if (typeof parsed === "object" && parsed !== null) {
+      const compact = summarizeJson(parsed);
+      const result = JSON.stringify(compact);
+      if (result.length <= MAX_BODY_SIZE)
+        return result;
+      return result.slice(0, MAX_BODY_SIZE) + "\u2026";
+    }
+  } catch {
+  }
+  if (body.length <= MAX_BODY_SIZE)
+    return body;
+  return body.slice(0, MAX_BODY_SIZE) + "\u2026";
+}
+function summarizeJson(obj, depth = 0) {
+  if (depth > 2)
+    return "\u2026";
+  if (Array.isArray(obj)) {
+    if (obj.length === 0)
+      return [];
+    const first = summarizeJson(obj[0], depth + 1);
+    if (obj.length === 1)
+      return [first];
+    return [first, `\u2026(${obj.length} items)`];
+  }
+  if (typeof obj === "object" && obj !== null) {
+    const result = {};
+    const entries = Object.entries(obj);
+    for (const [key, val] of entries.slice(0, 10)) {
+      result[key] = summarizeJson(val, depth + 1);
+    }
+    if (entries.length > 10)
+      result["\u2026"] = `${entries.length - 10} more keys`;
+    return result;
+  }
+  if (typeof obj === "string" && obj.length > MAX_STRING_VALUE_LEN)
+    return obj.slice(0, MAX_STRING_VALUE_LEN) + "\u2026";
+  return obj;
+}
+function shouldCaptureBody(url, contentType) {
+  if (isStaticOrTracking(url))
+    return false;
+  try {
+    if (new URL(url).pathname.endsWith(".json"))
+      return false;
+  } catch {
+  }
+  if (contentType) {
+    return contentType.includes("json") || contentType.includes("form");
+  }
+  return true;
+}
+
+// packages/pw-test-writer/dist/mcp/failureGrouping.js
+var UnionFind = class {
+  parent;
+  rank;
+  constructor(n) {
+    this.parent = Array.from({ length: n }, (_, i) => i);
+    this.rank = new Array(n).fill(0);
+  }
+  find(x) {
+    if (this.parent[x] !== x)
+      this.parent[x] = this.find(this.parent[x]);
+    return this.parent[x];
+  }
+  union(a, b) {
+    const ra = this.find(a);
+    const rb = this.find(b);
+    if (ra === rb)
+      return;
+    if (this.rank[ra] < this.rank[rb]) {
+      this.parent[ra] = rb;
+    } else if (this.rank[ra] > this.rank[rb]) {
+      this.parent[rb] = ra;
+    } else {
+      this.parent[rb] = ra;
+      this.rank[ra]++;
+    }
+  }
+};
+function extractFailedEndpoint(test) {
+  for (const action of test.actions) {
+    const requests = action.network?.requests;
+    if (!requests)
+      continue;
+    for (const req of requests) {
+      if (req.status && req.status >= 400 && !isStaticOrTracking(req.url)) {
+        const normalized = normalizeUrl(req.url);
+        return `${req.method} ${normalized}`;
+      }
+    }
+  }
+  return null;
+}
+function deriveGroupLabel(normalizedError, endpoint) {
+  if (endpoint)
+    return `API ${endpoint.split(" ").slice(1).join(" ")} returns error`;
+  const firstLine = normalizedError.split("\n").map((l) => l.trim()).filter(Boolean)[0] || normalizedError;
+  return firstLine.length > 100 ? firstLine.slice(0, 100) + "\u2026" : firstLine;
+}
+function groupFailures(result) {
+  const failedIndices = [];
+  for (let i = 0; i < result.tests.length; i++) {
+    if (result.tests[i].status === "failed")
+      failedIndices.push(i);
+  }
+  if (failedIndices.length <= 1) {
+    return { groups: [], ungrouped: failedIndices };
+  }
+  const features = failedIndices.map((idx) => {
+    const test = result.tests[idx];
+    const normalized = normalizeErrorMessage(test.error || "");
+    return {
+      idx,
+      normalizedError: normalized,
+      tokens: tokenize(normalized),
+      endpoint: extractFailedEndpoint(test)
+    };
+  });
+  const uf = new UnionFind(features.length);
+  for (let i = 0; i < features.length; i++) {
+    for (let j = i + 1; j < features.length; j++) {
+      const errorSim = jaccard(features[i].tokens, features[j].tokens);
+      const sameEndpoint = !!(features[i].endpoint && features[i].endpoint === features[j].endpoint);
+      if (errorSim >= 0.6 || sameEndpoint && errorSim >= 0.3) {
+        uf.union(i, j);
+      }
+    }
+  }
+  const clusters = /* @__PURE__ */ new Map();
+  for (let i = 0; i < features.length; i++) {
+    const root = uf.find(i);
+    if (!clusters.has(root))
+      clusters.set(root, []);
+    clusters.get(root).push(i);
+  }
+  const groups = [];
+  const ungrouped = [];
+  for (const members of clusters.values()) {
+    if (members.length < 2) {
+      ungrouped.push(features[members[0]].idx);
+      continue;
+    }
+    const rep = members.reduce((best, m) => features[m].normalizedError.length < features[best].normalizedError.length ? m : best, members[0]);
+    const endpoints = members.map((m) => features[m].endpoint).filter(Boolean);
+    const commonEndpoint = endpoints.length === members.length && new Set(endpoints).size === 1 ? endpoints[0] : null;
+    groups.push({
+      label: deriveGroupLabel(features[rep].normalizedError, commonEndpoint),
+      representativeError: features[rep].normalizedError,
+      commonEndpoint,
+      testIndices: members.map((m) => features[m].idx)
+    });
+  }
+  groups.sort((a, b) => b.testIndices.length - a.testIndices.length);
+  return { groups, ungrouped };
+}
+
+// packages/pw-test-writer/dist/mcp/tools.js
 var toolDefs = [
   {
     name: "e2e_list_tests",
@@ -19912,6 +20245,34 @@ function actionNotFound(ctx, runId, testIndex, actionIndex) {
     return error(`Action ${actionIndex} not found. This run captured 0 actions.`);
   return error(`Action ${actionIndex} not found. This run has ${count} action(s), valid indices: 0\u2013${count - 1}.`);
 }
+function checkPendingFixes(cwd2, tests) {
+  const pending = loadPendingFixes(cwd2);
+  if (pending.length === 0)
+    return [];
+  const confirmed = [];
+  for (const test of tests) {
+    if (test.status !== "passed")
+      continue;
+    const match2 = pending.find((pf) => pf.testFile === test.file && pf.testTitle === test.test);
+    if (!match2)
+      continue;
+    const pattern = confirmPattern(cwd2, match2.patternId);
+    if (pattern)
+      confirmed.push({ fix: match2, pattern });
+    removePendingFix(cwd2, match2.patternId);
+  }
+  return confirmed;
+}
+function formatConfirmedFixes(confirmed) {
+  if (confirmed.length === 0)
+    return "";
+  const lines = ["", "### Fix Verified"];
+  for (const { fix, pattern } of confirmed) {
+    lines.push(`\u2705 **Pattern \`${pattern.id}\` confirmed** \u2014 ${pattern.rootCause}: ${fix.fix}`);
+    lines.push(`_Confirmations: ${pattern.confirmations} | Verified: ${pattern.verifiedAt}_`);
+  }
+  return lines.join("\n");
+}
 async function handleTool(name, args, ctx) {
   switch (name) {
     case "e2e_list_tests":
@@ -20020,9 +20381,11 @@ async function handleRunTest(args, ctx) {
     const reportPath = path7.join(dir, `report-${result2.runId}.html`);
     fs6.writeFileSync(reportPath, html, "utf-8");
     const flowCoverage = buildFlowCoverageSummary(result2, ctx.cwd);
+    const batchConfirmed = checkPendingFixes(ctx.cwd, result2.tests);
+    const fixVerifiedText = formatConfirmedFixes(batchConfirmed);
     return text(formatBatchResults(result2, project) + `
 
-\u{1F4C4} **Report:** \`${reportPath}\`` + flowCoverage);
+\u{1F4C4} **Report:** \`${reportPath}\`` + flowCoverage + fixVerifiedText);
   }
   if (retries > 0) {
     const totalRuns = retries + 1;
@@ -20092,6 +20455,10 @@ async function handleRunTest(args, ctx) {
       lines.push(`\u{1F4F7} ${test.attachments.length} screenshot(s)`);
     lines.push("");
   }
+  const confirmed = checkPendingFixes(ctx.cwd, result.tests);
+  if (confirmed.length > 0) {
+    lines.push(formatConfirmedFixes(confirmed));
+  }
   const allPassed = result.tests.every((t) => t.status === "passed");
   if (!allPassed) {
     lines.push(`Use \`e2e_get_failure_report\` with runId \`${result.runId}\` for detailed analysis.`);
@@ -20156,6 +20523,29 @@ function formatBatchResults(result, project) {
   const projectNote = project ? ` (project: ${project})` : "";
   lines.push(`## Results: ${passed.length} passed, ${failed.length} failed${projectNote} \xB7 ${formatDuration(totalDuration)}`, "");
   if (failed.length > 0) {
+    const { groups, ungrouped } = groupFailures(result);
+    if (groups.length > 0) {
+      lines.push(`### Failure Groups`, "");
+      for (const g of groups) {
+        lines.push(`**${g.label}** (${g.testIndices.length} tests)`);
+        for (const idx of g.testIndices) {
+          const t = result.tests[idx];
+          lines.push(`  - [${idx}] \`${t.location}\` \u2014 ${t.test}`);
+        }
+        lines.push("");
+      }
+      if (ungrouped.length > 0) {
+        lines.push(`**Ungrouped** (${ungrouped.length} test${ungrouped.length > 1 ? "s" : ""})`);
+        for (const idx of ungrouped) {
+          const t = result.tests[idx];
+          const summary = t.error?.split("\n").map((l) => l.trim()).filter(Boolean)[0] || "";
+          lines.push(`  - [${idx}] \`${t.location}\` \u2014 ${t.test}`);
+          if (summary)
+            lines.push(`  > ${summary.slice(0, 200)}`);
+        }
+        lines.push("");
+      }
+    }
     lines.push(`### Failed (${failed.length})`, "");
     for (const test of failed) {
       const idx = result.tests.indexOf(test);
@@ -21126,6 +21516,29 @@ function buildHtmlReport(run, cwd2, sendProgress) {
   const totalDuration = run.tests.reduce((sum, t) => sum + t.duration, 0);
   const timestamp = new Date(run.timestamp).toLocaleString();
   const escHtml = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+  let groupsHtml = "";
+  if (failed.length >= 2) {
+    const { groups, ungrouped } = groupFailures(run);
+    if (groups.length > 0) {
+      let groupDetails = "";
+      for (const g of groups) {
+        const endpointTag = g.commonEndpoint ? ` <span class="endpoint-tag">${escHtml(g.commonEndpoint)}</span>` : "";
+        const items = g.testIndices.map((idx) => {
+          const t = run.tests[idx];
+          return `<li><a href="#test-${idx}">[${idx}] ${escHtml(t.test || t.file)}</a></li>`;
+        }).join("");
+        groupDetails += `<details class="group" open><summary><span class="group-label">${escHtml(g.label)}</span> <span class="group-count">${g.testIndices.length} tests</span>${endpointTag}</summary><ul>${items}</ul></details>`;
+      }
+      if (ungrouped.length > 0) {
+        const items = ungrouped.map((idx) => {
+          const t = run.tests[idx];
+          return `<li><a href="#test-${idx}">[${idx}] ${escHtml(t.test || t.file)}</a></li>`;
+        }).join("");
+        groupDetails += `<details class="group"><summary><span class="group-label">Ungrouped</span> <span class="group-count">${ungrouped.length} test${ungrouped.length > 1 ? "s" : ""}</span></summary><ul>${items}</ul></details>`;
+      }
+      groupsHtml = `<div class="groups-section"><h2>Failure Groups</h2>${groupDetails}</div>`;
+    }
+  }
   let testSections = "";
   for (let ti = 0; ti < run.tests.length; ti++) {
     sendProgress?.(`Processing test ${ti + 1}/${run.tests.length}...`);
@@ -21184,7 +21597,7 @@ function buildHtmlReport(run, cwd2, sendProgress) {
       details += `<div class="section"><h4>Screenshots</h4>${imgs}</div>`;
     }
     const open = test.status === "failed" ? " open" : "";
-    testSections += `<details${open} class="test ${statusClass}"><summary>${statusBadge} <strong>${escHtml(test.test || test.file)}</strong> <span class="dur">${formatDuration(test.duration)}</span></summary>${details}</details>`;
+    testSections += `<details id="test-${ti}"${open} class="test ${statusClass}"><summary>${statusBadge} <strong>${escHtml(test.test || test.file)}</strong> <span class="dur">${formatDuration(test.duration)}</span></summary>${details}</details>`;
   }
   return `<!DOCTYPE html>
 <html lang="en">
@@ -21223,6 +21636,15 @@ function buildHtmlReport(run, cwd2, sendProgress) {
   .screenshot img { max-width: 100%; border: 1px solid #ddd; border-radius: 4px; margin-top: 4px; }
   .screenshot p { font-size: 12px; color: #666; }
   .meta { font-size: 13px; color: #888; margin-bottom: 16px; }
+  .groups-section { background:#fff; border-radius:8px; padding:16px 20px; margin-bottom:16px; box-shadow:0 1px 3px rgba(0,0,0,.1); }
+  .groups-section h2 { margin-bottom:12px; font-size:18px; }
+  details.group { margin-bottom:8px; border:1px solid #e0e0e0; border-radius:6px; padding:8px 12px; }
+  details.group summary { cursor:pointer; display:flex; align-items:center; gap:8px; }
+  .group-label { font-weight:600; }
+  .group-count { background:#ffdce0; color:#cb2431; padding:2px 8px; border-radius:4px; font-size:11px; font-weight:700; }
+  .endpoint-tag { background:#fff3cd; color:#856404; padding:2px 8px; border-radius:4px; font-size:11px; }
+  details.group ul { margin:8px 0 0 20px; }
+  details.group a { color:#0366d6; text-decoration:none; }
 </style>
 </head>
 <body>
@@ -21234,6 +21656,7 @@ function buildHtmlReport(run, cwd2, sendProgress) {
   <div class="stat"><div class="num fail-num">${failed.length}</div><div class="label">Failed</div></div>
   <div class="stat"><div class="num">${formatDuration(totalDuration)}</div><div class="label">Duration</div></div>
 </div>
+${groupsHtml}
 ${testSections}
 </body>
 </html>`;
@@ -21358,16 +21781,24 @@ async function handleSaveErrorPattern(args, ctx) {
     return error("This test did not fail \u2014 nothing to save.");
   const pattern = buildPattern(test, rootCause, rootCauseDetail, fix, relatedPageObjects);
   const result = savePattern(ctx.cwd, pattern);
+  addPendingFix(ctx.cwd, {
+    patternId: pattern.id,
+    testFile: test.file,
+    testTitle: test.test,
+    fix,
+    savedAt: (/* @__PURE__ */ new Date()).toISOString()
+  });
+  const pendingHint = "\n\n_Re-run this test to verify and auto-confirm the pattern._";
   if (result.isNew) {
     return text(`\u2705 **Pattern saved** (id: \`${pattern.id}\`)
 - Root cause: ${rootCause}
 - Signature tokens: ${pattern.errorTokens.length}
 - Action: ${pattern.failingAction}
-- URL: ${pattern.urlPattern || "(none)"}`);
+- URL: ${pattern.urlPattern || "(none)"}` + pendingHint);
   }
   return text(`\u{1F504} **Pattern updated** (id: \`${pattern.id}\`, confirmations: ${result.pattern.confirmations})
 - Root cause: ${rootCause}
-- Test files: ${result.pattern.testFiles.join(", ")}`);
+- Test files: ${result.pattern.testFiles.join(", ")}` + pendingHint);
 }
 async function handleMatchPatterns(args, ctx) {
   const runId = String(args.runId || "");
@@ -21385,16 +21816,16 @@ async function handleMatchPatterns(args, ctx) {
   return text(formatPatternMatchDetail(matches));
 }
 
-// dist/mcp/captureRunner.js
+// packages/pw-test-writer/dist/mcp/captureRunner.js
 import * as fs8 from "fs";
 import * as path9 from "path";
 import { spawn as spawn2 } from "child_process";
 import { fileURLToPath as fileURLToPath4 } from "url";
 
-// dist/runner/captureServer.js
+// packages/pw-test-writer/dist/runner/captureServer.js
 import * as http from "http";
 
-// dist/ui/store.js
+// packages/pw-test-writer/dist/ui/store.js
 var Store = class {
   state = {
     mode: "run",
@@ -21815,7 +22246,7 @@ var Store = class {
 };
 var store = new Store();
 
-// dist/runner/captureServer.js
+// packages/pw-test-writer/dist/runner/captureServer.js
 function createCaptureServer(target) {
   let httpServer = null;
   let port = null;
@@ -21959,7 +22390,7 @@ function createCaptureServer(target) {
   };
 }
 
-// dist/runner/testRunner.js
+// packages/pw-test-writer/dist/runner/testRunner.js
 import * as fs7 from "fs";
 import * as path8 from "path";
 import { spawn } from "child_process";
@@ -22153,7 +22584,7 @@ async function parseTestFile(filePath) {
   return tests;
 }
 
-// dist/mcp/captureRunner.js
+// packages/pw-test-writer/dist/mcp/captureRunner.js
 var __dirname2 = path9.dirname(fileURLToPath4(import.meta.url));
 var MemoryTarget = class {
   actions = [];
@@ -22535,10 +22966,10 @@ function collectActionScreenshots(actions, cwd2, attachments) {
   }
 }
 
-// dist/mcp/browser/tab.js
+// packages/pw-test-writer/dist/mcp/browser/tab.js
 import { EventEmitter as EventEmitter2 } from "events";
 
-// dist/mcp/browser/snapshotDiff.js
+// packages/pw-test-writer/dist/mcp/browser/snapshotDiff.js
 function parseSnapshot(snapshot) {
   const elements = /* @__PURE__ */ new Map();
   const refRegex = /\[ref=([^\]]+)\]/g;
@@ -22718,131 +23149,7 @@ function extractQuotedName(line) {
   return m ? m[1] : void 0;
 }
 
-// dist/mcp/browser/networkUtils.js
-var ASSET_EXTENSIONS = /\.(png|jpe?g|gif|svg|webp|ico|woff2?|ttf|eot|css|js|map|mp4|webm|mp3)(\?|$)/i;
-var ASSET_PATH_PATTERNS = [
-  /\/assets\//i,
-  /\/static\//i,
-  /\/images\//i,
-  /\/fonts\//i,
-  /\/dealer-logos\//i,
-  /\/_next\//i,
-  /\/chunks\//i
-];
-var TRACKING_DOMAINS = [
-  "youtube.com",
-  "youtubei",
-  "google.com",
-  "google.internal",
-  "googletagmanager.com",
-  "google-analytics.com",
-  "analytics.google.com",
-  "facebook.com",
-  "facebook.net",
-  "doubleclick.net",
-  "hotjar.com",
-  "sentry.io",
-  "clarity.ms",
-  "segment.io",
-  "mixpanel.com",
-  "amplitude.com",
-  "fullstory.com",
-  "logrocket.com"
-];
-var TRACKING_PATHS = ["google.internal", "youtubei", "generate_204"];
-function isStaticOrTracking(url) {
-  try {
-    const u = new URL(url);
-    if (!u.protocol.startsWith("http"))
-      return true;
-    if (ASSET_EXTENSIONS.test(u.pathname))
-      return true;
-    if (ASSET_PATH_PATTERNS.some((p) => p.test(u.pathname)))
-      return true;
-    if (TRACKING_DOMAINS.some((d) => u.hostname.includes(d)))
-      return true;
-    if (TRACKING_PATHS.some((p) => u.pathname.includes(p)))
-      return true;
-    if (u.pathname.split("/").some((s) => s.length > 40))
-      return true;
-    return false;
-  } catch {
-    return true;
-  }
-}
-function isApiRequest(req) {
-  return !isStaticOrTracking(req.url);
-}
-function filterApiRequests(requests) {
-  return requests.filter(isApiRequest);
-}
-function apiPath(req) {
-  try {
-    return `${req.method} ${new URL(req.url).pathname}`;
-  } catch {
-    return `${req.method} ${req.url}`;
-  }
-}
-var MAX_BODY_SIZE = 1024;
-var MAX_STRING_VALUE_LEN = 80;
-function truncateBody(body) {
-  if (!body || body.length === 0)
-    return void 0;
-  try {
-    const parsed = JSON.parse(body);
-    if (typeof parsed === "object" && parsed !== null) {
-      const compact = summarizeJson(parsed);
-      const result = JSON.stringify(compact);
-      if (result.length <= MAX_BODY_SIZE)
-        return result;
-      return result.slice(0, MAX_BODY_SIZE) + "\u2026";
-    }
-  } catch {
-  }
-  if (body.length <= MAX_BODY_SIZE)
-    return body;
-  return body.slice(0, MAX_BODY_SIZE) + "\u2026";
-}
-function summarizeJson(obj, depth = 0) {
-  if (depth > 2)
-    return "\u2026";
-  if (Array.isArray(obj)) {
-    if (obj.length === 0)
-      return [];
-    const first = summarizeJson(obj[0], depth + 1);
-    if (obj.length === 1)
-      return [first];
-    return [first, `\u2026(${obj.length} items)`];
-  }
-  if (typeof obj === "object" && obj !== null) {
-    const result = {};
-    const entries = Object.entries(obj);
-    for (const [key, val] of entries.slice(0, 10)) {
-      result[key] = summarizeJson(val, depth + 1);
-    }
-    if (entries.length > 10)
-      result["\u2026"] = `${entries.length - 10} more keys`;
-    return result;
-  }
-  if (typeof obj === "string" && obj.length > MAX_STRING_VALUE_LEN)
-    return obj.slice(0, MAX_STRING_VALUE_LEN) + "\u2026";
-  return obj;
-}
-function shouldCaptureBody(url, contentType) {
-  if (isStaticOrTracking(url))
-    return false;
-  try {
-    if (new URL(url).pathname.endsWith(".json"))
-      return false;
-  } catch {
-  }
-  if (contentType) {
-    return contentType.includes("json") || contentType.includes("form");
-  }
-  return true;
-}
-
-// dist/mcp/browser/actionCapture.js
+// packages/pw-test-writer/dist/mcp/browser/actionCapture.js
 function createEmptyActionCapture() {
   return {
     timing: { durationMs: 0 },
@@ -22860,7 +23167,7 @@ function formatNetworkSummary(requests) {
     return `${r.method} ${pathname}${status}`;
   }).join(", ");
 }
-function renderActionCapture(capture) {
+function renderActionCapture(capture, opts) {
   const lines = [];
   lines.push(`### Action completed in ${capture.timing.durationMs}ms`);
   lines.push("");
@@ -22879,7 +23186,7 @@ function renderActionCapture(capture) {
     }
     lines.push("");
   }
-  if (capture.snapshot.before !== void 0 || capture.snapshot.after !== void 0) {
+  if (!opts?.noSnapshot && (capture.snapshot.before !== void 0 || capture.snapshot.after !== void 0)) {
     const { context, fullRefresh } = extractChangedContext(capture.snapshot.before, capture.snapshot.after);
     if (fullRefresh && capture.snapshot.after) {
       lines.push("### Page snapshot");
@@ -22902,7 +23209,7 @@ function renderActionCapture(capture) {
   return lines;
 }
 
-// dist/mcp/browser/tab.js
+// packages/pw-test-writer/dist/mcp/browser/tab.js
 var NAV_TIMEOUT = 3e4;
 var ACTION_TIMEOUT = 5e3;
 function extractAriaText(snapshot) {
@@ -23269,7 +23576,7 @@ function pageErrorToConsoleMessage(errorOrValue) {
 }
 var tabSymbol = Symbol("tabSymbol");
 
-// dist/mcp/browser/context.js
+// packages/pw-test-writer/dist/mcp/browser/context.js
 var BrowserContext = class {
   _browser;
   _browserContext;
@@ -23438,11 +23745,11 @@ var BrowserContext = class {
   }
 };
 
-// dist/mcp/browser/tools.js
+// packages/pw-test-writer/dist/mcp/browser/tools.js
 import * as fs11 from "fs";
 import * as path12 from "path";
 
-// dist/mcp/browser/explore.js
+// packages/pw-test-writer/dist/mcp/browser/explore.js
 import * as fs9 from "fs";
 import * as path10 from "path";
 var STRUCTURAL_ROLES = /* @__PURE__ */ new Set([
@@ -24086,7 +24393,7 @@ function saveAppMap(map, cwd2) {
   return filePath;
 }
 
-// dist/mcp/browser/flowRecorder.js
+// packages/pw-test-writer/dist/mcp/browser/flowRecorder.js
 import * as fs10 from "fs";
 import * as path11 from "path";
 var FlowRecorder = class {
@@ -24237,7 +24544,7 @@ function shortUrl(url) {
   }
 }
 
-// dist/mcp/browser/tools.js
+// packages/pw-test-writer/dist/mcp/browser/tools.js
 var browserToolDefs = [
   {
     name: "browser_navigate",
@@ -24245,7 +24552,8 @@ var browserToolDefs = [
     inputSchema: {
       type: "object",
       properties: {
-        url: { type: "string", description: "URL to navigate to" }
+        url: { type: "string", description: "URL to navigate to" },
+        noSnapshot: { type: "boolean", description: "Omit ARIA snapshot diff from response to reduce tokens (default: false)" }
       },
       required: ["url"]
     }
@@ -24255,7 +24563,9 @@ var browserToolDefs = [
     description: "Navigate back in browser history.",
     inputSchema: {
       type: "object",
-      properties: {}
+      properties: {
+        noSnapshot: { type: "boolean", description: "Omit ARIA snapshot diff from response to reduce tokens (default: false)" }
+      }
     }
   },
   {
@@ -24273,7 +24583,8 @@ var browserToolDefs = [
       type: "object",
       properties: {
         element: { type: "string", description: "Human-readable description of the element to click" },
-        ref: { type: "string", description: "Element ref from the page snapshot" }
+        ref: { type: "string", description: "Element ref from the page snapshot" },
+        noSnapshot: { type: "boolean", description: "Omit ARIA snapshot diff from response to reduce tokens (default: false)" }
       },
       required: ["element", "ref"]
     }
@@ -24287,7 +24598,8 @@ var browserToolDefs = [
         element: { type: "string", description: "Human-readable description of the element to type into" },
         ref: { type: "string", description: "Element ref from the page snapshot" },
         text: { type: "string", description: "Text to type" },
-        submit: { type: "boolean", description: "Press Enter after typing (default: false)" }
+        submit: { type: "boolean", description: "Press Enter after typing (default: false)" },
+        noSnapshot: { type: "boolean", description: "Omit ARIA snapshot diff from response to reduce tokens (default: false)" }
       },
       required: ["element", "ref", "text"]
     }
@@ -24317,7 +24629,8 @@ var browserToolDefs = [
             required: ["value"]
           }
         },
-        submit: { type: "boolean", description: "Press Enter after filling the last field (default: false)" }
+        submit: { type: "boolean", description: "Press Enter after filling the last field (default: false)" },
+        noSnapshot: { type: "boolean", description: "Omit ARIA snapshot diff from response to reduce tokens (default: false)" }
       },
       required: ["fields"]
     }
@@ -24330,7 +24643,8 @@ var browserToolDefs = [
       properties: {
         element: { type: "string", description: "Human-readable description of the dropdown" },
         ref: { type: "string", description: "Element ref from the page snapshot" },
-        value: { type: "string", description: "Value or label of the option to select" }
+        value: { type: "string", description: "Value or label of the option to select" },
+        noSnapshot: { type: "boolean", description: "Omit ARIA snapshot diff from response to reduce tokens (default: false)" }
       },
       required: ["element", "ref", "value"]
     }
@@ -24341,7 +24655,8 @@ var browserToolDefs = [
     inputSchema: {
       type: "object",
       properties: {
-        key: { type: "string", description: 'Key to press (e.g. "Enter", "Escape", "Tab", "ArrowDown", "Control+a")' }
+        key: { type: "string", description: 'Key to press (e.g. "Enter", "Escape", "Tab", "ArrowDown", "Control+a")' },
+        noSnapshot: { type: "boolean", description: "Omit ARIA snapshot diff from response to reduce tokens (default: false)" }
       },
       required: ["key"]
     }
@@ -24367,14 +24682,15 @@ var browserToolDefs = [
       type: "object",
       properties: {
         element: { type: "string", description: "Human-readable description of the element to hover over" },
-        ref: { type: "string", description: "Element ref from the page snapshot" }
+        ref: { type: "string", description: "Element ref from the page snapshot" },
+        noSnapshot: { type: "boolean", description: "Omit ARIA snapshot diff from response to reduce tokens (default: false)" }
       },
       required: ["element", "ref"]
     }
   },
   {
     name: "browser_take_screenshot",
-    description: "Take a screenshot of the current page. Optionally save to a file by name or path.",
+    description: "Take a screenshot of the current page. Saves to a file and returns the file path by default. Use `inline: true` to also include the base64 image in the response.",
     inputSchema: {
       type: "object",
       properties: {
@@ -24385,6 +24701,10 @@ var browserToolDefs = [
         outputFile: {
           type: "string",
           description: 'Full file path to save the screenshot (e.g. "/tmp/screenshot.png"). Overrides name if both provided.'
+        },
+        inline: {
+          type: "boolean",
+          description: "Include base64 image in response (default: false \u2014 returns file path only)"
         }
       }
     }
@@ -24539,7 +24859,7 @@ async function handleBrowserTool(name, args, ctx) {
         result = await handleNavigate(args, ctx);
         break;
       case "browser_navigate_back":
-        result = await handleNavigateBack(ctx);
+        result = await handleNavigateBack(args, ctx);
         break;
       case "browser_snapshot":
         result = await handleSnapshot(ctx);
@@ -24637,15 +24957,15 @@ async function handleNavigate(args, ctx) {
     await tab.navigate(url);
   });
   lastCapture = capture;
-  return await buildActionResult(`Navigated to ${url}`, capture, tab);
+  return await buildActionResult(`Navigated to ${url}`, capture, tab, { noSnapshot: !!args.noSnapshot });
 }
-async function handleNavigateBack(ctx) {
+async function handleNavigateBack(args, ctx) {
   const tab = ctx.currentTabOrDie();
   const capture = await tab.waitForCompletion(async () => {
     await tab.page.goBack();
   });
   lastCapture = capture;
-  return await buildActionResult("Navigated back", capture, tab);
+  return await buildActionResult("Navigated back", capture, tab, { noSnapshot: !!args.noSnapshot });
 }
 async function handleSnapshot(ctx) {
   const tab = ctx.currentTabOrDie();
@@ -24663,7 +24983,7 @@ async function handleClick(args, ctx) {
     await locator.click();
   });
   lastCapture = capture;
-  return await buildActionResult(`Clicked ${element}`, capture, tab);
+  return await buildActionResult(`Clicked ${element}`, capture, tab, { noSnapshot: !!args.noSnapshot });
 }
 async function handleType(args, ctx) {
   const element = args.element;
@@ -24681,7 +25001,7 @@ async function handleType(args, ctx) {
   });
   lastCapture = capture;
   const desc = submit ? `Typed "${text3}" and submitted` : `Typed "${text3}"`;
-  return await buildActionResult(desc, capture, tab);
+  return await buildActionResult(desc, capture, tab, { noSnapshot: !!args.noSnapshot });
 }
 async function handleFillForm(args, ctx) {
   const fields = parseJsonArg(args.fields);
@@ -24721,7 +25041,7 @@ async function handleFillForm(args, ctx) {
   });
   lastCapture = capture;
   const desc = `Filled ${fields.length} field(s)${submit ? " and submitted" : ""}`;
-  return await buildActionResult(desc, capture, tab);
+  return await buildActionResult(desc, capture, tab, { noSnapshot: !!args.noSnapshot });
 }
 async function handleSelectOption(args, ctx) {
   const element = args.element;
@@ -24735,7 +25055,7 @@ async function handleSelectOption(args, ctx) {
     await locator.selectOption(value);
   });
   lastCapture = capture;
-  return await buildActionResult(`Selected "${value}" in ${element}`, capture, tab);
+  return await buildActionResult(`Selected "${value}" in ${element}`, capture, tab, { noSnapshot: !!args.noSnapshot });
 }
 async function handlePressKey(args, ctx) {
   const key = args.key;
@@ -24757,7 +25077,7 @@ async function handlePressKey(args, ctx) {
     await tab.page.keyboard.press(key);
   });
   lastCapture = capture;
-  return await buildActionResult(`Pressed ${key}`, capture, tab);
+  return await buildActionResult(`Pressed ${key}`, capture, tab, { noSnapshot: !!args.noSnapshot });
 }
 async function handleHover(args, ctx) {
   const element = args.element;
@@ -24770,25 +25090,30 @@ async function handleHover(args, ctx) {
     await locator.hover();
   });
   lastCapture = capture;
-  return await buildActionResult(`Hovered over ${element}`, capture, tab);
+  return await buildActionResult(`Hovered over ${element}`, capture, tab, { noSnapshot: !!args.noSnapshot });
 }
 async function handleScreenshot(args, ctx) {
   const tab = ctx.currentTabOrDie();
   const name = args.name;
   const outputFile = args.outputFile;
+  const inline = args.inline;
   const buffer = await tab.page.screenshot({ type: "png" });
-  const base64 = buffer.toString("base64");
-  let savedMsg = "";
-  const savePath = outputFile ? path12.resolve(outputFile) : name ? path12.resolve(".pw-test-writer", "screenshots", `${name}.png`) : null;
-  if (savePath) {
-    fs11.mkdirSync(path12.dirname(savePath), { recursive: true });
-    fs11.writeFileSync(savePath, buffer);
-    savedMsg = ` \u2014 saved to ${savePath}`;
+  const savePath = outputFile ? path12.resolve(outputFile) : name ? path12.resolve(".pw-test-writer", "screenshots", `${name}.png`) : path12.resolve(".pw-test-writer", "screenshots", `screenshot-${Date.now()}.png`);
+  fs11.mkdirSync(path12.dirname(savePath), { recursive: true });
+  fs11.writeFileSync(savePath, buffer);
+  if (inline) {
+    return {
+      content: [
+        { type: "image", data: buffer.toString("base64"), mimeType: "image/png" },
+        { type: "text", text: `Screenshot saved: ${savePath}
+URL: ${tab.page.url()}` }
+      ]
+    };
   }
   return {
     content: [
-      { type: "image", data: base64, mimeType: "image/png" },
-      { type: "text", text: `Screenshot of ${tab.page.url()}${savedMsg}` }
+      { type: "text", text: `Screenshot saved: ${savePath}
+URL: ${tab.page.url()}` }
     ]
   };
 }
@@ -25096,12 +25421,12 @@ function buildSnapshotResult(resultText, snapshot) {
   appendPageState(lines, snapshot, true);
   return text2(lines.join("\n"));
 }
-async function buildActionResult(resultText, capture, tab) {
+async function buildActionResult(resultText, capture, tab, opts) {
   const lines = [];
   lines.push(`### Result`);
   lines.push(resultText);
   lines.push("");
-  lines.push(...renderActionCapture(capture));
+  lines.push(...renderActionCapture(capture, { noSnapshot: opts?.noSnapshot }));
   lines.push("### Page state");
   lines.push(`- URL: ${tab.page.url()}`);
   try {
@@ -25138,7 +25463,7 @@ function appendPageState(lines, snapshot, includeFullSnapshot) {
   }
 }
 
-// dist/mcp/server.js
+// packages/pw-test-writer/dist/mcp/server.js
 function createMcpServer(cwd2) {
   const runs = /* @__PURE__ */ new Map();
   const browserCtx = new BrowserContext();
@@ -25405,7 +25730,7 @@ Use the \`triage-e2e\` skill for the full workflow: run all tests \u2192 classif
   return server2;
 }
 
-// dist/mcp-server.js
+// packages/pw-test-writer/dist/mcp-server.js
 var cwd = process.env.PW_PROJECT_DIR || process.cwd();
 var server = createMcpServer(cwd);
 var transport = new StdioServerTransport();
