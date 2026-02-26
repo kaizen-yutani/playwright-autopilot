@@ -775,7 +775,7 @@ var require_uri_all = __commonJS({
         target.fragment = relative3.fragment;
         return target;
       }
-      function resolve6(baseURI, relativeURI, options) {
+      function resolve7(baseURI, relativeURI, options) {
         var schemelessOptions = assign({ scheme: "null" }, options);
         return serialize(resolveComponents(parse(baseURI, schemelessOptions), parse(relativeURI, schemelessOptions), schemelessOptions, true), schemelessOptions);
       }
@@ -1040,7 +1040,7 @@ var require_uri_all = __commonJS({
       exports2.removeDotSegments = removeDotSegments;
       exports2.serialize = serialize;
       exports2.resolveComponents = resolveComponents;
-      exports2.resolve = resolve6;
+      exports2.resolve = resolve7;
       exports2.normalize = normalize2;
       exports2.equal = equal;
       exports2.escapeComponent = escapeComponent;
@@ -1393,18 +1393,18 @@ var require_resolve = __commonJS({
     var util2 = require_util();
     var SchemaObject = require_schema_obj();
     var traverse = require_json_schema_traverse();
-    module.exports = resolve6;
-    resolve6.normalizeId = normalizeId;
-    resolve6.fullPath = getFullPath;
-    resolve6.url = resolveUrl;
-    resolve6.ids = resolveIds;
-    resolve6.inlineRef = inlineRef;
-    resolve6.schema = resolveSchema;
-    function resolve6(compile, root, ref) {
+    module.exports = resolve7;
+    resolve7.normalizeId = normalizeId;
+    resolve7.fullPath = getFullPath;
+    resolve7.url = resolveUrl;
+    resolve7.ids = resolveIds;
+    resolve7.inlineRef = inlineRef;
+    resolve7.schema = resolveSchema;
+    function resolve7(compile, root, ref) {
       var refVal = this._refs[ref];
       if (typeof refVal == "string") {
         if (this._refs[refVal]) refVal = this._refs[refVal];
-        else return resolve6.call(this, compile, root, refVal);
+        else return resolve7.call(this, compile, root, refVal);
       }
       refVal = refVal || this._schemas[ref];
       if (refVal instanceof SchemaObject) {
@@ -1609,7 +1609,7 @@ var require_resolve = __commonJS({
 var require_error_classes = __commonJS({
   "node_modules/ajv/lib/compile/error_classes.js"(exports, module) {
     "use strict";
-    var resolve6 = require_resolve();
+    var resolve7 = require_resolve();
     module.exports = {
       Validation: errorSubclass(ValidationError),
       MissingRef: errorSubclass(MissingRefError)
@@ -1624,8 +1624,8 @@ var require_error_classes = __commonJS({
     };
     function MissingRefError(baseId, ref, message) {
       this.message = message || MissingRefError.message(baseId, ref);
-      this.missingRef = resolve6.url(baseId, ref);
-      this.missingSchema = resolve6.normalizeId(resolve6.fullPath(this.missingRef));
+      this.missingRef = resolve7.url(baseId, ref);
+      this.missingSchema = resolve7.normalizeId(resolve7.fullPath(this.missingRef));
     }
     function errorSubclass(Subclass) {
       Subclass.prototype = Object.create(Error.prototype);
@@ -2153,7 +2153,7 @@ var require_validate = __commonJS({
 var require_compile = __commonJS({
   "node_modules/ajv/lib/compile/index.js"(exports, module) {
     "use strict";
-    var resolve6 = require_resolve();
+    var resolve7 = require_resolve();
     var util2 = require_util();
     var errorClasses = require_error_classes();
     var stableStringify = require_fast_json_stable_stringify();
@@ -2211,7 +2211,7 @@ var require_compile = __commonJS({
           RULES,
           validate: validateGenerator,
           util: util2,
-          resolve: resolve6,
+          resolve: resolve7,
           resolveRef,
           usePattern,
           useDefault,
@@ -2271,7 +2271,7 @@ var require_compile = __commonJS({
         return validate;
       }
       function resolveRef(baseId2, ref, isRoot) {
-        ref = resolve6.url(baseId2, ref);
+        ref = resolve7.url(baseId2, ref);
         var refIndex = refs[ref];
         var _refVal, refCode;
         if (refIndex !== void 0) {
@@ -2288,11 +2288,11 @@ var require_compile = __commonJS({
           }
         }
         refCode = addLocalRef(ref);
-        var v2 = resolve6.call(self, localCompile, root, ref);
+        var v2 = resolve7.call(self, localCompile, root, ref);
         if (v2 === void 0) {
           var localSchema = localRefs && localRefs[ref];
           if (localSchema) {
-            v2 = resolve6.inlineRef(localSchema, opts.inlineRefs) ? localSchema : compile.call(self, localSchema, root, localRefs, baseId2);
+            v2 = resolve7.inlineRef(localSchema, opts.inlineRefs) ? localSchema : compile.call(self, localSchema, root, localRefs, baseId2);
           }
         }
         if (v2 === void 0) {
@@ -5902,7 +5902,7 @@ var require_ajv = __commonJS({
   "node_modules/ajv/lib/ajv.js"(exports, module) {
     "use strict";
     var compileSchema = require_compile();
-    var resolve6 = require_resolve();
+    var resolve7 = require_resolve();
     var Cache = require_cache();
     var SchemaObject = require_schema_obj();
     var stableStringify = require_fast_json_stable_stringify();
@@ -5984,7 +5984,7 @@ var require_ajv = __commonJS({
       var id = this._getId(schema);
       if (id !== void 0 && typeof id != "string")
         throw new Error("schema id must be string");
-      key = resolve6.normalizeId(key || id);
+      key = resolve7.normalizeId(key || id);
       checkUnique(this, key);
       this._schemas[key] = this._addSchema(schema, _skipValidation, _meta, true);
       return this;
@@ -6028,7 +6028,7 @@ var require_ajv = __commonJS({
       }
     }
     function _getSchemaFragment(self, ref) {
-      var res = resolve6.schema.call(self, { schema: {} }, ref);
+      var res = resolve7.schema.call(self, { schema: {} }, ref);
       if (res) {
         var schema = res.schema, root = res.root, baseId = res.baseId;
         var v = compileSchema.call(self, schema, root, void 0, baseId);
@@ -6044,7 +6044,7 @@ var require_ajv = __commonJS({
       }
     }
     function _getSchemaObj(self, keyRef) {
-      keyRef = resolve6.normalizeId(keyRef);
+      keyRef = resolve7.normalizeId(keyRef);
       return self._schemas[keyRef] || self._refs[keyRef] || self._fragments[keyRef];
     }
     function removeSchema(schemaKeyRef) {
@@ -6071,7 +6071,7 @@ var require_ajv = __commonJS({
           this._cache.del(cacheKey);
           var id = this._getId(schemaKeyRef);
           if (id) {
-            id = resolve6.normalizeId(id);
+            id = resolve7.normalizeId(id);
             delete this._schemas[id];
             delete this._refs[id];
           }
@@ -6095,13 +6095,13 @@ var require_ajv = __commonJS({
       var cached = this._cache.get(cacheKey);
       if (cached) return cached;
       shouldAddSchema = shouldAddSchema || this._opts.addUsedSchema !== false;
-      var id = resolve6.normalizeId(this._getId(schema));
+      var id = resolve7.normalizeId(this._getId(schema));
       if (id && shouldAddSchema) checkUnique(this, id);
       var willValidate = this._opts.validateSchema !== false && !skipValidation;
       var recursiveMeta;
-      if (willValidate && !(recursiveMeta = id && id == resolve6.normalizeId(schema.$schema)))
+      if (willValidate && !(recursiveMeta = id && id == resolve7.normalizeId(schema.$schema)))
         this.validateSchema(schema, true);
-      var localRefs = resolve6.ids.call(this, schema);
+      var localRefs = resolve7.ids.call(this, schema);
       var schemaObj = new SchemaObject({
         id,
         schema,
@@ -9930,10 +9930,10 @@ var init_esm3 = __esm({
        * Return a void Promise that resolves once the stream ends.
        */
       async promise() {
-        return new Promise((resolve6, reject) => {
+        return new Promise((resolve7, reject) => {
           this.on(DESTROYED, () => reject(new Error("stream destroyed")));
           this.on("error", (er) => reject(er));
-          this.on("end", () => resolve6());
+          this.on("end", () => resolve7());
         });
       }
       /**
@@ -9957,7 +9957,7 @@ var init_esm3 = __esm({
             return Promise.resolve({ done: false, value: res });
           if (this[EOF])
             return stop();
-          let resolve6;
+          let resolve7;
           let reject;
           const onerr = (er) => {
             this.off("data", ondata);
@@ -9971,19 +9971,19 @@ var init_esm3 = __esm({
             this.off("end", onend);
             this.off(DESTROYED, ondestroy);
             this.pause();
-            resolve6({ value, done: !!this[EOF] });
+            resolve7({ value, done: !!this[EOF] });
           };
           const onend = () => {
             this.off("error", onerr);
             this.off("data", ondata);
             this.off(DESTROYED, ondestroy);
             stop();
-            resolve6({ done: true, value: void 0 });
+            resolve7({ done: true, value: void 0 });
           };
           const ondestroy = () => onerr(new Error("stream destroyed"));
           return new Promise((res2, rej) => {
             reject = rej;
-            resolve6 = res2;
+            resolve7 = res2;
             this.once(DESTROYED, ondestroy);
             this.once("error", onerr);
             this.once("end", onend);
@@ -10963,9 +10963,9 @@ var init_esm4 = __esm({
         if (this.#asyncReaddirInFlight) {
           await this.#asyncReaddirInFlight;
         } else {
-          let resolve6 = () => {
+          let resolve7 = () => {
           };
-          this.#asyncReaddirInFlight = new Promise((res) => resolve6 = res);
+          this.#asyncReaddirInFlight = new Promise((res) => resolve7 = res);
           try {
             for (const e of await this.#fs.promises.readdir(fullpath, {
               withFileTypes: true
@@ -10978,7 +10978,7 @@ var init_esm4 = __esm({
             children.provisional = 0;
           }
           this.#asyncReaddirInFlight = void 0;
-          resolve6();
+          resolve7();
         }
         return children.slice(0, children.provisional);
       }
@@ -18026,12 +18026,12 @@ var StdioServerTransport = class {
     (_a = this.onclose) === null || _a === void 0 ? void 0 : _a.call(this);
   }
   send(message) {
-    return new Promise((resolve6) => {
+    return new Promise((resolve7) => {
       const json = serializeMessage(message);
       if (this._stdout.write(json)) {
-        resolve6();
+        resolve7();
       } else {
-        this._stdout.once("drain", resolve6);
+        this._stdout.once("drain", resolve7);
       }
     });
   }
@@ -18258,7 +18258,7 @@ var Protocol = class {
    */
   request(request, resultSchema, options) {
     const { relatedRequestId, resumptionToken, onresumptiontoken } = options !== null && options !== void 0 ? options : {};
-    return new Promise((resolve6, reject) => {
+    return new Promise((resolve7, reject) => {
       var _a, _b, _c, _d, _e, _f;
       if (!this._transport) {
         reject(new Error("Not connected"));
@@ -18309,7 +18309,7 @@ var Protocol = class {
         }
         try {
           const result = resultSchema.parse(response.result);
-          resolve6(result);
+          resolve7(result);
         } catch (error3) {
           reject(error3);
         }
@@ -21533,7 +21533,7 @@ function createCaptureServer(target) {
     start() {
       if (httpServer)
         return Promise.resolve(port);
-      return new Promise((resolve6, reject) => {
+      return new Promise((resolve7, reject) => {
         httpServer = http.createServer((req, res) => {
           res.setHeader("Access-Control-Allow-Origin", "*");
           res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
@@ -21566,7 +21566,7 @@ function createCaptureServer(target) {
           const addr = httpServer.address();
           if (typeof addr === "object" && addr) {
             port = addr.port;
-            resolve6(port);
+            resolve7(port);
           } else {
             reject(new Error("Failed to get server port"));
           }
@@ -21597,7 +21597,7 @@ import { fileURLToPath as fileURLToPath3 } from "url";
 var __dirname = path7.dirname(fileURLToPath3(import.meta.url));
 async function discoverTests(cwd2, project) {
   try {
-    const result = await new Promise((resolve6, reject) => {
+    const result = await new Promise((resolve7, reject) => {
       const args = ["test", "--list", "--reporter=json"];
       if (project)
         args.push("--project", project);
@@ -21624,9 +21624,9 @@ async function discoverTests(cwd2, project) {
       child.on("close", (code) => {
         clearTimeout(discoveryTimeout);
         if (stdout.trim().startsWith("{")) {
-          resolve6(stdout);
+          resolve7(stdout);
         } else if (code === 0) {
-          resolve6(stdout);
+          resolve7(stdout);
         } else {
           reject(new Error(stderr || `Exit code ${code}`));
         }
@@ -21649,7 +21649,7 @@ async function discoverTests(cwd2, project) {
 }
 async function discoverProjects(cwd2) {
   try {
-    const result = await new Promise((resolve6, reject) => {
+    const result = await new Promise((resolve7, reject) => {
       const args = ["test", "--list", "--reporter=json"];
       const localBin = path7.join(cwd2, "node_modules", ".bin", "playwright");
       const cmd = fs6.existsSync(localBin) ? localBin : "npx";
@@ -21669,7 +21669,7 @@ async function discoverProjects(cwd2) {
       }, 15e3);
       child.on("close", () => {
         clearTimeout(timer);
-        resolve6(stdout);
+        resolve7(stdout);
       });
       child.on("error", (err) => {
         clearTimeout(timer);
@@ -21865,7 +21865,7 @@ async function runProject(cwd2, options) {
   const cmd = fs7.existsSync(localBin) ? localBin : "npx";
   if (cmd === "npx")
     args.unshift("playwright");
-  const stdout = await new Promise((resolve6, reject) => {
+  const stdout = await new Promise((resolve7, reject) => {
     const child = spawn2(cmd, args, {
       cwd: cwd2,
       env: { ...process.env, FORCE_COLOR: "0" },
@@ -21908,11 +21908,11 @@ async function runProject(cwd2, options) {
         } catch {
         }
       }, 5e3).unref();
-      resolve6(out);
+      resolve7(out);
     }, options?.timeoutMs || 6e5);
     child.on("close", () => {
       clearTimeout(timer);
-      resolve6(out);
+      resolve7(out);
     });
     child.on("error", (err) => {
       clearTimeout(timer);
@@ -21995,7 +21995,7 @@ function parseJsonRunResults(jsonStr, cwd2) {
   return entries;
 }
 function spawnTest(testLocation, cwd2, captureEndpoint, timeoutMs = 12e4, project, grep, repeatEach, onProgress) {
-  return new Promise((resolve6) => {
+  return new Promise((resolve7) => {
     const env = {
       ...process.env,
       FORCE_COLOR: "0"
@@ -22059,13 +22059,13 @@ function spawnTest(testLocation, cwd2, captureEndpoint, timeoutMs = 12e4, projec
         } catch {
         }
       }, 5e3).unref();
-      resolve6({ success: false, error: `Test timeout (${timeoutMs / 1e3}s)` });
+      resolve7({ success: false, error: `Test timeout (${timeoutMs / 1e3}s)` });
     }, timeoutMs);
     child.on("close", (code) => {
       clearTimeout(timer);
       const testTitle = parseTestTitleFromLineOutput(stdout);
       if (code === 0) {
-        resolve6({ success: true, testTitle });
+        resolve7({ success: true, testTitle });
         return;
       }
       const combined = (stdout + "\n" + stderr).replace(/\x1B\[[0-9;]*[a-zA-Z]/g, "").replace(/\[1A|\[2K/g, "");
@@ -22089,16 +22089,16 @@ function spawnTest(testLocation, cwd2, captureEndpoint, timeoutMs = 12e4, projec
         }
       }
       if (errorLines.length > 0) {
-        resolve6({ success: false, error: errorLines.join("\n"), testTitle });
+        resolve7({ success: false, error: errorLines.join("\n"), testTitle });
       } else {
         const noise = /^\d+ (passed|failed|skipped)|^Running \d|^npx |^\[.+\] ›|^reports\/|^\s*$/;
         const meaningful = lines.map((l) => l.trim()).filter((l) => l && !noise.test(l));
-        resolve6({ success: false, error: meaningful.slice(-8).join("\n") || `Exit code ${code}`, testTitle });
+        resolve7({ success: false, error: meaningful.slice(-8).join("\n") || `Exit code ${code}`, testTitle });
       }
     });
     child.on("error", (err) => {
       clearTimeout(timer);
-      resolve6({ success: false, error: err.message });
+      resolve7({ success: false, error: err.message });
     });
   });
 }
@@ -22636,11 +22636,11 @@ var Tab = class extends EventEmitter2 {
         throw e;
       const download = await Promise.race([
         downloadEvent,
-        new Promise((resolve6) => setTimeout(resolve6, 3e3))
+        new Promise((resolve7) => setTimeout(resolve7, 3e3))
       ]);
       if (!download)
         throw e;
-      await new Promise((resolve6) => setTimeout(resolve6, 500));
+      await new Promise((resolve7) => setTimeout(resolve7, 500));
       return;
     }
     await this.page.waitForLoadState("load", { timeout: 5e3 }).catch(() => {
@@ -24004,10 +24004,19 @@ var browserToolDefs = [
   },
   {
     name: "browser_take_screenshot",
-    description: "Take a screenshot of the current page.",
+    description: "Take a screenshot of the current page. Optionally save to a file by name or path.",
     inputSchema: {
       type: "object",
-      properties: {}
+      properties: {
+        name: {
+          type: "string",
+          description: 'Short name for the screenshot (e.g. "homepage"). Saved to .pw-test-writer/screenshots/{name}.png'
+        },
+        outputFile: {
+          type: "string",
+          description: 'Full file path to save the screenshot (e.g. "/tmp/screenshot.png"). Overrides name if both provided.'
+        }
+      }
     }
   },
   {
@@ -24190,7 +24199,7 @@ async function handleBrowserTool(name, args, ctx) {
         result = await handleHover(args, ctx);
         break;
       case "browser_take_screenshot":
-        result = await handleScreenshot(ctx);
+        result = await handleScreenshot(args, ctx);
         break;
       case "browser_set_headers":
         result = await handleSetHeaders(args, ctx);
@@ -24393,14 +24402,23 @@ async function handleHover(args, ctx) {
   lastCapture = capture;
   return await buildActionResult(`Hovered over ${element}`, capture, tab);
 }
-async function handleScreenshot(ctx) {
+async function handleScreenshot(args, ctx) {
   const tab = ctx.currentTabOrDie();
+  const name = args.name;
+  const outputFile = args.outputFile;
   const buffer = await tab.page.screenshot({ type: "png" });
   const base64 = buffer.toString("base64");
+  let savedMsg = "";
+  const savePath = outputFile ? path11.resolve(outputFile) : name ? path11.resolve(".pw-test-writer", "screenshots", `${name}.png`) : null;
+  if (savePath) {
+    fs10.mkdirSync(path11.dirname(savePath), { recursive: true });
+    fs10.writeFileSync(savePath, buffer);
+    savedMsg = ` \u2014 saved to ${savePath}`;
+  }
   return {
     content: [
       { type: "image", data: base64, mimeType: "image/png" },
-      { type: "text", text: `Screenshot of ${tab.page.url()}` }
+      { type: "text", text: `Screenshot of ${tab.page.url()}${savedMsg}` }
     ]
   };
 }
