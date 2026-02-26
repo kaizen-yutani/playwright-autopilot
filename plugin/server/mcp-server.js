@@ -23013,7 +23013,15 @@ var BrowserContext = class {
       void this._closeBrowser();
   }
   async _launchBrowser(options) {
-    const pw = await import("playwright-core");
+    let pw;
+    try {
+      pw = await import("playwright-core");
+    } catch {
+      const { createRequire } = await import("module");
+      const projectDir = process.env.PW_PROJECT_DIR || process.cwd();
+      const require2 = createRequire(projectDir + "/package.json");
+      pw = require2("playwright-core");
+    }
     const headless = process.env.PW_HEADED !== "1";
     this._browser = await pw.chromium.launch({
       headless,
@@ -24386,7 +24394,14 @@ async function handleScreenshot(ctx) {
   };
 }
 async function handleSetHeaders(args, ctx) {
-  const headers = args.headers;
+  let headers = args.headers;
+  if (typeof headers === "string") {
+    try {
+      headers = JSON.parse(headers);
+    } catch {
+      return error2("Invalid headers JSON string");
+    }
+  }
   if (!headers || typeof headers !== "object")
     return error2("headers object is required");
   await ctx.setExtraHTTPHeaders(headers);
