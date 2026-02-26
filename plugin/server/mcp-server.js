@@ -855,8 +855,8 @@ var require_uri_all = __commonJS({
             wsComponents.secure = void 0;
           }
           if (wsComponents.resourceName) {
-            var _wsComponents$resourc = wsComponents.resourceName.split("?"), _wsComponents$resourc2 = slicedToArray(_wsComponents$resourc, 2), path9 = _wsComponents$resourc2[0], query = _wsComponents$resourc2[1];
-            wsComponents.path = path9 && path9 !== "/" ? path9 : void 0;
+            var _wsComponents$resourc = wsComponents.resourceName.split("?"), _wsComponents$resourc2 = slicedToArray(_wsComponents$resourc, 2), path12 = _wsComponents$resourc2[0], query = _wsComponents$resourc2[1];
+            wsComponents.path = path12 && path12 !== "/" ? path12 : void 0;
             wsComponents.query = query;
             wsComponents.resourceName = void 0;
           }
@@ -1229,12 +1229,12 @@ var require_util = __commonJS({
       return "'" + escapeQuotes(str) + "'";
     }
     function getPathExpr(currentPath, expr, jsonPointers, isNumber) {
-      var path9 = jsonPointers ? "'/' + " + expr + (isNumber ? "" : ".replace(/~/g, '~0').replace(/\\//g, '~1')") : isNumber ? "'[' + " + expr + " + ']'" : "'[\\'' + " + expr + " + '\\']'";
-      return joinPaths(currentPath, path9);
+      var path12 = jsonPointers ? "'/' + " + expr + (isNumber ? "" : ".replace(/~/g, '~0').replace(/\\//g, '~1')") : isNumber ? "'[' + " + expr + " + ']'" : "'[\\'' + " + expr + " + '\\']'";
+      return joinPaths(currentPath, path12);
     }
     function getPath(currentPath, prop, jsonPointers) {
-      var path9 = jsonPointers ? toQuotedString("/" + escapeJsonPointer(prop)) : toQuotedString(getProperty(prop));
-      return joinPaths(currentPath, path9);
+      var path12 = jsonPointers ? toQuotedString("/" + escapeJsonPointer(prop)) : toQuotedString(getProperty(prop));
+      return joinPaths(currentPath, path12);
     }
     var JSON_POINTER = /^\/(?:[^~]|~0|~1)*$/;
     var RELATIVE_JSON_POINTER = /^([0-9]+)(#|\/(?:[^~]|~0|~1)*)?$/;
@@ -10354,12 +10354,12 @@ var init_esm4 = __esm({
       /**
        * Get the Path object referenced by the string path, resolved from this Path
        */
-      resolve(path9) {
-        if (!path9) {
+      resolve(path12) {
+        if (!path12) {
           return this;
         }
-        const rootPath = this.getRootString(path9);
-        const dir = path9.substring(rootPath.length);
+        const rootPath = this.getRootString(path12);
+        const dir = path12.substring(rootPath.length);
         const dirParts = dir.split(this.splitSep);
         const result = rootPath ? this.getRoot(rootPath).#resolveParts(dirParts) : this.#resolveParts(dirParts);
         return result;
@@ -11111,8 +11111,8 @@ var init_esm4 = __esm({
       /**
        * @internal
        */
-      getRootString(path9) {
-        return win32.parse(path9).root;
+      getRootString(path12) {
+        return win32.parse(path12).root;
       }
       /**
        * @internal
@@ -11158,8 +11158,8 @@ var init_esm4 = __esm({
       /**
        * @internal
        */
-      getRootString(path9) {
-        return path9.startsWith("/") ? "/" : "";
+      getRootString(path12) {
+        return path12.startsWith("/") ? "/" : "";
       }
       /**
        * @internal
@@ -11208,8 +11208,8 @@ var init_esm4 = __esm({
        *
        * @internal
        */
-      constructor(cwd2 = process.cwd(), pathImpl, sep2, { nocase, childrenCacheSize = 16 * 1024, fs: fs8 = defaultFS } = {}) {
-        this.#fs = fsFromOption(fs8);
+      constructor(cwd2 = process.cwd(), pathImpl, sep2, { nocase, childrenCacheSize = 16 * 1024, fs: fs11 = defaultFS } = {}) {
+        this.#fs = fsFromOption(fs11);
         if (cwd2 instanceof URL || cwd2.startsWith("file://")) {
           cwd2 = fileURLToPath(cwd2);
         }
@@ -11248,11 +11248,11 @@ var init_esm4 = __esm({
       /**
        * Get the depth of a provided path, string, or the cwd
        */
-      depth(path9 = this.cwd) {
-        if (typeof path9 === "string") {
-          path9 = this.cwd.resolve(path9);
+      depth(path12 = this.cwd) {
+        if (typeof path12 === "string") {
+          path12 = this.cwd.resolve(path12);
         }
-        return path9.depth();
+        return path12.depth();
       }
       /**
        * Return the cache of child entries.  Exposed so subclasses can create
@@ -11739,9 +11739,9 @@ var init_esm4 = __esm({
         process3();
         return results;
       }
-      chdir(path9 = this.cwd) {
+      chdir(path12 = this.cwd) {
         const oldCwd = this.cwd;
-        this.cwd = typeof path9 === "string" ? this.cwd.resolve(path9) : path9;
+        this.cwd = typeof path12 === "string" ? this.cwd.resolve(path12) : path12;
         this.cwd[setAsCwd](oldCwd);
       }
     };
@@ -11767,8 +11767,8 @@ var init_esm4 = __esm({
       /**
        * @internal
        */
-      newRoot(fs8) {
-        return new PathWin32(this.rootPath, IFDIR, void 0, this.roots, this.nocase, this.childrenCache(), { fs: fs8 });
+      newRoot(fs11) {
+        return new PathWin32(this.rootPath, IFDIR, void 0, this.roots, this.nocase, this.childrenCache(), { fs: fs11 });
       }
       /**
        * Return true if the provided path string is an absolute path
@@ -11796,8 +11796,8 @@ var init_esm4 = __esm({
       /**
        * @internal
        */
-      newRoot(fs8) {
-        return new PathPosix(this.rootPath, IFDIR, void 0, this.roots, this.nocase, this.childrenCache(), { fs: fs8 });
+      newRoot(fs11) {
+        return new PathPosix(this.rootPath, IFDIR, void 0, this.roots, this.nocase, this.childrenCache(), { fs: fs11 });
       }
       /**
        * Return true if the provided path string is an absolute path
@@ -12116,8 +12116,8 @@ var init_processor = __esm({
       }
       // match, absolute, ifdir
       entries() {
-        return [...this.store.entries()].map(([path9, n]) => [
-          path9,
+        return [...this.store.entries()].map(([path12, n]) => [
+          path12,
           !!(n & 2),
           !!(n & 1)
         ]);
@@ -12330,9 +12330,9 @@ var init_walker = __esm({
       signal;
       maxDepth;
       includeChildMatches;
-      constructor(patterns, path9, opts) {
+      constructor(patterns, path12, opts) {
         this.patterns = patterns;
-        this.path = path9;
+        this.path = path12;
         this.opts = opts;
         this.#sep = !opts.posix && opts.platform === "win32" ? "\\" : "/";
         this.includeChildMatches = opts.includeChildMatches !== false;
@@ -12351,11 +12351,11 @@ var init_walker = __esm({
           });
         }
       }
-      #ignored(path9) {
-        return this.seen.has(path9) || !!this.#ignore?.ignored?.(path9);
+      #ignored(path12) {
+        return this.seen.has(path12) || !!this.#ignore?.ignored?.(path12);
       }
-      #childrenIgnored(path9) {
-        return !!this.#ignore?.childrenIgnored?.(path9);
+      #childrenIgnored(path12) {
+        return !!this.#ignore?.childrenIgnored?.(path12);
       }
       // backpressure mechanism
       pause() {
@@ -12570,8 +12570,8 @@ var init_walker = __esm({
     };
     GlobWalker = class extends GlobUtil {
       matches = /* @__PURE__ */ new Set();
-      constructor(patterns, path9, opts) {
-        super(patterns, path9, opts);
+      constructor(patterns, path12, opts) {
+        super(patterns, path12, opts);
       }
       matchEmit(e) {
         this.matches.add(e);
@@ -12608,8 +12608,8 @@ var init_walker = __esm({
     };
     GlobStream = class extends GlobUtil {
       results;
-      constructor(patterns, path9, opts) {
-        super(patterns, path9, opts);
+      constructor(patterns, path12, opts) {
+        super(patterns, path12, opts);
         this.results = new Minipass({
           signal: this.signal,
           objectMode: true
@@ -13432,8 +13432,8 @@ function getErrorMap() {
 
 // node_modules/zod/v3/helpers/parseUtil.js
 var makeIssue = (params) => {
-  const { data, path: path9, errorMaps, issueData } = params;
-  const fullPath = [...path9, ...issueData.path || []];
+  const { data, path: path12, errorMaps, issueData } = params;
+  const fullPath = [...path12, ...issueData.path || []];
   const fullIssue = {
     ...issueData,
     path: fullPath
@@ -13549,11 +13549,11 @@ var errorUtil;
 
 // node_modules/zod/v3/types.js
 var ParseInputLazyPath = class {
-  constructor(parent, value, path9, key) {
+  constructor(parent, value, path12, key) {
     this._cachedPath = [];
     this.parent = parent;
     this.data = value;
-    this._path = path9;
+    this._path = path12;
     this._key = key;
   }
   get path() {
@@ -19118,14 +19118,14 @@ function saveRun(cwd2, run) {
 function computeFlakyScores(history, config) {
   const results = [];
   for (const [test, entries] of Object.entries(history)) {
-    const window = entries.slice(0, config.windowSize);
-    if (window.length < 2)
+    const window2 = entries.slice(0, config.windowSize);
+    if (window2.length < 2)
       continue;
-    const passed = window.filter((e) => e.s === "passed").length;
-    const failed = window.filter((e) => e.s === "failed").length;
-    const score = failed / window.length;
+    const passed = window2.filter((e) => e.s === "passed").length;
+    const failed = window2.filter((e) => e.s === "failed").length;
+    const score = failed / window2.length;
     if (score > 0 && score < 1) {
-      results.push({ test, score, passed, failed, total: window.length });
+      results.push({ test, score, passed, failed, total: window2.length });
     }
   }
   return results.sort((a, b) => b.score - a.score);
@@ -22222,6 +22222,255 @@ function computeSnapshotDiff(before, after) {
   const summary = summaryParts.length > 0 ? summaryParts.join(", ") : "no changes";
   return { added, removed, changed, summary };
 }
+function extractChangedContext(before, after) {
+  if (!after)
+    return { context: "", fullRefresh: false };
+  if (!before)
+    return { context: after, fullRefresh: true };
+  const beforeLines = new Set(before.split("\n").map((l) => l.trimEnd()));
+  const afterLines = after.split("\n");
+  const changedIndices = /* @__PURE__ */ new Set();
+  for (let i = 0; i < afterLines.length; i++) {
+    if (!beforeLines.has(afterLines[i].trimEnd()) && afterLines[i].trim())
+      changedIndices.add(i);
+  }
+  if (changedIndices.size === 0)
+    return { context: "", fullRefresh: false };
+  const afterNonEmpty = afterLines.filter((l) => l.trim()).length;
+  if (afterNonEmpty > 0 && changedIndices.size > afterNonEmpty * 0.4)
+    return { context: after, fullRefresh: true };
+  const includeIndices = new Set(changedIndices);
+  for (const idx of changedIndices) {
+    const myIndent = afterLines[idx].search(/\S/);
+    if (myIndent <= 0)
+      continue;
+    for (let j = idx - 1; j >= 0; j--) {
+      const parentIndent = afterLines[j].search(/\S/);
+      if (parentIndent >= 0 && parentIndent < myIndent && afterLines[j].trim()) {
+        includeIndices.add(j);
+        break;
+      }
+    }
+  }
+  const sorted = [...includeIndices].sort((a, b) => a - b);
+  const result = [];
+  for (let i = 0; i < sorted.length; i++) {
+    if (i > 0 && sorted[i] - sorted[i - 1] > 1)
+      result.push("  ...");
+    result.push(afterLines[sorted[i]]);
+  }
+  return { context: result.join("\n"), fullRefresh: false };
+}
+function compactSnapshot(snapshot) {
+  if (!snapshot)
+    return snapshot;
+  const lines = snapshot.split("\n");
+  const result = [];
+  let i = 0;
+  while (i < lines.length) {
+    const line = lines[i];
+    const indent = line.search(/\S/);
+    if (indent < 0) {
+      result.push(line);
+      i++;
+      continue;
+    }
+    const trimmed = line.trimStart();
+    if (/^- contentinfo\b/.test(trimmed)) {
+      const end = subtreeEnd(lines, i, indent);
+      const stats = countRoles(lines, i + 1, end);
+      result.push(`${" ".repeat(indent)}- contentinfo: [${end - i - 1} elements collapsed \u2014 ${stats}]`);
+      i = end;
+      continue;
+    }
+    const roleMatch = trimmed.match(/^- (\w+)/);
+    if (roleMatch) {
+      const role = roleMatch[1];
+      const run = sameRoleSiblingRun(lines, i, indent, role);
+      if (run.count >= 10) {
+        for (let k = 0; k < 2; k++) {
+          for (let l = run.items[k].start; l < run.items[k].end; l++)
+            result.push(lines[l]);
+        }
+        const lastName = extractQuotedName(lines[run.items[run.count - 1].start]);
+        result.push(`${" ".repeat(indent)}- ... and ${run.count - 2} more ${role} elements${lastName ? ` (last: "${lastName}")` : ""}`);
+        i = run.items[run.count - 1].end;
+        continue;
+      }
+    }
+    result.push(line);
+    i++;
+  }
+  return result.join("\n");
+}
+function subtreeEnd(lines, startIdx, indent) {
+  let j = startIdx + 1;
+  while (j < lines.length) {
+    const ci = lines[j].search(/\S/);
+    if (ci >= 0 && ci <= indent)
+      return j;
+    j++;
+  }
+  return j;
+}
+function countRoles(lines, from, to) {
+  const roles = {};
+  for (let i = from; i < to; i++) {
+    const m = lines[i].trimStart().match(/^- (\w+)/);
+    if (m)
+      roles[m[1]] = (roles[m[1]] || 0) + 1;
+  }
+  return Object.entries(roles).sort((a, b) => b[1] - a[1]).slice(0, 3).map(([r, c]) => `${c} ${r}`).join(", ") || "empty";
+}
+function sameRoleSiblingRun(lines, startIdx, indent, role) {
+  const items = [];
+  let i = startIdx;
+  while (i < lines.length) {
+    const line = lines[i];
+    const ci = line.search(/\S/);
+    if (ci < 0) {
+      i++;
+      continue;
+    }
+    if (ci !== indent)
+      break;
+    const m = line.trimStart().match(/^- (\w+)/);
+    if (!m || m[1] !== role)
+      break;
+    const end = subtreeEnd(lines, i, indent);
+    items.push({ start: i, end });
+    i = end;
+  }
+  return { count: items.length, items };
+}
+function extractQuotedName(line) {
+  const m = line.match(/"([^"]+)"/);
+  return m ? m[1] : void 0;
+}
+
+// packages/pw-test-writer/dist/mcp/browser/networkUtils.js
+var ASSET_EXTENSIONS = /\.(png|jpe?g|gif|svg|webp|ico|woff2?|ttf|eot|css|js|map|mp4|webm|mp3)(\?|$)/i;
+var ASSET_PATH_PATTERNS = [
+  /\/assets\//i,
+  /\/static\//i,
+  /\/images\//i,
+  /\/fonts\//i,
+  /\/dealer-logos\//i,
+  /\/_next\//i,
+  /\/chunks\//i
+];
+var TRACKING_DOMAINS = [
+  "youtube.com",
+  "youtubei",
+  "google.com",
+  "google.internal",
+  "googletagmanager.com",
+  "google-analytics.com",
+  "analytics.google.com",
+  "facebook.com",
+  "facebook.net",
+  "doubleclick.net",
+  "hotjar.com",
+  "sentry.io",
+  "clarity.ms",
+  "segment.io",
+  "mixpanel.com",
+  "amplitude.com",
+  "fullstory.com",
+  "logrocket.com"
+];
+var TRACKING_PATHS = ["google.internal", "youtubei", "generate_204"];
+function isStaticOrTracking(url) {
+  try {
+    const u = new URL(url);
+    if (!u.protocol.startsWith("http"))
+      return true;
+    if (ASSET_EXTENSIONS.test(u.pathname))
+      return true;
+    if (ASSET_PATH_PATTERNS.some((p) => p.test(u.pathname)))
+      return true;
+    if (TRACKING_DOMAINS.some((d) => u.hostname.includes(d)))
+      return true;
+    if (TRACKING_PATHS.some((p) => u.pathname.includes(p)))
+      return true;
+    if (u.pathname.split("/").some((s) => s.length > 40))
+      return true;
+    return false;
+  } catch {
+    return true;
+  }
+}
+function isApiRequest(req) {
+  return !isStaticOrTracking(req.url);
+}
+function filterApiRequests(requests) {
+  return requests.filter(isApiRequest);
+}
+function apiPath(req) {
+  try {
+    return `${req.method} ${new URL(req.url).pathname}`;
+  } catch {
+    return `${req.method} ${req.url}`;
+  }
+}
+var MAX_BODY_SIZE = 1024;
+var MAX_STRING_VALUE_LEN = 80;
+function truncateBody(body) {
+  if (!body || body.length === 0)
+    return void 0;
+  try {
+    const parsed = JSON.parse(body);
+    if (typeof parsed === "object" && parsed !== null) {
+      const compact = summarizeJson(parsed);
+      const result = JSON.stringify(compact);
+      if (result.length <= MAX_BODY_SIZE)
+        return result;
+      return result.slice(0, MAX_BODY_SIZE) + "\u2026";
+    }
+  } catch {
+  }
+  if (body.length <= MAX_BODY_SIZE)
+    return body;
+  return body.slice(0, MAX_BODY_SIZE) + "\u2026";
+}
+function summarizeJson(obj, depth = 0) {
+  if (depth > 2)
+    return "\u2026";
+  if (Array.isArray(obj)) {
+    if (obj.length === 0)
+      return [];
+    const first = summarizeJson(obj[0], depth + 1);
+    if (obj.length === 1)
+      return [first];
+    return [first, `\u2026(${obj.length} items)`];
+  }
+  if (typeof obj === "object" && obj !== null) {
+    const result = {};
+    const entries = Object.entries(obj);
+    for (const [key, val] of entries.slice(0, 10)) {
+      result[key] = summarizeJson(val, depth + 1);
+    }
+    if (entries.length > 10)
+      result["\u2026"] = `${entries.length - 10} more keys`;
+    return result;
+  }
+  if (typeof obj === "string" && obj.length > MAX_STRING_VALUE_LEN)
+    return obj.slice(0, MAX_STRING_VALUE_LEN) + "\u2026";
+  return obj;
+}
+function shouldCaptureBody(url, contentType) {
+  if (isStaticOrTracking(url))
+    return false;
+  try {
+    if (new URL(url).pathname.endsWith(".json"))
+      return false;
+  } catch {
+  }
+  if (contentType) {
+    return contentType.includes("json") || contentType.includes("form");
+  }
+  return true;
+}
 
 // packages/pw-test-writer/dist/mcp/browser/actionCapture.js
 function createEmptyActionCapture() {
@@ -22251,21 +22500,27 @@ function renderActionCapture(capture) {
       const pathname = new URL(req.url, "http://localhost").pathname;
       const status = req.status !== null ? req.status : "pending";
       lines.push(`- ${req.method} ${pathname} \u2192 ${status} (${req.durationMs}ms)`);
+      if (isApiRequest(req)) {
+        if (req.requestBody)
+          lines.push(`  req: ${req.requestBody}`);
+        if (req.responseBody)
+          lines.push(`  res: ${req.responseBody}`);
+      }
     }
     lines.push("");
   }
-  if (capture.snapshot.diff) {
-    const diff = capture.snapshot.diff;
-    const hasChanges = diff.added.length > 0 || diff.removed.length > 0 || diff.changed.length > 0;
-    if (hasChanges) {
+  if (capture.snapshot.before !== void 0 || capture.snapshot.after !== void 0) {
+    const { context, fullRefresh } = extractChangedContext(capture.snapshot.before, capture.snapshot.after);
+    if (fullRefresh && capture.snapshot.after) {
+      lines.push("### Page snapshot");
+      lines.push("```yaml");
+      lines.push(compactSnapshot(capture.snapshot.after));
+      lines.push("```");
+    } else if (context) {
       lines.push("### Page changes");
-      if (diff.added.length > 0)
-        lines.push(`- Added: ${diff.added.join(", ")}`);
-      if (diff.removed.length > 0)
-        lines.push(`- Removed: ${diff.removed.join(", ")}`);
-      if (diff.changed.length > 0)
-        lines.push(`- Changed: ${diff.changed.join(", ")}`);
-      lines.push("");
+      lines.push("```yaml");
+      lines.push(context);
+      lines.push("```");
     }
   }
   if (capture.console.length > 0) {
@@ -22280,6 +22535,13 @@ function renderActionCapture(capture) {
 // packages/pw-test-writer/dist/mcp/browser/tab.js
 var NAV_TIMEOUT = 3e4;
 var ACTION_TIMEOUT = 5e3;
+function extractAriaText(snapshot) {
+  if (typeof snapshot === "string")
+    return snapshot;
+  if (snapshot && typeof snapshot === "object" && "full" in snapshot)
+    return snapshot.full;
+  return "";
+}
 var TabEvents = {
   modalState: "modalState"
 };
@@ -22300,6 +22562,7 @@ var Tab = class extends EventEmitter2 {
     page.on("request", (request) => this._requests.add(request));
     page.on("close", () => this._onClose());
     page.on("dialog", (dialog) => this._dialogShown(dialog));
+    page.on("filechooser", (chooser) => this._fileChooserOpened(chooser));
     page.setDefaultNavigationTimeout(NAV_TIMEOUT);
     page.setDefaultTimeout(ACTION_TIMEOUT);
     page[tabSymbol] = this;
@@ -22337,6 +22600,14 @@ var Tab = class extends EventEmitter2 {
       description: `"${dialog.type()}" dialog with message "${dialog.message()}"`,
       dialog,
       clearedBy: "browser_press_key"
+    });
+  }
+  _fileChooserOpened(fileChooser) {
+    this.setModalState({
+      type: "fileChooser",
+      description: `File chooser (${fileChooser.isMultiple() ? "multiple files" : "single file"})`,
+      fileChooser,
+      clearedBy: "browser_file_upload"
     });
   }
   _clearCollectedArtifacts() {
@@ -22382,11 +22653,11 @@ var Tab = class extends EventEmitter2 {
   async captureSnapshot() {
     let tabSnapshot;
     const modalStates = await this._raceAgainstModalStates(async () => {
-      const snapshot = await this.page._snapshotForAI();
+      const raw = await this.page._snapshotForAI();
       tabSnapshot = {
         url: this.page.url(),
         title: await this.page.title(),
-        ariaSnapshot: snapshot,
+        ariaSnapshot: extractAriaText(raw),
         modalStates: [],
         consoleMessages: []
       };
@@ -22402,6 +22673,12 @@ var Tab = class extends EventEmitter2 {
       modalStates,
       consoleMessages: []
     };
+  }
+  async ariaSnapshot() {
+    return extractAriaText(await this.page._snapshotForAI());
+  }
+  async trackCompletion(callback, options) {
+    return this._trackCompletion(callback, options);
   }
   _javaScriptBlocked() {
     return this._modalStates.some((state) => state.type === "dialog");
@@ -22427,7 +22704,7 @@ var Tab = class extends EventEmitter2 {
     const consoleCountBefore = this._recentConsoleMessages.length;
     let snapshotBefore;
     try {
-      snapshotBefore = await this.page._snapshotForAI();
+      snapshotBefore = extractAriaText(await this.page._snapshotForAI());
     } catch {
     }
     const actionCapture = createEmptyActionCapture();
@@ -22439,7 +22716,7 @@ var Tab = class extends EventEmitter2 {
       actionCapture.network.summary = formatNetworkSummary(requests);
     });
     try {
-      const snapshotAfter = await this.page._snapshotForAI();
+      const snapshotAfter = extractAriaText(await this.page._snapshotForAI());
       actionCapture.snapshot.after = snapshotAfter;
       if (snapshotBefore && snapshotAfter)
         actionCapture.snapshot.diff = computeSnapshotDiff(snapshotBefore, snapshotAfter);
@@ -22448,9 +22725,10 @@ var Tab = class extends EventEmitter2 {
     actionCapture.console = this._recentConsoleMessages.slice(consoleCountBefore);
     return actionCapture;
   }
-  async _trackCompletion(callback) {
+  async _trackCompletion(callback, options) {
     const pendingRequests = /* @__PURE__ */ new Set();
     const completedRequests = [];
+    const bodyPromises = [];
     let frameNavigated = false;
     let waitCallback = () => {
     };
@@ -22458,28 +22736,67 @@ var Tab = class extends EventEmitter2 {
       waitCallback = f;
     });
     const startMs = performance.now();
+    let idleTimer;
+    let idleMs = 100;
+    const startIdleTimer = () => {
+      if (idleTimer)
+        clearTimeout(idleTimer);
+      idleTimer = setTimeout(waitCallback, idleMs);
+    };
+    const cancelIdleTimer = () => {
+      if (idleTimer) {
+        clearTimeout(idleTimer);
+        idleTimer = void 0;
+      }
+    };
     const responseListener = (request) => {
       if (pendingRequests.has(request)) {
         pendingRequests.delete(request);
         const entry = completedRequests.find((r) => r.request === request);
         if (entry) {
           entry.endTime = performance.now();
-          void request.response().then((response) => {
-            entry.status = response?.status() ?? null;
+          const bodyPromise = request.response().then(async (response) => {
+            if (!response)
+              return;
+            entry.status = response.status();
+            const ct = response.headers()["content-type"] || "";
+            entry.contentType = ct || void 0;
+            if (shouldCaptureBody(request.url(), ct)) {
+              try {
+                const text3 = await response.text();
+                entry.responseBody = truncateBody(text3);
+              } catch {
+              }
+            }
           }).catch(() => {
           });
+          bodyPromises.push(bodyPromise);
         }
       }
-      if (!pendingRequests.size)
-        waitCallback();
+      if (!pendingRequests.size) {
+        idleMs = 500;
+        startIdleTimer();
+      }
     };
     const requestListener = (request) => {
+      cancelIdleTimer();
       pendingRequests.add(request);
+      const resourceType = request.resourceType();
+      let requestBody;
+      if (shouldCaptureBody(request.url())) {
+        const postData = request.postData();
+        if (postData)
+          requestBody = truncateBody(postData);
+      }
       completedRequests.push({
         request,
         startTime: performance.now(),
         endTime: performance.now(),
-        status: null
+        status: null,
+        resourceType,
+        requestBody,
+        contentType: void 0,
+        responseBody: void 0
       });
       void request.response().then(() => responseListener(request)).catch(() => responseListener(request));
     };
@@ -22504,24 +22821,44 @@ var Tab = class extends EventEmitter2 {
       this.page.off("requestfailed", responseListener);
       this.page.off("framenavigated", frameNavigateListener);
       clearTimeout(timeout);
+      cancelIdleTimer();
     };
     try {
       await callback();
-      if (!pendingRequests.size && !frameNavigated)
+      if (options?.skipWait) {
+        cancelIdleTimer();
         waitCallback();
+      } else if (!pendingRequests.size && !frameNavigated) {
+        startIdleTimer();
+      }
       await waitBarrier;
-      if (this._javaScriptBlocked())
-        await new Promise((f) => setTimeout(f, 1e3));
-      else
-        await this.page.evaluate(() => new Promise((f) => setTimeout(f, 1e3))).catch(() => {
-        });
+      if (!options?.skipWait && (frameNavigated || completedRequests.length > 0)) {
+        if (this._javaScriptBlocked())
+          await new Promise((f) => setTimeout(f, 200));
+        else
+          await this.page.evaluate(() => new Promise((f) => setTimeout(f, 200))).catch(() => {
+          });
+      }
+      await Promise.all(bodyPromises).catch(() => {
+      });
       const endMs = performance.now();
-      const requests = completedRequests.map((r) => ({
-        method: r.request.method(),
-        url: r.request.url(),
-        status: r.status,
-        durationMs: Math.round(r.endTime - r.startTime)
-      }));
+      const requests = completedRequests.map((r) => {
+        const nr = {
+          method: r.request.method(),
+          url: r.request.url(),
+          status: r.status,
+          durationMs: Math.round(r.endTime - r.startTime)
+        };
+        if (r.resourceType)
+          nr.resourceType = r.resourceType;
+        if (r.contentType)
+          nr.contentType = r.contentType;
+        if (r.requestBody)
+          nr.requestBody = r.requestBody;
+        if (r.responseBody)
+          nr.responseBody = r.responseBody;
+        return nr;
+      });
       return { requests, durationMs: Math.round(endMs - startMs) };
     } finally {
       dispose();
@@ -22531,7 +22868,7 @@ var Tab = class extends EventEmitter2 {
     return (await this.refLocators([params]))[0];
   }
   async refLocators(params) {
-    const snapshot = await this.page._snapshotForAI();
+    const snapshot = extractAriaText(await this.page._snapshotForAI());
     return params.map((param) => {
       if (!snapshot.includes(`[ref=${param.ref}]`))
         throw new Error(`Ref ${param.ref} not found in the current page snapshot. Try capturing a new snapshot.`);
@@ -22570,6 +22907,14 @@ var BrowserContext = class {
   _currentTab;
   _headerRouteHandler;
   _navigationOrigins = /* @__PURE__ */ new Set();
+  _flowRecorder;
+  _extraHeaders;
+  get flowRecorder() {
+    return this._flowRecorder;
+  }
+  set flowRecorder(recorder) {
+    this._flowRecorder = recorder;
+  }
   tabs() {
     return this._tabs;
   }
@@ -22581,7 +22926,11 @@ var BrowserContext = class {
       throw new Error('No open pages available. Use the "browser_navigate" tool to navigate to a page first.');
     return this._currentTab;
   }
+  extraHeaders() {
+    return this._extraHeaders;
+  }
   async setExtraHTTPHeaders(headers) {
+    this._extraHeaders = headers;
     if (!this._browserContext)
       await this._launchBrowser();
     if (this._headerRouteHandler) {
@@ -22634,6 +22983,19 @@ var BrowserContext = class {
     await tab.page.close();
     return url;
   }
+  async getStorageState() {
+    if (!this._browserContext)
+      throw new Error("No browser context. Navigate to a page first.");
+    return await this._browserContext.storageState();
+  }
+  async restoreFromSession(session) {
+    await this._closeBrowser();
+    await this._launchBrowser({ storageState: session.storageState });
+    if (session.extraHeaders)
+      await this.setExtraHTTPHeaders(session.extraHeaders);
+    const tab = await this.ensureTab();
+    await tab.navigate(session.url);
+  }
   _onPageCreated(page) {
     const tab = new Tab(page, (tab2) => this._onPageClosed(tab2));
     this._tabs.push(tab);
@@ -22650,14 +23012,17 @@ var BrowserContext = class {
     if (!this._tabs.length)
       void this._closeBrowser();
   }
-  async _launchBrowser() {
+  async _launchBrowser(options) {
     const pw = await import("playwright-core");
-    const headless = process.platform === "linux" && !process.env.DISPLAY;
+    const headless = process.env.PW_HEADED !== "1";
     this._browser = await pw.chromium.launch({
       headless,
       channel: "chrome"
     });
-    this._browserContext = await this._browser.newContext({ viewport: null });
+    this._browserContext = await this._browser.newContext({
+      viewport: headless ? { width: 1280, height: 720 } : null,
+      ...options?.storageState ? { storageState: options.storageState } : {}
+    });
     for (const page of this._browserContext.pages())
       this._onPageCreated(page);
     this._browserContext.on("page", (page) => this._onPageCreated(page));
@@ -22694,6 +23059,805 @@ var BrowserContext = class {
     await this._closeBrowser();
   }
 };
+
+// packages/pw-test-writer/dist/mcp/browser/tools.js
+import * as fs10 from "fs";
+import * as path11 from "path";
+
+// packages/pw-test-writer/dist/mcp/browser/explore.js
+import * as fs8 from "fs";
+import * as path9 from "path";
+var STRUCTURAL_ROLES = /* @__PURE__ */ new Set([
+  "heading",
+  "button",
+  "link",
+  "navigation",
+  "banner",
+  "contentinfo",
+  "main",
+  "complementary",
+  "form",
+  "list",
+  "listitem",
+  "table",
+  "row",
+  "cell",
+  "tab",
+  "tabpanel",
+  "dialog",
+  "alert",
+  "img",
+  "textbox",
+  "combobox",
+  "checkbox",
+  "radio",
+  "menuitem",
+  "menu",
+  "separator",
+  "group",
+  "region",
+  "article",
+  "section"
+]);
+function buildStructuralVector(snapshot) {
+  const tokens = /* @__PURE__ */ new Map();
+  for (const line of snapshot.split("\n")) {
+    const trimmed = line.trimStart();
+    const indent = line.length - trimmed.length;
+    const depthBucket = indent < 8 ? "shallow" : indent < 20 ? "mid" : "deep";
+    const roleMatch = trimmed.match(/^-\s+(\w+)(?:\s+"([^"]*)")?/);
+    if (!roleMatch)
+      continue;
+    const role = roleMatch[1].toLowerCase();
+    const name = roleMatch[2] || "";
+    if (STRUCTURAL_ROLES.has(role)) {
+      tokens.set(role, (tokens.get(role) || 0) + 1);
+      tokens.set(`${role}@${depthBucket}`, (tokens.get(`${role}@${depthBucket}`) || 0) + 1);
+    }
+    if (role === "heading" && name) {
+      const words = name.toLowerCase().split(/\s+/).slice(0, 3).join(" ");
+      tokens.set(`h:${words}`, (tokens.get(`h:${words}`) || 0) + 1);
+    }
+  }
+  const totalElements = snapshot.split("\n").filter((l) => l.trimStart().startsWith("-")).length;
+  tokens.set("__elements", totalElements);
+  let mag = 0;
+  for (const count of tokens.values())
+    mag += count * count;
+  return { tokens, magnitude: Math.sqrt(mag) };
+}
+function cosineSimilarity(a, b) {
+  if (a.magnitude === 0 || b.magnitude === 0)
+    return 0;
+  let dot = 0;
+  for (const [token, countA] of a.tokens) {
+    const countB = b.tokens.get(token) || 0;
+    dot += countA * countB;
+  }
+  return dot / (a.magnitude * b.magnitude);
+}
+var CLICKABLE_ROLES = /* @__PURE__ */ new Set(["button", "link", "menuitem", "tab", "treeitem"]);
+var DANGEROUS_PATTERNS = [
+  /\bdelete\b/i,
+  /\bremove\b/i,
+  /\blogout\b/i,
+  /sign.?out/i,
+  /\bdestroy\b/i,
+  /\bunsubscribe\b/i,
+  /\bdeactivat/i,
+  /close.?account/i
+];
+function extractClickableElements(snapshot) {
+  const elements = [];
+  const lines = snapshot.split("\n");
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+    const refMatch = line.match(/\[ref=([^\]]+)\]/);
+    if (!refMatch)
+      continue;
+    const ref = refMatch[1];
+    const beforeRef = line.slice(0, refMatch.index);
+    const hasCursor = line.includes("[cursor=pointer]");
+    const namedMatch = beforeRef.match(/-\s*(\w+)\s*"([^"]*)"/);
+    if (namedMatch) {
+      const role = namedMatch[1].toLowerCase();
+      const name = namedMatch[2];
+      if (CLICKABLE_ROLES.has(role) || hasCursor)
+        elements.push({ ref, role, name });
+      continue;
+    }
+    const unnamedMatch = beforeRef.match(/-\s*(\w+)\s*$/);
+    if (unnamedMatch && hasCursor) {
+      const role = unnamedMatch[1].toLowerCase();
+      elements.push({ ref, role, name: "" });
+      continue;
+    }
+    const genericMatch = beforeRef.match(/-\s*generic\s*$/);
+    if (genericMatch) {
+      let linkUrl;
+      for (let j = i + 1; j < Math.min(i + 4, lines.length); j++) {
+        const nextLine = lines[j].trim();
+        if (nextLine.startsWith("- link"))
+          continue;
+        const urlMatch = nextLine.match(/^-\s*\/url:\s*(.+)/);
+        if (urlMatch) {
+          linkUrl = urlMatch[1].trim();
+          break;
+        }
+        if (nextLine.startsWith("- ") && !nextLine.startsWith("- /"))
+          break;
+      }
+      if (linkUrl && linkUrl !== "#") {
+        const pathName = (() => {
+          try {
+            return new URL(linkUrl).pathname;
+          } catch {
+            return linkUrl;
+          }
+        })();
+        elements.push({ ref, role: "link", name: pathName, url: linkUrl });
+      }
+    }
+  }
+  return elements;
+}
+function shouldSkip(el, skipPatterns) {
+  if (DANGEROUS_PATTERNS.some((p) => p.test(el.name)))
+    return true;
+  for (const pat of skipPatterns) {
+    if (el.name.toLowerCase().includes(pat.toLowerCase()))
+      return true;
+  }
+  if (el.url) {
+    try {
+      const u = new URL(el.url);
+      if (u.hash && u.pathname === "/" || u.pathname === "")
+        return true;
+    } catch {
+    }
+  }
+  return false;
+}
+function refindElement(snapshot, role, name) {
+  const refRegex = /\[ref=([^\]]+)\]/;
+  for (const line of snapshot.split("\n")) {
+    const refMatch = line.match(refRegex);
+    if (!refMatch)
+      continue;
+    const beforeRef = line.slice(0, refMatch.index);
+    const roleMatch = beforeRef.match(/-\s*(\w+)\s*"([^"]*)"/);
+    if (!roleMatch)
+      continue;
+    if (roleMatch[1].toLowerCase() === role && roleMatch[2] === name)
+      return refMatch[1];
+  }
+  return null;
+}
+function normalizeUrlToPattern(urls) {
+  if (urls.length <= 1)
+    return urls[0] || "";
+  try {
+    const parsed = urls.map((u) => new URL(u));
+    const origin = parsed[0].origin;
+    const segments = parsed.map((u) => u.pathname.split("/").filter(Boolean));
+    const maxLen = Math.max(...segments.map((s) => s.length));
+    const pattern = [];
+    for (let i = 0; i < maxLen; i++) {
+      const values = new Set(segments.map((s) => s[i]).filter(Boolean));
+      if (values.size === 1) {
+        pattern.push([...values][0]);
+      } else {
+        const vals = [...values];
+        const prefix = longestCommonPrefix(vals);
+        if (prefix.length >= 3 && prefix.endsWith("-")) {
+          pattern.push(`${prefix}:variant`);
+        } else {
+          pattern.push(":id");
+        }
+      }
+    }
+    return `${origin}/${pattern.join("/")}`;
+  } catch {
+    return urls[0];
+  }
+}
+function stripHash(url) {
+  try {
+    return url.split("#")[0];
+  } catch {
+    return url;
+  }
+}
+function longestCommonPrefix(strings) {
+  if (strings.length === 0)
+    return "";
+  let prefix = strings[0];
+  for (let i = 1; i < strings.length; i++) {
+    while (!strings[i].startsWith(prefix)) {
+      prefix = prefix.slice(0, -1);
+      if (prefix === "")
+        return "";
+    }
+  }
+  return prefix;
+}
+function summarizeLayout(snapshot) {
+  const lines = [];
+  let count = 0;
+  for (const line of snapshot.split("\n")) {
+    if (count >= 40) {
+      lines.push("  ...");
+      break;
+    }
+    const trimmed = line.trimStart();
+    const indent = line.length - trimmed.length;
+    const roleMatch = trimmed.match(/^-\s+(\w+)(?:\s+"([^"]*)")?/);
+    if (!roleMatch)
+      continue;
+    const role = roleMatch[1].toLowerCase();
+    if (!STRUCTURAL_ROLES.has(role))
+      continue;
+    const name = roleMatch[2] || "";
+    const nameStr = name ? ` "${name}"` : "";
+    lines.push(`${" ".repeat(indent)}- ${role}${nameStr}`);
+    count++;
+  }
+  return lines.join("\n");
+}
+function findMatchingTemplate(templates, vector, threshold) {
+  let best = null;
+  let bestSim = 0;
+  for (const entry of templates) {
+    const sim = cosineSimilarity(entry.vector, vector);
+    if (sim > threshold && sim > bestSim) {
+      best = entry;
+      bestSim = sim;
+    }
+  }
+  return best;
+}
+var filterApiRequests2 = filterApiRequests;
+var apiPath2 = apiPath;
+async function scrollToRevealAll(page) {
+  await page.evaluate(async () => {
+    const delay = (ms) => new Promise((r) => setTimeout(r, ms));
+    const scrollHeight = () => document.documentElement.scrollHeight;
+    const viewportHeight = () => window.innerHeight;
+    let lastHeight = 0;
+    let currentPosition = 0;
+    const step = viewportHeight();
+    const maxScrolls = 20;
+    let scrollCount = 0;
+    while (scrollCount < maxScrolls) {
+      currentPosition += step;
+      window.scrollTo(0, currentPosition);
+      await delay(300);
+      scrollCount++;
+      const newHeight = scrollHeight();
+      if (currentPosition >= newHeight && newHeight === lastHeight)
+        break;
+      lastHeight = newHeight;
+    }
+    window.scrollTo(0, 0);
+    await delay(200);
+  });
+}
+async function runExplore(browserCtx, config, onProgress) {
+  const cfg = {
+    maxPages: 50,
+    maxDepth: 5,
+    maxActionsPerPage: 20,
+    similarityThreshold: 0.95,
+    templateThreshold: 3,
+    skipPatterns: [],
+    ...config
+  };
+  if (!cfg.skipPatterns)
+    cfg.skipPatterns = [];
+  const startTime = performance.now();
+  const templateEntries = [];
+  const graph = [];
+  let totalActions = 0;
+  let pagesVisited = 0;
+  let templateCounter = 0;
+  const startOrigin = new URL(cfg.startUrl).origin;
+  const queue = [{ url: cfg.startUrl, depth: 0 }];
+  const visitedUrls = /* @__PURE__ */ new Set();
+  const tab = await browserCtx.ensureTab();
+  const progress = (msg) => onProgress?.(msg);
+  while (queue.length > 0 && templateEntries.length < cfg.maxPages) {
+    const entry = queue.shift();
+    if (entry.depth > cfg.maxDepth)
+      continue;
+    if (visitedUrls.has(entry.url))
+      continue;
+    visitedUrls.add(entry.url);
+    progress(`[${templateEntries.length}/${cfg.maxPages}] Visiting ${entry.url} (depth ${entry.depth})`);
+    await tab.navigate(entry.url);
+    await scrollToRevealAll(tab.page).catch(() => {
+    });
+    let snapshot = await tab.captureSnapshot();
+    pagesVisited++;
+    const vector = buildStructuralVector(snapshot.ariaSnapshot);
+    const existing = findMatchingTemplate(templateEntries, vector, cfg.similarityThreshold);
+    if (existing) {
+      existing.template.samples++;
+      existing.template.sampleUrls.push(entry.url);
+      existing.template.urlPattern = normalizeUrlToPattern(existing.template.sampleUrls);
+      if (existing.template.samples >= cfg.templateThreshold) {
+        progress(`  \u2192 known template "${existing.template.id}" (${existing.template.samples} samples), skipping`);
+        continue;
+      }
+      progress(`  \u2192 matches "${existing.template.id}" (sample ${existing.template.samples})`);
+    }
+    const templateId = existing?.template.id || `page-${++templateCounter}`;
+    const template = existing?.template || {
+      id: templateId,
+      urlPattern: entry.url,
+      sampleUrls: [entry.url],
+      samples: 1,
+      layout: summarizeLayout(snapshot.ariaSnapshot),
+      actions: [],
+      apiCalls: { pageLoad: [], lazy: [], mutations: [] }
+    };
+    if (!existing)
+      templateEntries.push({ template, vector });
+    const allElements = extractClickableElements(snapshot.ariaSnapshot);
+    const clickable = allElements.filter((el) => !shouldSkip(el, cfg.skipPatterns));
+    const toClick = clickable.slice(0, cfg.maxActionsPerPage);
+    progress(`  ${toClick.length} elements to click (${allElements.length} total interactive)`);
+    const tried = /* @__PURE__ */ new Set();
+    for (const el of toClick) {
+      const elKey = `${el.role}:${el.name}`;
+      if (tried.has(elKey))
+        continue;
+      tried.add(elKey);
+      if (template.actions.some((a) => a.role === el.role && a.element === el.name))
+        continue;
+      if (el.url && el.role === "link") {
+        try {
+          const linkOrigin = new URL(el.url).origin;
+          if (linkOrigin === startOrigin && !visitedUrls.has(el.url)) {
+            queue.push({ url: el.url, depth: entry.depth + 1 });
+            template.actions.push({
+              element: el.name,
+              role: el.role,
+              navigated: true,
+              target: `\u2192 ${el.url}`,
+              apiCalls: []
+            });
+            progress(`    link "${el.name}" \u2192 queued ${el.url}`);
+          }
+        } catch {
+        }
+        continue;
+      }
+      try {
+        const tabCountBefore = browserCtx.tabs().length;
+        snapshot = await tab.captureSnapshot();
+        const freshRef = refindElement(snapshot.ariaSnapshot, el.role, el.name);
+        if (!freshRef)
+          continue;
+        const urlBefore = tab.page.url();
+        const locator = await tab.refLocator({ element: `${el.role} "${el.name}"`, ref: freshRef });
+        const capture = await tab.waitForCompletion(async () => {
+          await locator.click();
+        });
+        totalActions++;
+        const tabCountAfter = browserCtx.tabs().length;
+        const popupOpened = tabCountAfter > tabCountBefore;
+        if (popupOpened) {
+          const allTabs = browserCtx.tabs();
+          const newTab = allTabs[allTabs.length - 1];
+          const popupUrl = newTab.page.url();
+          progress(`    ${el.role} "${el.name}" \u2192 popup: ${popupUrl}`);
+          await newTab.page.waitForLoadState("domcontentloaded").catch(() => {
+          });
+          const popupSnapshot = await newTab.captureSnapshot();
+          const popupVector = buildStructuralVector(popupSnapshot.ariaSnapshot);
+          const popupMatch = findMatchingTemplate(templateEntries, popupVector, cfg.similarityThreshold);
+          let popupTemplateId = null;
+          if (popupMatch) {
+            popupTemplateId = popupMatch.template.id;
+          } else {
+            popupTemplateId = `page-${++templateCounter}`;
+            const popupTemplate = {
+              id: popupTemplateId,
+              urlPattern: popupUrl,
+              sampleUrls: [popupUrl],
+              samples: 1,
+              layout: summarizeLayout(popupSnapshot.ariaSnapshot),
+              actions: [],
+              apiCalls: { pageLoad: [], lazy: [], mutations: [] }
+            };
+            templateEntries.push({ template: popupTemplate, vector: popupVector });
+            progress(`    \u2192 new template "${popupTemplateId}" from popup`);
+            if (!visitedUrls.has(popupUrl)) {
+              try {
+                if (new URL(popupUrl).origin === startOrigin)
+                  queue.push({ url: popupUrl, depth: entry.depth + 1 });
+              } catch {
+              }
+            }
+          }
+          await newTab.page.close();
+          const currentTab = browserCtx.currentTab();
+          if (currentTab !== tab) {
+            await tab.page.bringToFront();
+          }
+          template.actions.push({
+            element: el.name,
+            role: el.role,
+            navigated: true,
+            target: `\u2192 ${popupTemplateId || popupUrl} (popup)`,
+            apiCalls: filterApiRequests2(capture.network.requests).map(apiPath2),
+            opensPopup: true
+          });
+          if (popupTemplateId) {
+            graph.push({
+              from: templateId,
+              action: `${el.role} "${el.name}" (popup)`,
+              to: popupTemplateId
+            });
+          }
+          continue;
+        }
+        const urlAfter = tab.page.url();
+        const navigated = stripHash(urlAfter) !== stripHash(urlBefore);
+        const apiRequests = filterApiRequests2(capture.network.requests);
+        for (const req of apiRequests) {
+          const p = apiPath2(req);
+          if (["POST", "PUT", "PATCH", "DELETE"].includes(req.method)) {
+            if (!template.apiCalls.mutations.includes(p))
+              template.apiCalls.mutations.push(p);
+          } else if (!navigated) {
+            if (!template.apiCalls.lazy.includes(p))
+              template.apiCalls.lazy.push(p);
+          } else {
+            if (!template.apiCalls.pageLoad.includes(p))
+              template.apiCalls.pageLoad.push(p);
+          }
+        }
+        let targetDesc;
+        let targetTemplateId = null;
+        if (navigated) {
+          try {
+            if (new URL(urlAfter).origin !== startOrigin) {
+              progress(`    ${el.role} "${el.name}" \u2192 external: ${urlAfter}`);
+              await tab.page.goBack().catch(() => {
+              });
+              await tab.page.waitForLoadState("domcontentloaded").catch(() => {
+              });
+              template.actions.push({
+                element: el.name,
+                role: el.role,
+                navigated: true,
+                target: `external: ${urlAfter}`,
+                apiCalls: apiRequests.map(apiPath2)
+              });
+              continue;
+            }
+          } catch {
+          }
+          const destSnapshot = await tab.captureSnapshot();
+          const destVector = buildStructuralVector(destSnapshot.ariaSnapshot);
+          const destMatch = findMatchingTemplate(templateEntries, destVector, cfg.similarityThreshold);
+          if (destMatch) {
+            targetTemplateId = destMatch.template.id;
+            targetDesc = `\u2192 ${targetTemplateId}`;
+          } else {
+            targetDesc = `\u2192 ${urlAfter} (new)`;
+          }
+          if (!visitedUrls.has(urlAfter))
+            queue.push({ url: urlAfter, depth: entry.depth + 1 });
+          progress(`    ${el.role} "${el.name}" ${targetDesc}`);
+          await tab.page.goBack().catch(() => {
+          });
+          await tab.page.waitForLoadState("domcontentloaded").catch(() => {
+          });
+          const backSnapshot = await tab.captureSnapshot();
+          const backVector = buildStructuralVector(backSnapshot.ariaSnapshot);
+          const backSim = cosineSimilarity(vector, backVector);
+          if (backSim < 0.7) {
+            progress(`    Back failed (sim=${backSim.toFixed(2)}), re-navigating`);
+            await tab.navigate(entry.url);
+          }
+        } else {
+          const diff = capture.snapshot.diff?.summary || "no changes";
+          targetDesc = diff;
+          progress(`    ${el.role} "${el.name}" \u2192 ${diff}`);
+          const added = capture.snapshot.diff?.added || [];
+          if (added.length > 3 || added.some((a) => a.includes("dialog"))) {
+            await tab.page.keyboard.press("Escape");
+            await new Promise((r) => setTimeout(r, 300));
+          }
+        }
+        template.actions.push({
+          element: el.name,
+          role: el.role,
+          navigated,
+          target: targetDesc,
+          apiCalls: apiRequests.map(apiPath2)
+        });
+        if (targetTemplateId) {
+          graph.push({
+            from: templateId,
+            action: `${el.role} "${el.name}"`,
+            to: targetTemplateId
+          });
+        }
+      } catch (err) {
+        const msg = err instanceof Error ? err.message.slice(0, 100) : String(err);
+        progress(`    ${el.role} "${el.name}" \u2014 error: ${msg}`);
+      }
+    }
+  }
+  const durationMs = Math.round(performance.now() - startTime);
+  return {
+    startUrl: cfg.startUrl,
+    templates: templateEntries.map((e) => e.template),
+    graph,
+    stats: { pagesVisited, uniqueTemplates: templateEntries.length, actionsPerformed: totalActions, durationMs }
+  };
+}
+function collapseActions(actions) {
+  const unique = [];
+  const linkGroups = /* @__PURE__ */ new Map();
+  for (const a of actions) {
+    if (a.role === "link" && a.target.startsWith("\u2192 ")) {
+      const prefix = extractLinkPrefix(a.element);
+      if (prefix) {
+        const group = linkGroups.get(prefix) || [];
+        group.push(a);
+        linkGroups.set(prefix, group);
+      } else {
+        unique.push(a);
+      }
+    } else {
+      unique.push(a);
+    }
+  }
+  for (const [prefix, group] of linkGroups) {
+    if (group.length >= 3) {
+      unique.push({
+        element: `${prefix}*`,
+        role: "link",
+        navigated: true,
+        target: `\u2192 ${group.length} pages (e.g. ${group[0].element})`,
+        apiCalls: []
+      });
+    } else {
+      unique.push(...group);
+    }
+  }
+  return unique;
+}
+function extractLinkPrefix(name) {
+  const parts = name.split("-");
+  if (parts.length >= 3) {
+    return parts.slice(0, -1).join("-") + "-";
+  }
+  return null;
+}
+function formatAppMap(map) {
+  const lines = [];
+  lines.push(`# App Map: ${map.startUrl}`);
+  lines.push("");
+  lines.push("## Stats");
+  lines.push(`- Pages visited: ${map.stats.pagesVisited}`);
+  lines.push(`- Unique templates: ${map.stats.uniqueTemplates}`);
+  lines.push(`- Actions performed: ${map.stats.actionsPerformed}`);
+  lines.push(`- Duration: ${(map.stats.durationMs / 1e3).toFixed(1)}s`);
+  lines.push("");
+  for (const t of map.templates) {
+    lines.push("---");
+    lines.push(`## ${t.id}`);
+    const displayUrl = t.urlPattern.length > 120 ? (() => {
+      try {
+        const u = new URL(t.urlPattern);
+        return `${u.origin}${u.pathname}${u.search.length > 20 ? "?..." : u.search}`;
+      } catch {
+        return t.urlPattern.slice(0, 120) + "...";
+      }
+    })() : t.urlPattern;
+    lines.push(`url: ${displayUrl}`);
+    lines.push(`samples: ${t.samples}`);
+    lines.push("");
+    if (t.layout) {
+      lines.push("layout:");
+      for (const l of t.layout.split("\n"))
+        lines.push(`  ${l}`);
+      lines.push("");
+    }
+    const collapsed = collapseActions(t.actions);
+    if (collapsed.length > 0) {
+      lines.push("actions:");
+      for (const a of collapsed) {
+        const api = a.apiCalls.length > 0 ? ` | ${a.apiCalls.join(", ")}` : "";
+        const popup = a.opensPopup ? " [popup]" : "";
+        lines.push(`  ${a.role} "${a.element}": ${a.target}${api}${popup}`);
+      }
+      lines.push("");
+    }
+    const hasApi = t.apiCalls.pageLoad.length > 0 || t.apiCalls.lazy.length > 0 || t.apiCalls.mutations.length > 0;
+    if (hasApi) {
+      lines.push("api:");
+      if (t.apiCalls.pageLoad.length > 0)
+        lines.push(`  page-load: ${t.apiCalls.pageLoad.join(", ")}`);
+      if (t.apiCalls.lazy.length > 0)
+        lines.push(`  lazy: ${t.apiCalls.lazy.join(", ")}`);
+      if (t.apiCalls.mutations.length > 0)
+        lines.push(`  mutations: ${t.apiCalls.mutations.join(", ")}`);
+      lines.push("");
+    }
+  }
+  if (map.graph.length > 0) {
+    lines.push("---");
+    lines.push("## Navigation Graph");
+    for (const edge of map.graph)
+      lines.push(`  ${edge.from} \u2192 ${edge.to}  (${edge.action})`);
+  }
+  return lines.join("\n");
+}
+function saveAppMap(map, cwd2) {
+  const outDir = path9.join(cwd2, ".pw-test-writer");
+  if (!fs8.existsSync(outDir))
+    fs8.mkdirSync(outDir, { recursive: true });
+  const filePath = path9.join(outDir, "app-map.json");
+  fs8.writeFileSync(filePath, JSON.stringify(map, null, 2));
+  return filePath;
+}
+
+// packages/pw-test-writer/dist/mcp/browser/flowRecorder.js
+import * as fs9 from "fs";
+import * as path10 from "path";
+var FlowRecorder = class {
+  name;
+  startUrl;
+  _steps = [];
+  _startTime;
+  constructor(name, startUrl) {
+    this.name = name;
+    this.startUrl = startUrl;
+    this._startTime = Date.now();
+  }
+  get stepCount() {
+    return this._steps.length;
+  }
+  recordStep(action, params, result, url, capture) {
+    const step = {
+      action,
+      params: sanitizeParams(params),
+      result,
+      url,
+      network: (capture?.network.requests || []).filter((r) => !isStaticOrTracking(r.url)).map((r) => {
+        const entry = {
+          method: r.method,
+          url: r.url,
+          status: r.status
+        };
+        if (r.requestBody)
+          entry.requestBody = r.requestBody;
+        if (r.responseBody)
+          entry.responseBody = r.responseBody;
+        return entry;
+      }),
+      durationMs: capture?.timing.durationMs || 0,
+      diff: capture?.snapshot.diff?.summary,
+      index: this._steps.length
+    };
+    this._steps.push(step);
+  }
+  finish(endUrl, error3) {
+    const allNetwork = this._steps.flatMap((s) => s.network);
+    const apiEndpoints = [...new Set(allNetwork.filter((r) => !isStaticOrTracking(r.url)).map((r) => {
+      try {
+        return `${r.method} ${new URL(r.url).pathname}`;
+      } catch {
+        return `${r.method} ${r.url}`;
+      }
+    }))];
+    return {
+      name: this.name,
+      startUrl: this.startUrl,
+      startedAt: new Date(this._startTime).toISOString(),
+      steps: this._steps,
+      durationMs: Date.now() - this._startTime,
+      apiEndpoints,
+      endUrl,
+      error: error3
+    };
+  }
+};
+function formatFlow(flow) {
+  const lines = [];
+  lines.push(`## Flow: ${flow.name}`);
+  lines.push(`- Start: ${flow.startUrl}`);
+  lines.push(`- End: ${flow.endUrl}`);
+  lines.push(`- Steps: ${flow.steps.length}`);
+  lines.push(`- Duration: ${(flow.durationMs / 1e3).toFixed(1)}s`);
+  if (flow.error)
+    lines.push(`- Error: ${flow.error}`);
+  lines.push("");
+  lines.push("### Steps");
+  for (const step of flow.steps) {
+    const api = step.network.length > 0 ? ` [${step.network.filter((r) => !isStaticOrTracking(r.url)).map((r) => `${r.method} ${shortUrl(r.url)} (${r.status || "?"})`).join(", ")}]` : "";
+    const diff = step.diff ? ` \u2192 ${step.diff}` : "";
+    lines.push(`${step.index + 1}. **${step.action}** ${formatStepParams(step)}${diff}${api}`);
+  }
+  lines.push("");
+  if (flow.apiEndpoints.length > 0) {
+    lines.push("### API Endpoints");
+    for (const ep of flow.apiEndpoints)
+      lines.push(`- ${ep}`);
+    lines.push("");
+  }
+  return lines.join("\n");
+}
+function saveFlow2(flow, cwd2) {
+  const dir = path10.join(cwd2, ".pw-test-writer", "flows");
+  fs9.mkdirSync(dir, { recursive: true });
+  const safeName = flow.name.replace(/[^a-zA-Z0-9_-]/g, "-");
+  const filePath = path10.join(dir, `${safeName}.json`);
+  fs9.writeFileSync(filePath, JSON.stringify(flow, null, 2));
+  return filePath;
+}
+function loadFlows(cwd2) {
+  const dir = path10.join(cwd2, ".pw-test-writer", "flows");
+  if (!fs9.existsSync(dir))
+    return [];
+  const files = fs9.readdirSync(dir).filter((f) => f.endsWith(".json"));
+  return files.map((f) => {
+    const content = fs9.readFileSync(path10.join(dir, f), "utf-8");
+    return JSON.parse(content);
+  });
+}
+function sanitizeParams(params) {
+  const clean = {};
+  for (const [k, v] of Object.entries(params)) {
+    if (k === "ref")
+      continue;
+    if (v !== void 0 && v !== null && v !== "")
+      clean[k] = v;
+  }
+  return clean;
+}
+function formatStepParams(step) {
+  const p = step.params;
+  switch (step.action) {
+    case "navigate":
+      return `\u2192 ${p.url}`;
+    case "click":
+      return `"${p.element}"`;
+    case "type":
+      return `"${p.element}" = "${p.text}"${p.submit ? " (submit)" : ""}`;
+    case "fill_form": {
+      const vals = p.values;
+      if (vals)
+        return vals.map((v) => `${v.element}="${v.value}"`).join(", ");
+      return "";
+    }
+    case "select_option":
+      return `"${p.element}" \u2192 "${p.value}"`;
+    case "press_key":
+      return `${p.key}`;
+    case "hover":
+      return `"${p.element}"`;
+    case "snapshot":
+      return "";
+    case "navigate_back":
+      return "\u2190 back";
+    default:
+      return step.result;
+  }
+}
+function shortUrl(url) {
+  try {
+    return new URL(url).pathname;
+  } catch {
+    return url;
+  }
+}
 
 // packages/pw-test-writer/dist/mcp/browser/tools.js
 var browserToolDefs = [
@@ -22752,25 +23916,32 @@ var browserToolDefs = [
   },
   {
     name: "browser_fill_form",
-    description: "Fill multiple form fields in one call.",
+    description: "Fill multiple form fields in one call. Fields can be addressed by ref (from snapshot) or by label (accessible name). Supports text inputs, checkboxes, radio buttons, and dropdowns. Handles progressive disclosure with brief pauses between fills.",
     inputSchema: {
       type: "object",
       properties: {
-        values: {
+        fields: {
           type: "array",
-          description: "Array of field values to fill",
+          description: "Fields to fill",
           items: {
             type: "object",
             properties: {
-              ref: { type: "string", description: "Element ref from the page snapshot" },
-              element: { type: "string", description: "Human-readable description of the field" },
-              value: { type: "string", description: "Value to fill" }
+              ref: { type: "string", description: "Element ref from snapshot (use ref OR label)" },
+              label: { type: "string", description: "Accessible label text of the field (use label OR ref)" },
+              element: { type: "string", description: "Human-readable description (optional when label is provided)" },
+              value: { type: "string", description: 'Value to set. For checkboxes: "true"/"false". For dropdowns: option text.' },
+              type: {
+                type: "string",
+                enum: ["textbox", "checkbox", "radio", "combobox"],
+                description: 'Field type (default: "textbox"). Use "checkbox" for checkboxes, "radio" for radio buttons, "combobox" for dropdowns.'
+              }
             },
-            required: ["ref", "element", "value"]
+            required: ["value"]
           }
-        }
+        },
+        submit: { type: "boolean", description: "Press Enter after filling the last field (default: false)" }
       },
-      required: ["values"]
+      required: ["fields"]
     }
   },
   {
@@ -22795,6 +23966,20 @@ var browserToolDefs = [
         key: { type: "string", description: 'Key to press (e.g. "Enter", "Escape", "Tab", "ArrowDown", "Control+a")' }
       },
       required: ["key"]
+    }
+  },
+  {
+    name: "browser_file_upload",
+    description: "Upload one or more files to a file chooser. The file chooser must be visible first (triggered by clicking a file input). Use absolute file paths.",
+    inputSchema: {
+      type: "object",
+      properties: {
+        paths: {
+          type: "array",
+          items: { type: "string" },
+          description: "Absolute paths to files to upload. Omit or pass empty array to cancel the file chooser."
+        }
+      }
     }
   },
   {
@@ -22833,8 +24018,118 @@ var browserToolDefs = [
     }
   },
   {
+    name: "browser_tabs",
+    description: "List, select, or close browser tabs. Use to switch to login popups or other tabs.",
+    inputSchema: {
+      type: "object",
+      properties: {
+        action: { type: "string", enum: ["list", "select", "close"], description: "Operation to perform" },
+        index: { type: "number", description: "Tab index for select/close" }
+      },
+      required: ["action"]
+    }
+  },
+  {
+    name: "browser_save_session",
+    description: "Save the current browser session (cookies, localStorage, URL, headers) to a file for later restoration. Useful for preserving login state across conversation restarts.",
+    inputSchema: {
+      type: "object",
+      properties: {
+        name: { type: "string", description: 'Session name (used as filename). Default: "default"' }
+      }
+    }
+  },
+  {
+    name: "browser_restore_session",
+    description: "Restore a previously saved browser session. Creates a new browser context with saved cookies/localStorage, re-applies headers, and navigates to the saved URL.",
+    inputSchema: {
+      type: "object",
+      properties: {
+        name: { type: "string", description: 'Session name to restore. Default: "default"' }
+      }
+    }
+  },
+  {
+    name: "browser_batch",
+    description: "Execute multiple browser actions in one call. Captures page state only once at the end. Use `silent: true` for minimal output (success/fail only) to reduce token cost.",
+    inputSchema: {
+      type: "object",
+      properties: {
+        actions: {
+          type: "array",
+          description: "Actions to execute in order",
+          items: {
+            type: "object",
+            properties: {
+              action: { type: "string", enum: ["click", "type", "fill", "select", "check", "press_key"], description: 'Action type. "fill" clears then types. "check" sets checkbox/radio checked state.' },
+              ref: { type: "string", description: "Element ref (for click, type, fill, select, check)" },
+              element: { type: "string", description: "Element description" },
+              text: { type: "string", description: "Text to type (for type/fill action)" },
+              value: { type: "string", description: 'Option value (for select) or "true"/"false" (for check)' },
+              key: { type: "string", description: "Key to press (for press_key action)" }
+            },
+            required: ["action"]
+          }
+        },
+        silent: { type: "boolean", description: "Return minimal output (success/fail + network summary). Dramatically reduces tokens. Full output on errors." },
+        includeSnapshot: { type: "boolean", description: "Include final page snapshot in response. Default: true normally, false in silent mode." }
+      },
+      required: ["actions"]
+    }
+  },
+  {
     name: "browser_close",
     description: "Close the browser and clean up resources.",
+    inputSchema: {
+      type: "object",
+      properties: {}
+    }
+  },
+  {
+    name: "e2e_explore",
+    description: "Automatically crawl a web app to discover page templates, navigation flows, and API calls. Uses headless Playwright with ARIA snapshots (no images) and structural similarity for deduplication. Returns an app map with layout, actions, and navigation graph.",
+    inputSchema: {
+      type: "object",
+      properties: {
+        url: { type: "string", description: "Start URL to begin crawling from" },
+        maxPages: { type: "number", description: "Max unique page templates to discover (default: 50)" },
+        maxDepth: { type: "number", description: "Max navigation depth from start URL (default: 5)" },
+        maxActionsPerPage: { type: "number", description: "Max elements to click per page (default: 20)" },
+        similarityThreshold: { type: "number", description: "Cosine similarity above which pages are considered the same template (default: 0.95)" },
+        skipPatterns: {
+          type: "array",
+          items: { type: "string" },
+          description: 'Text patterns to skip clicking (e.g. ["admin", "settings"])'
+        }
+      },
+      required: ["url"]
+    }
+  },
+  {
+    name: "e2e_start_flow",
+    description: "Start recording a browser exploration flow. Every browser action (navigate, click, type, etc.) will be recorded as a step. Use e2e_end_flow when done to save the flow. Optionally navigates to a start URL.",
+    inputSchema: {
+      type: "object",
+      properties: {
+        name: { type: "string", description: 'Name for this flow (e.g. "login", "create-auction", "checkout")' },
+        url: { type: "string", description: "Optional start URL to navigate to" }
+      },
+      required: ["name"]
+    }
+  },
+  {
+    name: "e2e_end_flow",
+    description: "End the current flow recording and save it. Returns a summary of all steps, API endpoints discovered, and the file path where the flow was saved.",
+    inputSchema: {
+      type: "object",
+      properties: {
+        error: { type: "string", description: "If the flow failed, describe the error" }
+      }
+    }
+  },
+  {
+    name: "e2e_list_flows",
+    description: "List all saved flow recordings from previous exploration sessions.",
     inputSchema: {
       type: "object",
       properties: {}
@@ -22844,54 +24139,115 @@ var browserToolDefs = [
 async function handleBrowserTool(name, args, ctx) {
   try {
     switch (name) {
+      case "e2e_start_flow":
+        return await handleStartFlow(args, ctx);
+      case "e2e_end_flow":
+        return await handleEndFlow(args, ctx);
+      case "e2e_list_flows":
+        return await handleListFlows();
+    }
+    let result;
+    switch (name) {
       case "browser_navigate":
-        return await handleNavigate(args, ctx);
+        result = await handleNavigate(args, ctx);
+        break;
       case "browser_navigate_back":
-        return await handleNavigateBack(ctx);
+        result = await handleNavigateBack(ctx);
+        break;
       case "browser_snapshot":
-        return await handleSnapshot(ctx);
+        result = await handleSnapshot(ctx);
+        break;
       case "browser_click":
-        return await handleClick(args, ctx);
+        result = await handleClick(args, ctx);
+        break;
       case "browser_type":
-        return await handleType(args, ctx);
+        result = await handleType(args, ctx);
+        break;
       case "browser_fill_form":
-        return await handleFillForm(args, ctx);
+        result = await handleFillForm(args, ctx);
+        break;
+      case "browser_batch":
+        result = await handleBatch(args, ctx);
+        break;
+      case "browser_file_upload":
+        result = await handleFileUpload(args, ctx);
+        break;
       case "browser_select_option":
-        return await handleSelectOption(args, ctx);
+        result = await handleSelectOption(args, ctx);
+        break;
       case "browser_press_key":
-        return await handlePressKey(args, ctx);
+        result = await handlePressKey(args, ctx);
+        break;
       case "browser_hover":
-        return await handleHover(args, ctx);
+        result = await handleHover(args, ctx);
+        break;
       case "browser_take_screenshot":
-        return await handleScreenshot(ctx);
+        result = await handleScreenshot(ctx);
+        break;
       case "browser_set_headers":
-        return await handleSetHeaders(args, ctx);
+        result = await handleSetHeaders(args, ctx);
+        break;
+      case "browser_tabs":
+        result = await handleTabs(args, ctx);
+        break;
+      case "browser_save_session":
+        result = await handleSaveSession(args, ctx);
+        break;
+      case "browser_restore_session":
+        result = await handleRestoreSession(args, ctx);
+        break;
       case "browser_close":
-        return await handleClose(ctx);
+        result = await handleClose(ctx);
+        break;
+      case "e2e_explore":
+        result = await handleExplore(args, ctx);
+        break;
       default:
         return error2(`Unknown browser tool: ${name}`);
     }
+    if (ctx.flowRecorder && !result.isError && !NON_RECORDABLE_TOOLS.has(name) && name !== "browser_batch") {
+      const actionName = name.replace("browser_", "");
+      const resultText = result.content.find((c) => c.type === "text")?.text || "";
+      const summary = resultText.split("\n").find((l) => l.startsWith("###"))?.replace(/^###\s*/, "") || actionName;
+      const url = ctx.currentTab()?.page.url() || "";
+      ctx.flowRecorder.recordStep(actionName, args, summary, url, lastCapture);
+      lastCapture = void 0;
+    }
+    return result;
   } catch (e) {
     const message = e instanceof Error ? e.message : String(e);
     return error2(message);
   }
 }
+var NON_RECORDABLE_TOOLS = /* @__PURE__ */ new Set([
+  "browser_snapshot",
+  "browser_take_screenshot",
+  "browser_set_headers",
+  "browser_tabs",
+  "browser_save_session",
+  "browser_restore_session",
+  "browser_close",
+  "e2e_explore"
+]);
+var lastCapture;
 async function handleNavigate(args, ctx) {
   const url = args.url;
   if (!url)
     return error2("url is required");
   const tab = await ctx.ensureTab();
-  await tab.navigate(url);
-  const snapshot = await tab.captureSnapshot();
-  return buildSnapshotResult(`Navigated to ${url}`, snapshot);
+  const capture = await tab.waitForCompletion(async () => {
+    await tab.navigate(url);
+  });
+  lastCapture = capture;
+  return await buildActionResult(`Navigated to ${url}`, capture, tab);
 }
 async function handleNavigateBack(ctx) {
   const tab = ctx.currentTabOrDie();
   const capture = await tab.waitForCompletion(async () => {
     await tab.page.goBack();
   });
-  const snapshot = await tab.captureSnapshot();
-  return buildActionResult("Navigated back", capture, snapshot);
+  lastCapture = capture;
+  return await buildActionResult("Navigated back", capture, tab);
 }
 async function handleSnapshot(ctx) {
   const tab = ctx.currentTabOrDie();
@@ -22908,8 +24264,8 @@ async function handleClick(args, ctx) {
   const capture = await tab.waitForCompletion(async () => {
     await locator.click();
   });
-  const snapshot = await tab.captureSnapshot();
-  return buildActionResult(`Clicked ${element}`, capture, snapshot);
+  lastCapture = capture;
+  return await buildActionResult(`Clicked ${element}`, capture, tab);
 }
 async function handleType(args, ctx) {
   const element = args.element;
@@ -22925,23 +24281,49 @@ async function handleType(args, ctx) {
     if (submit)
       await locator.press("Enter");
   });
-  const snapshot = await tab.captureSnapshot();
+  lastCapture = capture;
   const desc = submit ? `Typed "${text3}" and submitted` : `Typed "${text3}"`;
-  return buildActionResult(desc, capture, snapshot);
+  return await buildActionResult(desc, capture, tab);
 }
 async function handleFillForm(args, ctx) {
-  const values = args.values;
-  if (!values || !Array.isArray(values) || values.length === 0)
-    return error2("values array is required and must not be empty");
+  const fields = args.fields;
+  const submit = args.submit;
+  if (!fields || !Array.isArray(fields) || fields.length === 0)
+    return error2("fields array is required and must not be empty");
   const tab = ctx.currentTabOrDie();
   const capture = await tab.waitForCompletion(async () => {
-    for (const field of values) {
-      const locator = await tab.refLocator({ element: field.element, ref: field.ref });
-      await locator.fill(field.value);
+    for (const field of fields) {
+      let locator;
+      if (field.ref) {
+        locator = await tab.refLocator({ element: field.element || field.label || "", ref: field.ref });
+      } else if (field.label) {
+        locator = tab.page.getByLabel(field.label);
+      } else {
+        throw new Error('Each field must have either "ref" or "label"');
+      }
+      const fieldType = field.type || "textbox";
+      switch (fieldType) {
+        case "textbox":
+          await locator.fill(field.value);
+          break;
+        case "checkbox":
+          await locator.setChecked(field.value === "true");
+          break;
+        case "radio":
+          await locator.check();
+          break;
+        case "combobox":
+          await locator.selectOption({ label: field.value });
+          break;
+      }
+      await tab.page.waitForTimeout(100);
     }
+    if (submit)
+      await tab.page.keyboard.press("Enter");
   });
-  const snapshot = await tab.captureSnapshot();
-  return buildActionResult(`Filled ${values.length} field(s)`, capture, snapshot);
+  lastCapture = capture;
+  const desc = `Filled ${fields.length} field(s)${submit ? " and submitted" : ""}`;
+  return await buildActionResult(desc, capture, tab);
 }
 async function handleSelectOption(args, ctx) {
   const element = args.element;
@@ -22954,8 +24336,8 @@ async function handleSelectOption(args, ctx) {
   const capture = await tab.waitForCompletion(async () => {
     await locator.selectOption(value);
   });
-  const snapshot = await tab.captureSnapshot();
-  return buildActionResult(`Selected "${value}" in ${element}`, capture, snapshot);
+  lastCapture = capture;
+  return await buildActionResult(`Selected "${value}" in ${element}`, capture, tab);
 }
 async function handlePressKey(args, ctx) {
   const key = args.key;
@@ -22970,14 +24352,14 @@ async function handlePressKey(args, ctx) {
     else
       await dialog.dismiss();
     tab.clearModalState(dialogState);
-    const snapshot2 = await tab.captureSnapshot();
-    return buildSnapshotResult(`Dismissed dialog with ${key}`, snapshot2);
+    const snapshot = await tab.captureSnapshot();
+    return buildSnapshotResult(`Dismissed dialog with ${key}`, snapshot);
   }
   const capture = await tab.waitForCompletion(async () => {
     await tab.page.keyboard.press(key);
   });
-  const snapshot = await tab.captureSnapshot();
-  return buildActionResult(`Pressed ${key}`, capture, snapshot);
+  lastCapture = capture;
+  return await buildActionResult(`Pressed ${key}`, capture, tab);
 }
 async function handleHover(args, ctx) {
   const element = args.element;
@@ -22989,8 +24371,8 @@ async function handleHover(args, ctx) {
   const capture = await tab.waitForCompletion(async () => {
     await locator.hover();
   });
-  const snapshot = await tab.captureSnapshot();
-  return buildActionResult(`Hovered over ${element}`, capture, snapshot);
+  lastCapture = capture;
+  return await buildActionResult(`Hovered over ${element}`, capture, tab);
 }
 async function handleScreenshot(ctx) {
   const tab = ctx.currentTabOrDie();
@@ -23011,9 +24393,287 @@ async function handleSetHeaders(args, ctx) {
   const names = Object.keys(headers);
   return text2(`Set ${names.length} extra HTTP header(s): ${names.join(", ")} (same-origin only)`);
 }
+async function handleTabs(args, ctx) {
+  const action = args.action;
+  const index = args.index;
+  const tabs = ctx.tabs();
+  const current = ctx.currentTab();
+  switch (action) {
+    case "list": {
+      const lines = [`### Open tabs (${tabs.length})`];
+      for (let i = 0; i < tabs.length; i++) {
+        const marker = tabs[i] === current ? " (active)" : "";
+        const url = tabs[i].page.url();
+        const title = await tabs[i].page.title().catch(() => "");
+        lines.push(`${i}: ${title || url}${marker}`);
+      }
+      return text2(lines.join("\n"));
+    }
+    case "select": {
+      if (index === void 0)
+        return error2("index is required for select");
+      const tab = await ctx.selectTab(index);
+      const snapshot = await tab.captureSnapshot();
+      const lines = [`Switched to tab ${index}`];
+      lines.push("");
+      appendPageState(lines, snapshot, true);
+      return text2(lines.join("\n"));
+    }
+    case "close": {
+      const url = await ctx.closeTab(index);
+      return text2(`Closed tab: ${url}`);
+    }
+    default:
+      return error2(`Unknown tab action: ${action}`);
+  }
+}
+async function handleFileUpload(args, ctx) {
+  const paths = args.paths;
+  const tab = ctx.currentTabOrDie();
+  const modalState = tab.modalStates().find((s) => s.type === "fileChooser");
+  if (!modalState?.fileChooser)
+    return error2("No file chooser visible. Click a file input or upload button first.");
+  tab.clearModalState(modalState);
+  const capture = await tab.waitForCompletion(async () => {
+    if (paths && paths.length > 0)
+      await modalState.fileChooser.setFiles(paths);
+    else
+      await modalState.fileChooser.setFiles([]);
+  });
+  lastCapture = capture;
+  const desc = paths?.length ? `Uploaded ${paths.length} file(s)` : "Cancelled file chooser";
+  return await buildActionResult(desc, capture, tab);
+}
+async function handleSaveSession(args, ctx) {
+  const name = args.name || "default";
+  const tab = ctx.currentTabOrDie();
+  const storageState = await ctx.getStorageState();
+  const session = {
+    url: tab.page.url(),
+    title: await tab.page.title(),
+    storageState,
+    extraHeaders: ctx.extraHeaders(),
+    savedAt: (/* @__PURE__ */ new Date()).toISOString()
+  };
+  const cwd2 = process.env.PW_PROJECT_DIR || process.cwd();
+  const dir = path11.join(cwd2, ".pw-test-writer", "sessions");
+  fs10.mkdirSync(dir, { recursive: true });
+  const filePath = path11.join(dir, `${name}.json`);
+  fs10.writeFileSync(filePath, JSON.stringify(session, null, 2));
+  return text2(`Session "${name}" saved.
+URL: ${session.url}
+Cookies: ${storageState.cookies.length}
+Headers: ${session.extraHeaders ? Object.keys(session.extraHeaders).length : 0}
+File: ${filePath}`);
+}
+async function handleRestoreSession(args, ctx) {
+  const name = args.name || "default";
+  const cwd2 = process.env.PW_PROJECT_DIR || process.cwd();
+  const filePath = path11.join(cwd2, ".pw-test-writer", "sessions", `${name}.json`);
+  if (!fs10.existsSync(filePath))
+    return error2(`Session "${name}" not found at ${filePath}`);
+  const session = JSON.parse(fs10.readFileSync(filePath, "utf-8"));
+  await ctx.restoreFromSession(session);
+  const tab = ctx.currentTabOrDie();
+  const snapshot = await tab.captureSnapshot();
+  const lines = [`Session "${name}" restored from ${session.savedAt}`, ""];
+  appendPageState(lines, snapshot, true);
+  return text2(lines.join("\n"));
+}
 async function handleClose(ctx) {
   await ctx.dispose();
   return text2("Browser closed.");
+}
+async function handleStartFlow(args, ctx) {
+  const name = args.name;
+  if (!name)
+    return error2("name is required");
+  if (ctx.flowRecorder)
+    return error2(`Flow "${ctx.flowRecorder.name}" is already recording. Call e2e_end_flow first.`);
+  const url = args.url;
+  if (url) {
+    const tab = await ctx.ensureTab();
+    await tab.navigate(url);
+  }
+  const startUrl = ctx.currentTab()?.page.url() || url || "unknown";
+  ctx.flowRecorder = new FlowRecorder(name, startUrl);
+  const snapshot = ctx.currentTab() ? await ctx.currentTabOrDie().captureSnapshot() : void 0;
+  const lines = [`Recording flow: **${name}**`, `Start URL: ${startUrl}`, ""];
+  lines.push("Every browser action will be recorded as a step. Use `e2e_end_flow` when done.");
+  if (snapshot) {
+    lines.push("");
+    appendPageState(lines, snapshot, true);
+  }
+  return text2(lines.join("\n"));
+}
+async function handleEndFlow(args, ctx) {
+  if (!ctx.flowRecorder)
+    return error2("No flow is being recorded. Call e2e_start_flow first.");
+  const flowError = args.error;
+  const endUrl = ctx.currentTab()?.page.url() || "unknown";
+  const flow = ctx.flowRecorder.finish(endUrl, flowError);
+  ctx.flowRecorder = void 0;
+  const cwd2 = process.env.PW_PROJECT_DIR || process.cwd();
+  const filePath = saveFlow2(flow, cwd2);
+  const formatted = formatFlow(flow);
+  return text2(`${formatted}
+---
+Flow saved to: ${filePath}`);
+}
+async function handleListFlows() {
+  const cwd2 = process.env.PW_PROJECT_DIR || process.cwd();
+  const flows = loadFlows(cwd2);
+  if (flows.length === 0)
+    return text2("No saved flows found. Use `e2e_start_flow` to begin recording.");
+  const lines = [`## Saved Flows (${flows.length})`, ""];
+  for (const f of flows) {
+    lines.push(`- **${f.name}** \u2014 ${f.steps.length} steps, ${(f.durationMs / 1e3).toFixed(1)}s`);
+    lines.push(`  ${f.startUrl} \u2192 ${f.endUrl}`);
+    if (f.apiEndpoints.length > 0)
+      lines.push(`  APIs: ${f.apiEndpoints.slice(0, 5).join(", ")}${f.apiEndpoints.length > 5 ? ` (+${f.apiEndpoints.length - 5} more)` : ""}`);
+    if (f.error)
+      lines.push(`  Error: ${f.error}`);
+  }
+  return text2(lines.join("\n"));
+}
+async function handleExplore(args, ctx) {
+  const url = args.url;
+  if (!url)
+    return error2("url is required");
+  const map = await runExplore(ctx, {
+    startUrl: url,
+    maxPages: args.maxPages || void 0,
+    maxDepth: args.maxDepth || void 0,
+    maxActionsPerPage: args.maxActionsPerPage || void 0,
+    similarityThreshold: args.similarityThreshold || void 0,
+    skipPatterns: args.skipPatterns || void 0
+  });
+  const cwd2 = process.env.PW_PROJECT_DIR || process.cwd();
+  const filePath = saveAppMap(map, cwd2);
+  const formatted = formatAppMap(map);
+  return text2(`${formatted}
+
+---
+App map saved to: ${filePath}`);
+}
+async function handleBatch(args, ctx) {
+  const actions = args.actions;
+  const silent = args.silent;
+  const includeSnapshotArg = args.includeSnapshot;
+  if (!actions || !Array.isArray(actions) || actions.length === 0)
+    return error2("actions array is required and must not be empty");
+  const tab = ctx.currentTabOrDie();
+  let snapshotBefore;
+  if (!silent) {
+    try {
+      snapshotBefore = await tab.ariaSnapshot();
+    } catch {
+    }
+  }
+  const allRequests = [];
+  const completedActions = [];
+  let totalDuration = 0;
+  for (let i = 0; i < actions.length; i++) {
+    const action = actions[i];
+    const isLast = i === actions.length - 1;
+    try {
+      const { requests, durationMs } = await tab.trackCompletion(async () => {
+        switch (action.action) {
+          case "click": {
+            const locator = await tab.refLocator({ element: action.element, ref: action.ref });
+            await locator.click();
+            break;
+          }
+          case "type": {
+            const locator = await tab.refLocator({ element: action.element, ref: action.ref });
+            await locator.fill(action.text);
+            break;
+          }
+          case "fill": {
+            const locator = await tab.refLocator({ element: action.element, ref: action.ref });
+            await locator.fill(action.text || action.value || "");
+            break;
+          }
+          case "select": {
+            const locator = await tab.refLocator({ element: action.element, ref: action.ref });
+            await locator.selectOption(action.value);
+            break;
+          }
+          case "check": {
+            const locator = await tab.refLocator({ element: action.element, ref: action.ref });
+            await locator.setChecked(action.value !== "false");
+            break;
+          }
+          case "press_key": {
+            await tab.page.keyboard.press(action.key);
+            break;
+          }
+          default:
+            throw new Error(`Unknown batch action: ${action.action}`);
+        }
+      }, { skipWait: !isLast });
+      allRequests.push(...requests);
+      totalDuration += durationMs;
+      const actionLabel = `${action.action} ${action.element || action.key || ""}`;
+      completedActions.push(actionLabel);
+      if (ctx.flowRecorder) {
+        const stepCapture = buildCapture(void 0, void 0, requests, durationMs);
+        ctx.flowRecorder.recordStep(action.action, action, actionLabel.trim(), tab.page.url(), stepCapture);
+      }
+    } catch (e) {
+      const errorMsg = e instanceof Error ? e.message : String(e);
+      completedActions.push(`FAILED ${action.action} ${action.element || action.key || ""}: ${errorMsg}`);
+      let snapshotAfter2;
+      try {
+        snapshotAfter2 = await tab.ariaSnapshot();
+      } catch {
+      }
+      const capture2 = buildCapture(snapshotBefore, snapshotAfter2, allRequests, totalDuration);
+      lastCapture = capture2;
+      const desc2 = `Executed ${completedActions.length}/${actions.length} actions: ${completedActions.join(" \u2192 ")}`;
+      return await buildActionResult(desc2, capture2, tab);
+    }
+  }
+  if (silent) {
+    const lines = [`### Batch completed: ${completedActions.length} actions in ${totalDuration}ms`];
+    if (allRequests.length > 0)
+      lines.push(`Network: ${formatNetworkSummary(allRequests)}`);
+    if (includeSnapshotArg) {
+      let snapshotAfter2;
+      try {
+        snapshotAfter2 = await tab.ariaSnapshot();
+      } catch {
+      }
+      if (snapshotAfter2) {
+        lines.push("");
+        lines.push("```yaml");
+        lines.push(compactSnapshot(snapshotAfter2));
+        lines.push("```");
+      }
+    }
+    lastCapture = void 0;
+    return text2(lines.join("\n"));
+  }
+  let snapshotAfter;
+  try {
+    snapshotAfter = await tab.ariaSnapshot();
+  } catch {
+  }
+  const capture = buildCapture(snapshotBefore, snapshotAfter, allRequests, totalDuration);
+  lastCapture = capture;
+  const desc = `Executed ${completedActions.length} actions: ${completedActions.join(" \u2192 ")}`;
+  return await buildActionResult(desc, capture, tab);
+}
+function buildCapture(before, after, requests, durationMs) {
+  const capture = createEmptyActionCapture();
+  capture.timing.durationMs = durationMs;
+  capture.network.requests = requests;
+  capture.network.summary = formatNetworkSummary(requests);
+  capture.snapshot.before = before;
+  capture.snapshot.after = after;
+  if (before && after)
+    capture.snapshot.diff = computeSnapshotDiff(before, after);
+  return capture;
 }
 function text2(t) {
   return { content: [{ type: "text", text: t }] };
@@ -23029,13 +24689,28 @@ function buildSnapshotResult(resultText, snapshot) {
   appendPageState(lines, snapshot, true);
   return text2(lines.join("\n"));
 }
-function buildActionResult(resultText, capture, snapshot) {
+async function buildActionResult(resultText, capture, tab) {
   const lines = [];
   lines.push(`### Result`);
   lines.push(resultText);
   lines.push("");
   lines.push(...renderActionCapture(capture));
-  appendPageState(lines, snapshot, false);
+  lines.push("### Page state");
+  lines.push(`- URL: ${tab.page.url()}`);
+  try {
+    const title = await tab.page.title();
+    if (title)
+      lines.push(`- Title: ${title}`);
+  } catch {
+  }
+  lines.push("");
+  const modalStates = tab.modalStates();
+  if (modalStates.length > 0) {
+    lines.push("### Modal state");
+    for (const state of modalStates)
+      lines.push(`- [${state.description}]: can be handled by the "${state.clearedBy}" tool`);
+    lines.push("");
+  }
   return text2(lines.join("\n"));
 }
 function appendPageState(lines, snapshot, includeFullSnapshot) {
@@ -23051,10 +24726,8 @@ function appendPageState(lines, snapshot, includeFullSnapshot) {
   }
   if (includeFullSnapshot && snapshot.ariaSnapshot) {
     lines.push("```yaml");
-    lines.push(snapshot.ariaSnapshot);
+    lines.push(compactSnapshot(snapshot.ariaSnapshot));
     lines.push("```");
-  } else if (!includeFullSnapshot) {
-    lines.push("_Use browser_snapshot to see the full page ARIA tree._");
   }
 }
 
@@ -23295,7 +24968,7 @@ Use the \`triage-e2e\` skill for the full workflow: run all tests \u2192 classif
   server2.setRequestHandler(CallToolRequestSchema, async (request) => {
     const { name, arguments: args } = request.params;
     const resolvedArgs = args || {};
-    if (name.startsWith("browser_")) {
+    if (name.startsWith("browser_") || name.startsWith("e2e_") && ["e2e_explore", "e2e_start_flow", "e2e_end_flow", "e2e_list_flows"].includes(name)) {
       const result2 = await handleBrowserTool(name, resolvedArgs, browserCtx);
       return result2;
     }

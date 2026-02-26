@@ -1,6 +1,6 @@
 {
   "name": "playwright-autopilot",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "description": "Playwright E2E test debugging and interactive browser exploration. Runs tests with action capture (DOM snapshots, network, console, screenshots), diagnoses failures, and provides browser tools for navigating, clicking, and inspecting pages through ARIA snapshots.",
   "author": {
     "name": "Nikolay Prosenikov"
