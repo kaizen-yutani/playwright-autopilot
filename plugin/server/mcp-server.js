@@ -855,8 +855,8 @@ var require_uri_all = __commonJS({
             wsComponents.secure = void 0;
           }
           if (wsComponents.resourceName) {
-            var _wsComponents$resourc = wsComponents.resourceName.split("?"), _wsComponents$resourc2 = slicedToArray(_wsComponents$resourc, 2), path13 = _wsComponents$resourc2[0], query = _wsComponents$resourc2[1];
-            wsComponents.path = path13 && path13 !== "/" ? path13 : void 0;
+            var _wsComponents$resourc = wsComponents.resourceName.split("?"), _wsComponents$resourc2 = slicedToArray(_wsComponents$resourc, 2), path14 = _wsComponents$resourc2[0], query = _wsComponents$resourc2[1];
+            wsComponents.path = path14 && path14 !== "/" ? path14 : void 0;
             wsComponents.query = query;
             wsComponents.resourceName = void 0;
           }
@@ -1229,12 +1229,12 @@ var require_util = __commonJS({
       return "'" + escapeQuotes(str) + "'";
     }
     function getPathExpr(currentPath, expr, jsonPointers, isNumber) {
-      var path13 = jsonPointers ? "'/' + " + expr + (isNumber ? "" : ".replace(/~/g, '~0').replace(/\\//g, '~1')") : isNumber ? "'[' + " + expr + " + ']'" : "'[\\'' + " + expr + " + '\\']'";
-      return joinPaths(currentPath, path13);
+      var path14 = jsonPointers ? "'/' + " + expr + (isNumber ? "" : ".replace(/~/g, '~0').replace(/\\//g, '~1')") : isNumber ? "'[' + " + expr + " + ']'" : "'[\\'' + " + expr + " + '\\']'";
+      return joinPaths(currentPath, path14);
     }
     function getPath(currentPath, prop, jsonPointers) {
-      var path13 = jsonPointers ? toQuotedString("/" + escapeJsonPointer(prop)) : toQuotedString(getProperty(prop));
-      return joinPaths(currentPath, path13);
+      var path14 = jsonPointers ? toQuotedString("/" + escapeJsonPointer(prop)) : toQuotedString(getProperty(prop));
+      return joinPaths(currentPath, path14);
     }
     var JSON_POINTER = /^\/(?:[^~]|~0|~1)*$/;
     var RELATIVE_JSON_POINTER = /^([0-9]+)(#|\/(?:[^~]|~0|~1)*)?$/;
@@ -10354,12 +10354,12 @@ var init_esm4 = __esm({
       /**
        * Get the Path object referenced by the string path, resolved from this Path
        */
-      resolve(path13) {
-        if (!path13) {
+      resolve(path14) {
+        if (!path14) {
           return this;
         }
-        const rootPath = this.getRootString(path13);
-        const dir = path13.substring(rootPath.length);
+        const rootPath = this.getRootString(path14);
+        const dir = path14.substring(rootPath.length);
         const dirParts = dir.split(this.splitSep);
         const result = rootPath ? this.getRoot(rootPath).#resolveParts(dirParts) : this.#resolveParts(dirParts);
         return result;
@@ -11111,8 +11111,8 @@ var init_esm4 = __esm({
       /**
        * @internal
        */
-      getRootString(path13) {
-        return win32.parse(path13).root;
+      getRootString(path14) {
+        return win32.parse(path14).root;
       }
       /**
        * @internal
@@ -11158,8 +11158,8 @@ var init_esm4 = __esm({
       /**
        * @internal
        */
-      getRootString(path13) {
-        return path13.startsWith("/") ? "/" : "";
+      getRootString(path14) {
+        return path14.startsWith("/") ? "/" : "";
       }
       /**
        * @internal
@@ -11208,8 +11208,8 @@ var init_esm4 = __esm({
        *
        * @internal
        */
-      constructor(cwd2 = process.cwd(), pathImpl, sep2, { nocase, childrenCacheSize = 16 * 1024, fs: fs12 = defaultFS } = {}) {
-        this.#fs = fsFromOption(fs12);
+      constructor(cwd2 = process.cwd(), pathImpl, sep2, { nocase, childrenCacheSize = 16 * 1024, fs: fs13 = defaultFS } = {}) {
+        this.#fs = fsFromOption(fs13);
         if (cwd2 instanceof URL || cwd2.startsWith("file://")) {
           cwd2 = fileURLToPath(cwd2);
         }
@@ -11248,11 +11248,11 @@ var init_esm4 = __esm({
       /**
        * Get the depth of a provided path, string, or the cwd
        */
-      depth(path13 = this.cwd) {
-        if (typeof path13 === "string") {
-          path13 = this.cwd.resolve(path13);
+      depth(path14 = this.cwd) {
+        if (typeof path14 === "string") {
+          path14 = this.cwd.resolve(path14);
         }
-        return path13.depth();
+        return path14.depth();
       }
       /**
        * Return the cache of child entries.  Exposed so subclasses can create
@@ -11739,9 +11739,9 @@ var init_esm4 = __esm({
         process3();
         return results;
       }
-      chdir(path13 = this.cwd) {
+      chdir(path14 = this.cwd) {
         const oldCwd = this.cwd;
-        this.cwd = typeof path13 === "string" ? this.cwd.resolve(path13) : path13;
+        this.cwd = typeof path14 === "string" ? this.cwd.resolve(path14) : path14;
         this.cwd[setAsCwd](oldCwd);
       }
     };
@@ -11767,8 +11767,8 @@ var init_esm4 = __esm({
       /**
        * @internal
        */
-      newRoot(fs12) {
-        return new PathWin32(this.rootPath, IFDIR, void 0, this.roots, this.nocase, this.childrenCache(), { fs: fs12 });
+      newRoot(fs13) {
+        return new PathWin32(this.rootPath, IFDIR, void 0, this.roots, this.nocase, this.childrenCache(), { fs: fs13 });
       }
       /**
        * Return true if the provided path string is an absolute path
@@ -11796,8 +11796,8 @@ var init_esm4 = __esm({
       /**
        * @internal
        */
-      newRoot(fs12) {
-        return new PathPosix(this.rootPath, IFDIR, void 0, this.roots, this.nocase, this.childrenCache(), { fs: fs12 });
+      newRoot(fs13) {
+        return new PathPosix(this.rootPath, IFDIR, void 0, this.roots, this.nocase, this.childrenCache(), { fs: fs13 });
       }
       /**
        * Return true if the provided path string is an absolute path
@@ -12116,8 +12116,8 @@ var init_processor = __esm({
       }
       // match, absolute, ifdir
       entries() {
-        return [...this.store.entries()].map(([path13, n]) => [
-          path13,
+        return [...this.store.entries()].map(([path14, n]) => [
+          path14,
           !!(n & 2),
           !!(n & 1)
         ]);
@@ -12330,9 +12330,9 @@ var init_walker = __esm({
       signal;
       maxDepth;
       includeChildMatches;
-      constructor(patterns, path13, opts) {
+      constructor(patterns, path14, opts) {
         this.patterns = patterns;
-        this.path = path13;
+        this.path = path14;
         this.opts = opts;
         this.#sep = !opts.posix && opts.platform === "win32" ? "\\" : "/";
         this.includeChildMatches = opts.includeChildMatches !== false;
@@ -12351,11 +12351,11 @@ var init_walker = __esm({
           });
         }
       }
-      #ignored(path13) {
-        return this.seen.has(path13) || !!this.#ignore?.ignored?.(path13);
+      #ignored(path14) {
+        return this.seen.has(path14) || !!this.#ignore?.ignored?.(path14);
       }
-      #childrenIgnored(path13) {
-        return !!this.#ignore?.childrenIgnored?.(path13);
+      #childrenIgnored(path14) {
+        return !!this.#ignore?.childrenIgnored?.(path14);
       }
       // backpressure mechanism
       pause() {
@@ -12570,8 +12570,8 @@ var init_walker = __esm({
     };
     GlobWalker = class extends GlobUtil {
       matches = /* @__PURE__ */ new Set();
-      constructor(patterns, path13, opts) {
-        super(patterns, path13, opts);
+      constructor(patterns, path14, opts) {
+        super(patterns, path14, opts);
       }
       matchEmit(e) {
         this.matches.add(e);
@@ -12608,8 +12608,8 @@ var init_walker = __esm({
     };
     GlobStream = class extends GlobUtil {
       results;
-      constructor(patterns, path13, opts) {
-        super(patterns, path13, opts);
+      constructor(patterns, path14, opts) {
+        super(patterns, path14, opts);
         this.results = new Minipass({
           signal: this.signal,
           objectMode: true
@@ -13432,8 +13432,8 @@ function getErrorMap() {
 
 // node_modules/zod/v3/helpers/parseUtil.js
 var makeIssue = (params) => {
-  const { data, path: path13, errorMaps, issueData } = params;
-  const fullPath = [...path13, ...issueData.path || []];
+  const { data, path: path14, errorMaps, issueData } = params;
+  const fullPath = [...path14, ...issueData.path || []];
   const fullIssue = {
     ...issueData,
     path: fullPath
@@ -13549,11 +13549,11 @@ var errorUtil;
 
 // node_modules/zod/v3/types.js
 var ParseInputLazyPath = class {
-  constructor(parent, value, path13, key) {
+  constructor(parent, value, path14, key) {
     this._cachedPath = [];
     this.parent = parent;
     this.data = value;
-    this._path = path13;
+    this._path = path14;
     this._key = key;
   }
   get path() {
@@ -18638,8 +18638,8 @@ var Server = class extends Protocol {
 };
 
 // packages/pw-test-writer/dist/mcp/tools.js
-import * as fs6 from "fs";
-import * as path7 from "path";
+import * as fs7 from "fs";
+import * as path8 from "path";
 
 // packages/pw-test-writer/dist/mcp/pageObjects.js
 init_esm5();
@@ -18744,6 +18744,539 @@ function formatPageObjectIndex(objects) {
       for (const g of obj.getters) {
         lines.push(`  - ${g.name}`);
       }
+    }
+    lines.push("");
+  }
+  return lines.join("\n");
+}
+function extractBraceBlock(lines, startLine, startCol = 0) {
+  let depth = 0;
+  let inString = null;
+  let inBlockComment = false;
+  for (let i = startLine; i < lines.length; i++) {
+    const line = lines[i];
+    const jStart = i === startLine ? startCol : 0;
+    for (let j = jStart; j < line.length; j++) {
+      const ch = line[j];
+      const next = j < line.length - 1 ? line[j + 1] : "";
+      if (inBlockComment) {
+        if (ch === "*" && next === "/") {
+          inBlockComment = false;
+          j++;
+        }
+        continue;
+      }
+      if (inString) {
+        if (ch === "\\") {
+          j++;
+          continue;
+        }
+        if (ch === inString)
+          inString = null;
+        continue;
+      }
+      if (ch === "/" && next === "/")
+        break;
+      if (ch === "/" && next === "*") {
+        inBlockComment = true;
+        j++;
+        continue;
+      }
+      if (ch === "'" || ch === '"' || ch === "`") {
+        inString = ch;
+      } else if (ch === "{") {
+        depth++;
+      } else if (ch === "}") {
+        depth--;
+        if (depth === 0)
+          return i;
+      }
+    }
+  }
+  return -1;
+}
+function extractTestBody(content, testLine) {
+  const lines = content.split("\n");
+  const testIdx = testLine - 1;
+  let declLine = -1;
+  for (let i = testIdx; i >= Math.max(0, testIdx - 10); i--) {
+    if (/^\s*(?:test|it)\s*\(/.test(lines[i])) {
+      declLine = i;
+      break;
+    }
+  }
+  if (declLine === -1)
+    return null;
+  const fixtureVars = [];
+  const declBlock = lines.slice(declLine, Math.min(declLine + 5, lines.length)).join("\n");
+  const fixtureMatch = declBlock.match(/async\s*\(\s*\{([^}]+)\}/);
+  if (fixtureMatch) {
+    for (const param of fixtureMatch[1].split(",")) {
+      const varName = param.trim().split(/[:\s]/)[0].trim();
+      if (varName)
+        fixtureVars.push(varName);
+    }
+  }
+  let bodyLine = declLine;
+  let bodyCol = 0;
+  for (let i = declLine; i < Math.min(declLine + 5, lines.length); i++) {
+    const arrowIdx = lines[i].indexOf("=>");
+    if (arrowIdx !== -1) {
+      bodyLine = i;
+      bodyCol = arrowIdx + 2;
+      break;
+    }
+  }
+  const endLine = extractBraceBlock(lines, bodyLine, bodyCol);
+  if (endLine === -1)
+    return null;
+  const body = lines.slice(declLine, endLine + 1).join("\n");
+  return { body, startLine: declLine + 1, endLine: endLine + 1, fixtureVars };
+}
+function extractMethodBody(content, methodName) {
+  const lines = content.split("\n");
+  const methodRe = new RegExp(`^\\s+(?:async\\s+)?${methodName}\\s*\\(`);
+  for (let i = 0; i < lines.length; i++) {
+    if (!methodRe.test(lines[i]))
+      continue;
+    let startIdx = i;
+    if (i > 0 && /^\s+@step\(/.test(lines[i - 1])) {
+      startIdx = i - 1;
+    }
+    const endIdx = extractBraceBlock(lines, i);
+    if (endIdx === -1)
+      continue;
+    return lines.slice(startIdx, endIdx + 1).join("\n");
+  }
+  return null;
+}
+function extractConstructorBody(content) {
+  const lines = content.split("\n");
+  for (let i = 0; i < lines.length; i++) {
+    if (/^\s+constructor\s*\(/.test(lines[i])) {
+      const endIdx = extractBraceBlock(lines, i);
+      if (endIdx === -1)
+        return null;
+      return lines.slice(i, endIdx + 1).join("\n");
+    }
+  }
+  return null;
+}
+async function resolveTestDependencies(cwd2, filePath, testLine) {
+  const absPath = path2.resolve(cwd2, filePath);
+  let content;
+  try {
+    content = fs.readFileSync(absPath, "utf-8");
+  } catch {
+    return null;
+  }
+  const testResult = extractTestBody(content, testLine);
+  if (!testResult)
+    return null;
+  const allFixtureVars = [...testResult.fixtureVars];
+  let beforeEachBody;
+  let beforeEachStartLine;
+  let beforeEachEndLine;
+  const lines = content.split("\n");
+  for (let i = 0; i < lines.length; i++) {
+    if (/^\s*(?:test\.beforeEach|beforeEach)\s*\(/.test(lines[i])) {
+      let beLine = i;
+      let beCol = 0;
+      for (let k = i; k < Math.min(i + 5, lines.length); k++) {
+        const arrowIdx = lines[k].indexOf("=>");
+        if (arrowIdx !== -1) {
+          beLine = k;
+          beCol = arrowIdx + 2;
+          break;
+        }
+      }
+      const endIdx = extractBraceBlock(lines, beLine, beCol);
+      if (endIdx === -1)
+        continue;
+      beforeEachBody = lines.slice(i, endIdx + 1).join("\n");
+      beforeEachStartLine = i + 1;
+      beforeEachEndLine = endIdx + 1;
+      const beBlock = lines.slice(i, Math.min(i + 5, lines.length)).join("\n");
+      const beMatch = beBlock.match(/async\s*\(\s*\{([^}]+)\}/);
+      if (beMatch) {
+        for (const param of beMatch[1].split(",")) {
+          const varName = param.trim().split(/[:\s]/)[0].trim();
+          if (varName && !allFixtureVars.includes(varName)) {
+            allFixtureVars.push(varName);
+          }
+        }
+      }
+      break;
+    }
+  }
+  const combinedBodies = testResult.body + (beforeEachBody ? "\n" + beforeEachBody : "");
+  const callMap = /* @__PURE__ */ new Map();
+  const accessedVars = /* @__PURE__ */ new Set();
+  const awaitRe = /await\s+(\w+)\.(\w+)\s*\(/g;
+  let m;
+  while ((m = awaitRe.exec(combinedBodies)) !== null) {
+    const [, varName, methodName] = m;
+    if (!callMap.has(varName))
+      callMap.set(varName, /* @__PURE__ */ new Set());
+    callMap.get(varName).add(methodName);
+  }
+  const propRe = /(\w+)\.(\w+)(?!\s*\()/g;
+  while ((m = propRe.exec(combinedBodies)) !== null) {
+    const varName = m[1];
+    if (allFixtureVars.includes(varName) && !callMap.has(varName)) {
+      accessedVars.add(varName);
+    }
+  }
+  const objects = await scanPageObjects(cwd2);
+  const classMap = /* @__PURE__ */ new Map();
+  for (const obj of objects) {
+    classMap.set(obj.className, obj);
+  }
+  const instanceToClass = /* @__PURE__ */ new Map();
+  for (const varName of allFixtureVars) {
+    const guessedClass = toPascalCase(varName);
+    if (classMap.has(guessedClass)) {
+      instanceToClass.set(varName, guessedClass);
+    }
+  }
+  const poContentCache = /* @__PURE__ */ new Map();
+  function readPoContent(poInfo) {
+    if (poContentCache.has(poInfo.className))
+      return poContentCache.get(poInfo.className);
+    try {
+      const content2 = fs.readFileSync(poInfo.filePath, "utf-8");
+      poContentCache.set(poInfo.className, content2);
+      return content2;
+    } catch {
+      return null;
+    }
+  }
+  const dependencies = [];
+  const processedClasses = /* @__PURE__ */ new Set();
+  for (const [varName, methods] of callMap) {
+    const className = instanceToClass.get(varName);
+    if (!className || processedClasses.has(className))
+      continue;
+    processedClasses.add(className);
+    const poInfo = classMap.get(className);
+    if (!poInfo)
+      continue;
+    const poContent = readPoContent(poInfo);
+    if (!poContent)
+      continue;
+    const constructorBody = extractConstructorBody(poContent);
+    const resolvedMethods = [];
+    for (const methodName of methods) {
+      const body = extractMethodBody(poContent, methodName);
+      if (body) {
+        resolvedMethods.push({ name: methodName, body });
+      }
+    }
+    if (constructorBody || resolvedMethods.length > 0) {
+      dependencies.push({
+        className,
+        relativePath: poInfo.relativePath,
+        constructorBody,
+        methods: resolvedMethods
+      });
+    }
+  }
+  for (const varName of accessedVars) {
+    const className = instanceToClass.get(varName);
+    if (!className || processedClasses.has(className))
+      continue;
+    processedClasses.add(className);
+    const poInfo = classMap.get(className);
+    if (!poInfo)
+      continue;
+    const poContent = readPoContent(poInfo);
+    if (!poContent)
+      continue;
+    const constructorBody = extractConstructorBody(poContent);
+    if (constructorBody) {
+      dependencies.push({
+        className,
+        relativePath: poInfo.relativePath,
+        constructorBody,
+        methods: []
+      });
+    }
+  }
+  const transitiveCallMap = /* @__PURE__ */ new Map();
+  for (const dep of dependencies) {
+    const poContent = readPoContent(classMap.get(dep.className));
+    if (!poContent)
+      continue;
+    const fieldToClass = /* @__PURE__ */ new Map();
+    if (dep.constructorBody) {
+      const newRe = /this\.(\w+)\s*=\s*new\s+(\w+)/g;
+      let fm;
+      while ((fm = newRe.exec(dep.constructorBody)) !== null) {
+        if (classMap.has(fm[2]))
+          fieldToClass.set(fm[1], fm[2]);
+      }
+    }
+    const ctorLine = poContent.match(/constructor\s*\(([^)]+)\)/s);
+    if (ctorLine) {
+      const paramRe = /(?:private|protected|public|readonly)\s+(\w+)\s*:\s*(\w+)/g;
+      let pm;
+      while ((pm = paramRe.exec(ctorLine[1])) !== null) {
+        if (classMap.has(pm[2]))
+          fieldToClass.set(pm[1], pm[2]);
+      }
+    }
+    if (fieldToClass.size === 0)
+      continue;
+    for (const method of dep.methods) {
+      const thisCallRe = /this\.(\w+)\.(\w+)\s*\(/g;
+      let tc;
+      while ((tc = thisCallRe.exec(method.body)) !== null) {
+        const targetClass = fieldToClass.get(tc[1]);
+        if (!targetClass)
+          continue;
+        if (!transitiveCallMap.has(targetClass))
+          transitiveCallMap.set(targetClass, /* @__PURE__ */ new Set());
+        transitiveCallMap.get(targetClass).add(tc[2]);
+      }
+    }
+  }
+  for (const [className, methods] of transitiveCallMap) {
+    if (processedClasses.has(className)) {
+      const existing = dependencies.find((d) => d.className === className);
+      if (existing) {
+        const poInfo2 = classMap.get(className);
+        if (!poInfo2)
+          continue;
+        const poContent2 = readPoContent(poInfo2);
+        if (!poContent2)
+          continue;
+        const existingNames = new Set(existing.methods.map((m2) => m2.name));
+        for (const methodName of methods) {
+          if (existingNames.has(methodName))
+            continue;
+          const body = extractMethodBody(poContent2, methodName);
+          if (body)
+            existing.methods.push({ name: methodName, body });
+        }
+      }
+      continue;
+    }
+    processedClasses.add(className);
+    const poInfo = classMap.get(className);
+    if (!poInfo)
+      continue;
+    const poContent = readPoContent(poInfo);
+    if (!poContent)
+      continue;
+    const constructorBody = extractConstructorBody(poContent);
+    const resolvedMethods = [];
+    for (const methodName of methods) {
+      const body = extractMethodBody(poContent, methodName);
+      if (body)
+        resolvedMethods.push({ name: methodName, body });
+    }
+    if (constructorBody || resolvedMethods.length > 0) {
+      dependencies.push({
+        className,
+        relativePath: poInfo.relativePath,
+        constructorBody,
+        methods: resolvedMethods
+      });
+    }
+  }
+  return {
+    testBody: testResult.body,
+    testStartLine: testResult.startLine,
+    testEndLine: testResult.endLine,
+    beforeEachBody,
+    beforeEachStartLine,
+    beforeEachEndLine,
+    dependencies
+  };
+}
+function formatResolvedSource(filePath, resolved) {
+  const parts = [];
+  parts.push(`## Test: ${filePath}:${resolved.testStartLine} (lines ${resolved.testStartLine}-${resolved.testEndLine})`);
+  parts.push("```typescript");
+  parts.push(resolved.testBody);
+  parts.push("```");
+  if (resolved.beforeEachBody) {
+    parts.push("");
+    parts.push(`### beforeEach (lines ${resolved.beforeEachStartLine}-${resolved.beforeEachEndLine})`);
+    parts.push("```typescript");
+    parts.push(resolved.beforeEachBody);
+    parts.push("```");
+  }
+  for (const dep of resolved.dependencies) {
+    parts.push("");
+    parts.push(`### ${dep.className} (\`${dep.relativePath}\`)`);
+    if (dep.constructorBody) {
+      parts.push("**Constructor:**");
+      parts.push("```typescript");
+      parts.push(dep.constructorBody);
+      parts.push("```");
+    }
+    for (const method of dep.methods) {
+      parts.push(`**${method.name}:**`);
+      parts.push("```typescript");
+      parts.push(method.body);
+      parts.push("```");
+    }
+  }
+  return parts.join("\n");
+}
+function toPascalCase(name) {
+  return name.charAt(0).toUpperCase() + name.slice(1);
+}
+async function buildImpactIndex(cwd2) {
+  const objects = await scanPageObjects(cwd2);
+  const classMethods = /* @__PURE__ */ new Map();
+  const classFiles = /* @__PURE__ */ new Map();
+  for (const obj of objects) {
+    const methods = new Set(obj.methods.map((m) => m.name));
+    classMethods.set(obj.className, methods);
+    classFiles.set(obj.className, obj.relativePath);
+  }
+  const specFiles = await glob("**/*.spec.ts", {
+    cwd: cwd2,
+    ignore: ["**/node_modules/**", "**/dist/**", "**/build/**"]
+  });
+  const refs = [];
+  for (const specFile of specFiles.sort()) {
+    let content;
+    try {
+      content = fs.readFileSync(path2.resolve(cwd2, specFile), "utf-8");
+    } catch {
+      continue;
+    }
+    const lines = content.split("\n");
+    const instanceMap = /* @__PURE__ */ new Map();
+    const availableClasses = /* @__PURE__ */ new Set();
+    const importRe = /import\s+\{([^}]+)\}\s+from\s+['"][^'"]*\.(?:page|service)['"]/g;
+    let im;
+    while ((im = importRe.exec(content)) !== null) {
+      for (const name of im[1].split(",")) {
+        const trimmed = name.trim().split(/\s+as\s+/)[0].trim();
+        if (trimmed)
+          availableClasses.add(trimmed);
+      }
+    }
+    const ctorRe = /(?:const|let|var)\s+(\w+)\s*=\s*new\s+(\w+)\s*\(/g;
+    let cm;
+    while ((cm = ctorRe.exec(content)) !== null) {
+      if (classMethods.has(cm[2])) {
+        instanceMap.set(cm[1], cm[2]);
+      }
+    }
+    const fixtureRe = /(?:test|it)(?:\.beforeEach)?\s*\([^,]*,\s*async\s*\(\s*\{([^}]+)\}/g;
+    let fm;
+    while ((fm = fixtureRe.exec(content)) !== null) {
+      for (const param of fm[1].split(",")) {
+        const varName = param.trim().split(/[:\s]/)[0].trim();
+        if (!varName)
+          continue;
+        const guessedClass = toPascalCase(varName);
+        if (classMethods.has(guessedClass)) {
+          instanceMap.set(varName, guessedClass);
+        }
+      }
+    }
+    const beforeEachRe = /test\.beforeEach\s*\(\s*async\s*\(\s*\{([^}]+)\}/g;
+    while ((fm = beforeEachRe.exec(content)) !== null) {
+      for (const param of fm[1].split(",")) {
+        const varName = param.trim().split(/[:\s]/)[0].trim();
+        if (!varName)
+          continue;
+        const guessedClass = toPascalCase(varName);
+        if (classMethods.has(guessedClass)) {
+          instanceMap.set(varName, guessedClass);
+        }
+      }
+    }
+    let currentTest = null;
+    for (let i = 0; i < lines.length; i++) {
+      const line = lines[i];
+      const testMatch = line.match(/^\s*(?:test|it)\s*\(\s*['"`]([^'"`]+)['"`]/);
+      if (testMatch) {
+        currentTest = { name: testMatch[1], line: i + 1 };
+      }
+      if (!currentTest)
+        continue;
+      const awaitMatch = line.match(/await\s+(\w+)\.(\w+)\s*\(/);
+      if (!awaitMatch)
+        continue;
+      const [, varName, methodName] = awaitMatch;
+      let poClass = instanceMap.get(varName);
+      if (!poClass) {
+        const guessed = toPascalCase(varName);
+        if (classMethods.has(guessed))
+          poClass = guessed;
+      }
+      if (!poClass) {
+        poClass = "(unresolved)";
+      }
+      const methods = classMethods.get(poClass);
+      if (poClass === "(unresolved)" || methods && methods.has(methodName)) {
+        refs.push({
+          poClass,
+          poFile: classFiles.get(poClass) ?? "(unknown)",
+          methodName,
+          specFile,
+          testName: currentTest.name,
+          testLine: currentTest.line,
+          callLine: i + 1
+        });
+      }
+    }
+  }
+  return refs;
+}
+function queryImpact(refs, query) {
+  let filtered = refs;
+  if (query.className) {
+    const cls = query.className.toLowerCase();
+    filtered = filtered.filter((r) => r.poClass.toLowerCase() === cls);
+  }
+  if (query.methodName) {
+    filtered = filtered.filter((r) => r.methodName === query.methodName);
+  }
+  const groups = /* @__PURE__ */ new Map();
+  for (const ref of filtered) {
+    const key = `${ref.poClass}::${ref.methodName}`;
+    if (!groups.has(key)) {
+      groups.set(key, { poClass: ref.poClass, poFile: ref.poFile, methodName: ref.methodName, usedIn: [] });
+    }
+    groups.get(key).usedIn.push({
+      specFile: ref.specFile,
+      testName: ref.testName,
+      testLine: ref.testLine,
+      callLine: ref.callLine
+    });
+  }
+  return [...groups.values()].sort((a, b) => b.usedIn.length - a.usedIn.length);
+}
+function formatImpactResults(results, query) {
+  const queryDesc = [
+    query.className ? `class: ${query.className}` : "",
+    query.methodName ? `method: ${query.methodName}` : ""
+  ].filter(Boolean).join(", ");
+  if (results.length === 0) {
+    return `No usages found for ${queryDesc}.`;
+  }
+  const totalUsages = results.reduce((sum, r) => sum + r.usedIn.length, 0);
+  const lines = [
+    `# Impact Analysis \u2014 ${queryDesc}`,
+    "",
+    `Found **${totalUsages}** usages across **${results.length}** method(s).`,
+    ""
+  ];
+  for (const r of results) {
+    lines.push(`## ${r.poClass}.${r.methodName}  \`${r.poFile}\``);
+    lines.push("");
+    lines.push(`| Spec File | Test | Test Line | Call Line |`);
+    lines.push(`|-----------|------|-----------|-----------|`);
+    for (const u of r.usedIn) {
+      lines.push(`| \`${u.specFile}\` | ${u.testName} | ${u.testLine} | ${u.callLine} |`);
     }
     lines.push("");
   }
@@ -19837,6 +20370,445 @@ function groupFailures(result) {
   return { groups, ungrouped };
 }
 
+// packages/pw-test-writer/dist/mcp/bisect.js
+import { execSync } from "child_process";
+import * as fs6 from "fs";
+import * as path7 from "path";
+function git(args, cwd2) {
+  return execSync(`git ${args}`, { cwd: cwd2, encoding: "utf-8", timeout: 3e4 }).trim();
+}
+function isGitRepo(cwd2) {
+  try {
+    git("rev-parse --is-inside-work-tree", cwd2);
+    return true;
+  } catch {
+    return false;
+  }
+}
+function resolveCommit(cwd2, ref) {
+  return git(`rev-parse ${ref}`, cwd2);
+}
+function getCommitRange(cwd2, good, bad) {
+  const output = git(`rev-list --reverse ${good}..${bad}`, cwd2);
+  return output ? output.split("\n").filter(Boolean) : [];
+}
+function getCommitInfo(cwd2, sha) {
+  const format = "%H%n%h%n%an%n%ai%n%s";
+  const lines = git(`log -1 --format="${format}" ${sha}`, cwd2).split("\n");
+  return {
+    hash: lines[0],
+    shortHash: lines[1],
+    author: lines[2],
+    date: lines[3],
+    message: lines[4]
+  };
+}
+function bisectDir(cwd2) {
+  return path7.join(cwd2, ".pw-bisect");
+}
+function createWorktree(cwd2, sha) {
+  const shortHash = sha.slice(0, 8);
+  const ts = Date.now();
+  const wtName = `wt-${shortHash}-${ts}`;
+  const wtPath = path7.join(bisectDir(cwd2), wtName);
+  fs6.mkdirSync(path7.dirname(wtPath), { recursive: true });
+  git(`worktree add --detach "${wtPath}" ${sha}`, cwd2);
+  return wtPath;
+}
+function removeWorktree(cwd2, wtPath) {
+  try {
+    git(`worktree remove --force "${wtPath}"`, cwd2);
+  } catch {
+    try {
+      fs6.rmSync(wtPath, { recursive: true, force: true });
+      git("worktree prune", cwd2);
+    } catch {
+    }
+  }
+}
+function packageJsonChanged(cwd2, sha1, sha2) {
+  try {
+    const output = git(`diff --name-only ${sha1} ${sha2}`, cwd2);
+    const files = output.split("\n");
+    return files.some((f) => f === "package.json" || f === "package-lock.json" || f === "yarn.lock" || f === "pnpm-lock.yaml");
+  } catch {
+    return true;
+  }
+}
+function cleanupBisectWorktrees(cwd2) {
+  const dir = bisectDir(cwd2);
+  if (!fs6.existsSync(dir))
+    return;
+  const entries = fs6.readdirSync(dir);
+  for (const entry of entries) {
+    if (!entry.startsWith("wt-"))
+      continue;
+    const wtPath = path7.join(dir, entry);
+    removeWorktree(cwd2, wtPath);
+  }
+  try {
+    const remaining = fs6.readdirSync(dir);
+    if (remaining.length === 0)
+      fs6.rmdirSync(dir);
+  } catch {
+  }
+}
+function detectPackageManager(wtPath) {
+  if (fs6.existsSync(path7.join(wtPath, "pnpm-lock.yaml")))
+    return "pnpm";
+  if (fs6.existsSync(path7.join(wtPath, "yarn.lock")))
+    return "yarn";
+  return "npm";
+}
+function installIfNeeded(wtPath, mainCwd, currentSha, previousSha) {
+  const nodeModulesPath = path7.join(wtPath, "node_modules");
+  if (previousSha && !packageJsonChanged(mainCwd, previousSha, currentSha)) {
+    const mainNodeModules = path7.join(mainCwd, "node_modules");
+    if (fs6.existsSync(mainNodeModules) && !fs6.existsSync(nodeModulesPath)) {
+      fs6.symlinkSync(mainNodeModules, nodeModulesPath, "junction");
+    }
+    return;
+  }
+  const pm = detectPackageManager(wtPath);
+  const commands = {
+    npm: "npm ci",
+    yarn: "yarn install --frozen-lockfile",
+    pnpm: "pnpm install --frozen-lockfile"
+  };
+  try {
+    execSync(commands[pm], { cwd: wtPath, timeout: 12e4, stdio: "pipe" });
+  } catch {
+    const mainNodeModules = path7.join(mainCwd, "node_modules");
+    if (fs6.existsSync(mainNodeModules) && !fs6.existsSync(nodeModulesPath)) {
+      fs6.symlinkSync(mainNodeModules, nodeModulesPath, "junction");
+    }
+  }
+}
+function extractActionSignatures(test) {
+  return test.actions.map((a) => `${a.type}.${a.method}`);
+}
+function extractNetworkEndpoints(test) {
+  const endpoints = /* @__PURE__ */ new Map();
+  for (const action of test.actions) {
+    if (!action.network?.requests)
+      continue;
+    for (const req of action.network.requests) {
+      if (isStaticOrTracking(req.url))
+        continue;
+      const key = `${req.method} ${normalizeUrl(req.url)}`;
+      if (req.status)
+        endpoints.set(key, req.status);
+    }
+  }
+  return endpoints;
+}
+function extractConsoleErrors(test) {
+  const errors = [];
+  for (const action of test.actions) {
+    if (!action.console)
+      continue;
+    for (const msg of action.console) {
+      if (msg.type === "error")
+        errors.push(msg.text);
+    }
+  }
+  return errors;
+}
+function compareRuns(baseline, current) {
+  const baseActions = extractActionSignatures(baseline);
+  const curActions = extractActionSignatures(current);
+  const baseActionSet = new Set(baseActions);
+  const curActionSet = new Set(curActions);
+  const removedActions = baseActions.filter((a) => !curActionSet.has(a));
+  const addedActions = curActions.filter((a) => !baseActionSet.has(a));
+  const actionSimilarity2 = jaccard(baseActions, curActions);
+  const baseNet = extractNetworkEndpoints(baseline);
+  const curNet = extractNetworkEndpoints(current);
+  const baseEndpoints = new Set(baseNet.keys());
+  const curEndpoints = new Set(curNet.keys());
+  const removedEndpoints = [...baseEndpoints].filter((e) => !curEndpoints.has(e));
+  const addedEndpoints = [...curEndpoints].filter((e) => !baseEndpoints.has(e));
+  const statusChanges = [];
+  for (const [endpoint, curStatus] of curNet) {
+    const baseStatus = baseNet.get(endpoint);
+    if (baseStatus && baseStatus !== curStatus) {
+      statusChanges.push({ endpoint, baselineStatus: baseStatus, currentStatus: curStatus });
+    }
+  }
+  const baseError = baseline.error ? normalizeErrorMessage(baseline.error) : null;
+  const curError = current.error ? normalizeErrorMessage(current.error) : null;
+  let errorSimilarity = 0;
+  if (baseError && curError) {
+    errorSimilarity = jaccard(tokenize(baseError), tokenize(curError));
+  } else if (!baseError && !curError) {
+    errorSimilarity = 1;
+  }
+  const baseConsoleErrors = new Set(extractConsoleErrors(baseline));
+  const curConsoleErrors = extractConsoleErrors(current);
+  const newConsoleErrors = curConsoleErrors.filter((e) => !baseConsoleErrors.has(e));
+  const regressions = [];
+  const totalBaselineMs = baseline.actions.reduce((s, a) => s + a.timing.durationMs, 0);
+  const totalCurrentMs = current.actions.reduce((s, a) => s + a.timing.durationMs, 0);
+  for (let i = 0; i < Math.min(baseline.actions.length, current.actions.length); i++) {
+    const bDur = baseline.actions[i].timing.durationMs;
+    const cDur = current.actions[i].timing.durationMs;
+    if (bDur > 0 && cDur > bDur * 2) {
+      regressions.push({
+        action: `${current.actions[i].type}.${current.actions[i].method}`,
+        baselineMs: bDur,
+        currentMs: cDur,
+        ratio: cDur / bDur
+      });
+    }
+  }
+  const statusChanged = baseline.status !== current.status;
+  const statusScore = statusChanged ? 1 : 0;
+  const actionScore = 1 - actionSimilarity2;
+  const networkScore = removedEndpoints.length + addedEndpoints.length + statusChanges.length > 0 ? 1 : 0;
+  const errorScore = 1 - errorSimilarity;
+  const consoleScore = newConsoleErrors.length > 0 ? 1 : 0;
+  const timingScore = regressions.length > 0 ? 1 : 0;
+  const changeScore = statusScore * 0.4 + actionScore * 0.25 + networkScore * 0.15 + errorScore * 0.1 + consoleScore * 0.05 + timingScore * 0.05;
+  return {
+    statusChanged,
+    actions: { removed: [...new Set(removedActions)], added: [...new Set(addedActions)], sequenceSimilarity: actionSimilarity2 },
+    network: { removedEndpoints, addedEndpoints, statusChanges },
+    errorDiff: { baselineError: baseError, currentError: curError, similarity: errorSimilarity },
+    newConsoleErrors: [...new Set(newConsoleErrors)].slice(0, 10),
+    timing: { regressions, totalBaselineMs, totalCurrentMs },
+    changeScore
+  };
+}
+async function findGoodCommit(opts, badCommit, maxDepth = 20) {
+  const commits = git(`rev-list --max-count=${maxDepth} ${badCommit}`, opts.cwd).split("\n").filter(Boolean);
+  for (let i = 1; i < commits.length; i++) {
+    const sha = commits[i];
+    const info = getCommitInfo(opts.cwd, sha);
+    opts.onProgress?.(`Scanning commit ${i}/${commits.length - 1}: ${info.shortHash} ${info.message.slice(0, 50)}`);
+    let wtPath;
+    try {
+      wtPath = createWorktree(opts.cwd, sha);
+      installIfNeeded(wtPath, opts.cwd, sha, i > 1 ? commits[i - 1] : null);
+      const result = await opts.runTest(opts.testLocation, wtPath, {
+        project: opts.project,
+        timeoutMs: opts.timeoutMs
+      });
+      opts.storeRun(result.runId, { runId: result.runId, timestamp: Date.now(), tests: result.tests });
+      if (result.tests[0]?.status === "passed") {
+        opts.onProgress?.(`Found good commit: ${info.shortHash}`);
+        return sha;
+      }
+    } catch {
+    } finally {
+      if (wtPath)
+        removeWorktree(opts.cwd, wtPath);
+    }
+  }
+  return null;
+}
+async function runBisection(opts) {
+  const badSha = resolveCommit(opts.cwd, opts.badCommit || "HEAD");
+  let goodSha;
+  if (opts.goodCommit) {
+    goodSha = resolveCommit(opts.cwd, opts.goodCommit);
+  } else {
+    opts.onProgress?.("No good commit specified \u2014 scanning history...");
+    const found = await findGoodCommit(opts, badSha);
+    if (!found)
+      throw new Error("Could not find a passing commit in the last 20 commits. Specify goodCommit manually.");
+    goodSha = found;
+  }
+  const commits = getCommitRange(opts.cwd, goodSha, badSha);
+  if (commits.length === 0) {
+    throw new Error(`No commits between ${goodSha.slice(0, 8)} and ${badSha.slice(0, 8)}. Are good/bad in the right order?`);
+  }
+  opts.onProgress?.(`Bisecting ${commits.length} commits between ${goodSha.slice(0, 8)} (good) and ${badSha.slice(0, 8)} (bad)`);
+  opts.onProgress?.("Running baseline at good commit...");
+  let baselineWt;
+  let baselineEntry;
+  let baselineRunId;
+  try {
+    baselineWt = createWorktree(opts.cwd, goodSha);
+    installIfNeeded(baselineWt, opts.cwd, goodSha, null);
+    const baselineResult = await opts.runTest(opts.testLocation, baselineWt, {
+      project: opts.project,
+      timeoutMs: opts.timeoutMs
+    });
+    baselineRunId = baselineResult.runId;
+    opts.storeRun(baselineRunId, { runId: baselineRunId, timestamp: Date.now(), tests: baselineResult.tests });
+    baselineEntry = baselineResult.tests[0];
+    if (!baselineEntry)
+      throw new Error("Baseline run produced no test results.");
+  } finally {
+    if (baselineWt)
+      removeWorktree(opts.cwd, baselineWt);
+  }
+  const steps = [];
+  let lo = 0;
+  let hi = commits.length - 1;
+  let previousSha = goodSha;
+  while (lo < hi) {
+    const mid = Math.floor((lo + hi) / 2);
+    const sha = commits[mid];
+    const info = getCommitInfo(opts.cwd, sha);
+    const stepNum = steps.length + 1;
+    const remaining = Math.ceil(Math.log2(hi - lo + 1));
+    opts.onProgress?.(`Step ${stepNum} (~${remaining} remaining): testing ${info.shortHash} \u2014 ${info.message.slice(0, 60)}`);
+    let wtPath;
+    try {
+      wtPath = createWorktree(opts.cwd, sha);
+      installIfNeeded(wtPath, opts.cwd, sha, previousSha);
+      const result = await opts.runTest(opts.testLocation, wtPath, {
+        project: opts.project,
+        timeoutMs: opts.timeoutMs
+      });
+      opts.storeRun(result.runId, { runId: result.runId, timestamp: Date.now(), tests: result.tests });
+      const testEntry = result.tests[0];
+      if (!testEntry)
+        throw new Error(`No test results at commit ${info.shortHash}`);
+      const diff = compareRuns(baselineEntry, testEntry);
+      const step = {
+        commit: info,
+        status: testEntry.status,
+        diffFromBaseline: diff,
+        runId: result.runId,
+        duration: testEntry.duration
+      };
+      steps.push(step);
+      if (testEntry.status === "passed") {
+        lo = mid + 1;
+      } else {
+        hi = mid;
+      }
+      previousSha = sha;
+    } catch (e) {
+      const diff = compareRuns(baselineEntry, { ...baselineEntry, status: "failed", error: String(e), actions: [] });
+      steps.push({
+        commit: info,
+        status: "failed",
+        diffFromBaseline: diff,
+        runId: `error-${sha.slice(0, 8)}`,
+        duration: 0
+      });
+      hi = mid;
+    } finally {
+      if (wtPath)
+        removeWorktree(opts.cwd, wtPath);
+    }
+  }
+  const culpritSha = commits[lo];
+  const culprit = getCommitInfo(opts.cwd, culpritSha);
+  const failingStep = steps.find((s) => s.commit.hash === culpritSha);
+  let failingRunId;
+  let regressionDiff;
+  if (failingStep) {
+    failingRunId = failingStep.runId;
+    regressionDiff = failingStep.diffFromBaseline;
+  } else {
+    opts.onProgress?.(`Running culprit commit ${culprit.shortHash} for detailed capture...`);
+    let wtPath;
+    try {
+      wtPath = createWorktree(opts.cwd, culpritSha);
+      installIfNeeded(wtPath, opts.cwd, culpritSha, previousSha);
+      const result = await opts.runTest(opts.testLocation, wtPath, {
+        project: opts.project,
+        timeoutMs: opts.timeoutMs
+      });
+      opts.storeRun(result.runId, { runId: result.runId, timestamp: Date.now(), tests: result.tests });
+      failingRunId = result.runId;
+      regressionDiff = compareRuns(baselineEntry, result.tests[0]);
+    } finally {
+      if (wtPath)
+        removeWorktree(opts.cwd, wtPath);
+    }
+  }
+  return {
+    culprit,
+    totalCommits: commits.length,
+    stepsPerformed: steps.length,
+    steps,
+    regressionDiff,
+    baselineRunId,
+    failingRunId
+  };
+}
+function formatDuration(ms) {
+  if (ms < 1e3)
+    return `${ms}ms`;
+  return `${(ms / 1e3).toFixed(1)}s`;
+}
+function formatBisectResult(result) {
+  const lines = [];
+  const c = result.culprit;
+  lines.push("## Bisection Result");
+  lines.push("");
+  lines.push(`**Culprit:** \`${c.shortHash}\` \u2014 ${c.message}`);
+  lines.push(`**Author:** ${c.author} \xB7 ${c.date}`);
+  lines.push(`**Commits tested:** ${result.stepsPerformed} of ${result.totalCommits}`);
+  lines.push("");
+  const diff = result.regressionDiff;
+  lines.push("### What Changed");
+  lines.push("");
+  if (diff.statusChanged) {
+    lines.push(`- **Status:** passed \u2192 failed (score: ${diff.changeScore.toFixed(2)})`);
+  }
+  if (diff.actions.removed.length > 0 || diff.actions.added.length > 0) {
+    lines.push(`- **Actions:** similarity ${(diff.actions.sequenceSimilarity * 100).toFixed(0)}%`);
+    if (diff.actions.removed.length > 0) {
+      lines.push(`  - Removed: ${diff.actions.removed.slice(0, 5).join(", ")}${diff.actions.removed.length > 5 ? ` (+${diff.actions.removed.length - 5} more)` : ""}`);
+    }
+    if (diff.actions.added.length > 0) {
+      lines.push(`  - Added: ${diff.actions.added.slice(0, 5).join(", ")}${diff.actions.added.length > 5 ? ` (+${diff.actions.added.length - 5} more)` : ""}`);
+    }
+  }
+  if (diff.network.addedEndpoints.length > 0 || diff.network.removedEndpoints.length > 0 || diff.network.statusChanges.length > 0) {
+    lines.push("- **Network:**");
+    for (const sc of diff.network.statusChanges.slice(0, 5)) {
+      lines.push(`  - ${sc.endpoint}: ${sc.baselineStatus} \u2192 ${sc.currentStatus}`);
+    }
+    for (const ep of diff.network.addedEndpoints.slice(0, 3)) {
+      lines.push(`  - New: ${ep}`);
+    }
+    for (const ep of diff.network.removedEndpoints.slice(0, 3)) {
+      lines.push(`  - Removed: ${ep}`);
+    }
+  }
+  if (diff.errorDiff.currentError && !diff.errorDiff.baselineError) {
+    lines.push(`- **New error:** ${diff.errorDiff.currentError.slice(0, 200)}`);
+  } else if (diff.errorDiff.currentError && diff.errorDiff.baselineError && diff.errorDiff.similarity < 0.8) {
+    lines.push(`- **Error changed** (similarity: ${(diff.errorDiff.similarity * 100).toFixed(0)}%)`);
+  }
+  if (diff.newConsoleErrors.length > 0) {
+    lines.push(`- **New console errors:** ${diff.newConsoleErrors.length}`);
+    for (const e of diff.newConsoleErrors.slice(0, 3)) {
+      lines.push(`  - ${e.slice(0, 150)}`);
+    }
+  }
+  if (diff.timing.regressions.length > 0) {
+    lines.push("- **Timing regressions:**");
+    for (const r of diff.timing.regressions.slice(0, 5)) {
+      lines.push(`  - ${r.action}: ${formatDuration(r.baselineMs)} \u2192 ${formatDuration(r.currentMs)} (${r.ratio.toFixed(1)}x)`);
+    }
+  }
+  lines.push("");
+  lines.push("### Bisection Steps");
+  lines.push("");
+  lines.push("| Step | Commit | Status | Score | Duration | Run ID |");
+  lines.push("|------|--------|--------|-------|----------|--------|");
+  for (let i = 0; i < result.steps.length; i++) {
+    const s = result.steps[i];
+    const icon = s.status === "passed" ? "\u2705" : "\u274C";
+    lines.push(`| ${i + 1} | \`${s.commit.shortHash}\` ${s.commit.message.slice(0, 30)} | ${icon} | ${s.diffFromBaseline.changeScore.toFixed(2)} | ${formatDuration(s.duration)} | \`${s.runId}\` |`);
+  }
+  lines.push("");
+  lines.push("### Next Steps");
+  lines.push("");
+  lines.push(`- Inspect the failing run: \`e2e_get_failure_report\` with runId \`${result.failingRunId}\``);
+  lines.push(`- Compare actions: \`e2e_get_actions\` with runId \`${result.failingRunId}\` vs \`${result.baselineRunId}\``);
+  lines.push(`- View the culprit commit: \`git show ${result.culprit.shortHash}\``);
+  return lines.join("\n");
+}
+
 // packages/pw-test-writer/dist/mcp/tools.js
 var toolDefs = [
   {
@@ -19984,13 +20956,14 @@ var toolDefs = [
   },
   {
     name: "e2e_get_test_source",
-    description: "Read the test source file with the specific test function highlighted.",
+    description: "Read the test source file. With resolve=true, returns only the test body plus referenced page object method bodies \u2014 saves tokens vs reading full files.",
     inputSchema: {
       type: "object",
       properties: {
         filePath: { type: "string", description: "Test file path (relative to project root)" },
         testLine: { type: "number", description: "Line number of the test" },
-        context: { type: "number", description: "Number of lines before/after testLine to include (default: 60). Use smaller values to save tokens when you only need the test function body." }
+        context: { type: "number", description: "Number of lines before/after testLine to include (default: 60). Ignored when resolve=true." },
+        resolve: { type: "boolean", description: "When true, extracts the test body + beforeEach + referenced page object method bodies in one call. Requires testLine. Saves 60-75% tokens vs separate file reads." }
       },
       required: ["filePath"]
     }
@@ -20105,6 +21078,17 @@ var toolDefs = [
     }
   },
   {
+    name: "e2e_impact_analysis",
+    description: "Find all tests that use a specific page object method. Use before refactoring to see what will break.",
+    inputSchema: {
+      type: "object",
+      properties: {
+        className: { type: "string", description: 'Page object class name (e.g. "CheckoutPage"). Omit to search by method name only.' },
+        methodName: { type: "string", description: 'Method name (e.g. "selectCategory"). Omit to list all usages of a class.' }
+      }
+    }
+  },
+  {
     name: "e2e_get_context",
     description: "Lightweight project overview: flow names with descriptions + page object class names with method counts. Use `e2e_get_app_flows` for full flow steps and `e2e_scan_page_objects` for full method signatures.",
     inputSchema: {
@@ -20216,6 +21200,21 @@ var toolDefs = [
       },
       required: ["runId"]
     }
+  },
+  {
+    name: "e2e_bisect",
+    description: "Find the commit that broke a test using behavioral bisection. Runs binary search through git history, comparing action captures to identify what changed. Uses git worktrees (never modifies your working tree).",
+    inputSchema: {
+      type: "object",
+      properties: {
+        location: { type: "string", description: "Test location (file:line)" },
+        goodCommit: { type: "string", description: "Last known good commit (SHA, tag, or branch). If omitted, scans last 20 commits to find most recent passing commit." },
+        badCommit: { type: "string", description: "First known bad commit. Defaults to HEAD." },
+        project: { type: "string", description: "Playwright project name" },
+        timeout: { type: "number", description: "Timeout per test run in seconds (default: 120)" }
+      },
+      required: ["location"]
+    }
   }
 ];
 function text(t) {
@@ -20309,6 +21308,8 @@ async function handleTool(name, args, ctx) {
       return handleGenerateReport(args, ctx);
     case "e2e_suggest_tests":
       return handleSuggestTests(ctx);
+    case "e2e_impact_analysis":
+      return handleImpactAnalysis(args, ctx);
     case "e2e_get_app_flows":
       return handleGetAppFlows(ctx);
     case "e2e_save_app_flow":
@@ -20329,6 +21330,8 @@ async function handleTool(name, args, ctx) {
       return handleSaveErrorPattern(args, ctx);
     case "e2e_match_patterns":
       return handleMatchPatterns(args, ctx);
+    case "e2e_bisect":
+      return handleBisect(args, ctx);
     default:
       return error(`Unknown tool: ${name}`);
   }
@@ -20374,12 +21377,12 @@ async function handleRunTest(args, ctx) {
     }
     const result2 = await ctx.runProject(ctx.cwd, { project, grep, repeatEach });
     ctx.runs.set(result2.runId, result2);
-    const dir = path7.join(ctx.cwd, "test-reports");
-    fs6.mkdirSync(dir, { recursive: true });
+    const dir = path8.join(ctx.cwd, "test-reports");
+    fs7.mkdirSync(dir, { recursive: true });
     ctx.sendProgress?.("Generating HTML report...");
     const html = buildHtmlReport(result2, ctx.cwd, ctx.sendProgress);
-    const reportPath = path7.join(dir, `report-${result2.runId}.html`);
-    fs6.writeFileSync(reportPath, html, "utf-8");
+    const reportPath = path8.join(dir, `report-${result2.runId}.html`);
+    fs7.writeFileSync(reportPath, html, "utf-8");
     const flowCoverage = buildFlowCoverageSummary(result2, ctx.cwd);
     const batchConfirmed = checkPendingFixes(ctx.cwd, result2.tests);
     const fixVerifiedText = formatConfirmedFixes(batchConfirmed);
@@ -20424,7 +21427,7 @@ async function handleRunTest(args, ctx) {
     for (let i = 0; i < attempts.length; i++) {
       const a = attempts[i];
       const icon = a.status === "passed" ? "\u2705" : "\u274C";
-      lines2.push(`| ${i + 1} | ${icon} ${a.status} | ${formatDuration(a.duration)} | \`${a.runId}\` |`);
+      lines2.push(`| ${i + 1} | ${icon} ${a.status} | ${formatDuration2(a.duration)} | \`${a.runId}\` |`);
     }
     lines2.push("");
     if (verdict.includes("FLAKY")) {
@@ -20446,7 +21449,7 @@ async function handleRunTest(args, ctx) {
   for (const test of result.tests) {
     const passed = test.status === "passed";
     const icon = passed ? "\u2705" : "\u274C";
-    const dur = formatDuration(test.duration);
+    const dur = formatDuration2(test.duration);
     const actionRange = test.actions.length > 0 ? ` (indices 0\u2013${test.actions.length - 1})` : "";
     lines.push(`${icon} **${test.status.toUpperCase()}** \xB7 \`${test.file}\` \xB7 ${dur} \xB7 ${test.actions.length} actions${actionRange}`);
     if (test.error)
@@ -20521,7 +21524,7 @@ function formatBatchResults(result, project) {
   const totalDuration = result.tests.reduce((sum, t) => sum + t.duration, 0);
   const lines = [`**Run ID:** \`${result.runId}\``, ""];
   const projectNote = project ? ` (project: ${project})` : "";
-  lines.push(`## Results: ${passed.length} passed, ${failed.length} failed${projectNote} \xB7 ${formatDuration(totalDuration)}`, "");
+  lines.push(`## Results: ${passed.length} passed, ${failed.length} failed${projectNote} \xB7 ${formatDuration2(totalDuration)}`, "");
   if (failed.length > 0) {
     const { groups, ungrouped } = groupFailures(result);
     if (groups.length > 0) {
@@ -20549,7 +21552,7 @@ function formatBatchResults(result, project) {
     lines.push(`### Failed (${failed.length})`, "");
     for (const test of failed) {
       const idx = result.tests.indexOf(test);
-      const dur = formatDuration(test.duration);
+      const dur = formatDuration2(test.duration);
       lines.push(`\u274C [${idx}] \`${test.location}\` \u2014 ${test.test} \xB7 ${dur}`);
       if (test.error) {
         const summary = test.error.split("\n").map((l) => l.trim()).filter(Boolean)[0] || test.error;
@@ -20732,7 +21735,7 @@ async function handleGetActions(args, ctx) {
     const icon = a.error ? "\u2717" : "\u2713";
     const net = a.network?.requests?.length || 0;
     const netInfo = net > 0 ? ` [${net} req]` : "";
-    const dur = formatDuration(a.timing?.durationMs);
+    const dur = formatDuration2(a.timing?.durationMs);
     const failMark = a.error ? "  \u2190 FAILED" : "";
     lines.push(`${String(i).padStart(padLen)}. ${icon} ${a.type}.${a.method}${netInfo}  ${dur}${failMark}`);
     if (a.error)
@@ -20754,7 +21757,7 @@ async function handleGetActionDetail(args, ctx) {
     parts.push(`**Title:** ${action.title}`);
   if (action.pageUrl)
     parts.push(`**URL:** ${action.pageUrl}`);
-  parts.push(`**Duration:** ${formatDuration(action.timing?.durationMs)}`);
+  parts.push(`**Duration:** ${formatDuration2(action.timing?.durationMs)}`);
   if (action.params) {
     const p = typeof action.params === "string" ? action.params : JSON.stringify(action.params, null, 2);
     parts.push(`
@@ -20788,7 +21791,7 @@ ${action.error.stack}
 ### Network (${action.network.requests.length} requests)`);
     for (const r of action.network.requests) {
       const icon = r.status && r.status >= 400 ? "\u2717" : "\u2713";
-      parts.push(`- ${icon} \`${r.method}\` ${r.url} \u2192 ${r.status ?? "pending"} (${formatDuration(r.durationMs)})`);
+      parts.push(`- ${icon} \`${r.method}\` ${r.url} \u2192 ${r.status ?? "pending"} (${formatDuration2(r.durationMs)})`);
     }
   }
   if (action.console?.length) {
@@ -20827,7 +21830,7 @@ async function handleGetNetwork(args, ctx) {
     const icon = isError ? "\u2717" : "\u2713";
     const statusStr = r.status != null ? String(r.status) : "pending";
     parts.push(`### ${icon} \`${r.method}\` ${r.url}`);
-    parts.push(`**Status:** ${statusStr} \xB7 **Duration:** ${formatDuration(r.durationMs)} \xB7 **Type:** ${r.resourceType || "?"}`);
+    parts.push(`**Status:** ${statusStr} \xB7 **Duration:** ${formatDuration2(r.durationMs)} \xB7 **Type:** ${r.resourceType || "?"}`);
     if (includeBody) {
       if (r.requestPostData) {
         parts.push(`
@@ -20885,7 +21888,7 @@ async function handleGetScreenshot(args, ctx) {
     return error(`Screenshot index ${screenshotIndex} out of range (${screenshots.length} available).`);
   const screenshot = screenshots[screenshotIndex];
   try {
-    const data = fs6.readFileSync(screenshot.path);
+    const data = fs7.readFileSync(screenshot.path);
     const base64 = data.toString("base64");
     return {
       content: [
@@ -20974,13 +21977,20 @@ async function handleGetTestSource(args, ctx) {
   const filePath = String(args.filePath || "");
   if (!filePath)
     return error("Missing required parameter: filePath");
-  const resolved = path7.isAbsolute(filePath) ? filePath : path7.resolve(ctx.cwd, filePath);
+  const resolved = path8.isAbsolute(filePath) ? filePath : path8.resolve(ctx.cwd, filePath);
   if (!resolved.startsWith(ctx.cwd))
     return error("Path outside project root.");
+  const testLine = args.testLine != null ? Number(args.testLine) : void 0;
+  const shouldResolve = Boolean(args.resolve) && testLine != null;
+  if (shouldResolve) {
+    const result = await resolveTestDependencies(ctx.cwd, filePath, testLine);
+    if (result) {
+      return text(formatResolvedSource(filePath, result));
+    }
+  }
   try {
-    const content = fs6.readFileSync(resolved, "utf-8");
+    const content = fs7.readFileSync(resolved, "utf-8");
     const lines = content.split("\n");
-    const testLine = args.testLine != null ? Number(args.testLine) : void 0;
     let startLine = 0;
     let endLine = lines.length;
     if (testLine) {
@@ -21052,7 +22062,7 @@ async function handleGetEvidenceBundle(args, ctx) {
   parts.push(`# Evidence Bundle \u2014 \`${test.file}\``);
   parts.push("");
   parts.push(`- **Status:** ${test.status}`);
-  parts.push(`- **Duration:** ${formatDuration(test.duration)}`);
+  parts.push(`- **Duration:** ${formatDuration2(test.duration)}`);
   parts.push(`- **Location:** \`${test.location}\``);
   const failingAction = test.actions.find((a) => a.error);
   if (failingAction) {
@@ -21084,7 +22094,7 @@ ${test.error}
       const net = a.network?.requests?.length || 0;
       const netInfo = net > 0 ? ` [${net} req]` : "";
       const marker = a.error ? "  \u2190 FAILING" : "";
-      parts.push(`${String(i).padStart(padLen)}. ${icon} ${a.type}.${a.method}${netInfo}  ${formatDuration(a.timing?.durationMs)}${marker}`);
+      parts.push(`${String(i).padStart(padLen)}. ${icon} ${a.type}.${a.method}${netInfo}  ${formatDuration2(a.timing?.durationMs)}${marker}`);
       if (a.error)
         parts.push(`    ${a.error.message}`);
     }
@@ -21114,7 +22124,7 @@ ${failingAction.error.stack}
     parts.push(`## Failed Network Requests (${failedReqs.length})`);
     for (const r of failedReqs.slice(0, 15)) {
       parts.push(`### \`${r.method}\` ${r.url} \u2192 **${r.status}**`);
-      parts.push(`Duration: ${formatDuration(r.durationMs)}`);
+      parts.push(`Duration: ${formatDuration2(r.durationMs)}`);
       if (r.requestPostData) {
         parts.push(`
 Request body:
@@ -21166,10 +22176,10 @@ _Use e2e_get_screenshot to view._`
     });
   }
   if (outputFile) {
-    const dir = path7.join(ctx.cwd, "test-reports");
-    fs6.mkdirSync(dir, { recursive: true });
-    const outPath = path7.join(dir, `evidence-${runId}.md`);
-    fs6.writeFileSync(outPath, markdown, "utf-8");
+    const dir = path8.join(ctx.cwd, "test-reports");
+    fs7.mkdirSync(dir, { recursive: true });
+    const outPath = path8.join(dir, `evidence-${runId}.md`);
+    fs7.writeFileSync(outPath, markdown, "utf-8");
     content.push({ type: "text", text: `
 _Evidence written to \`${outPath}\`_` });
   }
@@ -21181,8 +22191,8 @@ async function handleGenerateReport(args, ctx) {
   const run = ctx.runs.get(runId);
   if (!run)
     return error(`Run "${runId}" not found.`);
-  const dir = path7.join(ctx.cwd, "test-reports");
-  fs6.mkdirSync(dir, { recursive: true });
+  const dir = path8.join(ctx.cwd, "test-reports");
+  fs7.mkdirSync(dir, { recursive: true });
   if (format === "json") {
     ctx.sendProgress?.("Serializing JSON report...");
     const data = {
@@ -21199,17 +22209,28 @@ async function handleGenerateReport(args, ctx) {
         attachments: t.attachments.map((a) => ({ name: a.name, path: a.path, contentType: a.contentType }))
       }))
     };
-    const outPath2 = path7.join(dir, `report-${runId}.json`);
-    fs6.writeFileSync(outPath2, JSON.stringify(data, null, 2), "utf-8");
+    const outPath2 = path8.join(dir, `report-${runId}.json`);
+    fs7.writeFileSync(outPath2, JSON.stringify(data, null, 2), "utf-8");
     return text(`JSON report written to \`${outPath2}\` (${run.tests.length} tests).`);
   }
   ctx.sendProgress?.(`Building HTML report for ${run.tests.length} tests...`);
   const html = buildHtmlReport(run, ctx.cwd, ctx.sendProgress);
-  const outPath = path7.join(dir, `report-${runId}.html`);
-  fs6.writeFileSync(outPath, html, "utf-8");
+  const outPath = path8.join(dir, `report-${runId}.html`);
+  fs7.writeFileSync(outPath, html, "utf-8");
   const passed = run.tests.filter((t) => t.status === "passed").length;
   const failed = run.tests.filter((t) => t.status === "failed").length;
   return text(`HTML report written to \`${outPath}\` (${passed} passed, ${failed} failed).`);
+}
+async function handleImpactAnalysis(args, ctx) {
+  const className = args.className ? String(args.className) : void 0;
+  const methodName = args.methodName ? String(args.methodName) : void 0;
+  if (!className && !methodName) {
+    return error("Provide at least one of className or methodName.");
+  }
+  ctx.sendProgress?.("Building impact index from spec files...");
+  const refs = await buildImpactIndex(ctx.cwd);
+  const results = queryImpact(refs, { className, methodName });
+  return text(formatImpactResults(results, { className, methodName }));
 }
 async function handleSuggestTests(ctx) {
   ctx.sendProgress?.("Scanning page objects, spec files, and flows...");
@@ -21391,7 +22412,7 @@ function buildFailureReport(test, cwd2, opts = { includeDom: false, includeNetwo
   parts.push(`# ${topIcon} Failure Report`);
   parts.push(`- **File:** \`${test.file}\``);
   parts.push(`- **Status:** ${test.status}`);
-  parts.push(`- **Duration:** ${formatDuration(test.duration)}`);
+  parts.push(`- **Duration:** ${formatDuration2(test.duration)}`);
   if (test.error)
     parts.push(`- **Error:**
 \`\`\`
@@ -21411,7 +22432,7 @@ ${test.error}
     }
     if (failingAction.pageUrl)
       parts.push(`- **Page URL:** ${failingAction.pageUrl}`);
-    parts.push(`- **Duration:** ${formatDuration(failingAction.timing?.durationMs)}`);
+    parts.push(`- **Duration:** ${formatDuration2(failingAction.timing?.durationMs)}`);
     if (failingAction.error) {
       parts.push(`- **Error:** ${failingAction.error.message}`);
       if (failingAction.error.stack)
@@ -21447,7 +22468,7 @@ _DOM snapshot available. Use \`e2e_get_dom_snapshot\` (actionIndex=${failIdx}) o
 ### Network During Failure (${failingAction.network.requests.length})`);
       for (const r of failingAction.network.requests) {
         const icon = r.status && r.status >= 400 ? "\u2717" : "\u2713";
-        parts.push(`- ${icon} \`${r.method}\` ${r.url} \u2192 ${r.status ?? "pending"} (${formatDuration(r.durationMs)})`);
+        parts.push(`- ${icon} \`${r.method}\` ${r.url} \u2192 ${r.status ?? "pending"} (${formatDuration2(r.durationMs)})`);
         if (opts.includeNetworkBodies && r.responseBody) {
           const f = formatBody(r.responseBody, 3e3);
           parts.push(`  \`\`\`${f.lang}
@@ -21505,7 +22526,7 @@ ${f.text}
       const net = a.network?.requests?.length || 0;
       const netInfo = net > 0 ? ` [${net} req]` : "";
       const marker = a === failingAction ? "  \u2190 FAILING" : "";
-      parts.push(`${String(i).padStart(padLen)}. ${icon} ${a.type}.${a.method}${netInfo}  ${formatDuration(a.timing?.durationMs)}${marker}`);
+      parts.push(`${String(i).padStart(padLen)}. ${icon} ${a.type}.${a.method}${netInfo}  ${formatDuration2(a.timing?.durationMs)}${marker}`);
     }
   }
   return parts.join("\n");
@@ -21558,7 +22579,7 @@ function buildHtmlReport(run, cwd2, sendProgress) {
         const rowClass = isFailing ? ' class="fail-row"' : "";
         const icon = a.error ? "&#10007;" : "&#10003;";
         const net = a.network?.requests?.length || 0;
-        rows += `<tr${rowClass}><td>${i}</td><td>${icon}</td><td>${escHtml(a.type)}.${escHtml(a.method)}</td><td>${net}</td><td>${formatDuration(a.timing?.durationMs)}</td></tr>`;
+        rows += `<tr${rowClass}><td>${i}</td><td>${icon}</td><td>${escHtml(a.type)}.${escHtml(a.method)}</td><td>${net}</td><td>${formatDuration2(a.timing?.durationMs)}</td></tr>`;
       }
       details += `<div class="section"><h4>Action Timeline (${test.actions.length})</h4><table><tr><th>#</th><th></th><th>Action</th><th>Net</th><th>Duration</th></tr>${rows}</table></div>`;
     }
@@ -21567,7 +22588,7 @@ function buildHtmlReport(run, cwd2, sendProgress) {
     if (failedReqs.length > 0) {
       let rows = "";
       for (const r of failedReqs.slice(0, 20)) {
-        rows += `<tr class="fail-row"><td>${escHtml(r.method)}</td><td>${escHtml(r.url)}</td><td>${r.status}</td><td>${formatDuration(r.durationMs)}</td></tr>`;
+        rows += `<tr class="fail-row"><td>${escHtml(r.method)}</td><td>${escHtml(r.url)}</td><td>${r.status}</td><td>${formatDuration2(r.durationMs)}</td></tr>`;
       }
       details += `<div class="section"><h4>Failed Network Requests (${failedReqs.length})</h4><table><tr><th>Method</th><th>URL</th><th>Status</th><th>Duration</th></tr>${rows}</table></div>`;
     }
@@ -21587,7 +22608,7 @@ function buildHtmlReport(run, cwd2, sendProgress) {
       let imgs = "";
       for (const s of screenshots) {
         try {
-          const data = fs6.readFileSync(s.path);
+          const data = fs7.readFileSync(s.path);
           const b64 = data.toString("base64");
           imgs += `<div class="screenshot"><p>${escHtml(s.name)}</p><img src="data:${s.contentType};base64,${b64}" alt="${escHtml(s.name)}"/></div>`;
         } catch {
@@ -21597,7 +22618,7 @@ function buildHtmlReport(run, cwd2, sendProgress) {
       details += `<div class="section"><h4>Screenshots</h4>${imgs}</div>`;
     }
     const open = test.status === "failed" ? " open" : "";
-    testSections += `<details id="test-${ti}"${open} class="test ${statusClass}"><summary>${statusBadge} <strong>${escHtml(test.test || test.file)}</strong> <span class="dur">${formatDuration(test.duration)}</span></summary>${details}</details>`;
+    testSections += `<details id="test-${ti}"${open} class="test ${statusClass}"><summary>${statusBadge} <strong>${escHtml(test.test || test.file)}</strong> <span class="dur">${formatDuration2(test.duration)}</span></summary>${details}</details>`;
   }
   return `<!DOCTYPE html>
 <html lang="en">
@@ -21654,7 +22675,7 @@ function buildHtmlReport(run, cwd2, sendProgress) {
   <div class="stat"><div class="num">${run.tests.length}</div><div class="label">Total</div></div>
   <div class="stat"><div class="num pass-num">${passed.length}</div><div class="label">Passed</div></div>
   <div class="stat"><div class="num fail-num">${failed.length}</div><div class="label">Failed</div></div>
-  <div class="stat"><div class="num">${formatDuration(totalDuration)}</div><div class="label">Duration</div></div>
+  <div class="stat"><div class="num">${formatDuration2(totalDuration)}</div><div class="label">Duration</div></div>
 </div>
 ${groupsHtml}
 ${testSections}
@@ -21699,7 +22720,7 @@ async function handleGetTriageConfig(ctx) {
   const lines = [];
   lines.push("## Triage Configuration");
   lines.push("");
-  lines.push(`**Source:** \`.e2e-triage.json\` ${fs6.existsSync(path7.join(ctx.cwd, ".e2e-triage.json")) ? "(found)" : "(not found \u2014 using defaults)"}`);
+  lines.push(`**Source:** \`.e2e-triage.json\` ${fs7.existsSync(path8.join(ctx.cwd, ".e2e-triage.json")) ? "(found)" : "(not found \u2014 using defaults)"}`);
   lines.push("");
   lines.push(`**Flaky threshold:** ${Math.round(config.flaky.threshold * 100)}% failure rate over ${config.flaky.windowSize} runs`);
   lines.push(`**Project filter:** ${config.project || "(all projects)"}`);
@@ -21733,7 +22754,7 @@ function limitDepth(snapshot, maxDepth) {
     return Math.floor(indent / 2) <= maxDepth;
   }).join("\n");
 }
-function formatDuration(ms) {
+function formatDuration2(ms) {
   if (ms == null)
     return "?";
   if (ms >= 1e4)
@@ -21815,10 +22836,55 @@ async function handleMatchPatterns(args, ctx) {
   const matches = matchPatterns(ctx.cwd, query, minScore);
   return text(formatPatternMatchDetail(matches));
 }
+async function handleBisect(args, ctx) {
+  const location = args.location ? String(args.location) : "";
+  if (!location)
+    return error("location is required (file:line).");
+  if (!isGitRepo(ctx.cwd))
+    return error("Not a git repository. e2e_bisect requires git.");
+  const goodCommit = args.goodCommit ? String(args.goodCommit) : void 0;
+  const badCommit = args.badCommit ? String(args.badCommit) : void 0;
+  const project = args.project ? String(args.project) : void 0;
+  const timeoutMs = args.timeout ? Number(args.timeout) * 1e3 : 12e4;
+  if (goodCommit) {
+    try {
+      resolveCommit(ctx.cwd, goodCommit);
+    } catch {
+      return error(`Cannot resolve goodCommit "${goodCommit}". Check that the ref exists.`);
+    }
+  }
+  if (badCommit) {
+    try {
+      resolveCommit(ctx.cwd, badCommit);
+    } catch {
+      return error(`Cannot resolve badCommit "${badCommit}". Check that the ref exists.`);
+    }
+  }
+  cleanupBisectWorktrees(ctx.cwd);
+  const opts = {
+    testLocation: location,
+    cwd: ctx.cwd,
+    goodCommit,
+    badCommit,
+    project,
+    timeoutMs,
+    runTest: (loc, cwd2, options) => ctx.runTest(loc, cwd2, { project: options?.project, timeoutMs: options?.timeoutMs }),
+    storeRun: (runId, result) => ctx.runs.set(runId, { runId: result.runId, timestamp: result.timestamp, tests: result.tests }),
+    onProgress: ctx.sendProgress
+  };
+  try {
+    const result = await runBisection(opts);
+    return text(formatBisectResult(result));
+  } catch (e) {
+    cleanupBisectWorktrees(ctx.cwd);
+    const msg = e instanceof Error ? e.message : String(e);
+    return error(`Bisection failed: ${msg}`);
+  }
+}
 
 // packages/pw-test-writer/dist/mcp/captureRunner.js
-import * as fs8 from "fs";
-import * as path9 from "path";
+import * as fs9 from "fs";
+import * as path10 from "path";
 import { spawn as spawn2 } from "child_process";
 import { fileURLToPath as fileURLToPath4 } from "url";
 
@@ -22391,19 +23457,19 @@ function createCaptureServer(target) {
 }
 
 // packages/pw-test-writer/dist/runner/testRunner.js
-import * as fs7 from "fs";
-import * as path8 from "path";
+import * as fs8 from "fs";
+import * as path9 from "path";
 import { spawn } from "child_process";
 import { fileURLToPath as fileURLToPath3 } from "url";
-var __dirname = path8.dirname(fileURLToPath3(import.meta.url));
+var __dirname = path9.dirname(fileURLToPath3(import.meta.url));
 async function discoverTests(cwd2, project) {
   try {
     const result = await new Promise((resolve7, reject) => {
       const args = ["test", "--list", "--reporter=json"];
       if (project)
         args.push("--project", project);
-      const localBin = path8.join(cwd2, "node_modules", ".bin", "playwright");
-      const cmd = fs7.existsSync(localBin) ? localBin : "npx";
+      const localBin = path9.join(cwd2, "node_modules", ".bin", "playwright");
+      const cmd = fs8.existsSync(localBin) ? localBin : "npx";
       if (cmd === "npx")
         args.unshift("playwright");
       const child = spawn(cmd, args, {
@@ -22452,8 +23518,8 @@ async function discoverProjects(cwd2) {
   try {
     const result = await new Promise((resolve7, reject) => {
       const args = ["test", "--list", "--reporter=json"];
-      const localBin = path8.join(cwd2, "node_modules", ".bin", "playwright");
-      const cmd = fs7.existsSync(localBin) ? localBin : "npx";
+      const localBin = path9.join(cwd2, "node_modules", ".bin", "playwright");
+      const cmd = fs8.existsSync(localBin) ? localBin : "npx";
       if (cmd === "npx")
         args.unshift("playwright");
       const child = spawn(cmd, args, {
@@ -22495,7 +23561,7 @@ function parsePlaywrightJson(json, cwd2) {
     processTestSuite(suite, rootDir, fileMap);
   }
   for (const [filePath, tests] of fileMap) {
-    const relativePath = path8.relative(cwd2, filePath);
+    const relativePath = path9.relative(cwd2, filePath);
     testFiles.push({ path: filePath, relativePath, tests });
   }
   return testFiles;
@@ -22506,7 +23572,7 @@ function processTestSuite(suite, cwd2, fileMap, parentTitle = "") {
     const specFile = spec.file || suite.file;
     if (!specFile)
       continue;
-    const filePath = path8.isAbsolute(specFile) ? specFile : path8.resolve(cwd2, specFile);
+    const filePath = path9.isAbsolute(specFile) ? specFile : path9.resolve(cwd2, specFile);
     if (!fileMap.has(filePath)) {
       fileMap.set(filePath, []);
     }
@@ -22524,7 +23590,7 @@ function processTestSuite(suite, cwd2, fileMap, parentTitle = "") {
 }
 async function discoverTestsWithGlob(cwd2) {
   const testFiles = [];
-  const hasConfig = fs7.existsSync(path8.join(cwd2, "playwright.config.ts")) || fs7.existsSync(path8.join(cwd2, "playwright.config.js"));
+  const hasConfig = fs8.existsSync(path9.join(cwd2, "playwright.config.ts")) || fs8.existsSync(path9.join(cwd2, "playwright.config.js"));
   if (!hasConfig) {
     return testFiles;
   }
@@ -22549,7 +23615,7 @@ async function discoverTestsWithGlob(cwd2) {
       for (const file of files) {
         if (testFiles.some((t) => t.path === file))
           continue;
-        const relativePath = path8.relative(cwd2, file);
+        const relativePath = path9.relative(cwd2, file);
         const tests = await parseTestFile(file);
         if (tests.length > 0) {
           testFiles.push({ path: file, relativePath, tests });
@@ -22563,7 +23629,7 @@ async function discoverTestsWithGlob(cwd2) {
 async function parseTestFile(filePath) {
   const tests = [];
   try {
-    const content = await fs7.promises.readFile(filePath, "utf-8");
+    const content = await fs8.promises.readFile(filePath, "utf-8");
     const lines = content.split("\n");
     let currentDescribe = "";
     for (let i = 0; i < lines.length; i++) {
@@ -22585,7 +23651,7 @@ async function parseTestFile(filePath) {
 }
 
 // packages/pw-test-writer/dist/mcp/captureRunner.js
-var __dirname2 = path9.dirname(fileURLToPath4(import.meta.url));
+var __dirname2 = path10.dirname(fileURLToPath4(import.meta.url));
 var MemoryTarget = class {
   actions = [];
   currentAction = null;
@@ -22613,7 +23679,7 @@ async function runTest(testLocation, cwd2, options) {
   const lastColon = testLocation.lastIndexOf(":");
   const file = lastColon > 0 ? testLocation.substring(0, lastColon) : testLocation;
   const lineNum = lastColon > 0 ? parseInt(testLocation.substring(lastColon + 1), 10) : NaN;
-  const relFile = path9.relative(cwd2, file);
+  const relFile = path10.relative(cwd2, file);
   let resolvedTitle;
   if (!isNaN(lineNum)) {
     try {
@@ -22662,8 +23728,8 @@ async function runProject(cwd2, options) {
   if (options?.repeatEach && options.repeatEach > 1)
     args.push("--repeat-each", String(options.repeatEach));
   args.push("--reporter=json");
-  const localBin = path9.join(cwd2, "node_modules", ".bin", "playwright");
-  const cmd = fs8.existsSync(localBin) ? localBin : "npx";
+  const localBin = path10.join(cwd2, "node_modules", ".bin", "playwright");
+  const cmd = fs9.existsSync(localBin) ? localBin : "npx";
   if (cmd === "npx")
     args.unshift("playwright");
   const stdout = await new Promise((resolve7, reject) => {
@@ -22764,7 +23830,7 @@ function parseJsonRunResults(jsonStr, cwd2) {
     const currentTitle = parentTitle && suite.title ? `${parentTitle} > ${suite.title}` : suite.title || parentTitle;
     for (const spec of suite.specs || []) {
       const specFile = spec.file || suite.file || "";
-      const relFile = specFile ? path9.relative(cwd2, path9.isAbsolute(specFile) ? specFile : path9.resolve(rootDir, specFile)) : "unknown";
+      const relFile = specFile ? path10.relative(cwd2, path10.isAbsolute(specFile) ? specFile : path10.resolve(rootDir, specFile)) : "unknown";
       const fullTitle = currentTitle && spec.title ? `${currentTitle} > ${spec.title}` : spec.title || currentTitle;
       for (const test of spec.tests || []) {
         if (test.status === "skipped")
@@ -22804,8 +23870,8 @@ function spawnTest(testLocation, cwd2, captureEndpoint, timeoutMs = 12e4, projec
     if (captureEndpoint) {
       env.PW_CAPTURE_ENDPOINT = captureEndpoint;
       env.PW_CAPTURE_SESSION = `test-${Date.now()}`;
-      const hookPath = path9.resolve(__dirname2, "..", "runner", "captureHook.cjs");
-      if (fs8.existsSync(hookPath)) {
+      const hookPath = path10.resolve(__dirname2, "..", "runner", "captureHook.cjs");
+      if (fs9.existsSync(hookPath)) {
         const existing = env.NODE_OPTIONS || "";
         env.NODE_OPTIONS = `${existing} --require "${hookPath}"`.trim();
       }
@@ -22818,8 +23884,8 @@ function spawnTest(testLocation, cwd2, captureEndpoint, timeoutMs = 12e4, projec
     if (repeatEach && repeatEach > 1)
       args.push("--repeat-each", String(repeatEach));
     args.push("--reporter=line");
-    const localBin = path9.join(cwd2, "node_modules", ".bin", "playwright");
-    const cmd = fs8.existsSync(localBin) ? localBin : "npx";
+    const localBin = path10.join(cwd2, "node_modules", ".bin", "playwright");
+    const cmd = fs9.existsSync(localBin) ? localBin : "npx";
     if (cmd === "npx")
       args.unshift("playwright");
     const child = spawn2(cmd, args, {
@@ -22920,13 +23986,13 @@ function collectScreenshots(cwd2, startTime) {
   const attachments = [];
   const seenPaths = /* @__PURE__ */ new Set();
   const walk = (dir, depth = 0) => {
-    if (depth > 4 || !fs8.existsSync(dir))
+    if (depth > 4 || !fs9.existsSync(dir))
       return;
     try {
-      for (const entry of fs8.readdirSync(dir, { withFileTypes: true })) {
+      for (const entry of fs9.readdirSync(dir, { withFileTypes: true })) {
         if (entry.name === "node_modules" || entry.name === ".git")
           continue;
-        const full = path9.join(dir, entry.name);
+        const full = path10.join(dir, entry.name);
         if (entry.isDirectory()) {
           walk(full, depth + 1);
           continue;
@@ -22936,7 +24002,7 @@ function collectScreenshots(cwd2, startTime) {
         if (seenPaths.has(full))
           continue;
         try {
-          const stat = fs8.statSync(full);
+          const stat = fs9.statSync(full);
           if (stat.mtimeMs >= startTime) {
             seenPaths.add(full);
             attachments.push({ name: entry.name, path: full, contentType: "image/png" });
@@ -22957,12 +24023,12 @@ function collectActionScreenshots(actions, cwd2, attachments) {
     const filePath = action.params?.path;
     if (!filePath || typeof filePath !== "string")
       continue;
-    const resolved = path9.isAbsolute(filePath) ? filePath : path9.resolve(cwd2, filePath);
-    if (!fs8.existsSync(resolved))
+    const resolved = path10.isAbsolute(filePath) ? filePath : path10.resolve(cwd2, filePath);
+    if (!fs9.existsSync(resolved))
       continue;
     if (attachments.some((a) => a.path === resolved))
       continue;
-    attachments.push({ name: path9.basename(resolved), path: resolved, contentType: "image/png" });
+    attachments.push({ name: path10.basename(resolved), path: resolved, contentType: "image/png" });
   }
 }
 
@@ -23746,12 +24812,12 @@ var BrowserContext = class {
 };
 
 // packages/pw-test-writer/dist/mcp/browser/tools.js
-import * as fs11 from "fs";
-import * as path12 from "path";
+import * as fs12 from "fs";
+import * as path13 from "path";
 
 // packages/pw-test-writer/dist/mcp/browser/explore.js
-import * as fs9 from "fs";
-import * as path10 from "path";
+import * as fs10 from "fs";
+import * as path11 from "path";
 var STRUCTURAL_ROLES = /* @__PURE__ */ new Set([
   "heading",
   "button",
@@ -24385,17 +25451,17 @@ function formatAppMap(map) {
   return lines.join("\n");
 }
 function saveAppMap(map, cwd2) {
-  const outDir = path10.join(cwd2, ".pw-test-writer");
-  if (!fs9.existsSync(outDir))
-    fs9.mkdirSync(outDir, { recursive: true });
-  const filePath = path10.join(outDir, "app-map.json");
-  fs9.writeFileSync(filePath, JSON.stringify(map, null, 2));
+  const outDir = path11.join(cwd2, ".pw-test-writer");
+  if (!fs10.existsSync(outDir))
+    fs10.mkdirSync(outDir, { recursive: true });
+  const filePath = path11.join(outDir, "app-map.json");
+  fs10.writeFileSync(filePath, JSON.stringify(map, null, 2));
   return filePath;
 }
 
 // packages/pw-test-writer/dist/mcp/browser/flowRecorder.js
-import * as fs10 from "fs";
-import * as path11 from "path";
+import * as fs11 from "fs";
+import * as path12 from "path";
 var FlowRecorder = class {
   name;
   startUrl;
@@ -24409,7 +25475,7 @@ var FlowRecorder = class {
   get stepCount() {
     return this._steps.length;
   }
-  recordStep(action, params, result, url, capture) {
+  recordStep(action, params, result, url, capture, snapshot) {
     const step = {
       action,
       params: sanitizeParams(params),
@@ -24429,7 +25495,8 @@ var FlowRecorder = class {
       }),
       durationMs: capture?.timing.durationMs || 0,
       diff: capture?.snapshot.diff?.summary,
-      index: this._steps.length
+      index: this._steps.length,
+      locator: extractLocator(action, params, snapshot)
     };
     this._steps.push(step);
   }
@@ -24480,22 +25547,48 @@ function formatFlow(flow) {
   return lines.join("\n");
 }
 function saveFlow2(flow, cwd2) {
-  const dir = path11.join(cwd2, ".pw-test-writer", "flows");
-  fs10.mkdirSync(dir, { recursive: true });
+  const dir = path12.join(cwd2, ".pw-test-writer", "flows");
+  fs11.mkdirSync(dir, { recursive: true });
   const safeName = flow.name.replace(/[^a-zA-Z0-9_-]/g, "-");
-  const filePath = path11.join(dir, `${safeName}.json`);
-  fs10.writeFileSync(filePath, JSON.stringify(flow, null, 2));
+  const filePath = path12.join(dir, `${safeName}.json`);
+  fs11.writeFileSync(filePath, JSON.stringify(flow, null, 2));
   return filePath;
 }
 function loadFlows(cwd2) {
-  const dir = path11.join(cwd2, ".pw-test-writer", "flows");
-  if (!fs10.existsSync(dir))
+  const dir = path12.join(cwd2, ".pw-test-writer", "flows");
+  if (!fs11.existsSync(dir))
     return [];
-  const files = fs10.readdirSync(dir).filter((f) => f.endsWith(".json"));
+  const files = fs11.readdirSync(dir).filter((f) => f.endsWith(".json"));
   return files.map((f) => {
-    const content = fs10.readFileSync(path11.join(dir, f), "utf-8");
+    const content = fs11.readFileSync(path12.join(dir, f), "utf-8");
     return JSON.parse(content);
   });
+}
+function extractLocator(action, params, snapshot) {
+  if (action === "navigate")
+    return { role: "navigation", name: "", text: params.url };
+  if (action === "navigate_back")
+    return { role: "navigation", name: "", text: "back" };
+  if (action === "press_key")
+    return { role: "keyboard", name: "", key: params.key };
+  const ref = params.ref;
+  if (!ref || !snapshot)
+    return void 0;
+  const elements = parseSnapshot(snapshot);
+  const el = elements.get(ref);
+  if (!el)
+    return void 0;
+  const locator = { role: el.role, name: el.name };
+  if (action === "type" || action === "fill") {
+    locator.text = params.text;
+    if (params.submit)
+      locator.submit = true;
+  } else if (action === "select_option" || action === "select") {
+    locator.value = params.value;
+  }
+  if (params.label)
+    locator.label = params.label;
+  return locator;
 }
 function sanitizeParams(params) {
   const clean = {};
@@ -24542,6 +25635,165 @@ function shortUrl(url) {
   } catch {
     return url;
   }
+}
+
+// packages/pw-test-writer/dist/mcp/browser/flowReplay.js
+function resolveLocator(page, locator) {
+  if (locator.label)
+    return page.getByLabel(locator.label);
+  return page.getByRole(locator.role, { name: locator.name });
+}
+async function executeStep(step, ctx) {
+  const tab = ctx.currentTabOrDie();
+  const page = tab.page;
+  const locator = step.locator;
+  if (!locator)
+    throw new Error(`Step ${step.index} (${step.action}) has no stored locator \u2014 cannot replay`);
+  switch (step.action) {
+    case "navigate": {
+      const result = await tab.trackCompletion(async () => {
+        await tab.navigate(locator.text);
+      });
+      return result;
+    }
+    case "navigate_back": {
+      const result = await tab.trackCompletion(async () => {
+        await page.goBack();
+      });
+      return result;
+    }
+    case "click": {
+      const el = resolveLocator(page, locator);
+      const result = await tab.trackCompletion(async () => {
+        await el.click();
+      });
+      return result;
+    }
+    case "type":
+    case "fill": {
+      const el = resolveLocator(page, locator);
+      const result = await tab.trackCompletion(async () => {
+        await el.fill(locator.text || "");
+        if (locator.submit)
+          await el.press("Enter");
+      });
+      return result;
+    }
+    case "select_option":
+    case "select": {
+      const el = resolveLocator(page, locator);
+      const result = await tab.trackCompletion(async () => {
+        await el.selectOption(locator.value);
+      });
+      return result;
+    }
+    case "press_key": {
+      const result = await tab.trackCompletion(async () => {
+        await page.keyboard.press(locator.key);
+      });
+      return result;
+    }
+    case "hover": {
+      const el = resolveLocator(page, locator);
+      const result = await tab.trackCompletion(async () => {
+        await el.hover();
+      });
+      return result;
+    }
+    case "fill_form": {
+      const values = step.params.values;
+      if (!values)
+        throw new Error("fill_form step has no values");
+      const result = await tab.trackCompletion(async () => {
+        for (const v of values) {
+          const fieldLocator = v.label ? page.getByLabel(v.label) : page.getByRole("textbox", { name: v.element });
+          await fieldLocator.fill(v.value);
+        }
+      });
+      return result;
+    }
+    default:
+      throw new Error(`Unsupported replay action: ${step.action}`);
+  }
+}
+async function replayFlows(flowNames, ctx) {
+  const cwd2 = process.env.PW_PROJECT_DIR || process.cwd();
+  const allFlows = loadFlows(cwd2);
+  const flowMap = new Map(allFlows.map((f) => [f.name, f]));
+  const flows = [];
+  for (const name of flowNames) {
+    const flow = flowMap.get(name);
+    if (!flow)
+      throw new Error(`Flow "${name}" not found. Available: ${allFlows.map((f) => f.name).join(", ") || "none"}`);
+    flows.push(flow);
+  }
+  const allSteps = flows.flatMap((f) => f.steps.map((s) => ({ ...s, flowName: f.name })));
+  const totalSteps = allSteps.length;
+  const allRequests = [];
+  let completedSteps = 0;
+  const startTime = Date.now();
+  for (const step of allSteps) {
+    try {
+      const { requests } = await executeStep(step, ctx);
+      allRequests.push(...requests.filter((r) => !isStaticOrTracking(r.url)));
+      completedSteps++;
+    } catch (e) {
+      const errorMsg = e instanceof Error ? e.message : String(e);
+      let failureSnapshot;
+      try {
+        const tab = ctx.currentTab();
+        if (tab)
+          failureSnapshot = await tab.ariaSnapshot();
+      } catch {
+      }
+      return {
+        success: false,
+        flowNames,
+        completedSteps,
+        totalSteps,
+        durationMs: Date.now() - startTime,
+        networkRequests: allRequests,
+        failedStep: {
+          index: step.index,
+          flowName: step.flowName,
+          action: step.action,
+          error: errorMsg
+        },
+        failureSnapshot
+      };
+    }
+  }
+  return {
+    success: true,
+    flowNames,
+    completedSteps,
+    totalSteps,
+    durationMs: Date.now() - startTime,
+    networkRequests: allRequests
+  };
+}
+function formatReplayResult(result) {
+  const lines = [];
+  const status = result.success ? "PASSED" : "FAILED";
+  lines.push(`### Flow Replay: ${status}`);
+  lines.push(`Flows: ${result.flowNames.join(" \u2192 ")}`);
+  lines.push(`Steps: ${result.completedSteps}/${result.totalSteps} passed in ${(result.durationMs / 1e3).toFixed(1)}s`);
+  const apiRequests = result.networkRequests.filter((r) => !isStaticOrTracking(r.url));
+  if (apiRequests.length > 0)
+    lines.push(`Network: ${formatNetworkSummary(apiRequests)}`);
+  if (result.failedStep) {
+    lines.push("");
+    lines.push(`**Failed at step ${result.failedStep.index + 1}** in flow "${result.failedStep.flowName}": ${result.failedStep.action}`);
+    lines.push(`Error: ${result.failedStep.error}`);
+  }
+  if (result.failureSnapshot) {
+    lines.push("");
+    lines.push("### Page state at failure");
+    lines.push("```yaml");
+    lines.push(result.failureSnapshot);
+    lines.push("```");
+  }
+  return lines.join("\n");
 }
 
 // packages/pw-test-writer/dist/mcp/browser/tools.js
@@ -24841,6 +26093,21 @@ var browserToolDefs = [
       type: "object",
       properties: {}
     }
+  },
+  {
+    name: "browser_replay_flow",
+    description: "Replay saved flows using stored locators \u2014 no ARIA snapshots returned. Minimal token usage. On failure, captures snapshot at the failing step for diagnosis. Chain multiple flows as building blocks.",
+    inputSchema: {
+      type: "object",
+      properties: {
+        flows: {
+          type: "array",
+          items: { type: "string" },
+          description: 'Flow name(s) to replay in order (e.g. ["login", "navigate-to-settings"])'
+        }
+      },
+      required: ["flows"]
+    }
   }
 ];
 async function handleBrowserTool(name, args, ctx) {
@@ -24909,6 +26176,9 @@ async function handleBrowserTool(name, args, ctx) {
       case "e2e_explore":
         result = await handleExplore(args, ctx);
         break;
+      case "browser_replay_flow":
+        result = await handleReplayFlow(args, ctx);
+        break;
       default:
         return error2(`Unknown browser tool: ${name}`);
     }
@@ -24917,7 +26187,7 @@ async function handleBrowserTool(name, args, ctx) {
       const resultText = result.content.find((c) => c.type === "text")?.text || "";
       const summary = resultText.split("\n").find((l) => l.startsWith("###"))?.replace(/^###\s*/, "") || actionName;
       const url = ctx.currentTab()?.page.url() || "";
-      ctx.flowRecorder.recordStep(actionName, args, summary, url, lastCapture);
+      ctx.flowRecorder.recordStep(actionName, args, summary, url, lastCapture, lastCapture?.snapshot.before);
       lastCapture = void 0;
     }
     return result;
@@ -24934,7 +26204,8 @@ var NON_RECORDABLE_TOOLS = /* @__PURE__ */ new Set([
   "browser_save_session",
   "browser_restore_session",
   "browser_close",
-  "e2e_explore"
+  "e2e_explore",
+  "browser_replay_flow"
 ]);
 var lastCapture;
 function parseJsonArg(value) {
@@ -25098,9 +26369,9 @@ async function handleScreenshot(args, ctx) {
   const outputFile = args.outputFile;
   const inline = args.inline;
   const buffer = await tab.page.screenshot({ type: "png" });
-  const savePath = outputFile ? path12.resolve(outputFile) : name ? path12.resolve(".pw-test-writer", "screenshots", `${name}.png`) : path12.resolve(".pw-test-writer", "screenshots", `screenshot-${Date.now()}.png`);
-  fs11.mkdirSync(path12.dirname(savePath), { recursive: true });
-  fs11.writeFileSync(savePath, buffer);
+  const savePath = outputFile ? path13.resolve(outputFile) : name ? path13.resolve(".pw-test-writer", "screenshots", `${name}.png`) : path13.resolve(".pw-test-writer", "screenshots", `screenshot-${Date.now()}.png`);
+  fs12.mkdirSync(path13.dirname(savePath), { recursive: true });
+  fs12.writeFileSync(savePath, buffer);
   if (inline) {
     return {
       content: [
@@ -25188,10 +26459,10 @@ async function handleSaveSession(args, ctx) {
     savedAt: (/* @__PURE__ */ new Date()).toISOString()
   };
   const cwd2 = process.env.PW_PROJECT_DIR || process.cwd();
-  const dir = path12.join(cwd2, ".pw-test-writer", "sessions");
-  fs11.mkdirSync(dir, { recursive: true });
-  const filePath = path12.join(dir, `${name}.json`);
-  fs11.writeFileSync(filePath, JSON.stringify(session, null, 2));
+  const dir = path13.join(cwd2, ".pw-test-writer", "sessions");
+  fs12.mkdirSync(dir, { recursive: true });
+  const filePath = path13.join(dir, `${name}.json`);
+  fs12.writeFileSync(filePath, JSON.stringify(session, null, 2));
   return text2(`Session "${name}" saved.
 URL: ${session.url}
 Cookies: ${storageState.cookies.length}
@@ -25201,10 +26472,10 @@ File: ${filePath}`);
 async function handleRestoreSession(args, ctx) {
   const name = args.name || "default";
   const cwd2 = process.env.PW_PROJECT_DIR || process.cwd();
-  const filePath = path12.join(cwd2, ".pw-test-writer", "sessions", `${name}.json`);
-  if (!fs11.existsSync(filePath))
+  const filePath = path13.join(cwd2, ".pw-test-writer", "sessions", `${name}.json`);
+  if (!fs12.existsSync(filePath))
     return error2(`Session "${name}" not found at ${filePath}`);
-  const session = JSON.parse(fs11.readFileSync(filePath, "utf-8"));
+  const session = JSON.parse(fs12.readFileSync(filePath, "utf-8"));
   await ctx.restoreFromSession(session);
   const tab = ctx.currentTabOrDie();
   const snapshot = await tab.captureSnapshot();
@@ -25268,6 +26539,14 @@ async function handleListFlows() {
   }
   return text2(lines.join("\n"));
 }
+async function handleReplayFlow(args, ctx) {
+  const flows = parseJsonArg(args.flows);
+  if (!flows || !Array.isArray(flows) || flows.length === 0)
+    return error2("flows array is required and must not be empty");
+  await ctx.ensureTab();
+  const result = await replayFlows(flows, ctx);
+  return text2(formatReplayResult(result));
+}
 async function handleExplore(args, ctx) {
   const url = args.url;
   if (!url)
@@ -25296,7 +26575,7 @@ async function handleBatch(args, ctx) {
     return error2("actions array is required and must not be empty");
   const tab = ctx.currentTabOrDie();
   let snapshotBefore;
-  if (!silent) {
+  if (!silent || ctx.flowRecorder) {
     try {
       snapshotBefore = await tab.ariaSnapshot();
     } catch {
@@ -25350,7 +26629,7 @@ async function handleBatch(args, ctx) {
       completedActions.push(actionLabel);
       if (ctx.flowRecorder) {
         const stepCapture = buildCapture(void 0, void 0, requests, durationMs);
-        ctx.flowRecorder.recordStep(action.action, action, actionLabel.trim(), tab.page.url(), stepCapture);
+        ctx.flowRecorder.recordStep(action.action, action, actionLabel.trim(), tab.page.url(), stepCapture, snapshotBefore);
       }
     } catch (e) {
       const errorMsg = e instanceof Error ? e.message : String(e);
@@ -25467,7 +26746,7 @@ function appendPageState(lines, snapshot, includeFullSnapshot) {
 function createMcpServer(cwd2) {
   const runs = /* @__PURE__ */ new Map();
   const browserCtx = new BrowserContext();
-  const server2 = new Server({ name: "playwright-autopilot", version: "0.5.0" }, {
+  const server2 = new Server({ name: "playwright-autopilot", version: "0.6.0" }, {
     capabilities: { tools: {} },
     instructions: `E2E Test Capture \u2014 Playwright test runner with deep debugging.
 
@@ -25487,7 +26766,7 @@ Use this server to run and debug Playwright E2E tests. Prefer these tools over r
    - e2e_get_network \u2014 network requests (filter by urlPattern, method, statusMin)
    - e2e_get_console \u2014 console output (filter by type: error, warn, log)
    - e2e_get_screenshot \u2014 failure screenshot as image
-   - e2e_get_test_source \u2014 read the test file with the failing test highlighted
+   - e2e_get_test_source \u2014 read the test file (use resolve=true to include referenced PO method bodies)
 5. Fix the test code, then re-run with e2e_run_test to verify
 
 ## Interactive Browser Exploration
@@ -25511,6 +26790,15 @@ Use browser_* tools to explore an application interactively \u2014 navigate page
 
 Each interaction tool returns an action capture (timing, network requests, page changes) and an updated ARIA snapshot.
 
+## Flow Replay (Token-Efficient)
+
+When you've already explored a path, avoid re-reading snapshots by replaying recorded flows:
+1. Record flows with \`e2e_start_flow\` / \`e2e_end_flow\` \u2014 locators are stored automatically
+2. Replay with \`browser_replay_flow\`: \`["login", "navigate-to-settings"]\`
+3. Returns pass/fail + network summary only \u2014 no snapshots (saves 500+ tokens per step)
+4. On failure: captures snapshot at the failing step for diagnosis
+5. Chain multiple flows as building blocks (e.g. replay "login" then "go-to-dashboard" before exploring a new feature)
+
 ## Context Loading
 - \`e2e_run_test\` **auto-loads** the matching flow for the test being run and includes it in the response on failure. It also **auto-saves** flows when tests pass.
 - Use \`e2e_get_context\` for full project context (all flows + page object index) \u2014 useful when you need to see the big picture.
@@ -25526,7 +26814,7 @@ When \`e2e_get_context\` returns no stored flows, you must understand the applic
 
 1. **Search external documentation.** If you have access to Confluence, wiki, or documentation search tools (e.g. Atlassian MCP, WebFetch, WebSearch), use them to find specs or flow descriptions for the feature under test. Search for the feature name, page name, or test description.
 
-2. **Read the test source.** Use \`e2e_get_test_source\` to understand what the test intends to do. Read the page objects and service files it imports to understand the available interactions.
+2. **Read the test source.** Use \`e2e_get_test_source\` with \`resolve: true\` to get the test body plus all referenced page object methods in one call. This saves tokens vs reading full files separately.
 
 3. **Run and observe.** Run the test with \`e2e_run_test\` and use \`e2e_get_actions\` to see what actually executed. This gives you ground truth of the current flow.
 
@@ -25678,6 +26966,12 @@ Two modes for detecting flaky tests:
 **\`repeatEach: N\`** \u2014 Native Playwright \`--repeat-each\`. All N iterations in one process. Fast stress-test for confirming flakiness (use 30-100). Returns pass/fail counts.
 
 Combine both: use \`repeatEach: 40\` to confirm flakiness, then \`retries: 2\` to capture detailed failure data for investigation.
+
+## Regression Bisection
+
+- **e2e_bisect** \u2014 Find the commit that broke a test. Binary searches git history using worktrees, comparing action captures between commits. Returns culprit commit + behavioral diff (actions, network, errors, timing).
+  - Specify \`goodCommit\` if known, or omit to auto-scan last 20 commits
+  - All intermediate runs stored \u2014 use \`e2e_get_actions\`/\`e2e_get_failure_report\` on any run ID from output
 
 ## Coverage Analysis
 
