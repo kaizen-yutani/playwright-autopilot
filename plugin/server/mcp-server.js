@@ -23720,6 +23720,7 @@ async function runTest(testLocation, cwd2, options) {
 async function runProject(cwd2, options) {
   const runId = `run-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
   const startTime = Date.now();
+  const jsonOutFile = path10.join(cwd2, `.pw-results-${Date.now()}-${Math.random().toString(36).slice(2, 8)}.json`);
   const args = ["test"];
   if (options?.project)
     args.push("--project", options.project);
@@ -23727,66 +23728,85 @@ async function runProject(cwd2, options) {
     args.push("--grep", options.grep);
   if (options?.repeatEach && options.repeatEach > 1)
     args.push("--repeat-each", String(options.repeatEach));
-  args.push("--reporter=json");
+  args.push(`--reporter=json,line`);
   const localBin = path10.join(cwd2, "node_modules", ".bin", "playwright");
   const cmd = fs9.existsSync(localBin) ? localBin : "npx";
   if (cmd === "npx")
     args.unshift("playwright");
-  const stdout = await new Promise((resolve7, reject) => {
-    const child = spawn2(cmd, args, {
-      cwd: cwd2,
-      env: { ...process.env, FORCE_COLOR: "0" },
-      stdio: ["pipe", "pipe", "pipe"]
-    });
-    let out = "";
-    let batchPassed = 0;
-    let batchFailed = 0;
-    let batchTotal = 0;
-    child.stdout?.on("data", (d) => {
-      out += d.toString();
-    });
-    child.stderr?.on("data", (d) => {
-      if (!options?.onProgress)
-        return;
-      const clean = d.toString().replace(/\x1B\[[0-9;]*[a-zA-Z]/g, "");
-      for (const line of clean.split("\n")) {
-        const trimmed = line.trim();
-        const runningMatch = trimmed.match(/Running (\d+) test/);
-        if (runningMatch) {
-          batchTotal = parseInt(runningMatch[1], 10);
-          options.onProgress(`Running ${batchTotal} tests...`);
+  let jsonStr = "";
+  try {
+    await new Promise((resolve7, reject) => {
+      const child = spawn2(cmd, args, {
+        cwd: cwd2,
+        env: { ...process.env, FORCE_COLOR: "0", PLAYWRIGHT_JSON_OUTPUT_NAME: jsonOutFile },
+        stdio: ["pipe", "pipe", "pipe"]
+      });
+      let batchPassed = 0;
+      let batchFailed = 0;
+      let batchTotal = 0;
+      const parseProgress = (d) => {
+        if (!options?.onProgress)
+          return;
+        const clean = d.toString().replace(/\x1B\[[0-9;]*[a-zA-Z]/g, "");
+        for (const line of clean.split("\n")) {
+          const trimmed = line.trim();
+          const runningMatch = trimmed.match(/Running (\d+) test/);
+          if (runningMatch) {
+            batchTotal = parseInt(runningMatch[1], 10);
+            options.onProgress(`Running ${batchTotal} tests...`);
+            continue;
+          }
+          const counterMatch = trimmed.match(/^\[(\d+)\/(\d+)\]/);
+          if (counterMatch) {
+            const current = parseInt(counterMatch[1], 10);
+            if (counterMatch[2] && batchTotal === 0)
+              batchTotal = parseInt(counterMatch[2], 10);
+            options.onProgress(`${current}/${batchTotal}`);
+            continue;
+          }
+          const passedMatch = trimmed.match(/^(\d+) passed/);
+          const failedMatch = trimmed.match(/^(\d+) failed/);
+          if (passedMatch)
+            batchPassed = parseInt(passedMatch[1], 10);
+          if (failedMatch)
+            batchFailed = parseInt(failedMatch[1], 10);
         }
-        const passedMatch = trimmed.match(/(\d+) passed/);
-        const failedMatch = trimmed.match(/(\d+) failed/);
-        if (passedMatch)
-          batchPassed = parseInt(passedMatch[1], 10);
-        if (failedMatch)
-          batchFailed = parseInt(failedMatch[1], 10);
-        if ((passedMatch || failedMatch) && batchTotal > 0) {
-          options.onProgress(`${batchPassed + batchFailed}/${batchTotal} \xB7 \u2705 ${batchPassed} passed, \u274C ${batchFailed} failed`);
+        if ((batchPassed > 0 || batchFailed > 0) && batchTotal > 0) {
+          options.onProgress(`${batchTotal}/${batchTotal} \xB7 \u2705 ${batchPassed} passed, \u274C ${batchFailed} failed`);
         }
-      }
+      };
+      child.stdout?.on("data", parseProgress);
+      child.stderr?.on("data", parseProgress);
+      const timer = setTimeout(() => {
+        child.kill("SIGTERM");
+        setTimeout(() => {
+          try {
+            child.kill("SIGKILL");
+          } catch {
+          }
+        }, 5e3).unref();
+        resolve7();
+      }, options?.timeoutMs || 6e5);
+      child.on("close", () => {
+        clearTimeout(timer);
+        resolve7();
+      });
+      child.on("error", (err) => {
+        clearTimeout(timer);
+        reject(err);
+      });
     });
-    const timer = setTimeout(() => {
-      child.kill("SIGTERM");
-      setTimeout(() => {
-        try {
-          child.kill("SIGKILL");
-        } catch {
-        }
-      }, 5e3).unref();
-      resolve7(out);
-    }, options?.timeoutMs || 6e5);
-    child.on("close", () => {
-      clearTimeout(timer);
-      resolve7(out);
-    });
-    child.on("error", (err) => {
-      clearTimeout(timer);
-      reject(err);
-    });
-  });
-  const tests = parseJsonRunResults(stdout, cwd2);
+  } finally {
+    try {
+      jsonStr = fs9.readFileSync(jsonOutFile, "utf-8");
+    } catch {
+    }
+    try {
+      fs9.unlinkSync(jsonOutFile);
+    } catch {
+    }
+  }
+  const tests = parseJsonRunResults(jsonStr, cwd2);
   return { runId, timestamp: startTime, tests };
 }
 function parseJsonRunResults(jsonStr, cwd2) {
