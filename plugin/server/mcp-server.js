@@ -23759,9 +23759,12 @@ async function runProject(cwd2, options) {
           const counterMatch = trimmed.match(/^\[(\d+)\/(\d+)\]/);
           if (counterMatch) {
             const current = parseInt(counterMatch[1], 10);
-            if (counterMatch[2] && batchTotal === 0)
-              batchTotal = parseInt(counterMatch[2], 10);
-            options.onProgress(`${current}/${batchTotal}`);
+            const reportedTotal = parseInt(counterMatch[2], 10);
+            if (batchTotal === 0)
+              batchTotal = reportedTotal;
+            if (reportedTotal > batchTotal)
+              batchTotal = reportedTotal;
+            options.onProgress(`${Math.min(current, batchTotal)}/${batchTotal}`);
             continue;
           }
           const passedMatch = trimmed.match(/^(\d+) passed/);
