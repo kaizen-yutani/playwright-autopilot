@@ -20840,7 +20840,8 @@ var toolDefs = [
         project: { type: "string", description: 'Playwright project name to filter by (e.g. "e2e", "admin", "mobile")' },
         timeout: { type: "number", description: "Timeout in seconds for the test run (default: 120). Increase for slow tests or multi-step flows." },
         retries: { type: "number", description: "Run the test N+1 times to detect flaky failures (default: 0). Only works with location set. Returns per-run results and a FLAKY/CONSISTENT verdict." },
-        repeatEach: { type: "number", description: "Repeat each test N times within a single Playwright run (native --repeat-each). Fast stress-test for flakiness \u2014 use 30-100 for confidence. Returns pass/fail counts." }
+        repeatEach: { type: "number", description: "Repeat each test N times within a single Playwright run (native --repeat-each). Fast stress-test for flakiness \u2014 use 30-100 for confidence. Returns pass/fail counts." },
+        skipSetup: { type: "boolean", description: "Skip automatic dependency/setup project execution (default: false). Use when you already ran setup in this session." }
       }
     }
   },
@@ -21223,6 +21224,44 @@ function text(t) {
 function error(msg) {
   return { content: [{ type: "text", text: msg }], isError: true };
 }
+var DEP_CACHE_TTL_MS = 30 * 60 * 1e3;
+async function runDependencies(project, ctx, timeoutMs) {
+  const allProjects = await ctx.discoverProjects(ctx.cwd);
+  const target = allProjects.find((p) => p.name === project);
+  if (!target?.dependencies?.length)
+    return { summary: "", allPassed: true };
+  const depLines = [];
+  let allPassed = true;
+  const now = Date.now();
+  for (const dep of target.dependencies) {
+    const cached = ctx.depCache.get(dep);
+    if (cached && now - cached.timestamp < DEP_CACHE_TTL_MS) {
+      if (cached.passed) {
+        depLines.push(`\u2713 Dependency project **${dep}** passed (${cached.testCount} tests, cached from earlier run \`${cached.runId}\`).`);
+        continue;
+      }
+    }
+    ctx.sendProgress?.(`Running dependency project "${dep}"...`);
+    const depResult = await ctx.runProject(ctx.cwd, { project: dep, timeoutMs });
+    ctx.runs.set(depResult.runId, depResult);
+    const depFailed = depResult.tests.filter((t) => t.status === "failed");
+    const passed = depFailed.length === 0;
+    ctx.depCache.set(dep, {
+      runId: depResult.runId,
+      passed,
+      timestamp: Date.now(),
+      testCount: depResult.tests.length
+    });
+    if (!passed) {
+      allPassed = false;
+      depLines.push(`\u274C Dependency project **${dep}** failed (${depFailed.length}/${depResult.tests.length} tests). Run ID: \`${depResult.runId}\``);
+    } else {
+      depLines.push(`\u2713 Dependency project **${dep}** passed (${depResult.tests.length} tests).`);
+    }
+  }
+  const summary = depLines.length > 0 ? "\n\n### Setup\n" + depLines.join("\n") : "";
+  return { summary, allPassed };
+}
 function getTest(ctx, runId, testIndex = 0) {
   const run = ctx.runs.get(runId);
   if (!run)
@@ -21355,11 +21394,18 @@ async function handleListProjects(ctx) {
   const projects = await ctx.discoverProjects(ctx.cwd);
   if (projects.length === 0)
     return text("No Playwright projects found. Check that playwright.config.ts exists and defines projects.");
+  const now = Date.now();
   const lines = [`## Playwright Projects (${projects.length})`, ""];
   for (const p of projects) {
     const dir = p.testDir ? ` \u2014 ${p.testDir}` : "";
     const deps = p.dependencies?.length ? ` (depends on: ${p.dependencies.join(", ")})` : "";
-    lines.push(`- **${p.name}**${dir}${deps}`);
+    const cached = ctx.depCache.get(p.name);
+    let cacheStatus = "";
+    if (cached && now - cached.timestamp < DEP_CACHE_TTL_MS) {
+      const ago = Math.round((now - cached.timestamp) / 1e3 / 60);
+      cacheStatus = cached.passed ? ` \u2713 setup passed ${ago}m ago` : ` \u274C setup failed ${ago}m ago`;
+    }
+    lines.push(`- **${p.name}**${dir}${deps}${cacheStatus}`);
   }
   lines.push("");
   lines.push("Use `e2e_run_test` with `project` parameter to run all tests in a project, or `e2e_list_tests` with `project` to see individual tests.");
@@ -21372,31 +21418,24 @@ async function handleRunTest(args, ctx) {
   const timeoutMs = args.timeout ? Number(args.timeout) * 1e3 : void 0;
   const retries = args.retries ? Math.max(0, Math.floor(Number(args.retries))) : 0;
   const repeatEach = args.repeatEach ? Math.max(1, Math.floor(Number(args.repeatEach))) : void 0;
+  const skipSetup = args.skipSetup === true;
   if (!location) {
     if (retries > 0) {
       return text("\u26A0 `retries` is only supported when `location` is set (single-test mode). Running batch without retries.");
     }
     let setupSummary = "";
-    if (project) {
+    if (project && !skipSetup) {
       try {
-        const allProjects = await ctx.discoverProjects(ctx.cwd);
-        const target = allProjects.find((p) => p.name === project);
-        if (target?.dependencies?.length) {
-          const depLines = [];
-          for (const dep of target.dependencies) {
-            ctx.sendProgress?.(`Running dependency project "${dep}"...`);
-            const depResult = await ctx.runProject(ctx.cwd, { project: dep, timeoutMs });
-            ctx.runs.set(depResult.runId, depResult);
-            const depFailed = depResult.tests.filter((t) => t.status === "failed");
-            if (depFailed.length > 0) {
-              depLines.push(`\u26A0 Dependency project **${dep}** had ${depFailed.length} failure(s). The target project "${project}" may fail as a result.`);
-            } else {
-              depLines.push(`\u2713 Dependency project **${dep}** passed (${depResult.tests.length} tests).`);
-            }
-          }
-          setupSummary = "\n\n### Setup\n" + depLines.join("\n");
-          ctx.sendProgress?.(`Running project "${project}"...`);
+        const depResult = await runDependencies(project, ctx, timeoutMs);
+        setupSummary = depResult.summary;
+        if (!depResult.allPassed) {
+          return error(`Setup failed \u2014 dependency projects must pass before running "${project}".
+${setupSummary}
+
+Use \`e2e_get_failure_report\` with the run ID above to investigate. Pass \`skipSetup: true\` to bypass.`);
         }
+        if (setupSummary)
+          ctx.sendProgress?.(`Running project "${project}"...`);
       } catch {
       }
     }
@@ -21464,6 +21503,20 @@ async function handleRunTest(args, ctx) {
       lines2.push(`Use \`e2e_get_failure_report\` with runId \`${attempts[0].runId}\` for detailed analysis.`);
     }
     return text(lines2.join("\n"));
+  }
+  let singleSetupSummary = "";
+  if (project && !skipSetup) {
+    try {
+      const depResult = await runDependencies(project, ctx, timeoutMs);
+      singleSetupSummary = depResult.summary;
+      if (!depResult.allPassed) {
+        return error(`Setup failed \u2014 dependency projects must pass before running tests.
+${singleSetupSummary}
+
+Use \`e2e_get_failure_report\` with the run ID above to investigate. Pass \`skipSetup: true\` to bypass.`);
+      }
+    } catch {
+    }
   }
   const testFile = location.includes(":") ? location.split(":")[0] : location;
   const result = await ctx.runTest(location, ctx.cwd, { project, grep, timeoutMs, repeatEach });
@@ -21541,7 +21594,7 @@ async function handleRunTest(args, ctx) {
       lines.push(`_${totalActions} actions captured across ${result.tests.length} test(s). Run individual tests with file:line to auto-save per-test flows._`);
     }
   }
-  return text(lines.join("\n"));
+  return text(lines.join("\n") + singleSetupSummary);
 }
 function formatBatchResults(result, project) {
   const passed = result.tests.filter((t) => t.status === "passed");
@@ -23569,14 +23622,44 @@ async function discoverProjects(cwd2) {
       });
     });
     const data = JSON.parse(result);
-    return (data.config?.projects || []).map((p) => ({
+    const projects = (data.config?.projects || []).map((p) => ({
       name: String(p.name || ""),
-      testDir: p.testDir ? String(p.testDir) : void 0,
-      dependencies: Array.isArray(p.dependencies) ? p.dependencies.map(String) : void 0
+      testDir: p.testDir ? String(p.testDir) : void 0
     })).filter((p) => p.name);
+    const depMap = parseConfigDependencies(cwd2);
+    for (const p of projects) {
+      const deps = depMap.get(p.name);
+      if (deps?.length)
+        p.dependencies = deps;
+    }
+    return projects;
   } catch {
     return [];
   }
+}
+function parseConfigDependencies(cwd2) {
+  const depMap = /* @__PURE__ */ new Map();
+  try {
+    const configPath = fs8.existsSync(path9.join(cwd2, "playwright.config.ts")) ? path9.join(cwd2, "playwright.config.ts") : fs8.existsSync(path9.join(cwd2, "playwright.config.js")) ? path9.join(cwd2, "playwright.config.js") : null;
+    if (!configPath)
+      return depMap;
+    const content = fs8.readFileSync(configPath, "utf-8");
+    const projectBlockRe = /\{[^{}]*?name:\s*['"`]([^'"`]+)['"`][^{}]*?dependencies:\s*\[([^\]]*)\][^{}]*?\}/gs;
+    const projectBlockRe2 = /\{[^{}]*?dependencies:\s*\[([^\]]*)\][^{}]*?name:\s*['"`]([^'"`]+)['"`][^{}]*?\}/gs;
+    for (const re of [projectBlockRe, projectBlockRe2]) {
+      let match2;
+      while ((match2 = re.exec(content)) !== null) {
+        const name = re === projectBlockRe ? match2[1] : match2[2];
+        const depsStr = re === projectBlockRe ? match2[2] : match2[1];
+        const deps = [...depsStr.matchAll(/['"`]([^'"`]+)['"`]/g)].map((m) => m[1]);
+        if (deps.length > 0 && !depMap.has(name)) {
+          depMap.set(name, deps);
+        }
+      }
+    }
+  } catch {
+  }
+  return depMap;
 }
 function parsePlaywrightJson(json, cwd2) {
   const testFiles = [];
@@ -26815,6 +26898,7 @@ function appendPageState(lines, snapshot, includeFullSnapshot) {
 // packages/pw-test-writer/dist/mcp/server.js
 function createMcpServer(cwd2) {
   const runs = /* @__PURE__ */ new Map();
+  const depCache = /* @__PURE__ */ new Map();
   const browserCtx = new BrowserContext();
   const server2 = new Server({ name: "playwright-autopilot", version: "0.6.0" }, {
     capabilities: { tools: {} },
@@ -27064,6 +27148,7 @@ Use the \`triage-e2e\` skill for the full workflow: run all tests \u2192 classif
   const ctx = {
     cwd: cwd2,
     runs,
+    depCache,
     discoverTests: (cwd3, project) => discoverTests(cwd3, project),
     discoverProjects: (cwd3) => discoverProjects(cwd3),
     runTest: (location, cwd3, options) => runTest(location, cwd3, { project: options?.project, grep: options?.grep, timeoutMs: options?.timeoutMs, repeatEach: options?.repeatEach, onProgress: sendProgress }),
