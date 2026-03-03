@@ -21424,18 +21424,50 @@ async function handleRunTest(args, ctx) {
       return text("\u26A0 `retries` is only supported when `location` is set (single-test mode). Running batch without retries.");
     }
     let setupSummary = "";
-    if (project && !skipSetup) {
+    if (!skipSetup) {
       try {
-        const depResult = await runDependencies(project, ctx, timeoutMs);
-        setupSummary = depResult.summary;
-        if (!depResult.allPassed) {
-          return error(`Setup failed \u2014 dependency projects must pass before running "${project}".
+        if (project) {
+          const depResult = await runDependencies(project, ctx, timeoutMs);
+          setupSummary = depResult.summary;
+          if (!depResult.allPassed) {
+            return error(`Setup failed \u2014 dependency projects must pass before running "${project}".
 ${setupSummary}
 
 Use \`e2e_get_failure_report\` with the run ID above to investigate. Pass \`skipSetup: true\` to bypass.`);
+          }
+        } else {
+          const allProjects = await ctx.discoverProjects(ctx.cwd);
+          const depNames = /* @__PURE__ */ new Set();
+          for (const p of allProjects) {
+            for (const d of p.dependencies ?? [])
+              depNames.add(d);
+          }
+          for (const dep of depNames) {
+            const cached = ctx.depCache.get(dep);
+            if (cached && Date.now() - cached.timestamp < DEP_CACHE_TTL_MS && cached.passed) {
+              setupSummary += `
+\u2713 **${dep}** passed (cached)`;
+              continue;
+            }
+            ctx.sendProgress?.(`Running setup project "${dep}"...`);
+            const result3 = await ctx.runProject(ctx.cwd, { project: dep, timeoutMs });
+            ctx.runs.set(result3.runId, result3);
+            const failed = result3.tests.filter((t) => t.status === "failed");
+            ctx.depCache.set(dep, { runId: result3.runId, passed: failed.length === 0, timestamp: Date.now(), testCount: result3.tests.length });
+            if (failed.length > 0) {
+              return error(`Setup project "${dep}" failed (${failed.length}/${result3.tests.length} tests). Run ID: \`${result3.runId}\`
+
+Use \`e2e_get_failure_report\` to investigate. Pass \`skipSetup: true\` to bypass.`);
+            }
+            setupSummary += `
+\u2713 **${dep}** passed (${result3.tests.length} tests)`;
+          }
+          if (setupSummary) {
+            setupSummary = "\n\n### Setup" + setupSummary;
+          }
         }
         if (setupSummary)
-          ctx.sendProgress?.(`Running project "${project}"...`);
+          ctx.sendProgress?.("Running main test suite...");
       } catch {
       }
     }
@@ -22813,6 +22845,29 @@ async function handleGetTriageConfig(ctx) {
       lines.push(`  - Component: ${config.jira.component}`);
   } else {
     lines.push("**Jira:** not configured (will output copy-paste ticket text)");
+  }
+  try {
+    const projects = await ctx.discoverProjects(ctx.cwd);
+    const withDeps = projects.filter((p) => p.dependencies?.length);
+    if (withDeps.length > 0) {
+      const now = Date.now();
+      lines.push("");
+      lines.push("**Dependencies:**");
+      for (const p of withDeps) {
+        for (const dep of p.dependencies) {
+          const cached = ctx.depCache.get(dep);
+          let status = "not run";
+          if (cached && now - cached.timestamp < DEP_CACHE_TTL_MS) {
+            const ago = Math.round((now - cached.timestamp) / 1e3 / 60);
+            status = cached.passed ? `\u2713 passed ${ago}m ago (${cached.testCount} tests)` : `\u274C failed ${ago}m ago`;
+          }
+          lines.push(`  - **${p.name}** \u2192 depends on **${dep}** [${status}]`);
+        }
+      }
+      lines.push("");
+      lines.push("\u26A0 Projects with dependencies MUST be run with the `project` parameter so setup runs automatically.");
+    }
+  } catch {
   }
   return text(lines.join("\n"));
 }
