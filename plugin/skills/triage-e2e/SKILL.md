@@ -16,9 +16,11 @@ The user may provide options: $ARGUMENTS
 2. Call `e2e_get_stats` to see historical trends — this gives you context for whether failures are new or recurring.
 3. If $ARGUMENTS contains a project name, use it. Otherwise use the config's project or run all.
 
-## STEP 1: RUN THE FULL SUITE
+## STEP 1: RUN SETUP THEN THE FULL SUITE
 
-Run `e2e_run_test` **without a location** (batch mode) to execute all tests. Use the `project` param if configured.
+1. Call `e2e_list_projects` to discover all projects. Look for a **setup** or **config** project — these handle authentication and prerequisites.
+2. If a setup project exists, run it first: `e2e_run_test` with `project: "setup"`. If setup fails, **stop and report** — other projects will fail without it.
+3. Run the target suite: `e2e_run_test` **without a location** (batch mode) with the target `project` param.
 
 Note the `runId`, total/passed/failed counts, and duration from the response.
 

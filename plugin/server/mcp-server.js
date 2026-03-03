@@ -21358,7 +21358,8 @@ async function handleListProjects(ctx) {
   const lines = [`## Playwright Projects (${projects.length})`, ""];
   for (const p of projects) {
     const dir = p.testDir ? ` \u2014 ${p.testDir}` : "";
-    lines.push(`- **${p.name}**${dir}`);
+    const deps = p.dependencies?.length ? ` (depends on: ${p.dependencies.join(", ")})` : "";
+    lines.push(`- **${p.name}**${dir}${deps}`);
   }
   lines.push("");
   lines.push("Use `e2e_run_test` with `project` parameter to run all tests in a project, or `e2e_list_tests` with `project` to see individual tests.");
@@ -21375,7 +21376,31 @@ async function handleRunTest(args, ctx) {
     if (retries > 0) {
       return text("\u26A0 `retries` is only supported when `location` is set (single-test mode). Running batch without retries.");
     }
-    const result2 = await ctx.runProject(ctx.cwd, { project, grep, repeatEach });
+    let setupSummary = "";
+    if (project) {
+      try {
+        const allProjects = await ctx.discoverProjects(ctx.cwd);
+        const target = allProjects.find((p) => p.name === project);
+        if (target?.dependencies?.length) {
+          const depLines = [];
+          for (const dep of target.dependencies) {
+            ctx.sendProgress?.(`Running dependency project "${dep}"...`);
+            const depResult = await ctx.runProject(ctx.cwd, { project: dep, timeoutMs });
+            ctx.runs.set(depResult.runId, depResult);
+            const depFailed = depResult.tests.filter((t) => t.status === "failed");
+            if (depFailed.length > 0) {
+              depLines.push(`\u26A0 Dependency project **${dep}** had ${depFailed.length} failure(s). The target project "${project}" may fail as a result.`);
+            } else {
+              depLines.push(`\u2713 Dependency project **${dep}** passed (${depResult.tests.length} tests).`);
+            }
+          }
+          setupSummary = "\n\n### Setup\n" + depLines.join("\n");
+          ctx.sendProgress?.(`Running project "${project}"...`);
+        }
+      } catch {
+      }
+    }
+    const result2 = await ctx.runProject(ctx.cwd, { project, grep, timeoutMs, repeatEach });
     ctx.runs.set(result2.runId, result2);
     const dir = path8.join(ctx.cwd, "test-reports");
     fs7.mkdirSync(dir, { recursive: true });
@@ -21388,7 +21413,7 @@ async function handleRunTest(args, ctx) {
     const fixVerifiedText = formatConfirmedFixes(batchConfirmed);
     return text(formatBatchResults(result2, project) + `
 
-\u{1F4C4} **Report:** \`${reportPath}\`` + flowCoverage + fixVerifiedText);
+\u{1F4C4} **Report:** \`${reportPath}\`` + setupSummary + flowCoverage + fixVerifiedText);
   }
   if (retries > 0) {
     const totalRuns = retries + 1;
@@ -23546,7 +23571,8 @@ async function discoverProjects(cwd2) {
     const data = JSON.parse(result);
     return (data.config?.projects || []).map((p) => ({
       name: String(p.name || ""),
-      testDir: p.testDir ? String(p.testDir) : void 0
+      testDir: p.testDir ? String(p.testDir) : void 0,
+      dependencies: Array.isArray(p.dependencies) ? p.dependencies.map(String) : void 0
     })).filter((p) => p.name);
   } catch {
     return [];
@@ -23734,6 +23760,11 @@ async function runProject(cwd2, options) {
   if (cmd === "npx")
     args.unshift("playwright");
   let jsonStr = "";
+  let timedOut = false;
+  let stderrBuf = "";
+  let batchPassed = 0;
+  let batchFailed = 0;
+  let batchTotal = 0;
   try {
     await new Promise((resolve7, reject) => {
       const child = spawn2(cmd, args, {
@@ -23741,19 +23772,14 @@ async function runProject(cwd2, options) {
         env: { ...process.env, FORCE_COLOR: "0", PLAYWRIGHT_JSON_OUTPUT_NAME: jsonOutFile },
         stdio: ["pipe", "pipe", "pipe"]
       });
-      let batchPassed = 0;
-      let batchFailed = 0;
-      let batchTotal = 0;
       const parseProgress = (d) => {
-        if (!options?.onProgress)
-          return;
         const clean = d.toString().replace(/\x1B\[[0-9;]*[a-zA-Z]/g, "");
         for (const line of clean.split("\n")) {
           const trimmed = line.trim();
           const runningMatch = trimmed.match(/Running (\d+) test/);
           if (runningMatch) {
             batchTotal = parseInt(runningMatch[1], 10);
-            options.onProgress(`Running ${batchTotal} tests...`);
+            options?.onProgress?.(`Running ${batchTotal} tests...`);
             continue;
           }
           const counterMatch = trimmed.match(/^\[(\d+)\/(\d+)\]/);
@@ -23764,7 +23790,7 @@ async function runProject(cwd2, options) {
               batchTotal = reportedTotal;
             if (reportedTotal > batchTotal)
               batchTotal = reportedTotal;
-            options.onProgress(`${Math.min(current, batchTotal)}/${batchTotal}`);
+            options?.onProgress?.(`${Math.min(current, batchTotal)}/${batchTotal}`);
             continue;
           }
           const passedMatch = trimmed.match(/^(\d+) passed/);
@@ -23775,12 +23801,17 @@ async function runProject(cwd2, options) {
             batchFailed = parseInt(failedMatch[1], 10);
         }
         if ((batchPassed > 0 || batchFailed > 0) && batchTotal > 0) {
-          options.onProgress(`${batchTotal}/${batchTotal} \xB7 \u2705 ${batchPassed} passed, \u274C ${batchFailed} failed`);
+          options?.onProgress?.(`${batchTotal}/${batchTotal} \xB7 \u2705 ${batchPassed} passed, \u274C ${batchFailed} failed`);
         }
       };
       child.stdout?.on("data", parseProgress);
-      child.stderr?.on("data", parseProgress);
+      child.stderr?.on("data", (d) => {
+        stderrBuf += d.toString();
+        parseProgress(d);
+      });
+      const batchTimeout = options?.timeoutMs || 18e5;
       const timer = setTimeout(() => {
+        timedOut = true;
         child.kill("SIGTERM");
         setTimeout(() => {
           try {
@@ -23789,7 +23820,7 @@ async function runProject(cwd2, options) {
           }
         }, 5e3).unref();
         resolve7();
-      }, options?.timeoutMs || 6e5);
+      }, batchTimeout);
       child.on("close", () => {
         clearTimeout(timer);
         resolve7();
@@ -23810,6 +23841,22 @@ async function runProject(cwd2, options) {
     }
   }
   const tests = parseJsonRunResults(jsonStr, cwd2);
+  if (tests.length === 1 && tests[0].file === "unknown") {
+    tests[0].duration = Date.now() - startTime;
+    if (timedOut) {
+      const timeoutSecs = Math.round((options?.timeoutMs || 18e5) / 1e3);
+      const progress = batchTotal > 0 ? ` (${batchPassed + batchFailed}/${batchTotal} tests completed)` : "";
+      tests[0].error = `Batch run timed out after ${timeoutSecs}s${progress}. Playwright was killed before it could write JSON results. Use the \`timeout\` parameter to increase the limit.`;
+    } else {
+      const cleanStderr = stderrBuf.replace(/\x1B\[[0-9;]*[a-zA-Z]/g, "").trim();
+      if (cleanStderr) {
+        tests[0].error += `
+
+Stderr:
+${cleanStderr.slice(0, 1e3)}`;
+      }
+    }
+  }
   return { runId, timestamp: startTime, tests };
 }
 function parseJsonRunResults(jsonStr, cwd2) {
@@ -26883,8 +26930,8 @@ Add the missing UI interaction in the SERVICE or TEST file, not in shared page o
 - Do NOT modify the page object's core methods (like navigation or button clicks) \u2014 those are shared across many tests
 - Do NOT rewrite the test flow \u2014 just insert the missing step where it belongs
 
-### Step 6: Iterate on Failure
-After making a change, re-run the test immediately. If it fails at a DIFFERENT point, that is progress \u2014 the first issue is fixed, now diagnose the next one. Keep iterating: fix one step at a time, re-run, check the new failure. Do not try to fix everything in one shot.
+### Step 6: Iterate on Failure (max 3 cycles)
+After making a change, re-run the test immediately. If it fails at a DIFFERENT point, that is progress \u2014 the first issue is fixed, now diagnose the next one. Fix one step at a time, re-run, check the new failure. Do not try to fix everything in one shot. **Stop after 3 fix-and-verify cycles** \u2014 if the test still fails, report what you tried and what the remaining failure is.
 
 ### Important: Solve from First Principles
 Do NOT look at git history, git blame, or previous commits to find fixes. Solve the problem using the DOM snapshot, page objects, and your understanding of the user flow. The codebase has everything you need \u2014 previous commits may contain abandoned approaches or partial fixes that will mislead you.
@@ -27020,7 +27067,7 @@ Use the \`triage-e2e\` skill for the full workflow: run all tests \u2192 classif
     discoverTests: (cwd3, project) => discoverTests(cwd3, project),
     discoverProjects: (cwd3) => discoverProjects(cwd3),
     runTest: (location, cwd3, options) => runTest(location, cwd3, { project: options?.project, grep: options?.grep, timeoutMs: options?.timeoutMs, repeatEach: options?.repeatEach, onProgress: sendProgress }),
-    runProject: (cwd3, options) => runProject(cwd3, { project: options?.project, grep: options?.grep, repeatEach: options?.repeatEach, onProgress: sendProgress }),
+    runProject: (cwd3, options) => runProject(cwd3, { project: options?.project, grep: options?.grep, timeoutMs: options?.timeoutMs, repeatEach: options?.repeatEach, onProgress: sendProgress }),
     sendProgress
   };
   const allToolDefs = [...toolDefs, ...browserToolDefs];

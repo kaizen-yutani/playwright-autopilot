@@ -78,8 +78,9 @@ The root cause is an application bug — not a test problem — when ALL of thes
 
 1. **Minimal changes only.** Respect existing architecture (page objects, business layers, factories).
 2. **Re-run with `e2e_run_test`** to verify.
-3. If it fails at a **different** point, that's progress — iterate from STEP 2.
+3. If it fails at a **different** point, that's progress — go back to STEP 2 and diagnose the new failure.
 4. After the test passes, continue to **STEP 7**.
+5. **Hard limit: 3 fix-and-verify cycles.** If the test still fails after 3 attempts, stop and report what you tried, what each iteration changed, and what the current failure is. Do NOT keep iterating.
 
 ## STEP 6b: APPLICATION BUG REPORT (app issue — do NOT modify the test)
 
