@@ -1,5 +1,8 @@
 # Playwright Autopilot
 
+> **Using Selenium, Cypress, or WebDriverIO?** [E2Epilot](https://www.e2epilot.com) brings the same AI triage engine to 6 frameworks — including Selenium Java, SeleniumBase, and more.
+> Website: [e2epilot.com](https://www.e2epilot.com) | npm: [@e2epilot/cli](https://www.npmjs.com/package/@e2epilot/cli)
+
 A [Claude Code](https://docs.anthropic.com/en/docs/claude-code) plugin that debugs and fixes Playwright E2E tests autonomously. It runs your tests with full action capture — DOM snapshots, network requests, console output, screenshots — then investigates failures like a senior QA engineer and ships the fix.
 
 https://github.com/user-attachments/assets/26f734a5-d05e-41c9-bc3f-2b58561c2ce0
